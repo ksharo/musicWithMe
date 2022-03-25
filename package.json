@@ -1,0 +1,24 @@
+{
+  "name": "musicwithme",
+  "version": "1.0.0",
+  "description": "A fun web application that teaches people how to read music!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksharo/musicWithMe.git"
+  },
+  "author": "Caleb Choy, Logan Rechler, Jack Schneiderhan, Kaitlyn Sharo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ksharo/musicWithMe/issues"
+  },
+  "homepage": "https://github.com/ksharo/musicWithMe#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.3"
+  }
+}
