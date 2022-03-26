@@ -1,0 +1,32 @@
+function renderLevel(curLevel, levels, res) {
+    noteNames = [];
+    // set number of rounds
+    let numQs = 10;
+    if (curLevel < 4) {
+        numQs = 5;
+    }
+    // get a random picture 
+    const image = '/public/assets/images/treble/treble_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
+    // get a list of random pictures
+    let imgList = image;
+    for (let i = 0; i < numQs-1; i++) {
+        let newImg = ',/public/assets/images/treble/treble_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
+        while (imgList.endsWith(newImg.substring(1))) {
+            newImg = ',/public/assets/images/treble/treble_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
+        }
+        imgList+=newImg;
+    }
+    // set the function that will be called
+    const func = "processClick(this.innerHTML,'" + image + "'," + "'" + imgList + "'," + numQs + ")";
+    // get only the note names
+    for (let x of levels[curLevel]) {
+        if (!noteNames.includes(x.substring(0, x.length-1))) {
+            noteNames.push({note: x.substring(0, x.length-1), img: image, func: func, imgList: imgList, numQs: numQs});
+        }
+    }
+    return res.render('individualPages/noteLesson', {notes: levels[curLevel], noteNames: noteNames, img: image, imgList: imgList, i:1, numQs: numQs});
+}
+
+module.exports = {
+    renderLevel,
+}

@@ -8,6 +8,45 @@
         function playSound(noteName) {
             new Audio("/public/assets/sounds/Piano_"+noteName.toUpperCase()+".wav").play();
         }
+        function checkAnswer(clickedButton, rightAnswer) {
+            // will not work for Sharps and Flats yet!
+            const rightNote = rightAnswer.substring(rightAnswer.indexOf('.png')-2, rightAnswer.indexOf('.png')-1);
+            if (clickedButton == rightNote) {
+                console.log('yay!')
+            }
+            else {
+                console.log('boo');
+            }
+        }
+        async function processClick(noteName, rightAnswer, imgList, numQs) {
+            playSound(noteName);
+            let pictures=imgList.split(',');
+            let curQ = document.getElementById('qTracker').textContent.split('/')[0].split(' ')[1];
+            checkAnswer(noteName, pictures[Number(curQ)-1]);
+            if (Number(curQ) + 1 > Number(numQs)) {
+                try {
+                    const curLocation = window.location.href.split('noteLesson/')[1];
+                    const fetchResult = await fetch('http://localhost:4000/newLesson/'+(Number(curLocation)+1).toString());
+                    setTimeout( () => {
+                        window.location.href = fetchResult.url;
+                    }, 1500)
+                }
+                catch (e) {
+                    console.log(e);
+                }
+            } else {
+                // set the new text and new image
+                document.getElementById('qImg').src = pictures[Number(curQ)]; 
+                document.getElementById('qTracker').textContent = 'Question: ' + (Number(curQ)+1).toString() + '/' + numQs.toString();
+            }
+        }
+
+        async function nextLevel(level) {
+            const fetchResult = await fetch('http://localhost:4000/noteLesson/'+(Number(level)).toString());
+            console.log(fetchResult);
+            window.location.href = fetchResult.url;
+        }
+        
     </script>
 </head>
 <body>

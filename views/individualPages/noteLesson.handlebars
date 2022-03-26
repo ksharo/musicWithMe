@@ -1,3 +1,5 @@
-{{#each notes}}
-<button onClick="playSound(this.innerHTML)">{{this}}</button>
+<p id="qTracker">Question: {{i}}/{{numQs}}</p>
+<img id='qImg' src={{img}} />
+{{#each noteNames}}
+    <button type='button' onClick={{func}}>{{note}}</button>
 {{/each}}
