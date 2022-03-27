@@ -29,6 +29,31 @@ function renderRandomLevel(curLevel, levels, res) {
     return res.render('individualPages/noteLesson', {notes: levels[curLevel], noteNames: noteNames, img: image, imgList: imgList, i:1, numQs: numQs});
 }
 
+function renderSongLevel(songIndices, levels, res) {
+    const notes = levels[levels.length-1];
+    let imgList = [];
+    // set pictures for the song
+    for (let x of songIndices) {
+        imgList += '/public/assets/images/treble/treble_' + notes[x] + '.png,';
+    }
+    // get rid of ending comma
+    imgList = imgList.substring(0, imgList.length-1);
+    const image = imgList.split(',')[0]
+    // set the function that will be called
+    const func = "processClick(this.innerHTML,'" + image + "'," + "'" + imgList + "'," + songIndices.length + ")";
+    // get only the note names
+    const noteNames = [];
+    const justNotes = [];
+    for (let x of notes) {
+        if (!justNotes.includes(x.substring(0, x.length-1))) {
+            noteNames.push({note: x.substring(0, x.length-1), img: image, func: func, imgList: imgList, numQs: songIndices.length});
+            justNotes.push(x.substring(0, x.length-1));
+        }
+    }
+    return res.render('individualPages/noteLesson', {notes: notes, noteNames: noteNames, img: image, imgList: imgList, i:1, numQs: songIndices.length});
+}
+
 module.exports = {
     renderRandomLevel,
+    renderSongLevel
 }
