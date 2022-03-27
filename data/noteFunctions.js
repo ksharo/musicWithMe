@@ -1,8 +1,11 @@
 function renderRandomLevel(curLevel, levels, res) {
     // set number of rounds
-    let numQs = 10;
+    let numQs = 15;
     if (curLevel < 4) {
         numQs = 5;
+    }
+    else if (curLevel < 7) {
+        numQs = 10;
     }
     // get a random picture 
     const image = '/public/assets/images/treble/treble_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
