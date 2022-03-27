@@ -4,13 +4,26 @@
     <meta charset="utf-8">
     <title>Music With Me!</title>
     <link rel="stylesheet" href="/public/main_styles.css">
-    <script language="JavaScript">
-        const INCCORECT_BEEP = false
+    <script language="JavaScript">    
+        window.addEventListener('load', () => {
+            if (window.location.href.includes('newLesson')) {
+                new Audio('/public/assets/sounds/success.wav').play();
+            }
+        });
+        const INCORRECT_BEEP = false
         document.addEventListener("keydown", (event) => {
-            if (window.location.href.includes('noteLesson')) {
+            if (window.location.href.includes('noteLesson') || window.location.href.includes('songLesson')) {
                 const el = document.getElementById(event.key.toUpperCase());
                 if (el != undefined && el != null) {
                     el.click();
+                }
+            }
+            if (window.location.href.includes('newLesson')) {
+                if (event.key == 'Enter' || event.key == 'Return') {
+                    const el = document.getElementById('nextLevelBtn');
+                    if (el != undefined && el != null) {
+                        el.click();
+                    }
                 }
             }
         });
@@ -26,13 +39,11 @@
             // will not work for Sharps and Flats yet!
             const rightNote = rightAnswer.substring(rightAnswer.indexOf('.png')-2, rightAnswer.indexOf('.png'));
             if (clickedButton == rightNote.substring(0, rightNote.length-1)) {
-                console.log('yay!')
-                console.log(rightNote);
                 playSound(rightNote);
             }
             else {
-                console.log('boo');
-                INCCORECT_BEEP && playSound('');
+                playSound('');
+                INCORRECT_BEEP && playSound('');
             }
         }
         async function processClick(noteName, rightAnswer, imgList, numQs) {
@@ -41,11 +52,20 @@
             checkAnswer(noteName, pictures[Number(curQ)-1]);
             if (Number(curQ) + 1 > Number(numQs)) {
                 try {
-                    const curLocation = window.location.href.split('noteLesson/')[1];
-                    const fetchResult = await fetch('http://localhost:3030/newLesson/'+(Number(curLocation)+1).toString());
-                    setTimeout( () => {
-                        window.location.href = fetchResult.url;
-                    }, 1000)
+                    if (window.location.href.includes('noteLesson')) {
+                        const curLocation = window.location.href.split('noteLesson/')[1];
+                        const fetchResult = await fetch('http://localhost:3030/newLesson/notes/'+(Number(curLocation)+1).toString());
+                        setTimeout( () => {
+                            window.location.href = fetchResult.url;
+                        }, 1000);
+                    }
+                    else if (window.location.href.includes('songLesson')) {
+                        const curLocation = window.location.href.split('songLesson/')[1];
+                        const fetchResult = await fetch('http://localhost:3030/newLesson/songs/'+(Number(curLocation)+1).toString());
+                        setTimeout( () => {
+                            window.location.href = fetchResult.url;
+                        }, 1000);
+                    }
                 }
                 catch (e) {
                     console.log(e);
@@ -59,9 +79,14 @@
         }
 
         async function nextLevel(level) {
-            const fetchResult = await fetch('http://localhost:3030/noteLesson/'+(Number(level)).toString());
-            console.log(fetchResult);
-            window.location.href = fetchResult.url;
+            if (window.location.href.includes('songs')) {
+                const fetchResult = await fetch('http://localhost:3030/songLesson/'+(Number(level)).toString());
+                window.location.href = fetchResult.url;
+            }
+            else if (window.location.href.includes('notes')) {
+                const fetchResult = await fetch('http://localhost:3030/noteLesson/'+(Number(level)).toString());
+                window.location.href = fetchResult.url;
+            }
         }
 
     </script>

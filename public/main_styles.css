@@ -59,7 +59,7 @@ h1 {
 
 button:hover {
     filter: brightness(1.4);
-
+    cursor: pointer;
 }
 
 .buttonGroup {
