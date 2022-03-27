@@ -47,7 +47,18 @@ router
         if (levels.length <= Number(req.params.level)) {
             return res.status(404).render('individualPages/error', {status: 404, message: 'Song with id ' + req.params.songId + 'does not exist!'});
         }
-        return res.render('individualPages/newLesson', {name: 'Notes', subtitle: 'Learning ', level: req.params.level});
+        let newNotes = [];
+        if (req.params.level != 0) {
+            newNotes = levels[req.params.level].filter(x => !levels[req.params.level-1].includes(x));
+        }
+        else {
+            newNotes = levels[0];
+        }
+        let learningString = 'Learning ';
+        for (let x of newNotes) {
+            learningString += x.substring(0, x.length-1) + ' and ';
+        }
+        return res.render('individualPages/newLesson', {name: 'Notes', subtitle: learningString.substring(0, learningString.length-4), level: req.params.level});
     });
 
 router 
