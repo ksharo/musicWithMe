@@ -20,8 +20,8 @@ const rowBoat = [9, 9, 9, 10, 4, 4, 10, 4, 0, 1, 5, 5, 5, 1, 1, 1, 4, 4, 4, 9, 9
 const londonBridge = [1, 2, 1, 0, 4, 0, 1, 10, 4, 0, 4, 0, 1, 1, 2, 1, 0, 4, 0, 1, 10, 1, 4, 9];
 const joyOdePt1 = [4, 4, 0, 1, 1, 0, 4, 10, 9, 9, 10, 4, 4, 10, 10, 4, 4, 0, 1, 1, 0, 4, 10, 9, 9, 10, 4, 10, 9, 9];
 const joyOdePt2 = [10, 10, 4, 9, 10, 4, 0, 4, 9, 10, 4, 0, 4, 10, 9, 10, 1, 4, 4, 0, 1, 1, 0, 4, 10, 9, 9, 10, 4, 10, 9, 9];
-const songNames = ['Hot Cross Buns', 'London Bridge is Falling Down', 'Row, Row, Row Your Boat', 'Ode to Joy (pt. 1)', 'Twinkle Twinkle Little Star', 'Ode to Joy (pt. 2)'];
-const songDetails = ['details about HCB', 'details about LBiFD', 'details about RRRYB', 'details about OTJ', 'details about TTLS', 'details about OTJ']
+const songNames = ['Hot Cross Buns', 'London Bridge is Falling Down', 'Ode to Joy (pt. 1)', 'Row, Row, Row Your Boat',  'Twinkle Twinkle Little Star', 'Ode to Joy (pt. 2)'];
+const songDetails = ['details about HCB', 'details about LBiFD', 'details about OTJ', 'details about RRRYB', 'details about TTLS', 'details about OTJ']
 const songs = [hotCrossBuns, londonBridge, joyOdePt1, rowBoat,  joyOdePt2, twinkle, joyOdePt1.concat(joyOdePt2)];
 let curLevel = 0;
 

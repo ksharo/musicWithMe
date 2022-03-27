@@ -78,6 +78,22 @@
             }
         }
 
+        async function restart() {
+            if (window.location.href.includes('noteLesson')) {
+                const curLocation = window.location.href.split('noteLesson/')[1];
+                const fetchResult = await fetch('http://localhost:3030/newLesson/notes/'+(Number(curLocation)).toString());
+                setTimeout( () => {
+                    window.location.href = fetchResult.url;
+                }, 1000);
+            }
+            else if (window.location.href.includes('songLesson')) {
+                const curLocation = window.location.href.split('songLesson/')[1];
+                const fetchResult = await fetch('http://localhost:3030/newLesson/songs/'+(Number(curLocation)).toString());
+                setTimeout( () => {
+                    window.location.href = fetchResult.url;
+                }, 1000);
+            }
+        }
         async function nextLevel(level) {
             if (window.location.href.includes('songs')) {
                 const fetchResult = await fetch('http://localhost:3030/songLesson/'+(Number(level)).toString());
