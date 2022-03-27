@@ -13,15 +13,18 @@ const l8 = l7.concat(['A3', 'G2']);
 const l9 = l8.concat(['C3', 'B3']);
 const levels = [l1, l2, l3, l4, l5, l6, l7, l8, l9];
 let curLevel = 0;
+
 router
     .route('/')
     .get(async (_, res) => {
+  console.log("hi mom");
         return res.render('individualPages/homepage');
     });
 
-router 
+router
     .route('/nextLevel')
     .get(async (_, res) => {
+  console.log("hi dad");
         curLevel = Number(curLevel) + 1;
         return noteFunctions.renderRandomLevel(curLevel, levels, res);
     });
@@ -33,7 +36,7 @@ router
         return noteFunctions.renderRandomLevel(curLevel, levels, res);
     });
 
-router 
+router
     .route('/newLesson/:level')
     .get(async (req, res) => {
         return res.render('individualPages/newLesson', {name: 'Notes', level: req.params.level});

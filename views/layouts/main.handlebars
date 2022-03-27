@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Music With Me!</title>
     <link rel="stylesheet" href="/public/main_styles.css">
-    <script language="JavaScript">    
+    <script language="JavaScript">
         document.addEventListener("keydown", (event) => {
             if (window.location.href.includes('noteLesson')) {
                 const el = document.getElementById(event.key.toUpperCase());
@@ -41,7 +41,7 @@
             if (Number(curQ) + 1 > Number(numQs)) {
                 try {
                     const curLocation = window.location.href.split('noteLesson/')[1];
-                    const fetchResult = await fetch('http://localhost:4000/newLesson/'+(Number(curLocation)+1).toString());
+                    const fetchResult = await fetch('http://localhost:3030/newLesson/'+(Number(curLocation)+1).toString());
                     setTimeout( () => {
                         window.location.href = fetchResult.url;
                     }, 1000)
@@ -51,17 +51,17 @@
                 }
             } else {
                 // set the new text and new image
-                document.getElementById('qImg').src = pictures[Number(curQ)]; 
+                document.getElementById('qImg').src = pictures[Number(curQ)];
                 document.getElementById('qTracker').textContent = 'Question: ' + (Number(curQ)+1).toString() + '/' + numQs.toString();
             }
         }
 
         async function nextLevel(level) {
-            const fetchResult = await fetch('http://localhost:4000/noteLesson/'+(Number(level)).toString());
+            const fetchResult = await fetch('http://localhost:3030/noteLesson/'+(Number(level)).toString());
             console.log(fetchResult);
             window.location.href = fetchResult.url;
         }
-        
+
     </script>
 </head>
 <body>
