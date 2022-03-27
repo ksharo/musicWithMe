@@ -8,7 +8,10 @@ const l3 = l2.concat(['B2', 'E1']);
 const l4 = l3.concat(['C2', 'D2']);
 const l5 = l4.concat(['E2', 'F2']);
 const l6 = l5.concat(['C1', 'D1']);
-const levels = [l1, l2, l3, l4, l5, l6];
+const l7 = l6.concat(['A1', 'B1']);
+const l8 = l7.concat(['A3', 'G2']);
+const l9 = l8.concat(['C3', 'B3']);
+const levels = [l1, l2, l3, l4, l5, l6, l7, l8, l9];
 let curLevel = 0;
 router
     .route('/')
@@ -20,14 +23,14 @@ router
     .route('/nextLevel')
     .get(async (_, res) => {
         curLevel = Number(curLevel) + 1;
-        return noteFunctions.renderLevel(curLevel, levels, res);
+        return noteFunctions.renderRandomLevel(curLevel, levels, res);
     });
 
 router
     .route('/noteLesson/:level')
     .get(async (req, res) => {
         curLevel = Number(req.params.level);
-        return noteFunctions.renderLevel(curLevel, levels, res);
+        return noteFunctions.renderRandomLevel(curLevel, levels, res);
     });
 
 router 

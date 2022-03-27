@@ -5,21 +5,36 @@
     <title>Music With Me!</title>
     <link rel="stylesheet" href="/public/main_styles.css">
     <script language="JavaScript">    
+        document.addEventListener("keydown", (event) => {
+            if (window.location.href.includes('noteLesson')) {
+                const el = document.getElementById(event.key.toUpperCase());
+                if (el != undefined && el != null) {
+                    el.click();
+                }
+            }
+        });
         function playSound(noteName) {
-            new Audio("/public/assets/sounds/Piano_"+noteName.toUpperCase()+".wav").play();
+            if (noteName != '') {
+                new Audio("/public/assets/sounds/treble/Piano_treble_"+noteName.toUpperCase()+".wav").play();
+            }
+            else {
+                new Audio("/public/assets/sounds/buzzer.wav").play();
+            }
         }
         function checkAnswer(clickedButton, rightAnswer) {
             // will not work for Sharps and Flats yet!
-            const rightNote = rightAnswer.substring(rightAnswer.indexOf('.png')-2, rightAnswer.indexOf('.png')-1);
-            if (clickedButton == rightNote) {
+            const rightNote = rightAnswer.substring(rightAnswer.indexOf('.png')-2, rightAnswer.indexOf('.png'));
+            if (clickedButton == rightNote.substring(0, rightNote.length-1)) {
                 console.log('yay!')
+                console.log(rightNote);
+                playSound(rightNote);
             }
             else {
                 console.log('boo');
+                playSound('');
             }
         }
         async function processClick(noteName, rightAnswer, imgList, numQs) {
-            playSound(noteName);
             let pictures=imgList.split(',');
             let curQ = document.getElementById('qTracker').textContent.split('/')[0].split(' ')[1];
             checkAnswer(noteName, pictures[Number(curQ)-1]);
@@ -29,7 +44,7 @@
                     const fetchResult = await fetch('http://localhost:4000/newLesson/'+(Number(curLocation)+1).toString());
                     setTimeout( () => {
                         window.location.href = fetchResult.url;
-                    }, 1500)
+                    }, 1000)
                 }
                 catch (e) {
                     console.log(e);

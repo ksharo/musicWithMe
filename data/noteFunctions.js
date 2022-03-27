@@ -1,5 +1,4 @@
-function renderLevel(curLevel, levels, res) {
-    noteNames = [];
+function renderRandomLevel(curLevel, levels, res) {
     // set number of rounds
     let numQs = 10;
     if (curLevel < 4) {
@@ -19,14 +18,17 @@ function renderLevel(curLevel, levels, res) {
     // set the function that will be called
     const func = "processClick(this.innerHTML,'" + image + "'," + "'" + imgList + "'," + numQs + ")";
     // get only the note names
+    const noteNames = [];
+    const justNotes = [];
     for (let x of levels[curLevel]) {
-        if (!noteNames.includes(x.substring(0, x.length-1))) {
+        if (!justNotes.includes(x.substring(0, x.length-1))) {
             noteNames.push({note: x.substring(0, x.length-1), img: image, func: func, imgList: imgList, numQs: numQs});
+            justNotes.push(x.substring(0, x.length-1));
         }
     }
     return res.render('individualPages/noteLesson', {notes: levels[curLevel], noteNames: noteNames, img: image, imgList: imgList, i:1, numQs: numQs});
 }
 
 module.exports = {
-    renderLevel,
+    renderRandomLevel,
 }
