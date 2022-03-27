@@ -81,3 +81,20 @@ button:hover {
 	font-size: 20px;
 	transition:  all .2s ease;
 }
+
+#qTrackerProgressBar::-moz-progress-bar {
+	background: #E38F8F;
+}
+#qTrackerProgressBar::-webkit-progress-value {
+    background: #E38F8F;
+    border-radius: 50px;
+}
+#qTrackerProgressBar::-webkit-progress-bar {
+	background: transparent;
+}
+#qTrackerProgressBar {
+    color: #E38F8F;
+    background-color: #e38f8f82;
+    border-radius: 50px;
+    width: 100%;
+}
