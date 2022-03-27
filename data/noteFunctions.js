@@ -29,7 +29,7 @@ function renderRandomLevel(curLevel, levels, res) {
     return res.render('individualPages/noteLesson', {notes: levels[curLevel], noteNames: noteNames, img: image, imgList: imgList, i:1, numQs: numQs});
 }
 
-function renderSongLevel(songIndices, levels, res) {
+function renderSongLevel(songIndices, songName, levels, res) {
     const notes = levels[levels.length-1];
     let imgList = [];
     // set pictures for the song
@@ -50,7 +50,7 @@ function renderSongLevel(songIndices, levels, res) {
             justNotes.push(x.substring(0, x.length-1));
         }
     }
-    return res.render('individualPages/noteLesson', {notes: notes, noteNames: noteNames, img: image, imgList: imgList, i:1, numQs: songIndices.length});
+    return res.render('individualPages/noteLesson', {notes: notes, songName: songName, noteNames: noteNames, img: image, imgList: imgList, i:1, numQs: songIndices.length});
 }
 
 module.exports = {
