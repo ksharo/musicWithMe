@@ -5,6 +5,7 @@
     <title>Music With Me!</title>
     <link rel="stylesheet" href="/public/main_styles.css">
     <script language="JavaScript">
+        const INCCORECT_BEEP = false
         document.addEventListener("keydown", (event) => {
             if (window.location.href.includes('noteLesson')) {
                 const el = document.getElementById(event.key.toUpperCase());
@@ -31,7 +32,7 @@
             }
             else {
                 console.log('boo');
-                playSound('');
+                INCCORECT_BEEP && playSound('');
             }
         }
         async function processClick(noteName, rightAnswer, imgList, numQs) {
@@ -53,6 +54,7 @@
                 // set the new text and new image
                 document.getElementById('qImg').src = pictures[Number(curQ)];
                 document.getElementById('qTracker').textContent = 'Question: ' + (Number(curQ)+1).toString() + '/' + numQs.toString();
+                document.getElementById('qTrackerProgressBar').value =Number(curQ)+1;
             }
         }
 
