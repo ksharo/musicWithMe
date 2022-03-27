@@ -22,15 +22,18 @@ const joyOdePt1 = [4, 4, 0, 1, 1, 0, 4, 10, 9, 9, 10, 4, 4, 10, 10, 4, 4, 0, 1, 
 const joyOdePt2 = [10, 10, 4, 9, 10, 4, 0, 4, 9, 10, 4, 0, 4, 10, 9, 10, 1, 4, 4, 0, 1, 1, 0, 4, 10, 9, 9, 10, 4, 10, 9, 9];
 const songs = [hotCrossBuns, londonBridge, joyOdePt1, rowBoat,  joyOdePt2, twinkle, joyOdePt1.concat(joyOdePt2)];
 let curLevel = 0;
+
 router
     .route('/')
     .get(async (_, res) => {
+  console.log("hi mom");
         return res.render('individualPages/homepage');
     });
 
-router 
+router
     .route('/nextLevel')
     .get(async (_, res) => {
+  console.log("hi dad");
         curLevel = Number(curLevel) + 1;
         return noteFunctions.renderRandomLevel(curLevel, levels, res);
     });

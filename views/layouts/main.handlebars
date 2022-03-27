@@ -10,6 +10,7 @@
                 new Audio('/public/assets/sounds/success.wav').play();
             }
         });
+        const INCORRECT_BEEP = false
         document.addEventListener("keydown", (event) => {
             if (window.location.href.includes('noteLesson') || window.location.href.includes('songLesson')) {
                 const el = document.getElementById(event.key.toUpperCase());
@@ -34,6 +35,7 @@
             }
             else {
                 playSound('');
+                INCORRECT_BEEP && playSound('');
             }
         }
         async function processClick(noteName, rightAnswer, imgList, numQs) {
@@ -44,14 +46,14 @@
                 try {
                     if (window.location.href.includes('noteLesson')) {
                         const curLocation = window.location.href.split('noteLesson/')[1];
-                        const fetchResult = await fetch('http://localhost:4000/newLesson/notes/'+(Number(curLocation)+1).toString());
+                        const fetchResult = await fetch('http://localhost:3030/newLesson/notes/'+(Number(curLocation)+1).toString());
                         setTimeout( () => {
                             window.location.href = fetchResult.url;
                         }, 1000);
                     }
                     else if (window.location.href.includes('songLesson')) {
                         const curLocation = window.location.href.split('songLesson/')[1];
-                        const fetchResult = await fetch('http://localhost:4000/newLesson/songs/'+(Number(curLocation)+1).toString());
+                        const fetchResult = await fetch('http://localhost:3030/newLesson/songs/'+(Number(curLocation)+1).toString());
                         setTimeout( () => {
                             window.location.href = fetchResult.url;
                         }, 1000);
@@ -62,22 +64,23 @@
                 }
             } else {
                 // set the new text and new image
-                document.getElementById('qImg').src = pictures[Number(curQ)]; 
+                document.getElementById('qImg').src = pictures[Number(curQ)];
                 document.getElementById('qTracker').textContent = 'Question: ' + (Number(curQ)+1).toString() + '/' + numQs.toString();
+                document.getElementById('qTrackerProgressBar').value =Number(curQ)+1;
             }
         }
 
         async function nextLevel(level) {
             if (window.location.href.includes('songs')) {
-                const fetchResult = await fetch('http://localhost:4000/songLesson/'+(Number(level)).toString());
+                const fetchResult = await fetch('http://localhost:3030/songLesson/'+(Number(level)).toString());
                 window.location.href = fetchResult.url;
             }
             else if (window.location.href.includes('notes')) {
-                const fetchResult = await fetch('http://localhost:4000/noteLesson/'+(Number(level)).toString());
+                const fetchResult = await fetch('http://localhost:3030/noteLesson/'+(Number(level)).toString());
                 window.location.href = fetchResult.url;
             }
         }
-        
+
     </script>
 </head>
 <body>
