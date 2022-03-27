@@ -20,6 +20,8 @@ const rowBoat = [9, 9, 9, 10, 4, 4, 10, 4, 0, 1, 5, 5, 5, 1, 1, 1, 4, 4, 4, 9, 9
 const londonBridge = [1, 2, 1, 0, 4, 0, 1, 10, 4, 0, 4, 0, 1, 1, 2, 1, 0, 4, 0, 1, 10, 1, 4, 9];
 const joyOdePt1 = [4, 4, 0, 1, 1, 0, 4, 10, 9, 9, 10, 4, 4, 10, 10, 4, 4, 0, 1, 1, 0, 4, 10, 9, 9, 10, 4, 10, 9, 9];
 const joyOdePt2 = [10, 10, 4, 9, 10, 4, 0, 4, 9, 10, 4, 0, 4, 10, 9, 10, 1, 4, 4, 0, 1, 1, 0, 4, 10, 9, 9, 10, 4, 10, 9, 9];
+const songNames = ['Hot Cross Buns', 'London Bridge is Falling Down', 'Row, Row, Row Your Boat', 'Ode to Joy (pt. 1)', 'Twinkle Twinkle Little Star', 'Ode to Joy (pt. 2)'];
+const songDetails = ['details about HCB', 'details about LBiFD', 'details about RRRYB', 'details about OTJ', 'details about TTLS', 'details about OTJ']
 const songs = [hotCrossBuns, londonBridge, joyOdePt1, rowBoat,  joyOdePt2, twinkle, joyOdePt1.concat(joyOdePt2)];
 let curLevel = 0;
 
@@ -30,16 +32,12 @@ router
     });
 
 router
-    .route('/nextLevel')
-    .get(async (_, res) => {
-        curLevel = Number(curLevel) + 1;
-        return noteFunctions.renderRandomLevel(curLevel, levels, res);
-    });
-
-router
     .route('/noteLesson/:level')
     .get(async (req, res) => {
         curLevel = Number(req.params.level);
+        if (levels.length <= curLevel) {
+            return res.status(404).render('individualPages/error', {status: 404, message: 'Song with id ' + req.params.songId + 'does not exist!'});
+        }
         return noteFunctions.renderRandomLevel(curLevel, levels, res);
     });
 
@@ -49,13 +47,16 @@ router
         if (levels.length <= Number(req.params.level)) {
             return res.status(404).render('individualPages/error', {status: 404, message: 'Song with id ' + req.params.songId + 'does not exist!'});
         }
-        return res.render('individualPages/newLesson', {name: 'Notes', level: req.params.level});
+        return res.render('individualPages/newLesson', {name: 'Notes', subtitle: 'Learning ', level: req.params.level});
     });
 
 router 
     .route('/newLesson/songs/:level')
     .get(async (req, res) => {
-        return res.render('individualPages/newLesson', {name: 'Songs', level: req.params.level});
+        if (songs.length <= Number(req.params.level)) {
+            return res.status(404).render('individualPages/error', {status: 404, message: 'Song with id ' + req.params.level + 'does not exist!'});
+        }
+        return res.render('individualPages/newLesson', {name: 'Songs', subtitle: songNames[Number(req.params.level)], details: songDetails[Number(req.params.level)], level: req.params.level});
     });
 
 router 
@@ -65,7 +66,7 @@ router
             return res.status(404).render('individualPages/error', {status: 404, message: 'Song with id ' + req.params.songId + 'does not exist!'});
         }
         const song = songs[Number(req.params.songId)];
-        return noteFunctions.renderSongLevel(song, levels, res);
+        return noteFunctions.renderSongLevel(song, songNames[Number(req.params.songId)], levels, res);
     });
 
 
