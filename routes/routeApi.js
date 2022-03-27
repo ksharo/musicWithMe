@@ -26,14 +26,12 @@ let curLevel = 0;
 router
     .route('/')
     .get(async (_, res) => {
-  console.log("hi mom");
         return res.render('individualPages/homepage');
     });
 
 router
     .route('/nextLevel')
     .get(async (_, res) => {
-  console.log("hi dad");
         curLevel = Number(curLevel) + 1;
         return noteFunctions.renderRandomLevel(curLevel, levels, res);
     });
@@ -48,6 +46,9 @@ router
 router 
     .route('/newLesson/notes/:level')
     .get(async (req, res) => {
+        if (levels.length <= Number(req.params.level)) {
+            return res.status(404).render('individualPages/error', {status: 404, message: 'Song with id ' + req.params.songId + 'does not exist!'});
+        }
         return res.render('individualPages/newLesson', {name: 'Notes', level: req.params.level});
     });
 
@@ -60,6 +61,9 @@ router
 router 
     .route('/songLesson/:songId')
     .get(async (req, res) => {
+        if (songs.length <= Number(req.params.songId)) {
+            return res.status(404).render('individualPages/error', {status: 404, message: 'Song with id ' + req.params.songId + 'does not exist!'});
+        }
         const song = songs[Number(req.params.songId)];
         return noteFunctions.renderSongLevel(song, levels, res);
     });

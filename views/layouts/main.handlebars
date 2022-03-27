@@ -18,6 +18,14 @@
                     el.click();
                 }
             }
+            if (window.location.href.includes('newLesson')) {
+                if (event.key == 'Enter' || event.key == 'Return') {
+                    const el = document.getElementById('nextLevelBtn');
+                    if (el != undefined && el != null) {
+                        el.click();
+                    }
+                }
+            }
         });
         function playSound(noteName) {
             if (noteName != '') {
