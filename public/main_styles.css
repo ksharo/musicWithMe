@@ -98,3 +98,21 @@ button:hover {
     border-radius: 50px 50px 0 0;
     width: 100%;
 }
+
+.lessonDetailsCard {
+	background-color: white;
+	width: 300px;
+	padding: 20px;
+}
+
+.lessonDetailsCard img {
+	width: 200px;
+}
+
+.lessonCards {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	margin: 30px;
+	color: black;
+}

@@ -11,9 +11,12 @@ const l5 = l4.concat(['E2', 'F2']);
 const r1 = l5;
 const l6 = l5.concat(['C1', 'D1']);
 const l7 = l6.concat(['A1', 'B1']);
+// REVIEW LEVEL
+const r2 = l7;
 const l8 = l7.concat(['A3', 'G2']);
 const l9 = l8.concat(['C3', 'B3']);
-const levels = [l1, l2, l3, l4, l5, r1, l6, l7, l8, l9];
+const r3 = l9;
+const levels = [l1, l2, l3, l4, l5, r1, l6, l7, r2, l8, l9, r3];
 // F1, G1, A2, B2, E1, C2, D2, E2, F2, C1, D1, A1, B1, A3, G2, C3, B3
 // 0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16
 const twinkle =  [9, 9, 1, 1, 2, 2, 1, 0, 0, 4, 4, 10, 10, 9, 1, 1, 0, 0, 4, 4, 10, 1, 1, 0, 0, 4, 4, 10, 9, 9, 1, 1, 2, 2, 1, 0, 0, 4, 4, 10, 10, 9];
@@ -162,6 +165,98 @@ const noteDetails = [
             title: 'Review Note: F',
             img: '/public/assets/images/treble/treble_F2.png',
             details: 'This is another way F can look in the treble clef. The F falls on the top line of the staff, right above the E. Remember: lines stand for Every Good Boy Does Fine'
+        }
+    ],
+    [
+        {
+            title: 'New Note: C',
+            img: '/public/assets/images/treble/treble_C1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a C can look in the treble clef. The C is one line below the lowest line of the treble staff. This specific C is called Middle C on the piano, because it is in the middle of the keyboard.'
+        },
+        {
+            title: 'New Note: D',
+            img: '/public/assets/images/treble/treble_D1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a D can look in the treble clef. The D is on the space below the lowest line of the treble staff.'
+        }
+    ],
+    [
+        {
+            title: 'New Note: A',
+            img: '/public/assets/images/treble/treble_A1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way an A can look in the treble clef. The A is two lines below the lowest line of the treble staff.'
+        },
+        {
+            title: 'New Note: B',
+            img: '/public/assets/images/treble/treble_B1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a D can look in the treble clef. The B is two spaces below the lowest line of the treble staff, right below the C.'
+        }
+    ],
+    [
+        {
+            title: 'Review Note: C',
+            img: '/public/assets/images/treble/treble_C1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a C can look in the treble clef. The C is one line below the lowest line of the treble staff. This specific C is called Middle C on the piano, because it is in the middle of the keyboard.'
+        },
+        {
+            title: 'Review Note: D',
+            img: '/public/assets/images/treble/treble_D1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a D can look in the treble clef. The D is on the space below the lowest line of the treble staff.'
+        },
+        {
+            title: 'Review Note: A',
+            img: '/public/assets/images/treble/treble_A1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way an A can look in the treble clef. The A is two lines below the lowest line of the treble staff.'
+        },
+        {
+            title: 'Review Note: B',
+            img: '/public/assets/images/treble/treble_B1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a D can look in the treble clef. The B is two spaces below the lowest line of the treble staff, right below the C.'
+        }
+    ],
+    [
+        {
+            title: 'New Note: A',
+            img: '/public/assets/images/treble/treble_A3.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way an A can look in the treble clef. The A is on the line above the top line of the treble staff.'
+        },
+        {
+            title: 'New Note: G',
+            img: '/public/assets/images/treble/treble_G2.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a G can look in the treble clef. The G is right above the top line of the treble staff.'
+        }
+    ],
+    [
+        {
+            title: 'New Note: C',
+            img: '/public/assets/images/treble/treble_C3.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a C can look in the treble clef. The C is two lines above the top line of the treble staff.'
+        },
+        {
+            title: 'New Note: B',
+            img: '/public/assets/images/treble/treble_B3.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a B can look in the treble clef. The B is two spaces above the top line of the treble staff, right above A.'
+        }
+    ],
+    [
+        {
+            title: 'Review Note: G',
+            img: '/public/assets/images/treble/treble_G2.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a G can look in the treble clef. The G is right above the top line of the treble staff.'
+        },
+        {
+            title: 'Review Note: A',
+            img: '/public/assets/images/treble/treble_A3.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way an A can look in the treble clef. The A is on the line above the top line of the treble staff.'
+        },
+        {
+            title: 'Review Note: B',
+            img: '/public/assets/images/treble/treble_B3.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a B can look in the treble clef. The B is two spaces above the top line of the treble staff, right above A.'
+        },
+        {
+            title: 'Review Note: C',
+            img: '/public/assets/images/treble/treble_C3.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a C can look in the treble clef. The C is two lines above the top line of the treble staff.'
         }
     ]
 ];
