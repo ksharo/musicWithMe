@@ -103,6 +103,8 @@ button:hover {
 	background-color: white;
 	width: 300px;
 	padding: 20px;
+	margin: 20px;
+	border-radius: 4px;
 }
 
 .lessonDetailsCard img {
@@ -112,7 +114,8 @@ button:hover {
 .lessonCards {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
-	margin: 30px;
+	margin: 30px auto;
 	color: black;
+	overflow-x: auto;
+	max-width: 1000px;
 }
