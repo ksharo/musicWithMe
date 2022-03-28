@@ -7,11 +7,13 @@ const l2 = l1.concat(['A2']);
 const l3 = l2.concat(['B2', 'E1']);
 const l4 = l3.concat(['C2', 'D2']);
 const l5 = l4.concat(['E2', 'F2']);
+// REVIEW LEVEL
+const r1 = l5;
 const l6 = l5.concat(['C1', 'D1']);
 const l7 = l6.concat(['A1', 'B1']);
 const l8 = l7.concat(['A3', 'G2']);
 const l9 = l8.concat(['C3', 'B3']);
-const levels = [l1, l2, l3, l4, l5, l6, l7, l8, l9];
+const levels = [l1, l2, l3, l4, l5, r1, l6, l7, l8, l9];
 // F1, G1, A2, B2, E1, C2, D2, E2, F2, C1, D1, A1, B1, A3, G2, C3, B3
 // 0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16
 const twinkle =  [9, 9, 1, 1, 2, 2, 1, 0, 0, 4, 4, 10, 10, 9, 1, 1, 0, 0, 4, 4, 10, 1, 1, 0, 0, 4, 4, 10, 9, 9, 1, 1, 2, 2, 1, 0, 0, 4, 4, 10, 10, 9];
@@ -21,7 +23,148 @@ const londonBridge = [1, 2, 1, 0, 4, 0, 1, 10, 4, 0, 4, 0, 1, 1, 2, 1, 0, 4, 0, 
 const joyOdePt1 = [4, 4, 0, 1, 1, 0, 4, 10, 9, 9, 10, 4, 4, 10, 10, 4, 4, 0, 1, 1, 0, 4, 10, 9, 9, 10, 4, 10, 9, 9];
 const joyOdePt2 = [10, 10, 4, 9, 10, 4, 0, 4, 9, 10, 4, 0, 4, 10, 9, 10, 1, 4, 4, 0, 1, 1, 0, 4, 10, 9, 9, 10, 4, 10, 9, 9];
 const songNames = ['Hot Cross Buns', 'London Bridge is Falling Down', 'Ode to Joy (pt. 1)', 'Row, Row, Row Your Boat',  'Ode to Joy (pt. 2)', 'Twinkle Twinkle Little Star', , 'Ode to Joy (full)'];
-const songDetails = ['details about HCB', 'details about LBiFD', 'details about OTJ', 'details about RRRYB', 'details about OTJ', 'details about TTLS', 'details about OTJ']
+const songDetails = [
+    [{
+        title: 'New Song: Hot Cross Buns',
+        img: '',
+        details: 'details about HCB',
+    }], 
+    [{
+        title: 'New Song: London Bridge is Falling Down',
+        img: '',
+        details: 'details about LBiFD',
+    }], 
+    [{
+        title: 'New Song: Ode to Joy',
+        img: '',
+        details: 'details about OTJ',
+    }], 
+    [{
+        title: 'New Song: Row, Row, Row Your Boat',
+        img: '',
+        details: 'details about RRRYB',
+    }], 
+    [{
+        title: 'Ode to Joy',
+        img: '',
+        details: 'details about OTJ',
+    }], 
+    [{
+        title: 'New Song: Twinkle Twinkle Little Star',
+        img: '',
+        details: 'details about TTLS',
+    }], 
+    [{
+        title: 'Review Song: Ode to Joy',
+        img: '',
+        details: 'details about OTJ',
+    }]
+];
+
+const noteDetails = [
+    [
+        {
+            title: 'New Note: F',
+            img: '/public/assets/images/treble/treble_F1.png',
+            details: 'This is what an F can look like in the treble clef. The F falls in the first space of the staff. Remember: spaces spell FACE'
+        },
+        {
+            title: 'New Note: G',
+            img: '/public/assets/images/treble/treble_G1.png',
+            details: 'This is what a G can look like in the treble clef. The G falls on the second line of the staff, right above the F. Remember: lines stand for Every Good Boy Does Fine'
+        }
+    ],
+    [
+        {
+            title: 'New Note: A',
+            img: '/public/assets/images/treble/treble_A2.png',
+            details: 'This is what an A can look like in the treble clef. The A falls in the second space of the staff, just above the G. Remember: spaces spell FACE'
+        }
+    ],
+    [
+        {
+            title: 'New Note: B',
+            img: '/public/assets/images/treble/treble_B2.png',
+            details: 'This is what a B can look like in the treble clef. The B falls on the third space of the staff, just above the A. Remember: spaces spell FACE'
+        },
+        {
+            title: 'New Note: E',
+            img: '/public/assets/images/treble/treble_E1.png',
+            details: 'This is what an E can look like in the treble clef. The E falls on the first line of the staff, right below the F. Remember: lines stand for Every Good Boy Does Fine'
+        }
+    ],
+    [
+        {
+            title: 'New Note: C',
+            img: '/public/assets/images/treble/treble_C2.png',
+            details: 'This is what a C can look like in the treble clef. The C falls in the third space of the staff, just above the A. Remember: spaces spell FACE'
+        },
+        {
+            title: 'New Note: D',
+            img: '/public/assets/images/treble/treble_D2.png',
+            details: 'This is what a D can look like in the treble clef. The D falls on the fourth line of the staff, right above the C. Remember: lines stand for Every Good Boy Does Fine'
+        }
+    ],
+    [
+        {
+            title: 'New Note: E',
+            img: '/public/assets/images/treble/treble_E2.png',
+            details: 'This is another way E can look in the treble clef. The E falls in the top space of the staff, just above the D. Remember: spaces spell FACE'
+        },
+        {
+            title: 'New Note: F',
+            img: '/public/assets/images/treble/treble_F2.png',
+            details: 'This is another way F can look in the treble clef. The F falls on the top line of the staff, right above the E. Remember: lines stand for Every Good Boy Does Fine'
+        }
+    ],
+    [
+        {
+            title: 'Review Note: F',
+            img: '/public/assets/images/treble/treble_F1.png',
+            details: 'This is what an F can look like in the treble clef. The F falls in the first space of the staff. Remember: spaces spell FACE'
+        },
+        {
+            title: 'Review Note: G',
+            img: '/public/assets/images/treble/treble_G1.png',
+            details: 'This is what a G can look like in the treble clef. The G falls on the second line of the staff, right above the F. Remember: lines stand for Every Good Boy Does Fine'
+        },
+        {
+            title: 'Review Note: A',
+            img: '/public/assets/images/treble/treble_A2.png',
+            details: 'This is what an A can look like in the treble clef. The A falls in the second space of the staff, just above the G. Remember: spaces spell FACE'
+        },
+        {
+            title: 'Review Note: B',
+            img: '/public/assets/images/treble/treble_B2.png',
+            details: 'This is what a B can look like in the treble clef. The B falls on the third space of the staff, just above the A. Remember: spaces spell FACE'
+        },
+        {
+            title: 'Review Note: E',
+            img: '/public/assets/images/treble/treble_E1.png',
+            details: 'This is what an E can look like in the treble clef. The E falls on the first line of the staff, right below the F. Remember: lines stand for Every Good Boy Does Fine'
+        },
+        {
+            title: 'Review Note: C',
+            img: '/public/assets/images/treble/treble_C2.png',
+            details: 'This is what a C can look like in the treble clef. The C falls in the third space of the staff, just above the A. Remember: spaces spell FACE'
+        },
+        {
+            title: 'Review Note: D',
+            img: '/public/assets/images/treble/treble_D2.png',
+            details: 'This is what a D can look like in the treble clef. The D falls on the fourth line of the staff, right above the C. Remember: lines stand for Every Good Boy Does Fine'
+        },
+        {
+            title: 'Review Note: E',
+            img: '/public/assets/images/treble/treble_E2.png',
+            details: 'This is another way E can look in the treble clef. The E falls in the top space of the staff, just above the D. Remember: spaces spell FACE'
+        },
+        {
+            title: 'Review Note: F',
+            img: '/public/assets/images/treble/treble_F2.png',
+            details: 'This is another way F can look in the treble clef. The F falls on the top line of the staff, right above the E. Remember: lines stand for Every Good Boy Does Fine'
+        }
+    ]
+];
 const songs = [hotCrossBuns, londonBridge, joyOdePt1, rowBoat,  joyOdePt2, twinkle, joyOdePt1.concat(joyOdePt2)];
 let curLevel = 0;
 
@@ -60,8 +203,8 @@ router
         }
         return res.render('individualPages/newLesson', {
             name: 'Notes',
-            subtitle: learningString.substring(0, learningString.length-4), 
-            details: "",
+            subtitle: learningString == 'Learning ' ? 'Review!' : learningString.substring(0, learningString.length-4), 
+            details: noteDetails[Number(req.params.level)],
             level: req.params.level});
     });
 

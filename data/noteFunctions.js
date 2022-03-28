@@ -1,10 +1,10 @@
 function renderRandomLevel(curLevel, levels, res) {
     // set number of rounds
     let numQs = 15;
-    if (curLevel < 4) {
+    if (curLevel < 3) {
         numQs = 5;
     }
-    else if (curLevel < 7) {
+    else if (curLevel < 5) {
         numQs = 10;
     }
     // get a random picture 

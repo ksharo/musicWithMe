@@ -1,6 +1,10 @@
 <h2>You are learning about {{name}}</h2>
 <article>
     <h2>{{subtitle}}</h2>
-    <p>{{{details}}}</p>
+    {{#each details}}
+        <h3>{{title}}</h3>
+        <img src={{img}}>
+        <p>{{details}}</p>
+    {{/each}}
 </article>
 <button id='nextLevelBtn' class="actionButton" onClick="nextLevel({{level}})">Begin level {{level}}</button>
