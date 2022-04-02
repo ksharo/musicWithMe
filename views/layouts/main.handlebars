@@ -29,7 +29,12 @@
         });
         function playSound(noteName) {
             if (noteName != '') {
-                new Audio("/public/assets/sounds/treble/Piano_treble_"+noteName.toUpperCase()+".wav").play();
+                if (window.location.href.includes('treble')) {
+                    new Audio("/public/assets/sounds/treble/Piano_treble_"+noteName.toUpperCase()+".wav").play();
+                }
+                else if (window.location.href.includes('bass')) {
+                    new Audio("/public/assets/sounds/bass/Piano_bass_"+noteName.toUpperCase()+".wav").play();
+                }
             }
             else {
                 new Audio("/public/assets/sounds/buzzer.wav").play();
@@ -54,14 +59,22 @@
                 try {
                     if (window.location.href.includes('noteLesson')) {
                         const curLocation = window.location.href.split('noteLesson/')[1];
-                        const fetchResult = await fetch('http://localhost:3030/newLesson/notes/'+(Number(curLocation)+1).toString());
-                        setTimeout( () => {
-                            window.location.href = fetchResult.url;
-                        }, 1000);
+                        if (window.location.href.includes('treble')) {
+                            const fetchResult = await fetch('http://localhost:3030/treble/newLesson/notes/'+(Number(curLocation)+1).toString());
+                            setTimeout( () => {
+                                window.location.href = fetchResult.url;
+                            }, 1000);
+                        }
+                        else if (window.location.href.includes('bass')) {
+                            const fetchResult = await fetch('http://localhost:3030/bass/newLesson/notes/'+(Number(curLocation)+1).toString());
+                            setTimeout( () => {
+                                window.location.href = fetchResult.url;
+                            }, 1000);
+                        }
                     }
                     else if (window.location.href.includes('songLesson')) {
                         const curLocation = window.location.href.split('songLesson/')[1];
-                        const fetchResult = await fetch('http://localhost:3030/newLesson/songs/'+(Number(curLocation)+1).toString());
+                        const fetchResult = await fetch('http://localhost:3030/treble/newLesson/songs/'+(Number(curLocation)+1).toString());
                         setTimeout( () => {
                             window.location.href = fetchResult.url;
                         }, 1000);
@@ -74,21 +87,29 @@
                 // set the new text and new image
                 document.getElementById('qImg').src = pictures[Number(curQ)];
                 document.getElementById('qTracker').textContent = 'Question: ' + (Number(curQ)+1).toString() + '/' + numQs.toString();
-                document.getElementById('qTrackerProgressBar').value =Number(curQ)+1;
+                document.getElementById('qTrackerProgressBar').value = Number(curQ);
             }
         }
 
         async function restart() {
             if (window.location.href.includes('noteLesson')) {
                 const curLocation = window.location.href.split('noteLesson/')[1];
-                const fetchResult = await fetch('http://localhost:3030/newLesson/notes/'+(Number(curLocation)).toString());
-                setTimeout( () => {
-                    window.location.href = fetchResult.url;
-                }, 1000);
+                if (window.location.href.includes('treble')) {
+                    const fetchResult = await fetch('http://localhost:3030/treble/newLesson/notes/'+(Number(curLocation)).toString());
+                    setTimeout( () => {
+                        window.location.href = fetchResult.url;
+                    }, 1000);
+                }
+                else if (window.location.href.includes('bass')) {
+                    const fetchResult = await fetch('http://localhost:3030/bass/newLesson/notes/'+(Number(curLocation)).toString());
+                    setTimeout( () => {
+                        window.location.href = fetchResult.url;
+                    }, 1000);
+                }
             }
             else if (window.location.href.includes('songLesson')) {
                 const curLocation = window.location.href.split('songLesson/')[1];
-                const fetchResult = await fetch('http://localhost:3030/newLesson/songs/'+(Number(curLocation)).toString());
+                const fetchResult = await fetch('http://localhost:3030/treble/newLesson/songs/'+(Number(curLocation)).toString());
                 setTimeout( () => {
                     window.location.href = fetchResult.url;
                 }, 1000);
@@ -96,12 +117,18 @@
         }
         async function nextLevel(level) {
             if (window.location.href.includes('songs')) {
-                const fetchResult = await fetch('http://localhost:3030/songLesson/'+(Number(level)).toString());
+                const fetchResult = await fetch('http://localhost:3030/treble/songLesson/'+(Number(level)).toString());
                 window.location.href = fetchResult.url;
             }
             else if (window.location.href.includes('notes')) {
-                const fetchResult = await fetch('http://localhost:3030/noteLesson/'+(Number(level)).toString());
-                window.location.href = fetchResult.url;
+                if (window.location.href.includes('treble')) {
+                    const fetchResult = await fetch('http://localhost:3030/treble/noteLesson/'+(Number(level)).toString());
+                    window.location.href = fetchResult.url;
+                }
+                else if (window.location.href.includes('bass')) {
+                    const fetchResult = await fetch('http://localhost:3030/bass/noteLesson/'+(Number(level)).toString());
+                    window.location.href = fetchResult.url;
+                }
             }
         }
 
