@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Music With Me!</title>
     <link rel="stylesheet" href="/public/main_styles.css">
-    <script language="JavaScript">    
+    <script language="JavaScript">
         window.addEventListener('load', () => {
             if (window.location.href.includes('newLesson')) {
                 new Audio('/public/assets/sounds/success.wav').play();
@@ -131,6 +131,29 @@
                 }
             }
         }
+
+
+        let currScore = 0;
+        let timePassed = 0;
+        let interval = null
+        function beginTimer(){
+            interval = setInterval(() => {
+                timePassed += 1;
+                document.getElementById("timer").innerText = timePassed/10;
+            }, 100)
+        }
+
+        function stopTimer(){
+            clearInterval(interval)
+        }
+
+        function scoreCorrect(){
+            clearInterval(interval)
+            currScore += timePassed;
+            document.getElementById("currentScore").innerText = currScore/10;
+        }
+
+        beginTimer()
 
     </script>
 </head>
