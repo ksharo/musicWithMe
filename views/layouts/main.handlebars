@@ -44,9 +44,12 @@
             // will not work for Sharps and Flats yet!
             const rightNote = rightAnswer.substring(rightAnswer.indexOf('.png')-2, rightAnswer.indexOf('.png'));
             if (clickedButton == rightNote.substring(0, rightNote.length-1)) {
+                scoreCorrect();
                 playSound(rightNote);
             }
             else {
+                scoreIncorrect();
+                stopTimer();
                 playSound('');
                 INCORRECT_BEEP && playSound('');
             }
@@ -84,6 +87,7 @@
                     console.log(e);
                 }
             } else {
+                beginTimer();
                 // set the new text and new image
                 document.getElementById('qImg').src = pictures[Number(curQ)];
                 document.getElementById('qTracker').textContent = 'Question: ' + (Number(curQ)+1).toString() + '/' + numQs.toString();
@@ -132,28 +136,46 @@
             }
         }
 
-
+        let streak = 0;
         let currScore = 0;
-        let timePassed = 0;
+        let scoreCurrQuestion = 1000;
         let interval = null
         function beginTimer(){
+            scoreCurrQuestion = 1000;
             interval = setInterval(() => {
-                timePassed += 1;
-                document.getElementById("timer").innerText = timePassed/10;
-            }, 100)
+                if(scoreCurrQuestion <= 500){
+                    stopTimer()
+                }
+                else{
+                    scoreCurrQuestion -= 10;
+                    document.getElementById("timer").innerText = scoreCurrQuestion;
+                }
+
+            }, 150)
         }
 
         function stopTimer(){
-            clearInterval(interval)
+            clearInterval(interval);
+        }
+
+        function resetTimer(){
+            scoreCurrQuestion=1000;
+            clearInterval(interval);
         }
 
         function scoreCorrect(){
             clearInterval(interval)
-            currScore += timePassed;
-            document.getElementById("currentScore").innerText = currScore/10;
+            currScore += scoreCurrQuestion;
+            streak++;
+            document.getElementById("currentScore").innerText = "Total: " + currScore;
+            document.getElementById("streak").innerText = "Streak: " + streak;
+        }
+        function scoreIncorrect(){
+            streak = 0;
+            document.getElementById("streak").innerText ="Streak: " + streak;
         }
 
-        beginTimer()
+        {{!-- beginTimer() --}}
 
     </script>
 </head>
