@@ -2,69 +2,23 @@ const express = require('express');
 const router = express.Router();
 const data = require('../data');
 const noteFunctions = data.noteFunctions;
-const l1 = ['F1', 'G1'];
-const l2 = l1.concat(['A2']);
-const l3 = l2.concat(['B2', 'E1']);
-const l4 = l3.concat(['C2', 'D2']);
-const l5 = l4.concat(['E2', 'F2']);
-// REVIEW LEVEL
-const r1 = l5;
-const l6 = l5.concat(['C1', 'D1']);
-const l7 = l6.concat(['A1', 'B1']);
-// REVIEW LEVEL
-const r2 = l7;
-const l8 = l7.concat(['A3', 'G2']);
-const l9 = l8.concat(['C3', 'B3']);
-const r3 = l9;
-const levels = [l1, l2, l3, l4, l5, r1, l6, l7, r2, l8, l9, r3];
-// F1, G1, A2, B2, E1, C2, D2, E2, F2, C1, D1, A1, B1, A3, G2, C3, B3
-// 0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16
-const twinkle =  [9, 9, 1, 1, 2, 2, 1, 0, 0, 4, 4, 10, 10, 9, 1, 1, 0, 0, 4, 4, 10, 1, 1, 0, 0, 4, 4, 10, 9, 9, 1, 1, 2, 2, 1, 0, 0, 4, 4, 10, 10, 9];
-const hotCrossBuns = [4, 10, 9, 4, 10, 9, 9, 9, 9, 9, 10, 10, 10, 10, 4, 10, 9];
-const rowBoat = [9, 9, 9, 10, 4, 4, 10, 4, 0, 1, 5, 5, 5, 1, 1, 1, 4, 4, 4, 9, 9, 9, 1, 0, 4, 10, 9];
-const londonBridge = [1, 2, 1, 0, 4, 0, 1, 10, 4, 0, 4, 0, 1, 1, 2, 1, 0, 4, 0, 1, 10, 1, 4, 9];
-const joyOdePt1 = [4, 4, 0, 1, 1, 0, 4, 10, 9, 9, 10, 4, 4, 10, 10, 4, 4, 0, 1, 1, 0, 4, 10, 9, 9, 10, 4, 10, 9, 9];
-const joyOdePt2 = [10, 10, 4, 9, 10, 4, 0, 4, 9, 10, 4, 0, 4, 10, 9, 10, 1, 4, 4, 0, 1, 1, 0, 4, 10, 9, 9, 10, 4, 10, 9, 9];
-const songNames = ['Hot Cross Buns', 'London Bridge is Falling Down', 'Ode to Joy (pt. 1)', 'Row, Row, Row Your Boat',  'Ode to Joy (pt. 2)', 'Twinkle Twinkle Little Star', , 'Ode to Joy (full)'];
-const songDetails = [
-    [{
-        title: 'New Song: Hot Cross Buns',
-        img: '',
-        details: 'details about HCB',
-    }], 
-    [{
-        title: 'New Song: London Bridge is Falling Down',
-        img: '',
-        details: 'details about LBiFD',
-    }], 
-    [{
-        title: 'New Song: Ode to Joy',
-        img: '',
-        details: 'details about OTJ',
-    }], 
-    [{
-        title: 'New Song: Row, Row, Row Your Boat',
-        img: '',
-        details: 'details about RRRYB',
-    }], 
-    [{
-        title: 'Ode to Joy',
-        img: '',
-        details: 'details about OTJ',
-    }], 
-    [{
-        title: 'New Song: Twinkle Twinkle Little Star',
-        img: '',
-        details: 'details about TTLS',
-    }], 
-    [{
-        title: 'Review Song: Ode to Joy',
-        img: '',
-        details: 'details about OTJ',
-    }]
-];
+const bass_l1 = ['C2', 'D2'];
+const bass_l2 = bass_l1.concat(['E2']);
+const bass_l3 = bass_l2.concat(['B1', 'F2']);
+const bass_r0 = bass_l3;
+const bass_l4 = bass_l3.concat(['G2','A2']);
+const bass_l5 = bass_l4.concat(['A1', 'G1']);
+const bass_r1 = bass_l5;
+const bass_l6 = bass_l5.concat(['B2', 'C3']);
+const bass_l7 = bass_l6.concat(['E1', 'F1']);
+const bass_r2 = bass_l7;
+const bass_l8 = bass_l7.concat(['C1', 'D1']);
+const bass_l9 = bass_l8.concat(['D3', 'E3']);
+const bass_r3 = bass_l9;
 
-const noteDetails = [
+const bass_levels = [bass_l1, bass_l2, bass_l3, bass_r0, bass_l4, bass_l5, bass_r1, bass_l6, bass_l7, bass_r2, bass_l8, bass_l9, bass_r3];
+
+const bass_noteDetails = [
     [
         {
             title: 'New Note: F',
@@ -98,30 +52,6 @@ const noteDetails = [
     ],
     [
         {
-            title: 'New Note: C',
-            img: '/public/assets/images/treble/treble_C2.png',
-            details: 'This is what a C can look like in the treble clef. The C falls in the third space of the staff, just above the A. Remember: spaces spell FACE'
-        },
-        {
-            title: 'New Note: D',
-            img: '/public/assets/images/treble/treble_D2.png',
-            details: 'This is what a D can look like in the treble clef. The D falls on the fourth line of the staff, right above the C. Remember: lines stand for Every Good Boy Does Fine'
-        }
-    ],
-    [
-        {
-            title: 'New Note: E',
-            img: '/public/assets/images/treble/treble_E2.png',
-            details: 'This is another way E can look in the treble clef. The E falls in the top space of the staff, just above the D. Remember: spaces spell FACE'
-        },
-        {
-            title: 'New Note: F',
-            img: '/public/assets/images/treble/treble_F2.png',
-            details: 'This is another way F can look in the treble clef. The F falls on the top line of the staff, right above the E. Remember: lines stand for Every Good Boy Does Fine'
-        }
-    ],
-    [
-        {
             title: 'Review Note: F',
             img: '/public/assets/images/treble/treble_F1.png',
             details: 'This is what an F can look like in the treble clef. The F falls in the first space of the staff. Remember: spaces spell FACE'
@@ -145,7 +75,33 @@ const noteDetails = [
             title: 'Review Note: E',
             img: '/public/assets/images/treble/treble_E1.png',
             details: 'This is what an E can look like in the treble clef. The E falls on the first line of the staff, right below the F. Remember: lines stand for Every Good Boy Does Fine'
+        }
+    ],
+    [
+        {
+            title: 'New Note: C',
+            img: '/public/assets/images/treble/treble_C2.png',
+            details: 'This is what a C can look like in the treble clef. The C falls in the third space of the staff, just above the A. Remember: spaces spell FACE'
         },
+        {
+            title: 'New Note: D',
+            img: '/public/assets/images/treble/treble_D2.png',
+            details: 'This is what a D can look like in the treble clef. The D falls on the fourth line of the staff, right above the C. Remember: lines stand for Every Good Boy Does Fine'
+        }
+    ],
+    [
+        {
+            title: 'New Note: E',
+            img: '/public/assets/images/treble/treble_E2.png',
+            details: 'This is another way E can look in the treble clef. The E falls in the top space of the staff, just above the D. Remember: spaces spell FACE'
+        },
+        {
+            title: 'New Note: F',
+            img: '/public/assets/images/treble/treble_F2.png',
+            details: 'This is another way F can look in the treble clef. The F falls on the top line of the staff, right above the E. Remember: lines stand for Every Good Boy Does Fine'
+        }
+    ],
+    [
         {
             title: 'Review Note: C',
             img: '/public/assets/images/treble/treble_C2.png',
@@ -260,46 +216,40 @@ const noteDetails = [
         }
     ]
 ];
-const songs = [hotCrossBuns, londonBridge, joyOdePt1, rowBoat,  joyOdePt2, twinkle, joyOdePt1.concat(joyOdePt2)];
-let curLevel = 0;
 
-router
-    .route('/')
-    .get(async (_, res) => {
-        return res.render('individualPages/homepage');
-    });
+let curLevel = 0;
 
 router
     .route('/noteLesson/:level')
     .get(async (req, res) => {
         curLevel = Number(req.params.level);
-        if (levels.length <= curLevel) {
+        if (bass_levels.length <= curLevel) {
             return res.status(404).render('individualPages/error', {status: 404, message: 'Song with id ' + req.params.songId + 'does not exist!'});
         }
-        return noteFunctions.renderRandomLevel(curLevel, levels, res);
+        return noteFunctions.renderRandomLevel(curLevel, bass_levels, res, 'bass');
     });
 
 router 
     .route('/newLesson/notes/:level')
     .get(async (req, res) => {
-        if (levels.length <= Number(req.params.level)) {
-            return res.status(404).render('individualPages/error', {status: 404, message: 'Song with id ' + req.params.songId + 'does not exist!'});
+        if (bass_levels.length <= Number(req.params.level)) {
+            return res.status(404).render('individualPages/error', {status: 404, message: 'Bass Notes Level ' + req.params.level + 'does not exist!'});
         }
         let newNotes = [];
         if (req.params.level != 0) {
-            newNotes = levels[req.params.level].filter(x => !levels[req.params.level-1].includes(x));
+            newNotes = bass_levels[req.params.level].filter(x => !bass_levels[req.params.level-1].includes(x));
         }
         else {
-            newNotes = levels[0];
+            newNotes = bass_levels[0];
         }
         let learningString = 'Learning ';
         for (let x of newNotes) {
             learningString += x.substring(0, x.length-1) + ' and ';
         }
         return res.render('individualPages/newLesson', {
-            name: 'Notes',
+            name: 'Bass Notes',
             subtitle: learningString == 'Learning ' ? 'Review!' : learningString.substring(0, learningString.length-4), 
-            details: noteDetails[Number(req.params.level)],
+            details: bass_noteDetails[Number(req.params.level)],
             level: req.params.level});
     });
 
@@ -325,7 +275,7 @@ router
                 message: 'Song with id ' + req.params.songId + 'does not exist!'});
         }
         const song = songs[Number(req.params.songId)];
-        return noteFunctions.renderSongLevel(song, songNames[Number(req.params.songId)], levels, res);
+        return noteFunctions.renderSongLevel(song, songNames[Number(req.params.songId)], treble_levels, res);
     });
 
 

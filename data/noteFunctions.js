@@ -1,4 +1,4 @@
-function renderRandomLevel(curLevel, levels, res) {
+function renderRandomLevel(curLevel, levels, res, mode='treble') {
     // set number of rounds
     let numQs = 20;
     if (curLevel < 3) {
@@ -14,13 +14,13 @@ function renderRandomLevel(curLevel, levels, res) {
         numQs = 15;
     }
     // get a random picture 
-    const image = '/public/assets/images/treble/treble_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
+    const image = '/public/assets/images/' + mode + '/' + mode + '_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
     // get a list of random pictures
     let imgList = image;
     for (let i = 0; i < numQs-1; i++) {
-        let newImg = ',/public/assets/images/treble/treble_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
+        let newImg = ',/public/assets/images/' + mode + '/' + mode + '_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
         while (imgList.endsWith(newImg.substring(1))) {
-            newImg = ',/public/assets/images/treble/treble_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
+            newImg = ',/public/assets/images/' + mode + '/' + mode + '_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
         }
         imgList+=newImg;
     }
