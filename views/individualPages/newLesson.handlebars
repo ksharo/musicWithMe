@@ -1,12 +1,14 @@
 <h2>You are learning about {{name}}</h2>
 <h2>{{subtitle}}</h2>
-<article class="lessonCards">
-    {{#each details}}
-        <aside class="lessonDetailsCard">
-            <h3>{{title}}</h3>
-            <img src={{img}}>
-            <p>{{details}}</p>
-        </aside>
-    {{/each}}
+<section class="cardCard">
+    <article class="lessonCards">
+        {{#each details}}
+            <aside class="lessonDetailsCard">
+                <h3>{{title}}</h3>
+                <img src={{img}}>
+                <p>{{details}}</p>
+            </aside>
+        {{/each}}
+    </section>
 </article>
 <button id='nextLevelBtn' class="actionButton" onClick="nextLevel({{level}})">Begin level {{level}}</button>
