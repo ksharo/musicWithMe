@@ -1,6 +1,12 @@
 <section class="lessonBody">
     <p id="qTracker">Question: {{i}}/{{numQs}}</p>
     <progress id="qTrackerProgressBar" value={{i}} max={{numQs}}> 32% </progress>
+    <section class="scoreSection">
+        <div id="timer">0s</div>
+        <div id="currentScore">0</div>
+    </section>
+
+    <button onclick="stopTimer()">stop timer</button>
 
     <img id='qImg' src={{img}} />
     <section class="buttonGroup">

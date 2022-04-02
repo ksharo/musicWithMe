@@ -119,3 +119,7 @@ button:hover {
 	overflow-x: auto;
 	max-width: 1000px;
 }
+
+.scoreSection{
+	color: black;
+}
