@@ -190,7 +190,7 @@ const bass_noteDetails = [
         {
             title: 'New Note: E',
             img: '/public/assets/images/bass/bass_E3.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way an E can look in the bass clef. The E is two lines above the top line of the treble staff, right above D.'
+            details: 'Sometimes notes fall above or below the staff. This is another way an E can look in the bass clef. The E is two lines above the top line of the bass staff, right above D.'
         }
     ],
     [
@@ -212,12 +212,66 @@ const bass_noteDetails = [
         {
             title: 'New Note: E',
             img: '/public/assets/images/bass/bass_E3.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way an E can look in the bass clef. The E is two lines above the top line of the treble staff, right above D.'
+            details: 'Sometimes notes fall above or below the staff. This is another way an E can look in the bass clef. The E is two lines above the top line of the bass staff, right above D.'
         }
     ]
 ];
 
+// C2, D2, E2, B1, F2, G2, A2, A1, G1, B2, C3, E1, F1, C1, D1, D3, E3
+// 0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16
+
+const beethoven = [2, 2, 2, 0, 1, 1, 1, 3];
+const jaws = [3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0];
+const twinkle = [0, 0, 5, 5, 6, 6, 5, 4, 4, 2, 2, 1, 1, 0, 5, 5, 4, 4, 2, 2, 1, 5, 5, 4, 4, 2, 2, 1, 0, 0, 5, 5, 6, 6, 5, 4, 4, 2, 2, 1, 1, 0];
+const starWars = [8, 8, 8, 0, 5, 4, 2, 1, 10, 5, 4, 2, 1, 10, 5, 4, 2, 4, 1];
+const avengers = [1, 1, 6, 5, 4, 2, 1, 1, 1, 6, 9, 5, 6, 15];
+const spongebob = [10, 10, 15, 10, 6, 4, 6, 10, 15, 10, 6, 7, 7, 7, 7, 10, 10, 15, 10, 6, 4, 6, 10, 15, 10, 6];
+
+
+const songs = [beethoven, jaws, twinkle, starWars, avengers, spongebob];
+//, joyOdePt1, rowBoat,  joyOdePt2, twinkle, joyOdePt1.concat(joyOdePt2)];
+const songNames = ['Beethoven\'s Fifth', 'Jaws Theme', 'Twinkle Twinkle Little Star', 'Star Wars Theme', 'Avengers Theme', 'Spongebob Theme'];
+//, 'Ode to Joy (pt. 1)', 'Row, Row, Row Your Boat',  'Ode to Joy (pt. 2)', 'Twinkle Twinkle Little Star', , 'Ode to Joy (full)'];
+const songDetails = [
+    [{
+        title: 'New Song: Beethoven\'s Fifth',
+        img: '',
+        details: 'details about BF',
+    }], 
+    [{
+        title: 'New Song: Jaws Theme',
+        img: '',
+        details: 'details about JT',
+    }],
+    [{
+        title: 'New Song: Twinkle Twinkle Little Star',
+        img: '',
+        details: 'details about TTLS',
+    }],
+    [{
+        title: 'New Song: Star Wars Theme',
+        img: '',
+        details: 'details about SWT',
+    }],
+    [{
+        title: 'New Song: Avengers Theme',
+        img: '',
+        details: 'details about AT',
+    }],
+    [{
+        title: 'New Song: Spongebob Theme',
+        img: '',
+        details: 'details about ST',
+    }]
+]
+
 let curLevel = 0;
+
+router
+    .route('/')
+    .get(async (_, res) => {
+        return res.status(200).render('individualPages/bassIntro');
+    });
 
 router
     .route('/noteLesson/:level')
@@ -275,7 +329,7 @@ router
                 message: 'Song with id ' + req.params.songId + 'does not exist!'});
         }
         const song = songs[Number(req.params.songId)];
-        return noteFunctions.renderSongLevel(song, songNames[Number(req.params.songId)], treble_levels, res);
+        return noteFunctions.renderSongLevel(song, songNames[Number(req.params.songId)], bass_levels, res, 'bass');
     });
 
 

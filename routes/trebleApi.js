@@ -269,6 +269,12 @@ const songs = [hotCrossBuns, londonBridge, joyOdePt1, rowBoat,  joyOdePt2, twink
 let curLevel = 0;
 
 router
+    .route('/')
+    .get(async (_, res) => {
+        return res.status(200).render('individualPages/trebleIntro');
+    });
+
+router
     .route('/noteLesson/:level')
     .get(async (req, res) => {
         curLevel = Number(req.params.level);

@@ -74,10 +74,18 @@
                     }
                     else if (window.location.href.includes('songLesson')) {
                         const curLocation = window.location.href.split('songLesson/')[1];
-                        const fetchResult = await fetch('http://localhost:3030/treble/newLesson/songs/'+(Number(curLocation)+1).toString());
-                        setTimeout( () => {
-                            window.location.href = fetchResult.url;
-                        }, 1000);
+                        if (window.location.href.includes('treble')) {
+                            const fetchResult = await fetch('http://localhost:3030/treble/newLesson/songs/'+(Number(curLocation)+1).toString());
+                            setTimeout( () => {
+                                window.location.href = fetchResult.url;
+                            }, 1000);
+                        }
+                        else if (window.location.href.includes('bass')) {
+                            const fetchResult = await fetch('http://localhost:3030/bass/newLesson/songs/'+(Number(curLocation)+1).toString());
+                            setTimeout( () => {
+                                window.location.href = fetchResult.url;
+                            }, 1000);
+                        }
                     }
                 }
                 catch (e) {
@@ -89,6 +97,14 @@
                 document.getElementById('qTracker').textContent = 'Question: ' + (Number(curQ)+1).toString() + '/' + numQs.toString();
                 document.getElementById('qTrackerProgressBar').value = Number(curQ);
             }
+        }
+        async function startBass() {
+            const fetchResult = await fetch('http://localhost:3030/bass/newLesson/notes/0');
+            window.location.href = fetchResult.url;
+        }
+        async function startTreble() {
+            const fetchResult = await fetch('http://localhost:3030/treble/newLesson/notes/0');
+            window.location.href = fetchResult.url;
         }
 
         async function restart() {
@@ -109,16 +125,30 @@
             }
             else if (window.location.href.includes('songLesson')) {
                 const curLocation = window.location.href.split('songLesson/')[1];
-                const fetchResult = await fetch('http://localhost:3030/treble/newLesson/songs/'+(Number(curLocation)).toString());
-                setTimeout( () => {
-                    window.location.href = fetchResult.url;
-                }, 1000);
+                if (window.location.href.includes('treble')) {
+                    const fetchResult = await fetch('http://localhost:3030/treble/newLesson/songs/'+(Number(curLocation)).toString());
+                    setTimeout( () => {
+                        window.location.href = fetchResult.url;
+                    }, 1000);
+                }
+                else if (window.location.href.includes('bass')) {
+                    const fetchResult = await fetch('http://localhost:3030/bass/newLesson/songs/'+(Number(curLocation)).toString());
+                    setTimeout( () => {
+                        window.location.href = fetchResult.url;
+                    }, 1000);
+                }
             }
         }
         async function nextLevel(level) {
             if (window.location.href.includes('songs')) {
-                const fetchResult = await fetch('http://localhost:3030/treble/songLesson/'+(Number(level)).toString());
-                window.location.href = fetchResult.url;
+                if (window.location.href.includes('treble')) {
+                    const fetchResult = await fetch('http://localhost:3030/treble/songLesson/'+(Number(level)).toString());
+                    window.location.href = fetchResult.url;
+                }
+                else if (window.location.href.includes('bass')) {
+                    const fetchResult = await fetch('http://localhost:3030/bass/songLesson/'+(Number(level)).toString());
+                    window.location.href = fetchResult.url;
+                }
             }
             else if (window.location.href.includes('notes')) {
                 if (window.location.href.includes('treble')) {
@@ -131,7 +161,6 @@
                 }
             }
         }
-
 
         let currScore = 0;
         let timePassed = 0;

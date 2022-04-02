@@ -38,12 +38,12 @@ function renderRandomLevel(curLevel, levels, res, mode='treble') {
     return res.render('individualPages/noteLesson', {notes: levels[curLevel], noteNames: noteNames, img: image, imgList: imgList, i:1, numQs: numQs});
 }
 
-function renderSongLevel(songIndices, songName, levels, res) {
+function renderSongLevel(songIndices, songName, levels, res, mode='treble') {
     const notes = levels[levels.length-1];
     let imgList = [];
     // set pictures for the song
     for (let x of songIndices) {
-        imgList += '/public/assets/images/treble/treble_' + notes[x] + '.png,';
+        imgList += '/public/assets/images/'+ mode + '/' + mode + '_' + notes[x] + '.png,';
     }
     // get rid of ending comma
     imgList = imgList.substring(0, imgList.length-1);
