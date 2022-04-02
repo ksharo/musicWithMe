@@ -269,7 +269,7 @@ const songs = [hotCrossBuns, londonBridge, joyOdePt1, rowBoat,  joyOdePt2, twink
 let curLevel = 0;
 
 router
-    .route('/noteLesson/treble/:level')
+    .route('/noteLesson/:level')
     .get(async (req, res) => {
         curLevel = Number(req.params.level);
         if (treble_levels.length <= curLevel) {
