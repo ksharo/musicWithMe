@@ -1,7 +1,9 @@
 const trebleRoutes = require('./trebleApi');
 const bassRoutes = require('./bassApi');
+const mainRoutes = require('./mainApi');
 
 const constructorMethod = (app) => {
+  app.use('/', mainRoutes);
   app.use('/treble', trebleRoutes);
   app.use('/bass', bassRoutes);
   app.use('*', (_, res) => {
