@@ -21,198 +21,198 @@ const bass_levels = [bass_l1, bass_l2, bass_l3, bass_r0, bass_l4, bass_l5, bass_
 const bass_noteDetails = [
     [
         {
-            title: 'New Note: F',
-            img: '/public/assets/images/treble/treble_F1.png',
-            details: 'This is what an F can look like in the treble clef. The F falls in the first space of the staff. Remember: spaces spell FACE'
-        },
-        {
-            title: 'New Note: G',
-            img: '/public/assets/images/treble/treble_G1.png',
-            details: 'This is what a G can look like in the treble clef. The G falls on the second line of the staff, right above the F. Remember: lines stand for Every Good Boy Does Fine'
-        }
-    ],
-    [
-        {
-            title: 'New Note: A',
-            img: '/public/assets/images/treble/treble_A2.png',
-            details: 'This is what an A can look like in the treble clef. The A falls in the second space of the staff, just above the G. Remember: spaces spell FACE'
-        }
-    ],
-    [
-        {
-            title: 'New Note: B',
-            img: '/public/assets/images/treble/treble_B2.png',
-            details: 'This is what a B can look like in the treble clef. The B falls on the third space of the staff, just above the A. Remember: spaces spell FACE'
-        },
-        {
-            title: 'New Note: E',
-            img: '/public/assets/images/treble/treble_E1.png',
-            details: 'This is what an E can look like in the treble clef. The E falls on the first line of the staff, right below the F. Remember: lines stand for Every Good Boy Does Fine'
-        }
-    ],
-    [
-        {
-            title: 'Review Note: F',
-            img: '/public/assets/images/treble/treble_F1.png',
-            details: 'This is what an F can look like in the treble clef. The F falls in the first space of the staff. Remember: spaces spell FACE'
-        },
-        {
-            title: 'Review Note: G',
-            img: '/public/assets/images/treble/treble_G1.png',
-            details: 'This is what a G can look like in the treble clef. The G falls on the second line of the staff, right above the F. Remember: lines stand for Every Good Boy Does Fine'
-        },
-        {
-            title: 'Review Note: A',
-            img: '/public/assets/images/treble/treble_A2.png',
-            details: 'This is what an A can look like in the treble clef. The A falls in the second space of the staff, just above the G. Remember: spaces spell FACE'
-        },
-        {
-            title: 'Review Note: B',
-            img: '/public/assets/images/treble/treble_B2.png',
-            details: 'This is what a B can look like in the treble clef. The B falls on the third space of the staff, just above the A. Remember: spaces spell FACE'
-        },
-        {
-            title: 'Review Note: E',
-            img: '/public/assets/images/treble/treble_E1.png',
-            details: 'This is what an E can look like in the treble clef. The E falls on the first line of the staff, right below the F. Remember: lines stand for Every Good Boy Does Fine'
-        }
-    ],
-    [
-        {
             title: 'New Note: C',
-            img: '/public/assets/images/treble/treble_C2.png',
-            details: 'This is what a C can look like in the treble clef. The C falls in the third space of the staff, just above the A. Remember: spaces spell FACE'
+            img: '/public/assets/images/bass/bass_C2.png',
+            details: 'This is what a C can look like in the bass clef. The C falls in the second space of the staff. Remember: spaces stand for All Cows Eat Grass'
         },
         {
             title: 'New Note: D',
-            img: '/public/assets/images/treble/treble_D2.png',
-            details: 'This is what a D can look like in the treble clef. The D falls on the fourth line of the staff, right above the C. Remember: lines stand for Every Good Boy Does Fine'
+            img: '/public/assets/images/bass/bass_D2.png',
+            details: 'This is what a D can look like in the bass clef. The D falls on the middle line of the staff, right above the C. Remember: lines stand for Good Boys Deserve Fudge Always'
         }
     ],
     [
         {
             title: 'New Note: E',
-            img: '/public/assets/images/treble/treble_E2.png',
-            details: 'This is another way E can look in the treble clef. The E falls in the top space of the staff, just above the D. Remember: spaces spell FACE'
+            img: '/public/assets/images/bass/bass_E2.png',
+            details: 'This is what an E can look like in the bass clef. The E falls in the third space of the staff. Remember: spaces stand for All Cows Eat Grass'
+        },
+    ],
+    [
+        {
+            title: 'New Note: B',
+            img: '/public/assets/images/bass/bass_B1.png',
+            details: 'This is what a B can look like in the bass clef. The B falls on the first line of the staff. Remember: lines stand for Good Boys Deserve Fudge Always'
         },
         {
             title: 'New Note: F',
-            img: '/public/assets/images/treble/treble_F2.png',
-            details: 'This is another way F can look in the treble clef. The F falls on the top line of the staff, right above the E. Remember: lines stand for Every Good Boy Does Fine'
+            img: '/public/assets/images/bass/bass_F2.png',
+            details: 'This is what an F can look like in the bass clef. The F falls on the fourth line of the staff. Remember: lines stand for Good Boys Deserve Fudge Always'
         }
     ],
     [
         {
+            title: 'Review Note: B',
+            img: '/public/assets/images/bass/bass_B1.png',
+            details: 'This is what a B can look like in the bass clef. The B falls on the first line of the staff. Remember: lines stand for Good Boys Deserve Fudge Always'
+        },
+        {
             title: 'Review Note: C',
-            img: '/public/assets/images/treble/treble_C2.png',
-            details: 'This is what a C can look like in the treble clef. The C falls in the third space of the staff, just above the A. Remember: spaces spell FACE'
+            img: '/public/assets/images/bass/bass_C2.png',
+            details: 'This is what a C can look like in the bass clef. The C falls in the second space of the staff. Remember: spaces stand for All Cows Eat Grass'
         },
         {
             title: 'Review Note: D',
-            img: '/public/assets/images/treble/treble_D2.png',
-            details: 'This is what a D can look like in the treble clef. The D falls on the fourth line of the staff, right above the C. Remember: lines stand for Every Good Boy Does Fine'
+            img: '/public/assets/images/bass/bass_D2.png',
+            details: 'This is what a D can look like in the bass clef. The D falls on the middle line of the staff, right above the C. Remember: lines stand for Good Boys Deserve Fudge Always'
         },
         {
             title: 'Review Note: E',
-            img: '/public/assets/images/treble/treble_E2.png',
-            details: 'This is another way E can look in the treble clef. The E falls in the top space of the staff, just above the D. Remember: spaces spell FACE'
+            img: '/public/assets/images/bass/bass_E2.png',
+            details: 'This is what an E can look like in the bass clef. The E falls in the third space of the staff. Remember: spaces stand for All Cows Eat Grass'
         },
         {
             title: 'Review Note: F',
-            img: '/public/assets/images/treble/treble_F2.png',
-            details: 'This is another way F can look in the treble clef. The F falls on the top line of the staff, right above the E. Remember: lines stand for Every Good Boy Does Fine'
+            img: '/public/assets/images/bass/bass_F2.png',
+            details: 'This is what an F can look like in the bass clef. The F falls on the fourth line of the staff. Remember: lines stand for Good Boys Deserve Fudge Always'
         }
     ],
     [
         {
-            title: 'New Note: C',
-            img: '/public/assets/images/treble/treble_C1.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way a C can look in the treble clef. The C is one line below the lowest line of the treble staff. This specific C is called Middle C on the piano, because it is in the middle of the keyboard.'
+            title: 'New Note: G',
+            img: '/public/assets/images/bass/bass_G2.png',
+            details: 'This is what a G can look like in the bass clef. The G falls in the top space of the staff. Remember: spaces stand for All Cows Eat Grass'
         },
         {
-            title: 'New Note: D',
-            img: '/public/assets/images/treble/treble_D1.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way a D can look in the treble clef. The D is on the space below the lowest line of the treble staff.'
+            title: 'New Note: A',
+            img: '/public/assets/images/bass/bass_A2.png',
+            details: 'This is what an A can look like in the bass clef. The A falls on the top line of the staff. Remember: Remember: lines stand for Good Boys Deserve Fudge Always'
         }
     ],
     [
         {
             title: 'New Note: A',
-            img: '/public/assets/images/treble/treble_A1.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way an A can look in the treble clef. The A is two lines below the lowest line of the treble staff.'
-        },
-        {
-            title: 'New Note: B',
-            img: '/public/assets/images/treble/treble_B1.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way a D can look in the treble clef. The B is two spaces below the lowest line of the treble staff, right below the C.'
-        }
-    ],
-    [
-        {
-            title: 'Review Note: C',
-            img: '/public/assets/images/treble/treble_C1.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way a C can look in the treble clef. The C is one line below the lowest line of the treble staff. This specific C is called Middle C on the piano, because it is in the middle of the keyboard.'
-        },
-        {
-            title: 'Review Note: D',
-            img: '/public/assets/images/treble/treble_D1.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way a D can look in the treble clef. The D is on the space below the lowest line of the treble staff.'
-        },
-        {
-            title: 'Review Note: A',
-            img: '/public/assets/images/treble/treble_A1.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way an A can look in the treble clef. The A is two lines below the lowest line of the treble staff.'
-        },
-        {
-            title: 'Review Note: B',
-            img: '/public/assets/images/treble/treble_B1.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way a D can look in the treble clef. The B is two spaces below the lowest line of the treble staff, right below the C.'
-        }
-    ],
-    [
-        {
-            title: 'New Note: A',
-            img: '/public/assets/images/treble/treble_A3.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way an A can look in the treble clef. The A is on the line above the top line of the treble staff.'
+            img: '/public/assets/images/bass/bass_A1.png',
+            details: 'This is what an A can look like in the bass clef. The A falls in the first space of the staff. Remember: spaces stand for All Cows Eat Grass'
         },
         {
             title: 'New Note: G',
-            img: '/public/assets/images/treble/treble_G2.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way a G can look in the treble clef. The G is right above the top line of the treble staff.'
-        }
-    ],
-    [
-        {
-            title: 'New Note: C',
-            img: '/public/assets/images/treble/treble_C3.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way a C can look in the treble clef. The C is two lines above the top line of the treble staff.'
-        },
-        {
-            title: 'New Note: B',
-            img: '/public/assets/images/treble/treble_B3.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way a B can look in the treble clef. The B is two spaces above the top line of the treble staff, right above A.'
+            img: '/public/assets/images/bass/bass_G1.png',
+            details: 'This is what a G can look like in the bass clef. The G falls on the first line of the staff. Remember: Remember: lines stand for Good Boys Deserve Fudge Always'
         }
     ],
     [
         {
             title: 'Review Note: G',
-            img: '/public/assets/images/treble/treble_G2.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way a G can look in the treble clef. The G is right above the top line of the treble staff.'
+            img: '/public/assets/images/bass/bass_G2.png',
+            details: 'This is what a G can look like in the bass clef. The G falls in the top space of the staff. Remember: spaces stand for All Cows Eat Grass'
         },
         {
             title: 'Review Note: A',
-            img: '/public/assets/images/treble/treble_A3.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way an A can look in the treble clef. The A is on the line above the top line of the treble staff.'
+            img: '/public/assets/images/bass/bass_A2.png',
+            details: 'This is what an A can look like in the bass clef. The A falls on the top line of the staff. Remember: Remember: lines stand for Good Boys Deserve Fudge Always'
         },
         {
+            title: 'Review Note: A',
+            img: '/public/assets/images/bass/bass_A1.png',
+            details: 'This is what an A can look like in the bass clef. The A falls in the first space of the staff. Remember: spaces stand for All Cows Eat Grass'
+        },
+        {
+            title: 'Review Note: G',
+            img: '/public/assets/images/bass/bass_G1.png',
+            details: 'This is what a G can look like in the bass clef. The G falls on the first line of the staff. Remember: Remember: lines stand for Good Boys Deserve Fudge Always'
+        }
+    ],
+    [
+        {
+            title: 'New Note: B',
+            img: '/public/assets/images/bass/bass_B2.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a B can look in the bass clef. The B is one space above the top line of the bass staff.'
+        },
+        {
+            title: 'New Note: C',
+            img: '/public/assets/images/bass/bass_C3.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a C can look in the bass clef. The C is on the line above the top line of the bass staff. This specific C is called Middle C on the piano, because it is in the middle of the keyboard.'
+        }
+    ],
+    [
+        {
+            title: 'New Note: E',
+            img: '/public/assets/images/bass/bass_E1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way an E can look in the bass clef. The E is one line below the bottom line of the bass staff.'
+        },
+        {
+            title: 'New Note: F',
+            img: '/public/assets/images/bass/bass_F1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way an F can look in the bass clef. The F is on the space below the bottom line of the bass staff.'
+        }
+    ],
+    [
+        {
             title: 'Review Note: B',
-            img: '/public/assets/images/treble/treble_B3.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way a B can look in the treble clef. The B is two spaces above the top line of the treble staff, right above A.'
+            img: '/public/assets/images/bass/bass_B2.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a B can look in the bass clef. The B is one space above the top line of the bass staff.'
         },
         {
             title: 'Review Note: C',
-            img: '/public/assets/images/treble/treble_C3.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way a C can look in the treble clef. The C is two lines above the top line of the treble staff.'
+            img: '/public/assets/images/bass/bass_C3.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a C can look in the bass clef. The C is on the line above the top line of the bass staff. This specific C is called Middle C on the piano, because it is in the middle of the keyboard.'
+        },
+        {
+            title: 'Review Note: E',
+            img: '/public/assets/images/bass/bass_E1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way an E can look in the bass clef. The E is one line below the bottom line of the bass staff.'
+        },
+        {
+            title: 'Review Note: F',
+            img: '/public/assets/images/bass/bass_F1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way an F can look in the bass clef. The F is on the space below the bottom line of the bass staff.'
+        }
+    ],
+    [
+        {
+            title: 'New Note: C',
+            img: '/public/assets/images/bass/bass_C1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a C can look in the bass clef. The C is two lines below the bottom line of the bass staff.'
+        },
+        {
+            title: 'New Note: D',
+            img: '/public/assets/images/bass/bass_D1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a D can look in the bass clef. The D is right above the low C.'
+        }
+    ],
+    [
+        {
+            title: 'New Note: D',
+            img: '/public/assets/images/bass/bass_D3.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a D can look in the bass clef. The D is two spaces above the top line of the bass staff.'
+        },
+        {
+            title: 'New Note: E',
+            img: '/public/assets/images/bass/bass_E3.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way an E can look in the bass clef. The E is two lines above the top line of the treble staff, right above D.'
+        }
+    ],
+    [
+        {
+            title: 'New Note: C',
+            img: '/public/assets/images/bass/bass_C1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a C can look in the bass clef. The C is two lines below the bottom line of the bass staff.'
+        },
+        {
+            title: 'New Note: D',
+            img: '/public/assets/images/bass/bass_D1.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a D can look in the bass clef. The D is right above the low C.'
+        },
+        {
+            title: 'New Note: D',
+            img: '/public/assets/images/bass/bass_D3.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way a D can look in the bass clef. The D is two spaces above the top line of the bass staff.'
+        },
+        {
+            title: 'New Note: E',
+            img: '/public/assets/images/bass/bass_E3.png',
+            details: 'Sometimes notes fall above or below the staff. This is another way an E can look in the bass clef. The E is two lines above the top line of the treble staff, right above D.'
         }
     ]
 ];
