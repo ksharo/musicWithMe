@@ -23,104 +23,104 @@ const bass_noteDetails = [
         {
             title: 'New Note: C',
             img: '/public/assets/images/bass/bass_C2.png',
-            details: 'This is what a C can look like in the bass clef. The C falls in the second space of the staff. Remember: spaces stand for All Cows Eat Grass'
+            details: 'This is what a C can look like in the bass clef. The C falls in the second space of the staff. <br/><br/>Remember: spaces stand for All Cows Eat Grass'
         },
         {
             title: 'New Note: D',
             img: '/public/assets/images/bass/bass_D2.png',
-            details: 'This is what a D can look like in the bass clef. The D falls on the middle line of the staff, right above the C. Remember: lines stand for Good Boys Deserve Fudge Always'
+            details: 'This is what a D can look like in the bass clef. The D falls on the middle line of the staff, right above the C. <br/><br/>Remember: lines stand for Good Boys Deserve Fudge Always'
         }
     ],
     [
         {
             title: 'New Note: E',
             img: '/public/assets/images/bass/bass_E2.png',
-            details: 'This is what an E can look like in the bass clef. The E falls in the third space of the staff. Remember: spaces stand for All Cows Eat Grass'
+            details: 'This is what an E can look like in the bass clef. The E falls in the third space of the staff. <br/><br/>Remember: spaces stand for All Cows Eat Grass'
         },
     ],
     [
         {
             title: 'New Note: B',
             img: '/public/assets/images/bass/bass_B1.png',
-            details: 'This is what a B can look like in the bass clef. The B falls on the first line of the staff. Remember: lines stand for Good Boys Deserve Fudge Always'
+            details: 'This is what a B can look like in the bass clef. The B falls on the first line of the staff. <br/><br/>Remember: lines stand for Good Boys Deserve Fudge Always'
         },
         {
             title: 'New Note: F',
             img: '/public/assets/images/bass/bass_F2.png',
-            details: 'This is what an F can look like in the bass clef. The F falls on the fourth line of the staff. Remember: lines stand for Good Boys Deserve Fudge Always'
+            details: 'This is what an F can look like in the bass clef. The F falls on the fourth line of the staff. <br/><br/>Remember: lines stand for Good Boys Deserve Fudge Always'
         }
     ],
     [
         {
             title: 'Review Note: B',
             img: '/public/assets/images/bass/bass_B1.png',
-            details: 'This is what a B can look like in the bass clef. The B falls on the first line of the staff. Remember: lines stand for Good Boys Deserve Fudge Always'
+            details: 'This is what a B can look like in the bass clef. The B falls on the first line of the staff. <br/><br/>Remember: lines stand for Good Boys Deserve Fudge Always'
         },
         {
             title: 'Review Note: C',
             img: '/public/assets/images/bass/bass_C2.png',
-            details: 'This is what a C can look like in the bass clef. The C falls in the second space of the staff. Remember: spaces stand for All Cows Eat Grass'
+            details: 'This is what a C can look like in the bass clef. The C falls in the second space of the staff. <br/><br/>Remember: spaces stand for All Cows Eat Grass'
         },
         {
             title: 'Review Note: D',
             img: '/public/assets/images/bass/bass_D2.png',
-            details: 'This is what a D can look like in the bass clef. The D falls on the middle line of the staff, right above the C. Remember: lines stand for Good Boys Deserve Fudge Always'
+            details: 'This is what a D can look like in the bass clef. The D falls on the middle line of the staff, right above the C. <br/><br/>Remember: lines stand for Good Boys Deserve Fudge Always'
         },
         {
             title: 'Review Note: E',
             img: '/public/assets/images/bass/bass_E2.png',
-            details: 'This is what an E can look like in the bass clef. The E falls in the third space of the staff. Remember: spaces stand for All Cows Eat Grass'
+            details: 'This is what an E can look like in the bass clef. The E falls in the third space of the staff. <br/><br/>Remember: spaces stand for All Cows Eat Grass'
         },
         {
             title: 'Review Note: F',
             img: '/public/assets/images/bass/bass_F2.png',
-            details: 'This is what an F can look like in the bass clef. The F falls on the fourth line of the staff. Remember: lines stand for Good Boys Deserve Fudge Always'
+            details: 'This is what an F can look like in the bass clef. The F falls on the fourth line of the staff. <br/><br/>Remember: lines stand for Good Boys Deserve Fudge Always'
         }
     ],
     [
         {
             title: 'New Note: G',
             img: '/public/assets/images/bass/bass_G2.png',
-            details: 'This is what a G can look like in the bass clef. The G falls in the top space of the staff. Remember: spaces stand for All Cows Eat Grass'
+            details: 'This is what a G can look like in the bass clef. The G falls in the top space of the staff. <br/><br/>Remember: spaces stand for All Cows Eat Grass'
         },
         {
             title: 'New Note: A',
             img: '/public/assets/images/bass/bass_A2.png',
-            details: 'This is what an A can look like in the bass clef. The A falls on the top line of the staff. Remember: Remember: lines stand for Good Boys Deserve Fudge Always'
+            details: 'This is what an A can look like in the bass clef. The A falls on the top line of the staff. <br/><br/>Remember: lines stand for Good Boys Deserve Fudge Always'
         }
     ],
     [
         {
             title: 'New Note: A',
             img: '/public/assets/images/bass/bass_A1.png',
-            details: 'This is what an A can look like in the bass clef. The A falls in the first space of the staff. Remember: spaces stand for All Cows Eat Grass'
+            details: 'This is what an A can look like in the bass clef. The A falls in the first space of the staff. <br/><br/>Remember: spaces stand for All Cows Eat Grass'
         },
         {
             title: 'New Note: G',
             img: '/public/assets/images/bass/bass_G1.png',
-            details: 'This is what a G can look like in the bass clef. The G falls on the first line of the staff. Remember: Remember: lines stand for Good Boys Deserve Fudge Always'
+            details: 'This is what a G can look like in the bass clef. The G falls on the first line of the staff. <br/><br/>Remember: lines stand for Good Boys Deserve Fudge Always'
         }
     ],
     [
         {
             title: 'Review Note: G',
             img: '/public/assets/images/bass/bass_G2.png',
-            details: 'This is what a G can look like in the bass clef. The G falls in the top space of the staff. Remember: spaces stand for All Cows Eat Grass'
+            details: 'This is what a G can look like in the bass clef. The G falls in the top space of the staff. <br/><br/>Remember: spaces stand for All Cows Eat Grass'
         },
         {
             title: 'Review Note: A',
             img: '/public/assets/images/bass/bass_A2.png',
-            details: 'This is what an A can look like in the bass clef. The A falls on the top line of the staff. Remember: Remember: lines stand for Good Boys Deserve Fudge Always'
+            details: 'This is what an A can look like in the bass clef. The A falls on the top line of the staff. <br/><br/>Remember: lines stand for Good Boys Deserve Fudge Always'
         },
         {
             title: 'Review Note: A',
             img: '/public/assets/images/bass/bass_A1.png',
-            details: 'This is what an A can look like in the bass clef. The A falls in the first space of the staff. Remember: spaces stand for All Cows Eat Grass'
+            details: 'This is what an A can look like in the bass clef. The A falls in the first space of the staff. <br/><br/>Remember: spaces stand for All Cows Eat Grass'
         },
         {
             title: 'Review Note: G',
             img: '/public/assets/images/bass/bass_G1.png',
-            details: 'This is what a G can look like in the bass clef. The G falls on the first line of the staff. Remember: Remember: lines stand for Good Boys Deserve Fudge Always'
+            details: 'This is what a G can look like in the bass clef. The G falls on the first line of the staff. <br/><br/>Remember: lines stand for Good Boys Deserve Fudge Always'
         }
     ],
     [

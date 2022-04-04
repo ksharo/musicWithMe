@@ -71,104 +71,104 @@ const treble_noteDetails = [
         {
             title: 'New Note: F',
             img: '/public/assets/images/treble/treble_F1.png',
-            details: 'This is what an F can look like in the treble clef. The F falls in the first space of the staff. Remember: spaces spell FACE'
+            details: 'This is what an F can look like in the treble clef. The F falls in the first space of the staff. <br/><br/>Remember: spaces spell FACE'
         },
         {
             title: 'New Note: G',
             img: '/public/assets/images/treble/treble_G1.png',
-            details: 'This is what a G can look like in the treble clef. The G falls on the second line of the staff, right above the F. Remember: lines stand for Every Good Boy Does Fine'
+            details: 'This is what a G can look like in the treble clef. The G falls on the second line of the staff, right above the F. <br/><br/>Remember: lines stand for Every Good Boy Does Fine'
         }
     ],
     [
         {
             title: 'New Note: A',
             img: '/public/assets/images/treble/treble_A2.png',
-            details: 'This is what an A can look like in the treble clef. The A falls in the second space of the staff, just above the G. Remember: spaces spell FACE'
+            details: 'This is what an A can look like in the treble clef. The A falls in the second space of the staff, just above the G. <br/><br/>Remember: spaces spell FACE'
         }
     ],
     [
         {
             title: 'New Note: B',
             img: '/public/assets/images/treble/treble_B2.png',
-            details: 'This is what a B can look like in the treble clef. The B falls on the third space of the staff, just above the A. Remember: spaces spell FACE'
+            details: 'This is what a B can look like in the treble clef. The B falls on the third space of the staff, just above the A. <br/><br/>Remember: spaces spell FACE'
         },
         {
             title: 'New Note: E',
             img: '/public/assets/images/treble/treble_E1.png',
-            details: 'This is what an E can look like in the treble clef. The E falls on the first line of the staff, right below the F. Remember: lines stand for Every Good Boy Does Fine'
+            details: 'This is what an E can look like in the treble clef. The E falls on the first line of the staff, right below the F. <br/><br/>Remember: lines stand for Every Good Boy Does Fine'
         }
     ],
     [
         {
             title: 'Review Note: F',
             img: '/public/assets/images/treble/treble_F1.png',
-            details: 'This is what an F can look like in the treble clef. The F falls in the first space of the staff. Remember: spaces spell FACE'
+            details: 'This is what an F can look like in the treble clef. The F falls in the first space of the staff. <br/><br/>Remember: spaces spell FACE'
         },
         {
             title: 'Review Note: G',
             img: '/public/assets/images/treble/treble_G1.png',
-            details: 'This is what a G can look like in the treble clef. The G falls on the second line of the staff, right above the F. Remember: lines stand for Every Good Boy Does Fine'
+            details: 'This is what a G can look like in the treble clef. The G falls on the second line of the staff, right above the F. <br/><br/>Remember: lines stand for Every Good Boy Does Fine'
         },
         {
             title: 'Review Note: A',
             img: '/public/assets/images/treble/treble_A2.png',
-            details: 'This is what an A can look like in the treble clef. The A falls in the second space of the staff, just above the G. Remember: spaces spell FACE'
+            details: 'This is what an A can look like in the treble clef. The A falls in the second space of the staff, just above the G. <br/><br/>Remember: spaces spell FACE'
         },
         {
             title: 'Review Note: B',
             img: '/public/assets/images/treble/treble_B2.png',
-            details: 'This is what a B can look like in the treble clef. The B falls on the third space of the staff, just above the A. Remember: spaces spell FACE'
+            details: 'This is what a B can look like in the treble clef. The B falls on the third space of the staff, just above the A. <br/><br/>Remember: spaces spell FACE'
         },
         {
             title: 'Review Note: E',
             img: '/public/assets/images/treble/treble_E1.png',
-            details: 'This is what an E can look like in the treble clef. The E falls on the first line of the staff, right below the F. Remember: lines stand for Every Good Boy Does Fine'
+            details: 'This is what an E can look like in the treble clef. The E falls on the first line of the staff, right below the F. <br/><br/>Remember: lines stand for Every Good Boy Does Fine'
         }
     ],
     [
         {
             title: 'New Note: C',
             img: '/public/assets/images/treble/treble_C2.png',
-            details: 'This is what a C can look like in the treble clef. The C falls in the third space of the staff, just above the A. Remember: spaces spell FACE'
+            details: 'This is what a C can look like in the treble clef. The C falls in the third space of the staff, just above the A. <br/><br/>Remember: spaces spell FACE'
         },
         {
             title: 'New Note: D',
             img: '/public/assets/images/treble/treble_D2.png',
-            details: 'This is what a D can look like in the treble clef. The D falls on the fourth line of the staff, right above the C. Remember: lines stand for Every Good Boy Does Fine'
+            details: 'This is what a D can look like in the treble clef. The D falls on the fourth line of the staff, right above the C. <br/><br/>Remember: lines stand for Every Good Boy Does Fine'
         }
     ],
     [
         {
             title: 'New Note: E',
             img: '/public/assets/images/treble/treble_E2.png',
-            details: 'This is another way E can look in the treble clef. The E falls in the top space of the staff, just above the D. Remember: spaces spell FACE'
+            details: 'This is another way E can look in the treble clef. The E falls in the top space of the staff, just above the D. <br/><br/>Remember: spaces spell FACE'
         },
         {
             title: 'New Note: F',
             img: '/public/assets/images/treble/treble_F2.png',
-            details: 'This is another way F can look in the treble clef. The F falls on the top line of the staff, right above the E. Remember: lines stand for Every Good Boy Does Fine'
+            details: 'This is another way F can look in the treble clef. The F falls on the top line of the staff, right above the E. <br/><br/>Remember: lines stand for Every Good Boy Does Fine'
         }
     ],
     [
         {
             title: 'Review Note: C',
             img: '/public/assets/images/treble/treble_C2.png',
-            details: 'This is what a C can look like in the treble clef. The C falls in the third space of the staff, just above the A. Remember: spaces spell FACE'
+            details: 'This is what a C can look like in the treble clef. The C falls in the third space of the staff, just above the A. <br/><br/>Remember: spaces spell FACE'
         },
         {
             title: 'Review Note: D',
             img: '/public/assets/images/treble/treble_D2.png',
-            details: 'This is what a D can look like in the treble clef. The D falls on the fourth line of the staff, right above the C. Remember: lines stand for Every Good Boy Does Fine'
+            details: 'This is what a D can look like in the treble clef. The D falls on the fourth line of the staff, right above the C. <br/><br/>Remember: lines stand for Every Good Boy Does Fine'
         },
         {
             title: 'Review Note: E',
             img: '/public/assets/images/treble/treble_E2.png',
-            details: 'This is another way E can look in the treble clef. The E falls in the top space of the staff, just above the D. Remember: spaces spell FACE'
+            details: 'This is another way E can look in the treble clef. The E falls in the top space of the staff, just above the D. <br/><br/>Remember: spaces spell FACE'
         },
         {
             title: 'Review Note: F',
             img: '/public/assets/images/treble/treble_F2.png',
-            details: 'This is another way F can look in the treble clef. The F falls on the top line of the staff, right above the E. Remember: lines stand for Every Good Boy Does Fine'
+            details: 'This is another way F can look in the treble clef. The F falls on the top line of the staff, right above the E. <br/><br/>Remember: lines stand for Every Good Boy Does Fine'
         }
     ],
     [

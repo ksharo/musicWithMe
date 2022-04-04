@@ -1,10 +1,10 @@
 function renderRandomLevel(curLevel, levels, res, mode='treble') {
     // set number of rounds
-    let numQs = 20;
-    if (curLevel < 3) {
+    let numQs = 25;
+    if (curLevel < 2) {
         numQs = 5;
     }
-    else if (curLevel < 5) {
+    else if (curLevel < 4) {
         numQs = 10;
     }
     else if (curLevel == 5) {
@@ -35,7 +35,7 @@ function renderRandomLevel(curLevel, levels, res, mode='treble') {
             justNotes.push(x.substring(0, x.length-1));
         }
     }
-    return res.render('individualPages/noteLesson', {notes: levels[curLevel], noteNames: noteNames, img: image, imgList: imgList, i:1, numQs: numQs});
+    return res.render('individualPages/noteLesson', {notes: levels[curLevel].sort(), noteNames: noteNames.sort((a, b) => (a.note > b.note) ? 1 : -1), img: image, imgList: imgList, i:1, numQs: numQs});
 }
 
 function renderSongLevel(songIndices, songName, levels, res, mode='treble') {
@@ -59,7 +59,7 @@ function renderSongLevel(songIndices, songName, levels, res, mode='treble') {
             justNotes.push(x.substring(0, x.length-1));
         }
     }
-    return res.render('individualPages/noteLesson', {notes: notes, songName: songName, noteNames: noteNames, img: image, imgList: imgList, i:1, numQs: songIndices.length});
+    return res.render('individualPages/noteLesson', {notes: notes.sort(), songName: songName, noteNames: noteNames.sort((a, b) => (a.note > b.note) ? 1 : -1), img: image, imgList: imgList, i:1, numQs: songIndices.length});
 }
 
 module.exports = {
