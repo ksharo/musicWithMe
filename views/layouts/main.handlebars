@@ -206,7 +206,36 @@
             document.getElementById("streak").innerText ="Streak: " + streak;
         }
 
-        {{!-- beginTimer() --}}
+        function startCountOff(){
+            console.log("running countoff")
+            let countOff = document.getElementsByClassName("countNumberSection")[0].children
+
+            let i = 0
+            let looper = setInterval(()=>{
+                if(i==0){
+                    countOff[i].classList.add("animateNumber")
+                    i++;
+                }
+                else if(i+1 <= countOff.length){
+                    countOff[i-1].classList.remove("animateNumber");
+                    countOff[i].classList.add("animateNumber");
+                    i++;
+                }
+                else{
+                    clearInterval(looper)
+                    console.log("stopping")
+                    setTimeout(
+                        () => {
+                            countOff[i-1].classList.remove("animateNumber")
+                        }, 700
+                    )
+                }
+
+            }, 850)
+
+
+        }
+
 
     </script>
 </head>
@@ -216,4 +245,8 @@
         {{{body}}}
     </main>
 </body>
+<script>
+        startCountOff()
+
+</script>
 </html>

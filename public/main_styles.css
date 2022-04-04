@@ -40,6 +40,7 @@ h1 {
 
 .lessonBody p {
 	color: #251926;
+	position: relative;
 }
 
 .lessonBody .buttonGroup button {
@@ -122,4 +123,61 @@ button:hover {
 
 .scoreSection{
 	color: black;
+}
+
+.countNumberSection{
+	z-index: 3;
+}
+
+.countNumber {
+    font-size: 274px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 80%;
+    top: 36%;
+    opacity:0;
+    color:red;
+    visibility: hidden;
+}
+
+/* #countNumber2, #countNumber3{
+	display: none;
+} */
+
+.animateNumber, .an{
+	animation: .25s flashIn;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
+
+@keyframes flashIn {
+	0%{
+		visibility: hidden;
+		opacity:0;
+		top:28%;
+		/* transform:scale(3.0) */
+	}
+	85%{
+		visibility: visible;
+		top:36%;
+	}
+	100%{
+		visibility: visible;
+		opacity:1;
+		/* top:36% */
+
+		/* transform:scale(1.0) */
+
+	}
+}
+
+.blurBackground{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	backdrop-filter: blur(4px);
+	z-index: 2;
 }
