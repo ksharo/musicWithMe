@@ -59,6 +59,7 @@
             let curQ = document.getElementById('qTracker').textContent.split('/')[0].split(' ')[1];
             checkAnswer(noteName, pictures[Number(curQ)-1]);
             if (Number(curQ) + 1 > Number(numQs)) {
+                document.getElementById('qTrackerProgressBar').value = Number(curQ);
                 try {
                     if (window.location.href.includes('noteLesson')) {
                         const curLocation = window.location.href.split('noteLesson/')[1];
