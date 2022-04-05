@@ -194,7 +194,7 @@ async function nextLevel(level) {
 }
 
 async function nextLesson() {
-    const level = window.location.href.split("Level/")[1];
+    const level = Number(window.location.href.split("Level/")[1]) + 1;
     if (window.location.href.includes("Song")) {
         if (window.location.href.includes("treble")) {
             const fetchResult = await fetch(
@@ -223,6 +223,9 @@ async function nextLesson() {
 }
 
 async function levelComplete(clef, type, level) {
+    if (streak > maxStreak) {
+        maxStreak = streak;
+    }
     const requestOptions = {
         method: 'POST',
         headers: {
@@ -285,10 +288,6 @@ function scoreIncorrect() {
 }
 
 function startCountOff() {
-    // reset variables
-    maxStreak = 0;
-    numRight = 0;
-    totalQs = 0;
     console.log("running countoff");
     let countOff = document.getElementsByClassName("countNumberSection")[0];
     if (countOff != undefined) {

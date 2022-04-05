@@ -12,6 +12,9 @@ const treble_noteDetails = trebleData.treble_noteDetails;
 const songNames = trebleData.songNames;
 
 let curLevel = 0;
+let streak = 0;
+let score = 0;
+let accuracy = 0;
 
 router
     .route('/')
@@ -83,25 +86,31 @@ router
 router
     .route('/sendNoteData/:level')
     .post(async(req, res) => {
+        score = req.body.score;
+        streak = req.body.streak;
+        accuracy = Math.ceil((Number(req.body.correct) / Number(req.body.total)) * 100);
         return res.status(200).json(req.body);
     });
 
 router
     .route('/sendSongData/:level')
     .post(async(req, res) => {
+        score = req.body.score;
+        streak = req.body.streak;
+        accuracy = Math.ceil((Number(req.body.correct) / Number(req.body.total)) * 100);
         return res.status(200).json(req.body);
     });
 
 router
     .route('/endNoteLevel/:level')
     .get(async(_, res) => {
-        return res.status(200).render('individualPages/lessonResult', { result: 'passed!' });
+        return res.status(200).render('individualPages/lessonResult', { result: 'passed!', score: score, streak: streak, accuracy: accuracy });
     });
 
 router
     .route('/endSongLevel/:level')
     .get(async(_, res) => {
-        return res.status(200).render('individualPages/lessonResult', { result: 'passed!' });
+        return res.status(200).render('individualPages/lessonResult', { result: 'passed!', score: score, streak: streak, accuracy: accuracy });
     });
 
 module.exports = router;
