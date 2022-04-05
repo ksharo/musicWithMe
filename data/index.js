@@ -1,5 +1,6 @@
 module.exports = {
     noteFunctions: require('./noteFunctions'),
     bassData: require('./bassData'),
-    trebleData: require('./trebleData')
+    trebleData: require('./trebleData'),
+    generalFunctions: require('./generalFunctions')
 };

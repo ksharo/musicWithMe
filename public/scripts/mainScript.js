@@ -6,26 +6,38 @@ let scoreCurrQuestion = 1000;
 let numRight = 0;
 let totalQs = 0;
 let interval = null;
+let counting = true;
 
 window.addEventListener("load", () => {
-    if (window.location.href.includes("newLesson")) {
-        new Audio("/public/assets/sounds/success.wav").play();
+    if (window.location.href.includes("end") && window.location.href.includes("Level")) {
+        if (document.getElementById('failBtn') != undefined) {
+            new Audio("/public/assets/sounds/failedLevel.wav").play();
+        } else if (document.getElementById('passBtn') != undefined) {
+            new Audio("/public/assets/sounds/success.wav").play();
+        }
     }
 });
 
 document.addEventListener("keydown", (event) => {
     if (
         window.location.href.includes("noteLesson") ||
-        window.location.href.includes("songLesson")
+        window.location.href.includes("songLesson") &&
+        !counting
     ) {
         const el = document.getElementById(event.key.toUpperCase());
         if (el != undefined && el != null) {
             el.click();
         }
-    }
-    if (window.location.href.includes("newLesson")) {
+    } else if (window.location.href.includes("newLesson")) {
         if (event.key == "Enter" || event.key == "Return") {
             const el = document.getElementById("nextLevelBtn");
+            if (el != undefined && el != null) {
+                el.click();
+            }
+        }
+    } else if (window.location.href.includes("end") && window.location.href.includes('Level')) {
+        if (event.key == "Enter" || event.key == "Return") {
+            const el = document.getElementsByClassName("actionButton")[0];
             if (el != undefined && el != null) {
                 el.click();
             }
@@ -193,8 +205,11 @@ async function nextLevel(level) {
     }
 }
 
-async function nextLesson() {
-    const level = Number(window.location.href.split("Level/")[1]) + 1;
+async function nextLesson(retry = false) {
+    let level = Number(window.location.href.split("Level/")[1]) + 1;
+    if (retry) {
+        level = level - 1;
+    }
     if (window.location.href.includes("Song")) {
         if (window.location.href.includes("treble")) {
             const fetchResult = await fetch(
@@ -289,6 +304,7 @@ function scoreIncorrect() {
 
 function startCountOff() {
     console.log("running countoff");
+    counting = true;
     let countOff = document.getElementsByClassName("countNumberSection")[0];
     if (countOff != undefined) {
         countOff = countOff.children;
@@ -323,6 +339,7 @@ function startCountOff() {
                     blur.classList.remove("blurBackground");
                 }, 300);
                 beginTimer();
+                counting = false;
             }, 100);
         }
     }, 850);
