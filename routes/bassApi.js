@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const data = require('../data');
 const noteFunctions = data.noteFunctions;
+const generalFunctions = data.generalFunctions;
 const bassData = data.bassData;
 
 const songDetails = bassData.songDetails;
@@ -11,6 +12,10 @@ const bass_noteDetails = bassData.bass_noteDetails;
 const bass_levels = bassData.bass_levels;
 
 let curLevel = 0;
+let streak = 0;
+let score = 0;
+let accuracy = 0;
+let totalQs = 0;
 
 router
     .route('/')
@@ -82,25 +87,33 @@ router
 router
     .route('/sendNoteData/:level')
     .post(async(req, res) => {
+        score = req.body.score;
+        streak = req.body.streak;
+        totalQs = req.body.total;
+        accuracy = Math.ceil((Number(req.body.correct) / Number(totalQs)) * 100);
         return res.status(200).json(req.body);
     });
 
 router
     .route('/sendSongData/:level')
     .post(async(req, res) => {
+        score = req.body.score;
+        streak = req.body.streak;
+        totalQs = req.body.total;
+        accuracy = Math.ceil((Number(req.body.correct) / Number(totalQs)) * 100);
         return res.status(200).json(req.body);
     });
 
 router
     .route('/endNoteLevel/:level')
-    .get(async(_, res) => {
-        return res.status(200).render('individualPages/lessonResult', { result: 'passed!' });
+    .get(async(req, res) => {
+        return generalFunctions.renderLessonResult(res, req.params.level, accuracy, score, totalQs, streak, false)
     });
 
 router
     .route('/endSongLevel/:level')
-    .get(async(_, res) => {
-        return res.status(200).render('individualPages/lessonResult', { result: 'passed!' });
+    .get(async(req, res) => {
+        return generalFunctions.renderLessonResult(res, req.params.level, accuracy, score, totalQs, streak, true)
     });
 
 module.exports = router;
