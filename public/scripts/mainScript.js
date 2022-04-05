@@ -20,8 +20,7 @@ window.addEventListener("load", () => {
 
 document.addEventListener("keydown", (event) => {
     if (
-        window.location.href.includes("noteLesson") ||
-        window.location.href.includes("songLesson") &&
+        (window.location.href.includes("noteLesson") || window.location.href.includes("songLesson")) &&
         !counting
     ) {
         const el = document.getElementById(event.key.toUpperCase());

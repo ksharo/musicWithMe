@@ -16,9 +16,19 @@ function renderLessonResult(res, strLevel, accuracy, score, totalQs, streak, son
         timeThreshold = 750;
     }
 
-    let result = 'did not pass :('
+    let result = 'did not pass'
     let fail = true;
+    grade = '&#9785;';
     if (accuracy >= 80 && score > timeThreshold * totalQs) {
+        if ((accuracy >= 95 && score > (timeThreshold * totalQs) * 1.2) || (accuracy >= 92 && score > (timeThreshold * totalQs) * 1.3)) {
+            grade = 'A+';
+        } else if ((accuracy >= 90 && score > (timeThreshold * totalQs) * 1.1) || (accuracy >= 88 && score > (timeThreshold * totalQs) * 1.2)) {
+            grade = 'A';
+        } else if (accuracy >= 85 || (accuracy >= 82 && score > (timeThreshold * totalQs) * 1.3)) {
+            grade = 'B+';
+        } else {
+            grade = 'B';
+        }
         result = 'passed!'
         fail = false;
     }
