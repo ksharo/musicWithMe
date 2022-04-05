@@ -90,6 +90,7 @@ button:hover {
 	font-family: 'Josefin Sans';
 	font-size: 20px;
 	transition:  all .2s ease;
+	box-shadow: 0px 0px 50px #1a1a1a17;
 }
 
 #qTrackerProgressBar::-moz-progress-bar {
@@ -173,31 +174,33 @@ button:hover {
 .reportCard {
 	background: var(--lightBackground);
 	color: black;
-	max-width: 600px;
+	max-width: 550px;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 40px;
 	border-radius: 14px;
-	margin-top: 40px;
+	margin-top: 80px;
+	position: relative;
 }
-h2{
+.reportCard h2{
 	font-size: 60px;
 	margin-bottom: 4px;
 	font-weight: normal;
 	margin-top: 24px;
 }
-h3{
+
+.reportCard h3{
 	font-weight: normal;
 	font-size: 28px;
 	margin-top: 14px;
 }
 
 .reportDetailsTable {
-    width: 84%;
+    width: 100%;
     margin: auto;
     font-size: 24px;
     border-spacing: 20px;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .reportCard tr td:first-child {
@@ -205,11 +208,38 @@ h3{
 }
 .reportCard tr td:last-child {
     text-align: right;
+    color: var(--accent);
+}
+
+.reportGrade {
+	position: absolute;
+	right: 40px;
+	top: -5px;
+	transform: rotate(345deg) scale(14);
+	font-size: 61px;
+	color: var(--accent);
+	opacity: .9;
+}
+
+.animateStamp, .as{
+	animation: .25s animateStamp;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
+
+@keyframes animateStamp {
+	0%{
+		transform: rotate(345deg) scale(14);
+	}
+	100%{
+		transform: rotate(345deg) scale(1);
+	}
 }
 
 
-
-
+.cardNav{
+	margin-top: 50px;
+}
 
 .bottomNav{
 	margin-bottom: 64px;
@@ -347,4 +377,73 @@ h3{
 
 footer {
 	padding: 10px;
+}
+
+/*lessons styling*/
+
+.filters{
+	position:absolute;
+	display: inline-block;
+	font-size: 25px;
+	margin-top: 30px;
+	padding-top: 0;
+}
+
+.lessons{
+	position:absolute;
+	font-size: 40px;
+	display: inline-block;
+	margin-left: 250px;
+}
+
+.lesson-container{
+	padding: 20px;
+	padding-right: 55%;
+}
+
+.filter-list{
+	text-align:left;
+	padding:10px;
+	list-style: none;
+}
+
+li{
+	padding: 5px;
+}
+
+#subheader{
+	font-weight: bold;
+	font-style: italic;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.content{
+	position: relative;
+}
+
+.picture{
+    width: 300px;
+	height: 200px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+.picture:hover{
+    transition: all .3s ease;
+    opacity: .3;
+}
+
+.caption{
+	position: absolute;
+	top: 70%;
+	bottom: 35%;
+	left: 7%;
 }
