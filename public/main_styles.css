@@ -212,3 +212,48 @@ button:hover {
 		visibility: hidden;
 	}
 }
+
+/*homepage styling*/
+
+.homeBG{
+	height: 700px;
+	width: 100%;
+	background-size: cover;
+	object-fit: cover;
+}
+
+.divider{
+	margin: 50px;
+}
+
+.homeText1{
+	position: absolute;
+	top: 300px;
+	text-align: left;
+	left: 100px;
+}
+
+.homeText2{
+	position: absolute;
+	top: 1150px;
+	text-align: right;
+	right: 100px;
+}
+
+.homeHeader2{
+	font-size: 48px;
+	margin: 0px;
+}
+
+.startLearn{
+	background-color: #ff9999;
+	font-size: 20px;
+	padding: 14px 40px;
+	border-radius: 40px;
+	font-family: 'Josefin Sans', sans-serif;
+	border: none;
+}
+
+footer {
+	padding: 10px;
+}
