@@ -209,9 +209,10 @@
         function startCountOff(){
             console.log("running countoff")
             let countOff = document.getElementsByClassName("countNumberSection")[0].children
-
+            const sounds = ['countdown3.wav', 'countdown2.wav', 'countdown1.wav', 'countdownGO.wav'];
             let i = 0
             let looper = setInterval(()=>{
+                new Audio('/public/assets/sounds/'+sounds[i]).play();
                 if(i==0){
                     countOff[i].classList.add("animateNumber")
                     i++;
