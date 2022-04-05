@@ -28,10 +28,16 @@ document.addEventListener("keydown", (event) => {
         if (el != undefined && el != null) {
             el.click();
         }
-    }
-    if (window.location.href.includes("newLesson")) {
+    } else if (window.location.href.includes("newLesson")) {
         if (event.key == "Enter" || event.key == "Return") {
             const el = document.getElementById("nextLevelBtn");
+            if (el != undefined && el != null) {
+                el.click();
+            }
+        }
+    } else if (window.location.href.includes("end") && window.location.href.includes('Level')) {
+        if (event.key == "Enter" || event.key == "Return") {
+            const el = document.getElementsByClassName("actionButton")[0];
             if (el != undefined && el != null) {
                 el.click();
             }

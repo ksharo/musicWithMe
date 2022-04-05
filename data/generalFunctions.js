@@ -1,5 +1,6 @@
 function renderLessonResult(res, strLevel, accuracy, score, totalQs, streak, song = false) {
     let level = Number(strLevel);
+    let grade = 'A+';
     let timeThreshold = 800;
     if (song) {
         timeThreshold = 500;
@@ -21,7 +22,7 @@ function renderLessonResult(res, strLevel, accuracy, score, totalQs, streak, son
         result = 'passed!'
         fail = false;
     }
-    return res.status(200).render('individualPages/lessonResult', { result: result, fail: fail, minScore: timeThreshold * totalQs, score: score, streak: streak, accuracy: accuracy });
+    return res.status(200).render('individualPages/lessonResult', { result: result, grade: grade, fail: fail, minScore: timeThreshold * totalQs, score: score, streak: streak, accuracy: accuracy });
 }
 
 module.exports = {
