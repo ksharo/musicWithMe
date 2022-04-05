@@ -1,5 +1,24 @@
-<h1>You {{result}}</h1>
-<h2>Score: {{score}}</h2>
-<h2>Highest Streak: {{streak}}</h2>
-<h2>Accuracy: {{accuracy}}%</h2> 
-<button onClick="nextLesson()">Next Level</button>
+<section class="reportCard">
+	<h2>Report Card</h2>
+	<h3>you {{result}}</h3>
+	<table class="reportDetailsTable">
+		<tbody>
+			<tr>
+				<td>Score</td>
+				<td>{{score}}</td>
+			</tr>
+			<tr>
+				<td>Highest Streak</td>
+				<td>{{streak}}</td>
+			</tr>
+			<tr>
+				<td>Accuracy</td>
+				<td>{{accuracy}}%</td>
+			</tr>
+		</tbody>
+	</table>
+	{{!-- <p>Score</p><p>{{score}}</p>
+	<p>Highest Streak: {{streak}}</p>
+	<p>Accuracy: {{accuracy}}%</p> --}}
+	<button class="actionButton" onClick="nextLesson()">Next Level</button>
+</section>

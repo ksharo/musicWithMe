@@ -5,6 +5,7 @@
 	--primary: #251926;
 	--secondary: #E38F8F;
 	--accent: #E38F8F;
+	--lightBackground: #EDEDED;
 }
 
 html {
@@ -32,7 +33,7 @@ h1 {
 }
 
 .lessonBody {
-	background-color: #EDEDED;
+	background-color: var(--lightBackground);
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -167,6 +168,45 @@ button:hover {
 	margin-left: -500px;
 	width: 1000px;
 }
+
+
+.reportCard {
+	background: var(--lightBackground);
+	color: black;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 40px;
+	border-radius: 14px;
+	margin-top: 40px;
+}
+h2{
+	font-size: 60px;
+	margin-bottom: 4px;
+	font-weight: normal;
+	margin-top: 24px;
+}
+h3{
+	font-weight: normal;
+	font-size: 28px;
+	margin-top: 14px;
+}
+
+.reportDetailsTable {
+    width: 84%;
+    margin: auto;
+    font-size: 24px;
+    border-spacing: 20px;
+    margin-top: 50px;
+}
+
+.reportCard tr td:first-child {
+    text-align: left;
+}
+.reportCard tr td:last-child {
+    text-align: right;
+}
+
 
 
 
