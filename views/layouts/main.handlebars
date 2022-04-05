@@ -206,14 +206,15 @@
             document.getElementById("streak").innerText ="Streak: " + streak;
         }
 
-        function startCountOff(){
+        function startCountOff() {
             console.log("running countoff")
-            let countOff = document.getElementsByClassName("countNumberSection")[0].children
+            let countOff = document.getElementsByClassName("countNumberSection")[0].children;
+            const blur = document.getElementsByClassName("blurBackground")[0];
             const sounds = ['countdown3.wav', 'countdown2.wav', 'countdown1.wav', 'countdownGO.wav'];
             let i = 0
-            let looper = setInterval(()=>{
+            let looper = setInterval(() => {
                 new Audio('/public/assets/sounds/'+sounds[i]).play();
-                if(i==0){
+                if(i==0) {
                     countOff[i].classList.add("animateNumber")
                     i++;
                 }
@@ -222,19 +223,24 @@
                     countOff[i].classList.add("animateNumber");
                     i++;
                 }
-                else{
+                else {
                     clearInterval(looper)
                     console.log("stopping")
                     setTimeout(
                         () => {
+                            blur.classList.add('animateBlur');
                             countOff[i-1].classList.remove("animateNumber")
-                        }, 700
-                    )
+                            countOff[i-1].classList.add('animateHide');
+                            setTimeout(
+                                () => {
+                                    blur.classList.remove('blurBackground');
+                                }, 300
+                            );
+                            beginTimer();
+                        }, 100
+                    );
                 }
-
-            }, 850)
-
-
+            }, 850);
         }
 
 

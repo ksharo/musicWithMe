@@ -152,17 +152,17 @@ button:hover {
 }
 
 @keyframes flashIn {
-	0%{
+	0% {
 		visibility: hidden;
 		opacity:0;
 		top:28%;
 		/* transform:scale(3.0) */
 	}
-	85%{
+	85% {
 		visibility: visible;
 		top:36%;
 	}
-	100%{
+	100% {
 		visibility: visible;
 		opacity:1;
 		/* top:36% */
@@ -172,7 +172,7 @@ button:hover {
 	}
 }
 
-.blurBackground{
+.blurBackground {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -180,4 +180,35 @@ button:hover {
 	height: 100%;
 	backdrop-filter: blur(4px);
 	z-index: 2;
+}
+
+.animateBlur {
+	animation: .3s unblur;
+}
+
+@keyframes unblur {
+	from {
+		backdrop-filter: blur(4px);
+	}
+	to {
+		backdrop-filter: none;
+	}
+}
+
+.animateHide {
+	animation: .3s fadeOut;
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+		visibility: visible;
+	}
+	50% {
+		opacity: 0.2;
+	}
+	100% {
+		opacity: 0;
+		visibility: hidden;
+	}
 }
