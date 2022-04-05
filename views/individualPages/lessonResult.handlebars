@@ -2,4 +2,10 @@
 <h2>Score: {{score}}</h2>
 <h2>Accuracy: {{accuracy}}%</h2> 
 <h2>Highest Streak: {{streak}}</h2>
-<button onClick="nextLesson()">Next Level</button>
+{{#if fail}}
+    <h2>Passing Score: {{minScore}}</h2>
+    <h2>Passing Accuracy: 80%</h2>
+    <button id='failBtn' onClick="nextLesson(true)">Try Again</button>
+    {{else}}
+    <button id='passBtn' onClick="nextLesson()">Next Level</button>
+{{/if}}

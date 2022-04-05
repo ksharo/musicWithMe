@@ -15,11 +15,13 @@ function renderLessonResult(res, strLevel, accuracy, score, totalQs, streak, son
         timeThreshold = 750;
     }
 
-    let result = 'Did Not Pass :('
+    let result = 'did not pass :('
+    let fail = true;
     if (accuracy >= 80 && score > timeThreshold * totalQs) {
-        result = 'Passed!'
+        result = 'passed!'
+        fail = false;
     }
-    return res.status(200).render('individualPages/lessonResult', { result: result, score: score, streak: streak, accuracy: accuracy });
+    return res.status(200).render('individualPages/lessonResult', { result: result, fail: fail, minScore: timeThreshold * totalQs, score: score, streak: streak, accuracy: accuracy });
 }
 
 module.exports = {
