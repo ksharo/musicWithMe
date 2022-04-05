@@ -27,6 +27,14 @@ document.addEventListener("keydown", (event) => {
         if (el != undefined && el != null) {
             el.click();
         }
+    } else if (
+        (window.location.href.includes("noteLesson") || window.location.href.includes("songLesson")) &&
+        counting
+    ) {
+        if (event.key == "Enter" || event.key == "Return") {
+            // TODO: speed up countoff
+
+        }
     } else if (window.location.href.includes("newLesson")) {
         if (event.key == "Enter" || event.key == "Return") {
             const el = document.getElementById("nextLevelBtn");
@@ -302,7 +310,6 @@ function scoreIncorrect() {
 }
 
 function startCountOff() {
-    console.log("running countoff");
     counting = true;
     let countOff = document.getElementsByClassName("countNumberSection")[0];
     if (countOff != undefined) {
@@ -329,7 +336,6 @@ function startCountOff() {
             i++;
         } else {
             clearInterval(looper);
-            console.log("stopping");
             setTimeout(() => {
                 blur.classList.add("animateBlur");
                 countOff[i - 1].classList.remove("animateNumber");
