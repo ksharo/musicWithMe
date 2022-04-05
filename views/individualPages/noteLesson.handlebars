@@ -5,16 +5,24 @@
         <div class="countNumber" id="countNumber1">1</div>
         <div class="countNumber" id="countNumberGo">Go!</div>
     </section>
+
     <section class="blurBackground">
 
     </section>
-    <p id="qTracker">Question: {{i}}/{{numQs}}</p>
-    <progress id="qTrackerProgressBar" value={{i}} max={{numQs}}> 32% </progress>
-    <section class="scoreSection">
-        <div id="timer">0s</div>
-        <div id="currentScore">Total: 0</div>
-        <div id="streak">Streak: 0</div>
+
+    <section class="questionHeader">
+        <p id="qTracker">Question: {{i}}/{{numQs}}</p>
+        <section class="scoreSection">
+            <div id="currentScore">Total: 0</div>
+            <div id="streak">Streak: 0</div>
+        </section>
+        <progress id="qTrackerProgressBar" value={{i}} max={{numQs}}> 32% </progress>
+        <section class="timerArea">
+            <div id="timer">1000</div>
+        </section>
     </section>
+
+
 
 
     <img id='qImg' src={{img}} />
@@ -24,4 +32,7 @@
         {{/each}}
     </section>
 </section>
-<button onClick="restart()">Restart</button>
+<section class="bottomNav">
+    <button class="actionButton" onClick="restart()">Restart</button>
+
+</section>
