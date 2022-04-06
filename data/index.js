@@ -4,5 +4,5 @@ module.exports = {
     trebleData: require('./trebleData'),
     generalFunctions: require('./generalFunctions'),
     accountFunctions: require('./accountData'),
-    songData: require('./songData')
+    songFunctions: require('./songFunctions')
 };

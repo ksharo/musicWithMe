@@ -1,6 +1,6 @@
 {
     "mongoConfig": {
-      "serverUrl": "mongodb://localhost:27017/",
-      "database": "MustWithMe"
+      "serverUrl": "mongodb://0.0.0.0:27017/",
+      "database": "MusicWithMe"
     }
 }
