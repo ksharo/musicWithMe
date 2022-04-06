@@ -183,7 +183,7 @@ button:hover {
     position: relative;
 }
 
-.reportCard h2 {
+.reportCard h2, .store h2 {
     font-size: 60px;
     margin-bottom: 4px;
     font-weight: normal;
@@ -249,24 +249,75 @@ button:hover {
     margin-bottom: 64px;
 }
 
-.storeBody .storeCard{
-	position: relative;
+.storeBody {
+    display: flex;
+    justify-content: center;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.storeBody .storeCard {
+    position: relative;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .storeBody .cardImage {
-	object-fit: cover;
-	width: 400px;
-	height: 200px;
+    object-fit: cover;
+    width: 400px;
+    height: 230px;
+    border-radius: 14px;
+    box-shadow: 6px 0px 30px rgb(0 0 0 / 12%);
 }
 
-.storeBody .cardName{
-	position: absolute;
-	right:0;
+.storeBody .cardName {
+    position: absolute;
+    left: 14px;
+    bottom: 0;
+    font-size: 28px;
+    background: rgba(0,0,0,.6);
+    padding: 14px 14px 10px 14px;
+    border-radius: 12px;
+    transition: transform .25s;
+    will-change: transform;
 }
 
-.storeBody .cardPrice{
-	position: absolute;
-	bottom: 0;
+
+.storeBody .cardPrice {
+    position: absolute;
+    top: 0;
+    right: 14px;
+    background: rgba(0,0,0,.7);
+    padding: 4px 3px 2px 3px;
+    border-radius: 4px;
+    transition: padding .25s;
+    will-change: padding;
+}
+
+.storeBody .storeCard:hover .cardPrice {
+    padding: 4px 19px 2px 8px;
+}
+.storeBody .storeCard .cardPrice:after {
+    content: "♪";
+    font-size: 16px;
+    position: absolute;
+    top: -1px;
+    right: 7px;
+    opacity: 0;
+    transition: opacity .2s;
+    /* transition-delay: .2s; */
+}
+
+.storeBody .storeCard:hover .cardPrice:after {
+    content: "♪";
+
+    opacity: 1;
+}
+
+.storeBody .storeCard:hover .cardName {
+    transform: scale(1.05);
 }
 
 .countNumberSection {
