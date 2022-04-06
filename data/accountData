@@ -1,0 +1,28 @@
+const mongoCollections = require('../config/mongoCollections');
+const accountsDB = mongoCollections.accounts;
+const { ObjectId } = require('mongodb');
+
+const create = async function create(username, password){
+    const myAccounts = await accountsDB();
+    const insert = await myAccounts.insertOne({username:username, password:password, hiscores:[], lessonsCompleted:[], coins:0});
+    if (!insert.acknowledged || !insert.insertedId){
+        throw "Error: Could not add account!";
+    }
+    return {_id:insert.insertedId.toString(), username:username, password:password, hiscores:[], lessonsCompleted:[], coins:0};
+}
+const getAndValidate = async function getAndValidate(username, password){
+    const myAccounts = await accountsDB();
+    let accounts = await myAccounts.find({username:username}).toArray();
+    if(!accounts){
+        throw "Error: Could not find account!";
+    }
+    for(let i = 0; i <  accounts.length; i++){
+        if(accounts[i]['password'] === password){
+            return accounts[i];
+        }
+    }
+}
+module.exports = {
+    create,
+    getAndValidate
+};
