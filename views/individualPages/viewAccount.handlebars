@@ -1,0 +1,17 @@
+<h2>Welcome, {{username}}!</h1>
+<div>
+    <h3>Lessons Completed</h3>
+    <ul class="lessonList">
+        {{#each lessonsCompleted}}
+        <li>{{this}}</li>
+        {{else}}
+        </ul>
+        No Lessons Completed
+        <br>
+        <br>
+        <form class = 'index-form' action = '/lessons' method = 'GET'>
+                <button class = "startLearn"> Start Learning Today!</button>
+        </form>
+        {{/each}}
+    </ul>
+</div>

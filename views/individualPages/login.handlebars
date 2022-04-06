@@ -1,0 +1,14 @@
+<body>
+    <form name="myForm" action="/account/view" method="post" id="form">
+        <label for="username">Usename:</label><br>
+        <input type="text" id="username" name="username" required="required" minlength="5"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required="required" minlength="5"><br>
+        <br>
+        {{#if error}}
+        <span>Error: Invalid Username or Password!</span>
+        {{/if}}
+        <br>
+        <button class="actionButton" type="submit" id="btn">Login</button>
+    </form>
+</body>
