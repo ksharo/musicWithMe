@@ -3,5 +3,6 @@ module.exports = {
     bassData: require('./bassData'),
     trebleData: require('./trebleData'),
     generalFunctions: require('./generalFunctions'),
+    accountFunctions: require('./accountData'),
     songData: require('./songData')
 };
