@@ -249,6 +249,26 @@ button:hover {
     margin-bottom: 64px;
 }
 
+.storeBody .storeCard{
+	position: relative;
+}
+
+.storeBody .cardImage {
+	object-fit: cover;
+	width: 400px;
+	height: 200px;
+}
+
+.storeBody .cardName{
+	position: absolute;
+	right:0;
+}
+
+.storeBody .cardPrice{
+	position: absolute;
+	bottom: 0;
+}
+
 .countNumberSection {
     z-index: 3;
 }
