@@ -212,6 +212,16 @@ async function nextLevel(level) {
     }
 }
 
+async function toLink(url) {
+    if (url[0] != '/') {
+        url = '/' + url;
+    }
+    const fetchResult = await fetch(
+        "http://localhost:3030" + url
+    );
+    window.location.href = fetchResult.url;
+}
+
 async function nextLesson(retry = false) {
     let level = Number(window.location.href.split("Level/")[1]) + 1;
     if (retry) {
@@ -348,6 +358,152 @@ function startCountOff() {
             }, 100);
         }
     }, 850);
+}
+
+function filter(type, clef) {
+    document.getElementById('hideLessons').textContent = 'Hide';
+    if (type == 'none' && clef == 'none') {
+        const lessons = document.getElementsByClassName('lessonCard');
+        const songs = document.getElementsByClassName('songCard');
+        for (let x of lessons) {
+            x.style.display = 'block';
+        }
+        for (let x of songs) {
+            x.style.display = 'block';
+        }
+        const lessonBtns = document.getElementsByClassName('lessonFilterBtn');
+        for (let x of lessonBtns) {
+            x.style.color = 'white';
+        }
+        const songBtns = document.getElementsByClassName('songFilterBtn');
+        for (let x of songBtns) {
+            x.style.color = 'white';
+        }
+        return;
+    }
+
+    if (type == 'lessons' && clef == 'treble') {
+        const lessons = document.getElementsByClassName('lessonCard');
+        for (let x of lessons) {
+            if (!x.classList.contains('trebleCard')) {
+                x.style.display = 'none';
+            } else {
+                x.style.display = 'block';
+            }
+        }
+        const lessonBtns = document.getElementsByClassName('lessonFilterBtn');
+        for (let x of lessonBtns) {
+            x.style.color = 'white';
+        }
+        const filterBtn = document.getElementById('trebleLessonFilter');
+        if (filterBtn) {
+            filterBtn.style.color = 'var(--secondary)';
+        }
+        return;
+    }
+
+    if (type == 'lessons' && clef == 'bass') {
+        const lessons = document.getElementsByClassName('lessonCard');
+        for (let x of lessons) {
+            if (!x.classList.contains('bassCard')) {
+                x.style.display = 'none';
+            } else {
+                x.style.display = 'block';
+            }
+        }
+        const lessonBtns = document.getElementsByClassName('lessonFilterBtn');
+        for (let x of lessonBtns) {
+            x.style.color = 'white';
+        }
+        const filterBtn = document.getElementById('bassLessonFilter');
+        if (filterBtn) {
+            filterBtn.style.color = 'var(--secondary)';
+        }
+        return;
+    }
+
+    if (type == 'songs' && clef == 'treble') {
+        const songs = document.getElementsByClassName('songCard');
+        for (let x of songs) {
+            if (!x.classList.contains('trebleCard')) {
+                x.style.display = 'none';
+            } else {
+                x.style.display = 'block';
+            }
+        }
+        const songBtns = document.getElementsByClassName('songFilterBtn');
+        for (let x of songBtns) {
+            x.style.color = 'white';
+        }
+        const filterBtn = document.getElementById('trebleSongFilter');
+        if (filterBtn) {
+            filterBtn.style.color = 'var(--secondary)';
+        }
+        return;
+    }
+    if (type == 'songs' && clef == 'bass') {
+        const songs = document.getElementsByClassName('songCard');
+        for (let x of songs) {
+            if (!x.classList.contains('bassCard')) {
+                x.style.display = 'none';
+            } else {
+                x.style.display = 'block';
+            }
+        }
+        const songBtns = document.getElementsByClassName('songFilterBtn');
+        for (let x of songBtns) {
+            x.style.color = 'white';
+        }
+        const filterBtn = document.getElementById('bassSongFilter');
+        if (filterBtn) {
+            filterBtn.style.color = 'var(--secondary)';
+        }
+        return;
+    }
+    if (type == 'songs' && clef == 'purchased') {
+        const songs = document.getElementsByClassName('songCard');
+        for (let x of songs) {
+            if (!x.classList.contains('purchasedCard')) {
+                x.style.display = 'none';
+            } else {
+                x.style.display = 'block';
+            }
+        }
+        const songBtns = document.getElementsByClassName('songFilterBtn');
+        for (let x of songBtns) {
+            x.style.color = 'white';
+        }
+        const filterBtn = document.getElementById('purchasedSongFilter');
+        if (filterBtn) {
+            filterBtn.style.color = 'var(--secondary)';
+        }
+        return;
+    }
+}
+
+function toggleLessons() {
+    const lessons = document.getElementsByClassName('lessonCard');
+    const lessonBtns = document.getElementsByClassName('lessonFilterBtn');
+    for (let x of lessonBtns) {
+        x.style.color = 'white';
+    }
+    const songBtns = document.getElementsByClassName('songFilterBtn');
+    for (let x of songBtns) {
+        x.style.color = 'white';
+    }
+    for (let x of lessons) {
+        if (x.style.display != 'none') {
+            document.getElementById('hideLessons').textContent = 'Show';
+            for (let y of lessons) {
+                y.style.display = 'none';
+            }
+            return;
+        }
+    }
+    for (let x of lessons) {
+        document.getElementById('hideLessons').textContent = 'Hide';
+        x.style.display = 'block';
+    }
 }
 
 startCountOff();

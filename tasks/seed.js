@@ -90,6 +90,7 @@ async function main() {
     trebleImages = [
         '',
         '',
+        ''
     ]
 
     const trebleSongs = [amazingGrace, raining, birthday];
