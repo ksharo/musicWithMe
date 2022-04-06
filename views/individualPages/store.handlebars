@@ -1,15 +1,19 @@
 <h2>Treble Clef Songs</h2>
-{{#each trebleSongs}}
-    <section>
-        {{name}}
-        {{price}}
-    </section>
-{{/each}}
+<section class="storeBody">
+    {{#each trebleSongs}}
+        <section class="storeCard">
+            <img src="{{picture}}" alt="{{name}} image" class="cardImage"/>
+            <p class="cardName">{{name}}</p>
+            <p class="cardPrice">{{price}}</p>
+        </section>
+    {{/each}}
 
-<h2>Bass Clef Songs</h2>
-{{#each bassSongs}}
-    <section>
-        {{name}}
-        {{price}}
-    </section>
-{{/each}}
+    <h2>Bass Clef Songs</h2>
+    {{#each bassSongs}}
+        <section class="storeCard">
+            <img src="{{picture}}" alt="{{name}} image" class="cardImage"/>
+            <p class="cardName">{{name}}</p>
+            <p class="cardPrice">{{price}}</p>
+        </section>
+    {{/each}}
+</section>
