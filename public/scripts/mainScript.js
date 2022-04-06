@@ -361,7 +361,13 @@ function startCountOff() {
 }
 
 function filter(type, clef) {
-    document.getElementById('hideLessons').textContent = 'Hide';
+    if (type == 'lessons') {
+        document.getElementById('hideLessons').textContent = 'Hide';
+    }
+    if (type == 'songs') {
+        document.getElementById('hideSongs').textContent = 'Hide';
+    }
+
     if (type == 'none' && clef == 'none') {
         const lessons = document.getElementsByClassName('lessonCard');
         const songs = document.getElementsByClassName('songCard');
@@ -487,10 +493,6 @@ function toggleLessons() {
     for (let x of lessonBtns) {
         x.style.color = 'white';
     }
-    const songBtns = document.getElementsByClassName('songFilterBtn');
-    for (let x of songBtns) {
-        x.style.color = 'white';
-    }
     for (let x of lessons) {
         if (x.style.display != 'none') {
             document.getElementById('hideLessons').textContent = 'Show';
@@ -502,6 +504,27 @@ function toggleLessons() {
     }
     for (let x of lessons) {
         document.getElementById('hideLessons').textContent = 'Hide';
+        x.style.display = 'block';
+    }
+}
+
+function toggleSongs() {
+    const songs = document.getElementsByClassName('songCard');
+    const songBtns = document.getElementsByClassName('songFilterBtn');
+    for (let x of songBtns) {
+        x.style.color = 'white';
+    }
+    for (let x of songs) {
+        if (x.style.display != 'none') {
+            document.getElementById('hideSongs').textContent = 'Show';
+            for (let y of songs) {
+                y.style.display = 'none';
+            }
+            return;
+        }
+    }
+    for (let x of songs) {
+        document.getElementById('hideSongs').textContent = 'Hide';
         x.style.display = 'block';
     }
 }

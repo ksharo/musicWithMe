@@ -494,7 +494,7 @@ footer {
 .lessonSection {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    row-gap: 30px;
 }
 
 .filter-list li {
@@ -585,71 +585,3 @@ footer {
 .hideSpan:active {
     filter: brightness(70%);
 }
-
-
-/* .filters {
-    position: absolute;
-    display: inline-block;
-    font-size: 25px;
-    margin-top: 30px;
-    padding-top: 0;
-}
-
-.lessons {
-    position: absolute;
-    font-size: 40px;
-    display: inline-block;
-    margin-left: 250px;
-}
-
-.lesson-container {
-    padding: 20px;
-    padding-right: 55%;
-}
-
-.filter-list {
-    text-align: left;
-    padding: 10px;
-    list-style: none;
-}
-
-li {
-    padding: 5px;
-}
-
-#subheader {
-    font-weight: bold;
-    font-style: italic;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.content {
-    position: relative;
-}
-
-.picture {
-    width: 300px;
-    height: 200px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    margin-left: 15px;
-    margin-right: 15px;
-    border-radius: 10px;
-}
-
-.picture:hover {
-    transition: all .3s ease;
-    opacity: .3;
-}
-
-.caption {
-    position: absolute;
-    top: 70%;
-    bottom: 35%;
-    left: 7%;
-} */
