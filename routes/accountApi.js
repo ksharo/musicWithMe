@@ -5,7 +5,7 @@ const accountFunctions = data.accountFunctions;
 
 router
     .route('/')
-    .get(async(req, res) => {
+    .get(async(_, res) => {
         return res.status(200).render('individualPages/login');
     });
 router
@@ -13,11 +13,11 @@ router
     .post(async(req, res) => {
         // get account by username
         let account = await accountFunctions.getAndValidate(req.body['username'], req.body['password']);
-        if(!account){
-            return res.status(200).render('individualPages/login', {error:"Error: Invalid Password"});
+        if (!account) {
+            return res.status(200).render('individualPages/login', { error: "Error: Invalid Password" });
         }
         // fill in handlebars data
-        return res.status(200).render('individualPages/viewAccount', {username: account["username"], lessonsCompleted: account["lessonsCompleted"]});
+        return res.status(200).render('individualPages/viewAccount', { username: account["username"], lessonsCompleted: account["lessonsCompleted"] });
     });
 router
     .route('/create')
