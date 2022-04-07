@@ -216,6 +216,14 @@ async function toLink(url) {
     if (url[0] != '/') {
         url = '/' + url;
     }
+
+    if (url.includes('/0') && !url.includes('song')) {
+        if (url.includes('bass')) {
+            url = '/bass';
+        } else {
+            url = '/treble';
+        }
+    }
     const fetchResult = await fetch(
         "http://localhost:3030" + url
     );

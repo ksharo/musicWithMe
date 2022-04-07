@@ -20,21 +20,21 @@
         <h2 class="lessonHeader">Lessons</h2>
          <p id='hideLessons' class='hideSpan' onClick="toggleLessons()">Hide</p>
             <article class="lessonSection">
-                <section onClick="toLink('/treble')" class="lessonCard trebleCard">
+                <section onClick="toLink('/treble/newLesson/notes/{{btLevels}}')" class="lessonCard trebleCard">
                     <h3>Treble Clef</h3>
                     <h4>Beginner Notes</h4>
                     <div class="imgContainer">
                         <img src="/public/assets/images/treble/treble_C1.png" />
                     </div>
-                    <h4>Progress: 0%</h4>
+                    <h4>Progress: {{btPerc}}%</h4>
                 </section>
-                <section onClick="toLink('/bass')" class="lessonCard bassCard">
+                <section onClick="toLink('/bass/newLesson/notes/{{bbLevels}}')" class="lessonCard bassCard">
                     <h3>Bass Clef</h3>
                     <h4>Beginner Notes</h4>
                     <div class="imgContainer">
                         <img src="/public/assets/images/bass/bass_E2.png" />
                     </div>
-                    <h4>Progress: 0%</h4>
+                    <h4>Progress: {{bbPerc}}%</h4>
                 </section>
                 <section class="lessonCard trebleCard">
                     <h3>Treble Clef</h3>    
@@ -42,7 +42,7 @@
                     <div class="imgContainer">
                         <img src="/public/assets/images/treble/treble_Bb2.png" />
                     </div>
-                    <h4>Progress: 0%</h4>
+                    <h4>Progress: {{atPerc}}%</h4>
                 </section>
                 <section class="lessonCard bassCard">
                     <h3>Bass Clef</h3>
@@ -50,7 +50,7 @@
                     <div class="imgContainer">
                         <img src="/public/assets/images/bass/bass_C%233.png" />
                     </div>
-                    <h4>Progress: 0%</h4>
+                    <h4>Progress: {{abPerc}}%</h4>
                 </section>
             </article>
         <h2 class="lessonHeader">Song Levels</h2>
@@ -76,7 +76,7 @@
                     <h3>Treble Clef</h3>    
                     <h4>Advanced Songs</h4>
                     <div class="imgContainer">
-                        <img src="/public/assets/images/treble/treble_Bb2.png" />
+                        <img src="/public/assets/images/treble/treble_D%232.png" />
                     </div>
                     <h4>Progress: 0%</h4>
                 </section>
@@ -84,7 +84,7 @@
                     <h3>Bass Clef</h3>
                     <h4>Advanced Songs</h4>
                     <div class="imgContainer">
-                        <img src="/public/assets/images/bass/bass_C%233.png" />
+                        <img src="/public/assets/images/bass/bass_Bb2.png" />
                     </div>
                     <h4>Progress: 0%</h4>
                 </section>
