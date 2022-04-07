@@ -21,10 +21,8 @@ window.addEventListener("load", () => {
 let key1 = null;
 let key2 = null;
 document.addEventListener("keyup", () => {
-    console.log('hi')
     if (key1 != null) {
         let key = key1;
-        console.log(key1);
         if (key2 != null) {
             if (key1 == 'ARROWUP') {
                 key = key2 + '#';
@@ -36,7 +34,6 @@ document.addEventListener("keyup", () => {
                 key = key1 + 'b';
             }
         }
-        console.log(key);
         const el = document.getElementById(key);
         if (el != undefined && el != null) {
             el.click();
