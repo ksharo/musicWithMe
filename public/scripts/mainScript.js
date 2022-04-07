@@ -568,4 +568,42 @@ function toggleSongs() {
     }
 }
 
+function purchaseSong(name, price){
+    let modalBackdrop   = document.createElement('section')
+    let popUpModal      = document.createElement('section')
+    let modalText       = document.createElement('section')
+    let okButton        = document.createElement('button')
+    let cancelButton    = document.createElement('button')
+
+    modalText.innerText     = "You are about to buy " + name + " for " + price + "♪"
+    cancelButton.innerText  = "Cancel"
+    okButton.innerText      = "OK"
+
+    modalBackdrop.classList.add("modalBackdrop")
+    popUpModal.classList.add("popUpModal")
+    modalText.classList.add("modalText")
+    cancelButton.classList.add("modalButton", "actionButton")
+    okButton.classList.add("modalButton", "actionButton")
+
+    cancelButton.setAttribute("onclick", "closePopUp()")
+    modalBackdrop.setAttribute("onclick", "closePopUp()")
+
+    popUpModal.appendChild(modalText)
+    popUpModal.appendChild(cancelButton)
+    popUpModal.appendChild(okButton)
+
+    document.getElementById("modalInsert").appendChild(modalBackdrop)
+    document.getElementById("modalInsert").appendChild(popUpModal)
+}
+
+function closePopUp(){
+    document.getElementsByClassName("popUpModal")[0].classList.add("animateSwipeUpAway")
+    document.getElementsByClassName("modalBackdrop")[0].classList.add("animateFadeOut")
+
+    setTimeout(() =>{
+        document.getElementsByClassName("modalBackdrop")[0].remove()
+        document.getElementsByClassName("popUpModal")[0].remove()
+    }, 1000)
+}
+
 startCountOff();

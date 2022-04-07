@@ -257,12 +257,47 @@ button:hover {
     margin-bottom: 64px;
 }
 
+
+/* store section */
+
+.store{
+    margin-bottom: 80px;
+}
+
+.store h2 {
+    font-size: 60px;
+    margin-bottom: 4px;
+    font-weight: normal;
+    margin-top: 66px;
+}
+
+.store h3{
+    font-size: 28px;
+    margin-top: 40px;
+    font-weight: 100;
+}
+
 .storeBody {
-    display: flex;
-    justify-content: center;
-    max-width: 1500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 1350px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+    grid-row-gap: 35px;
+}
+
+@media screen and (max-width: 1300px) {
+    .storeBody{
+        grid-template-columns: 1fr 1fr;
+        max-width: 900px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .storeBody{
+        grid-template-columns: 1fr;
+    }
 }
 
 .storeBody .storeCard {
@@ -303,6 +338,15 @@ button:hover {
     will-change: padding;
 }
 
+.cardLink {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
 .storeBody .storeCard:hover .cardPrice {
     padding: 4px 19px 2px 8px;
 }
@@ -315,17 +359,55 @@ button:hover {
     right: 7px;
     opacity: 0;
     transition: opacity .2s;
-    /* transition-delay: .2s; */
+    /* transition-delay: .0s; */
 }
 
 .storeBody .storeCard:hover .cardPrice:after {
     content: "♪";
+    /* transition-delay: .1s; */
     opacity: 1;
 }
 
 .storeBody .storeCard:hover .cardName {
     transform: scale(1.05);
 }
+
+.modalBackdrop{
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    bottom:0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.popUpModal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--primary);
+    padding: 55px 55px 40px 55px;
+    border-radius: 14px;
+    z-index: 3;
+    font-size: 28px;
+}
+
+.modalText{
+    margin-bottom: 54px;
+}
+
+.modalButton {
+    margin-inline: 11px;
+    width: 139px;
+    padding: 20px 20px 18px 20px;
+}
+
+
+
+
+/* Count in section */
 
 .countNumberSection {
     z-index: 3;
@@ -399,6 +481,27 @@ button:hover {
 
 .animateHide {
     animation: .3s fadeOut;
+}
+
+.animateFadeOut{
+    animation: .3s fadeOut;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+
+.animateSwipeUpAway{
+    animation: .8s animateSwipeUp, .3s fadeOut;
+    animation-timing-function: ease-out, ease-out;
+    animation-fill-mode: forwards, forwards;
+}
+
+@keyframes animateSwipeUp{
+    0%{
+        transform:translate(-50%, -50%)
+    }
+    100%{
+        transform: translate(-50%, -871px);
+    }
 }
 
 @keyframes fadeOut {

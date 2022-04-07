@@ -1,9 +1,11 @@
 <section class="store">
-    <h2>Store</h2>
+    <h2>Music Store</h2>
     <h3>Treble Clef Songs</h3>
+    <p id="modalInsert"></p>
     <section class="storeBody">
         {{#each trebleSongs}}
             <section class="storeCard">
+                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{price}}`)"></a>
                 <img src="{{image}}" alt="{{name}} image" class="cardImage"/>
                 <p class="cardName">{{name}}</p>
                 <p class="cardPrice">{{price}}</p>
@@ -16,6 +18,7 @@
     <section class="storeBody">
         {{#each bassSongs}}
             <section class="storeCard">
+                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{price}}`)"></a>
                 <img src="{{image}}" alt="{{name}} image" class="cardImage"/>
                 <p class="cardName">{{name}}</p>
                 <p class="cardPrice">{{price}}</p>
