@@ -32,7 +32,7 @@ function renderLessonResult(res, strLevel, accuracy, score, totalQs, streak, son
         result = 'passed!'
         fail = false;
     }
-    return res.status(200).render('individualPages/lessonResult', { result: result, grade: grade, fail: fail, minScore: timeThreshold * totalQs, score: score, streak: streak, accuracy: accuracy });
+    return res.status(200).render('individualPages/lessonResult', { result: result, grade: grade, fail: fail, minScore: timeThreshold * totalQs, score: score, streak: streak, accuracy: accuracy, finalRound: Number(strLevel) == 38 });
 }
 
 module.exports = {
