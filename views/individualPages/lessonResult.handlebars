@@ -36,7 +36,10 @@
 		<button id='failBtn' class='actionButton' onClick="nextLesson(true)">Try Again</button>
 		{{else}}
 			<button class='actionButton' onClick="nextLesson(true)">Play Again</button>
+			{{#if finalRound}}
+			{{else}}
 			<button id='passBtn' class='actionButton' onClick="nextLesson()">Next Level</button>
+			{{/if}}
 		{{/if}}
 	</section>
 </section>

@@ -1,59 +1,115 @@
-<body>
-    <div class = "lesson-container">
-        <section class = "filters">
-            <h2 class = "filter-head">Filters</h2>
-            <ul class = "filter-list">
-                <li id = "subheader">Instruments</li>
-                <ul class = "filter-list">
-                    <li>Piano</li>
-                    <li>Drums</li>
-                    <li>Guitar</li>
+<section class="lesson-container"> 
+    <article class="filters">
+        <h2 class="lessonHeader filterHeader">Filters</h2>
+        <ul class="filter-list">
+            <li class="filterSubheader">Songs</li>
+                <ul class="filter-list subFilter">
+                    <li onClick="filter('songs', 'bass')" id="bassSongFilter" class="songFilterBtn">Bass Clef</li>
+                    <li onClick="filter('songs', 'treble')" id="trebleSongFilter" class="songFilterBtn">Treble Clef</li>
+                    <li onClick="filter('songs', 'purchased')" id="purchasedSongFilter" class="songFilterBtn">Purchased</li>
                 </ul>
-                <li id = "subheader">Music Theory</li>
-                <ul class = "filter-list">
-                    <li>Scales</li>
-                    <li>Sheet Music</li>
+                <li class="filterSubheader">Lessons</li>
+                <ul class="filter-list subFilter">
+                    <li onClick="filter('lessons', 'bass')" id="bassLessonFilter" class="lessonFilterBtn">Bass Clef</li>
+                    <li onClick="filter('lessons', 'treble')" id="trebleLessonFilter" class="lessonFilterBtn">Treble Clef</li>
                 </ul>
-            </ul>
-        </section>
-        <section class = "lessons">
-            <h2>Lessons</h2>
-            <div class = "row">
-                <div class = "content">
-                <form class = 'index-form' action = '/piano' method = 'GET'>
-                    <input class = "picture" type = "image" src ="../../public/assets/images/homepage/piano.jpg">
-                    <div class = "caption">Piano</div>
-                </form>
-                </div>
-                <div class = "content">
-                    <form class = 'index-form' action = '/guitar' method = 'GET'>
-                        <input class = "picture" type = "image" src ="../../public/assets/images/homepage/guitar.jpg">
-                        <div class = "caption">Guitar</div>
-                    </form>
-                </div>
-            </div>
-            <div class = "row">
-                <div class = "content">
-                    <form class = 'index-form' action = '/drums' method = 'GET'>
-                        <input class = "picture" type = "image" src ="../../public/assets/images/homepage/drums.jpg">
-                        <div class = "caption">Drums</div>
-                    </form>
-                </div>
-                <div class = "content">
-                    <form class = 'index-form' action = '/sheetmusic' method = 'GET'>
-                        <input class = "picture" type = "image" src ="../../public/assets/images/homepage/sheetmusic.jpg">
-                        <div class = "caption">Sheet Music</div>
-                    </form>
-                </div>
-            </div>
-            <div class = "row">
-                <div class = "content">
-                    <form class = 'index-form' action = '/treble' method = 'GET'>
-                        <input class = "picture" type = "image" src ="../../public/assets/images/homepage/clefs.jpg">
-                        <div class = "caption">Clefs</div>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </div>
-</body>
+                <li class="filterSubheader filterBtn" onClick="filter('none', 'none')">Clear Filters</li>
+        </ul>
+    </article>
+    <article class="lessons">
+        <h2 class="lessonHeader">Lessons</h2>
+        <section class="subHeaderGroup">
+            <span id='hideLessons' class='hideSpan' onClick="toggleLessons()">Hide</span>
+            <select class="filterSort">
+                <option>Sort By:</option>
+                <option>Name A-Z</option>
+                <option>Name Z-A</option>
+                <option>Difficulty 1-3</option>
+                <option>Difficulty 3-1</option>
+                <option>Progress Lo-Hi</option>
+                <option>Progress Hi-Lo</option>
+            </select>
+         </section>
+            <article class="lessonSection">
+                <section onClick="toLink('/treble/newLesson/notes/{{btLevels}}')" class="lessonCard trebleCard">
+                    <h3>Treble Clef</h3>
+                    <h4>Beginner Notes</h4>
+                    <div class="imgContainer">
+                        <img src="/public/assets/images/treble/treble_C1.png" />
+                    </div>
+                    <h4>Progress: {{btPerc}}%</h4>
+                </section>
+                <section onClick="toLink('/bass/newLesson/notes/{{bbLevels}}')" class="lessonCard bassCard">
+                    <h3>Bass Clef</h3>
+                    <h4>Beginner Notes</h4>
+                    <div class="imgContainer">
+                        <img src="/public/assets/images/bass/bass_E2.png" />
+                    </div>
+                    <h4>Progress: {{bbPerc}}%</h4>
+                </section>
+                <section class="lessonCard trebleCard">
+                    <h3>Treble Clef</h3>    
+                    <h4>Advanced Notes</h4>
+                    <div class="imgContainer">
+                        <img src="/public/assets/images/treble/treble_Bb2.png" />
+                    </div>
+                    <h4>Progress: {{atPerc}}%</h4>
+                </section>
+                <section class="lessonCard bassCard">
+                    <h3>Bass Clef</h3>
+                    <h4>Advanced Notes</h4>
+                    <div class="imgContainer">
+                        <img src="/public/assets/images/bass/bass_C%233.png" />
+                    </div>
+                    <h4>Progress: {{abPerc}}%</h4>
+                </section>
+            </article>
+        <h2 class="lessonHeader">Song Levels</h2>
+        <section class="subHeaderGroup">
+            <span id='hideSongs' class='hideSpan' onClick="toggleSongs()">Hide</span>
+            <select class="filterSort">
+                <option>Sort By:</option>
+                <option>Name A-Z</option>
+                <option>Name Z-A</option>
+                <option>Difficulty 1-3</option>
+                <option>Difficulty 3-1</option>
+                <option>Progress Lo-Hi</option>
+                <option>Progress Hi-Lo</option>
+            </select>
+         </section>
+         <article class="lessonSection">
+                <section onClick="toLink('/treble/newLesson/songs/0')" class="songCard trebleCard">
+                    <h3>Treble Clef</h3>
+                    <h4>Beginner Songs</h4>
+                    <div class="imgContainer">
+                        <img src="/public/assets/images/treble/treble_B2.png" />
+                    </div>
+                    <h4>Progress: 0%</h4>
+                </section>
+                <section onClick="toLink('/bass/newLesson/songs/0')" class="songCard bassCard">
+                    <h3>Bass Clef</h3>
+                    <h4>Beginner Songs</h4>
+                    <div class="imgContainer">
+                        <img src="/public/assets/images/bass/bass_C2.png" />
+                    </div>
+                    <h4>Progress: 0%</h4>
+                </section>
+                <section class="songCard trebleCard">
+                    <h3>Treble Clef</h3>    
+                    <h4>Advanced Songs</h4>
+                    <div class="imgContainer">
+                        <img src="/public/assets/images/treble/treble_D%232.png" />
+                    </div>
+                    <h4>Progress: 0%</h4>
+                </section>
+                <section class="songCard bassCard">
+                    <h3>Bass Clef</h3>
+                    <h4>Advanced Songs</h4>
+                    <div class="imgContainer">
+                        <img src="/public/assets/images/bass/bass_Bb2.png" />
+                    </div>
+                    <h4>Progress: 0%</h4>
+                </section>
+            </article>
+    </article>
+</section>
