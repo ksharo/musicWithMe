@@ -585,3 +585,18 @@ footer {
 .hideSpan:active {
     filter: brightness(70%);
 }
+
+.filterSort {
+    border: none;
+    display: inline-block;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.subHeaderGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 60px;
+    margin-bottom: 12px;
+}

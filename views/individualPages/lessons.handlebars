@@ -18,7 +18,18 @@
     </article>
     <article class="lessons">
         <h2 class="lessonHeader">Lessons</h2>
-         <p id='hideLessons' class='hideSpan' onClick="toggleLessons()">Hide</p>
+        <section class="subHeaderGroup">
+            <span id='hideLessons' class='hideSpan' onClick="toggleLessons()">Hide</span>
+            <select class="filterSort">
+                <option>Sort By:</option>
+                <option>Name A-Z</option>
+                <option>Name Z-A</option>
+                <option>Difficulty 1-3</option>
+                <option>Difficulty 3-1</option>
+                <option>Progress Lo-Hi</option>
+                <option>Progress Hi-Lo</option>
+            </select>
+         </section>
             <article class="lessonSection">
                 <section onClick="toLink('/treble/newLesson/notes/{{btLevels}}')" class="lessonCard trebleCard">
                     <h3>Treble Clef</h3>
@@ -54,7 +65,18 @@
                 </section>
             </article>
         <h2 class="lessonHeader">Song Levels</h2>
-         <p id='hideSongs' class='hideSpan' onClick="toggleSongs()">Hide</p>
+        <section class="subHeaderGroup">
+            <span id='hideSongs' class='hideSpan' onClick="toggleSongs()">Hide</span>
+            <select class="filterSort">
+                <option>Sort By:</option>
+                <option>Name A-Z</option>
+                <option>Name Z-A</option>
+                <option>Difficulty 1-3</option>
+                <option>Difficulty 3-1</option>
+                <option>Progress Lo-Hi</option>
+                <option>Progress Hi-Lo</option>
+            </select>
+         </section>
          <article class="lessonSection">
                 <section onClick="toLink('/treble/newLesson/songs/0')" class="songCard trebleCard">
                     <h3>Treble Clef</h3>

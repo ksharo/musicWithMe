@@ -47,8 +47,12 @@ router
             newNotes = treble_levels[0];
         }
         let learningString = 'Learning ';
-        for (let x of newNotes) {
-            learningString += x.substring(0, x.length - 1) + ' and ';
+        if (newNotes.length > 6) {
+            learningString = 'Congratulations!      ';
+        } else {
+            for (let x of newNotes) {
+                learningString += x.substring(0, x.length - 1).replace('%23', '#') + ' and ';
+            }
         }
         return res.render('individualPages/newLesson', {
             name: 'Treble Notes',
