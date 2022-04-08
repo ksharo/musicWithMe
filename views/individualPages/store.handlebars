@@ -5,7 +5,7 @@
     <section class="storeBody">
         {{#each trebleSongs}}
             <section class="storeCard">
-                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{price}}`)"></a>
+                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{price}}`, `{{id}}`)"></a>
                 <img src="{{image}}" alt="{{name}} image" class="cardImage"/>
                 <p class="cardName">{{name}}</p>
                 <p class="cardPrice">{{price}}</p>
@@ -18,7 +18,7 @@
     <section class="storeBody">
         {{#each bassSongs}}
             <section class="storeCard">
-                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{price}}`)"></a>
+                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{price}}`, `{{id}}`)"></a>
                 <img src="{{image}}" alt="{{name}} image" class="cardImage"/>
                 <p class="cardName">{{name}}</p>
                 <p class="cardPrice">{{price}}</p>

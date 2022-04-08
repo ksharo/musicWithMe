@@ -110,6 +110,16 @@
                     </div>
                     <h4>Progress: 0%</h4>
                 </section>
+                {{#each purchasedSongs}}
+                    <section onClick="toLink(`allSongs/begin/{{id}}?{{clef}}`)" class="songCard purchasedCard">
+                    <h3>{{name}}</h3>
+                    <h4>Level: {{level}}</h4>
+                    <div class="imgContainer">
+                        <img src={{image}} />
+                    </div>
+                    <h4>High Score: 0</h4>
+                </section>
+                {{/each}}
             </article>
     </article>
 </section>

@@ -57,7 +57,8 @@ router
             name: 'Bass Notes',
             subtitle: learningString == 'Learning ' ? 'Review!' : learningString.substring(0, learningString.length - 4),
             details: bass_noteDetails[Number(req.params.level)],
-            level: req.params.level
+            level: req.params.level,
+            levelName: req.params.level
         });
     });
 
@@ -71,7 +72,8 @@ router
             name: 'Songs',
             subtitle: songNames[Number(req.params.level)],
             details: songDetails[Number(req.params.level)],
-            level: req.params.level
+            level: req.params.level,
+            levelName: req.params.level
         });
     });
 
