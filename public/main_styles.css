@@ -37,6 +37,12 @@ h1 {
     box-shadow: 0px 1px 12px rgb(0 0 0 / 20%);
 }
 
+
+h1 a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .lessonBody {
     background-color: var(--lightBackground);
     display: flex;
@@ -716,21 +722,4 @@ footer {
     justify-content: space-between;
     margin-right: 60px;
     margin-bottom: 12px;
-}
-
-.noStyle {
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-    filter: none;
-}
-
-.noStyle h1 {
-    background-color: transparent;
-    box-shadow: none;
-}
-
-.noStyle:hover {
-    background-color: transparent;
-    filter: none;
 }
