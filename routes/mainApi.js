@@ -67,10 +67,10 @@ router
     });
 
 router
-    .route('/buySong/:songId')
-    .get(async(req, res) => {
+    .route('/buySong')
+    .post(async(req, res) => {
         try {
-            const result = await accountFunctions.buySong(globals.user._id, req.params.songId);
+            const result = await accountFunctions.buySong(globals.user._id, req.body.song);
             globals.coins = result.coins;
             return res.redirect('/store');
         } catch (e) {
