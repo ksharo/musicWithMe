@@ -6,14 +6,14 @@ const songs = data.songFunctions;
 async function main() {
 
     const db = await dbConnection.connectToDb();
-    db.collection("songs").drop();
-    db.collection("accounts").drop();
+    await db.collection("songs").drop();
+    await db.collection("accounts").drop();
 
 
-    const k = await accounts.create('ksharo', '12345');
-    const c = await accounts.create('cchoy', '12345');
-    const l = await accounts.create('lrechler', '12345');
-    const j = await accounts.create('jschneid', '12345');
+    const k = await accounts.create('ksharo', '12345', []);
+    const c = await accounts.create('cchoy', '12345', []);
+    const l = await accounts.create('lrechler', '12345', []);
+    const j = await accounts.create('jschneid', '12345', []);
 
     const tA1 = 0;
     const tB1 = 1;

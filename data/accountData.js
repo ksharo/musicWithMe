@@ -15,16 +15,28 @@ async function getUser(userId) {
     return user;
 }
 
-const create = async function create(username, password) {
+const create = async function create(username, password, levels = [], highScores = {}) {
     const myAccounts = await accountsDB();
     /* check if there is already a user with username in the database */
     let hasUsername = await myAccounts.findOne({ username: username.toLowerCase() });
     if (hasUsername != undefined && hasUsername != null) throw `Error: Username ${username} already exists.`;
-    const insert = await myAccounts.insertOne({ username: username.toLowerCase(), password: password, hiscores: [], lessonsCompleted: [], purchasedSongs: [], coins: 50 });
+    const insert = await myAccounts.insertOne({ username: username.toLowerCase(), password: password, hiscores: highScores, lessonsCompleted: levels, purchasedSongs: [], coins: 50 });
     if (!insert.acknowledged || !insert.insertedId) {
         throw "Error: Could not add account!";
     }
     return getUser(insert.insertedId.toString());
+}
+
+async function updateUser(userId, updatedConfig) {
+    const myAccounts = await accountsDB();
+    const updated = await myAccounts.updateOne({
+        _id: ObjectId(userId)
+    }, {
+        $set: updatedConfig
+    })
+
+    return updated;
+
 }
 
 const buySong = async function buySong(userId, songId) {
@@ -80,5 +92,7 @@ module.exports = {
     create,
     getAndValidate,
     buySong,
-    getPurchased
+    getPurchased,
+    updateUser,
+    getUser
 };

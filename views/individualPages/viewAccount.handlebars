@@ -3,7 +3,7 @@
     <h3>Lessons Completed</h3>
     <ul class="lessonList">
         {{#each lessonsCompleted}}
-        <li>{{this}}</li>
+        <li>{{this}} - {{lookup ../highScores this}}</li>
         {{else}}
         </ul>
         No Lessons Completed
@@ -15,4 +15,4 @@
         {{/each}}
     </ul>
 </div>
-<a href="/account/logout">Logout</a>
+<a href="/account/logout" class="littleLink">Logout</a>

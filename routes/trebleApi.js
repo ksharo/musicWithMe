@@ -114,13 +114,15 @@ router
 router
     .route('/endNoteLevel/:level')
     .get(async(req, res) => {
-        return generalFunctions.renderLessonResult(res, req.params.level, accuracy, score, totalQs, streak, false)
+        const rendered = await generalFunctions.renderLessonResult(req, res, req.params.level, 'treble', 'note', accuracy, score, totalQs, streak, false);
+        return rendered;
     });
 
 router
     .route('/endSongLevel/:level')
     .get(async(req, res) => {
-        return generalFunctions.renderLessonResult(res, req.params.level, accuracy, score, totalQs, streak, true)
+        const rendered = await generalFunctions.renderLessonResult(req, res, req.params.level, 'treble', 'song', accuracy, score, totalQs, streak, true);
+        return rendered;
     });
 
 module.exports = router;

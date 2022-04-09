@@ -33,7 +33,7 @@ router
 router
     .route('/')
     .post(async(req, res) => {
-        let created = await accountFunctions.create(req.body['username'], req.body['password']);
+        let created = await accountFunctions.create(req.body['username'], req.body['password'], []);
         return res.render('individualPages/homepage');
     });
 

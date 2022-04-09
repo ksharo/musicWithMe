@@ -40,7 +40,13 @@ router
     .post(async(req, res) => {
         // create new account
         try {
-            let account = await accountFunctions.create(req.body['username'], req.body['password']);
+            let levels = [];
+            let highScores = {};
+            if (req.session.tmpUser) {
+                levels = req.session.tmpUser.levels;
+                highScores = req.session.tmpUser.highScores;
+            }
+            const account = await accountFunctions.create(req.body['username'], req.body['password'], levels, highScores);
             if (!account) {
                 return res.status(400).render('individualPages/createAccount', { error: "Error: Problem creating account" });
             }
@@ -63,7 +69,8 @@ router
 router
     .route('/view')
     .get(async(req, res) => {
-        return res.status(200).render('individualPages/viewAccount', { username: req.session.user.username, lessonsCompleted: req.session.user.levels });
+        const user = await accountFunctions.getUser(req.session.user._id);
+        return res.status(200).render('individualPages/viewAccount', { username: user.username, lessonsCompleted: user.lessonsCompleted, highScores: user.hiscores });
     })
 router
     .route('/create')

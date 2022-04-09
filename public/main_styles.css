@@ -94,66 +94,65 @@ button:hover {
     margin-right: auto;
 }
 
-.buttonAnswerError{
+.buttonAnswerError {
     outline-offset: 0px;
     animation: pulseOutlineError .7s linear forwards;
 }
 
-.buttonAnswerSuccess{
+.buttonAnswerSuccess {
     outline-offset: 0px;
     animation: pulseOutlineSuccess .7s linear forwards;
 }
 
 @keyframes pulseOutlineError {
-    0%{
+    0% {
         outline: 3px solid var(--error);
     }
-    30%{
+    30% {
         outline: 8px solid var(--error);
         outline-offset: 4px;
     }
-    100%{
+    100% {
         outline: 12px solid rgba(255, 0, 0, 0);
         outline-offset: 4px;
     }
 }
 
 @keyframes pulseOutlineSuccess {
-    0%{
+    0% {
         outline: 3px solid var(--success);
     }
-    30%{
+    30% {
         outline: 8px solid var(--success);
         outline-offset: 4px;
     }
-    100%{
+    100% {
         outline: 12px solid rgba(255, 0, 0, 0);
         outline-offset: 4px;
     }
 }
 
 @keyframes doublePulseOutline {
-    0%{
+    0% {
         outline: 3px solid red;
     }
-    15%{
+    15% {
         outline: 8px solid red;
         outline-offset: 2px;
-
     }
-    40%{
+    40% {
         outline: 8px solid;
         outline-offset: 2px;
     }
-    41%{
+    41% {
         outline: 0px solid rgba(255, 0, 0, 0);
         outline-offset: 0px;
     }
-    45%{
+    45% {
         outline: 0px solid red;
         outline-offset: 0px;
     }
-    100%{
+    100% {
         outline: 12px solid rgba(255, 0, 0, 0);
         outline-offset: 4px;
     }
@@ -811,4 +810,14 @@ input:focus {
 .errorMessage {
     color: var(--error);
     font-size: 22px;
+}
+
+.littleLink {
+    color: white;
+    margin-top: 14px;
+    display: block;
+}
+
+.littleLink:visited {
+    color: var(--secondary);
 }
