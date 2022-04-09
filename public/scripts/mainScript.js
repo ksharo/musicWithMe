@@ -120,7 +120,11 @@ function checkAnswer(clickedButton, rightAnswer) {
         stopTimer();
         playSound("");
         INCORRECT_BEEP && playSound("");
+        document.getElementById("wrongAnswerX").style.opacity=.95;
         document.getElementById(noteName).classList.add("buttonAnswerError");
+        setTimeout(() => {
+            document.getElementById("wrongAnswerX").style.opacity=0;
+        },500)
         setTimeout(()=> {
             document.getElementById(noteName).classList.remove("buttonAnswerError");
         }, 700)
@@ -746,4 +750,11 @@ async function buySong(songId, name) {
 
 }
 
+function initializeHidden(){
+    document.getElementById("wrongAnswerX").style.display = "block"
+}
+
 startCountOff();
+window.addEventListener("load", function(){
+    initializeHidden();
+});

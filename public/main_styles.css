@@ -4,7 +4,8 @@
     --secondary: #E38F8F;
     --accent: #E38F8F;
     --lightBackground: #EDEDED;
-    --success: #ccf38a;
+    --success: #b2eeb5;
+    --neutral: #598bcb;
     --error: #cb5959;
 }
 
@@ -113,7 +114,7 @@ button:hover {
         outline-offset: 4px;
     }
     100%{
-        outline: 12px solid rgba(255, 0, 0, 0);
+        outline: 12px solid #cb595900;
         outline-offset: 4px;
     }
 }
@@ -127,7 +128,7 @@ button:hover {
         outline-offset: 4px;
     }
     100%{
-        outline: 12px solid rgba(255, 0, 0, 0);
+        outline: 12px solid #b2eeb500;
         outline-offset: 4px;
     }
 }
@@ -157,6 +158,10 @@ button:hover {
         outline: 12px solid rgba(255, 0, 0, 0);
         outline-offset: 4px;
     }
+}
+
+.cardNav .actionButton {
+    margin-inline: 7px;
 }
 
 .actionButton {
@@ -492,11 +497,11 @@ button:hover {
 
 /* Count in section */
 
-.countNumberSection {
+.countNumberSection, .wrongAnswerSection {
     z-index: 3;
 }
 
-.countNumber {
+.countNumber{
     font-size: 274px;
     position: absolute;
     width: 100%;
@@ -506,6 +511,18 @@ button:hover {
     opacity: 0;
     color: var(--secondary);
     visibility: hidden;
+}
+
+#wrongAnswerX{
+    display: none;
+    opacity: 0;
+    top: 31.5%;
+    transition: opacity ease-out .12s;
+    font-size: 274px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    color: var(--secondary);
 }
 
 
