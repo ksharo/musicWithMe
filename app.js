@@ -28,43 +28,54 @@ app.use(
 
 /* make sure user is logged in */
 
-app.use('/', (req, res, next) => {
-    req.session.user = {
-        _id: '624fa1a602009b3fece0e4ee', // user id
-        coins: 50, // number of coins the user has
-        username: 'ksharo',
-        purchased: ["624fa1a602009b3fece0e4f2",
-            "624fa1a602009b3fece0e4f3",
-            "624fa1a602009b3fece0e4f4",
-            "624fa1a602009b3fece0e4f5",
-            "624fa1a602009b3fece0e4f6",
-            "624fa1a602009b3fece0e4f7"
-        ]
-    }
-    next();
-})
-
 // app.use('/', (req, res, next) => {
-//     console.log(req.originalUrl);
-//     if (req.originalUrl != '/account' && req.originalUrl != '/' &&
-//         req.originalUrl != '/treble') {
-//         // && 
-//         // (!req.originalUrl.includes('/treble') && Number(req.originalUrl.substring(req.originalUrl.length - 1)) < 3)) {
-//         if (!req.session.user) {
-//             return res.status(403).redirect('/account');
-//         } else {
-//             next();
-//         }
-//     } else if (req.originalUrl == '/') {
-//         if (req.session.user) {
-//             return res.redirect('/lessons');
-//         } else {
-//             next();
-//         }
-//     } else {
-//         next();
+//     req.session.user = {
+//         _id: '624fa1a602009b3fece0e4ee', // user id
+//         coins: 50, // number of coins the user has
+//         username: 'ksharo',
+//         purchased: ["624fa1a602009b3fece0e4f2",
+//             "624fa1a602009b3fece0e4f3",
+//             "624fa1a602009b3fece0e4f4",
+//             "624fa1a602009b3fece0e4f5",
+//             "624fa1a602009b3fece0e4f6",
+//             "624fa1a602009b3fece0e4f7"
+//         ]
 //     }
-// });
+//     next();
+// })
+
+app.use('/', (req, res, next) => {
+    if (req.originalUrl != '/account' && req.originalUrl != '/' &&
+        req.originalUrl != '/treble' && (!req.originalUrl.includes('/treble') &&
+            Number(req.originalUrl.substring(req.originalUrl.length - 1)) < 3)) {
+        if (!req.session.user) {
+            return res.status(403).redirect('/account');
+        } else {
+            next();
+        }
+    } else if (req.originalUrl == '/') {
+        if (req.session.user) {
+            return res.redirect('/lessons');
+        } else {
+            next();
+        }
+    } else {
+        next();
+    }
+});
+
+app.use('/account', (req, res, next) => {
+    if (req.originalUrl != '/account/view') {
+        if (req.session.user) {
+            console.log('here');
+            return res.redirect('/account/view');
+        } else {
+            next();
+        }
+    } else {
+        next();
+    }
+});
 
 configRoutes(app);
 

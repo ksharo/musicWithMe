@@ -5,7 +5,7 @@ const globals = data.globals.globals;
 
 router
     .route('/')
-    .get(async(_, res) => {
+    .get(async(req, res) => {
         const purchased = await data.accountFunctions.getPurchased(req.session.user._id);
         for (let x of purchased) {
             x.id = x._id;

@@ -22,12 +22,19 @@ router
             _id: account._id,
             username: account.username,
             coins: account.coins,
-            purchased: account.purchasedSongs
+            purchased: account.purchasedSongs,
+            levels: account.lessonsCompleted
         }
         req.session.user = newUser;
         // fill in handlebars data
-        return res.status(200).render('individualPages/viewAccount', { username: account["username"], lessonsCompleted: account["lessonsCompleted"] });
+        return res.redirect('/account/view');
     });
+
+router
+    .route('/view')
+    .get(async(req, res) => {
+        return res.status(200).render('individualPages/viewAccount', { username: req.session.user.username, lessonsCompleted: req.session.user.levels });
+    })
 router
     .route('/create')
     .get(async(_, res) => {

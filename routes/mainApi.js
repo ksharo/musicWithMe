@@ -27,7 +27,7 @@ router
             x.id = x._id;
             x.canAfford = (req.session.user.coins >= x.price);
         }
-        return res.render('individualPages/store', { trebleSongs: trebleSongs, bassSongs: bassSongs, coins: globals.coins});
+        return res.render('individualPages/store', { trebleSongs: trebleSongs, bassSongs: bassSongs, coins: req.session.user.coins });
     });
 
 router
