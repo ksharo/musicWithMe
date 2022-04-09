@@ -637,7 +637,7 @@ function purchaseSong(name, id, price, canAfford = true, coins){
     let cancelButton    = document.createElement('button')
 
     modalText.innerText     = canAfford ? "You are about to buy " + name + " for " + price + "♪"
-                                        : "You need " + price - coins + " more ♪ to buy " + name + ".\nPlay to collect more!"
+                                        : "You need " + (price - coins) + "♪ more to buy " + name + ".\nPlay to collect more!"
     cancelButton.innerText  = "Cancel"
     okButton.innerText      = "OK"
 
@@ -649,8 +649,15 @@ function purchaseSong(name, id, price, canAfford = true, coins){
 
     cancelButton.setAttribute("onclick", "closePopUp()")
     modalBackdrop.setAttribute("onclick", "closePopUp()")
-    const funcCall = "buySong('" + id + "', `" + name + "`)"
-    okButton.setAttribute("onclick", funcCall);
+
+    if(canAfford){
+        const funcCall = "buySong('" + id + "', `" + name + "`)"
+        okButton.setAttribute("onclick", funcCall);
+    }
+    else{
+        okButton.setAttribute("onclick", "closePopUp()");
+    }
+
 
     popUpModal.appendChild(modalText)
     if(canAfford){
@@ -662,13 +669,14 @@ function purchaseSong(name, id, price, canAfford = true, coins){
     document.getElementById("modalInsert").appendChild(popUpModal)
 }
 
-function purchaseSuccessful(name) {
+function purchaseStatusModal(name, purchaseStatus) {
     let modalBackdrop = document.createElement('section')
     let popUpModal = document.createElement('section')
     let modalText = document.createElement('section')
     let closeButton = document.createElement('button')
 
-    modalText.innerText = "Purchase of " + name + " successful!";
+    modalText.innerText = purchaseStatus    ? "Purchase of " + name + " successful!"
+                                            : "Failed to purchase " + name + ". Please try again later";
     closeButton.innerText = "Close"
 
     modalBackdrop.classList.add("modalBackdrop")
@@ -686,18 +694,24 @@ function purchaseSuccessful(name) {
     document.getElementById("modalInsert").appendChild(popUpModal)
 }
 
-function closePopUp() {
-    document.getElementsByClassName("popUpModal")[0].classList.add("animateSwipeUpAway")
-    document.getElementsByClassName("modalBackdrop")[0].classList.add("animateFadeOut")
+function closePopUp(animate=true) {
+    if(animate){
+        document.getElementsByClassName("popUpModal")[0].classList.add("animateSwipeUpAway")
+        document.getElementsByClassName("modalBackdrop")[0].classList.add("animateFadeOut")
 
-    setTimeout(() => {
+        setTimeout(() => {
+            document.getElementsByClassName("modalBackdrop")[0].remove()
+            document.getElementsByClassName("popUpModal")[0].remove()
+        }, 350)
+    }
+    else{
         document.getElementsByClassName("modalBackdrop")[0].remove()
         document.getElementsByClassName("popUpModal")[0].remove()
-    }, 1000)
+    }
 }
 
 async function buySong(songId, name) {
-    closePopUp();
+    document.getElementsByClassName("modalText")[0].innerText = "Loading..."
     const requestOptions = {
         method: 'POST',
         headers: {
@@ -709,7 +723,12 @@ async function buySong(songId, name) {
     };
     const postResult = await fetch("http://localhost:3030/buySong", requestOptions);
     if (postResult.ok) {
-        purchaseSuccessful(name);
+        closePopUp(animate=false);
+        purchaseStatusModal(name, true);
+    }
+    else{
+        closePopUp(animate=false);
+        purchaseStatusModal(name, false);
     }
 }
 
