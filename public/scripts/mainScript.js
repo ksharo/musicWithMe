@@ -645,6 +645,7 @@ function purchaseSong(name, id, price, canAfford = true, coins){
     popUpModal.classList.add("popUpModal")
     modalText.classList.add("modalText")
     cancelButton.classList.add("modalButton", "actionButton")
+    okButton.id = "modalOk"
     okButton.classList.add("modalButton", "actionButton")
 
     cancelButton.setAttribute("onclick", "closePopUp()")
@@ -711,7 +712,7 @@ function closePopUp(animate=true) {
 }
 
 async function buySong(songId, name) {
-    document.getElementsByClassName("modalText")[0].innerText = "Loading..."
+    document.getElementById("modalOk").innerText = "Loading..."
     const requestOptions = {
         method: 'POST',
         headers: {
@@ -722,14 +723,18 @@ async function buySong(songId, name) {
         })
     };
     const postResult = await fetch("http://localhost:3030/buySong", requestOptions);
-    if (postResult.ok) {
-        closePopUp(animate=false);
-        purchaseStatusModal(name, true);
-    }
-    else{
-        closePopUp(animate=false);
-        purchaseStatusModal(name, false);
-    }
+    //show the loading prompt for a little, so no jarring prompt flash if the req is served instantly
+    setTimeout(()=>{
+        if (postResult.ok) {
+            closePopUp(animate=false);
+            purchaseStatusModal(name, true);
+        }
+        else{
+            closePopUp(animate=false);
+            purchaseStatusModal(name, false);
+        }
+    }, 300)
+
 }
 
 startCountOff();
