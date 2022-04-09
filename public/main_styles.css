@@ -665,6 +665,10 @@ footer {
     color: var(--primary);
     font-size: 24px;
     margin-bottom: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: clip;
+    padding: 0px 14px;
 }
 
 .lessonCard h4,
@@ -711,6 +715,7 @@ footer {
 
 .noStyle h1 {
     background-color: transparent;
+    box-shadow: none;
 }
 
 .noStyle:hover {

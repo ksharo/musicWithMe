@@ -5,6 +5,7 @@ const data = require('../data');
 const { renderSongLevel } = require('../data/noteFunctions');
 const accountFunctions = data.accountFunctions;
 const songData = data.songFunctions;
+const globals = data.globals.globals;
 
 
 router
@@ -20,9 +21,11 @@ router
         let bassSongs = await songData.getBass();
         for (let x of trebleSongs) {
             x.id = x._id;
+            x.canAfford = (globals.coins >= x.price);
         }
         for (let x of bassSongs) {
             x.id = x._id;
+            x.canAfford = (globals.coins >= x.price);
         }
         return res.render('individualPages/store', { trebleSongs: trebleSongs, bassSongs: bassSongs });
     });
@@ -61,6 +64,19 @@ router
         } else if (song.clef == 'treble') {
             return renderSongLevel(song.notes, song.name, trebleData.treble_levels, res, 'treble', 'notes')
         }
+    });
+
+router
+    .route('/buySong/:songId')
+    .get(async(req, res) => {
+        try {
+            const result = await accountFunctions.buySong(globals.user._id, req.params.songId);
+            globals.coins = result.coins;
+            return res.redirect('/store');
+        } catch (e) {
+            return res.status(500).render('individualPages/error', { error: { message: e, status: 500 } })
+        }
+
     });
 
 module.exports = router;

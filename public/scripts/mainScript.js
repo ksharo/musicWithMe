@@ -420,6 +420,8 @@ function filter(type, clef) {
     }
 
     if (type == 'none' && clef == 'none') {
+        document.getElementById('hideSongs').textContent = 'Hide';
+        document.getElementById('hideLessons').textContent = 'Hide';
         const lessons = document.getElementsByClassName('lessonCard');
         const songs = document.getElementsByClassName('songCard');
         for (let x of lessons) {
@@ -440,6 +442,16 @@ function filter(type, clef) {
     }
 
     if (type == 'lessons' && clef == 'treble') {
+        const filterBtn = document.getElementById('trebleLessonFilter');
+        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
+            /* already on, turn off */
+            const lessons = document.getElementsByClassName('lessonCard');
+            for (let x of lessons) {
+                x.style.display = 'block';
+            }
+            filterBtn.style.color = 'white';
+            return;
+        }
         const lessons = document.getElementsByClassName('lessonCard');
         for (let x of lessons) {
             if (!x.classList.contains('trebleCard')) {
@@ -452,7 +464,6 @@ function filter(type, clef) {
         for (let x of lessonBtns) {
             x.style.color = 'white';
         }
-        const filterBtn = document.getElementById('trebleLessonFilter');
         if (filterBtn) {
             filterBtn.style.color = 'var(--secondary)';
         }
@@ -460,6 +471,16 @@ function filter(type, clef) {
     }
 
     if (type == 'lessons' && clef == 'bass') {
+        const filterBtn = document.getElementById('bassLessonFilter');
+        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
+            /* already on, turn off */
+            const lessons = document.getElementsByClassName('lessonCard');
+            for (let x of lessons) {
+                x.style.display = 'block';
+            }
+            filterBtn.style.color = 'white';
+            return;
+        }
         const lessons = document.getElementsByClassName('lessonCard');
         for (let x of lessons) {
             if (!x.classList.contains('bassCard')) {
@@ -472,7 +493,6 @@ function filter(type, clef) {
         for (let x of lessonBtns) {
             x.style.color = 'white';
         }
-        const filterBtn = document.getElementById('bassLessonFilter');
         if (filterBtn) {
             filterBtn.style.color = 'var(--secondary)';
         }
@@ -480,6 +500,16 @@ function filter(type, clef) {
     }
 
     if (type == 'songs' && clef == 'treble') {
+        const filterBtn = document.getElementById('trebleSongFilter');
+        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
+            /* already on, turn off */
+            const songs = document.getElementsByClassName('songCard');
+            for (let x of songs) {
+                x.style.display = 'block';
+            }
+            filterBtn.style.color = 'white';
+            return;
+        }
         const songs = document.getElementsByClassName('songCard');
         for (let x of songs) {
             if (!x.classList.contains('trebleCard')) {
@@ -492,13 +522,23 @@ function filter(type, clef) {
         for (let x of songBtns) {
             x.style.color = 'white';
         }
-        const filterBtn = document.getElementById('trebleSongFilter');
         if (filterBtn) {
             filterBtn.style.color = 'var(--secondary)';
         }
         return;
     }
+
     if (type == 'songs' && clef == 'bass') {
+        const filterBtn = document.getElementById('bassSongFilter');
+        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
+            /* already on, turn off */
+            const songs = document.getElementsByClassName('songCard');
+            for (let x of songs) {
+                x.style.display = 'block';
+            }
+            filterBtn.style.color = 'white';
+            return;
+        }
         const songs = document.getElementsByClassName('songCard');
         for (let x of songs) {
             if (!x.classList.contains('bassCard')) {
@@ -511,13 +551,23 @@ function filter(type, clef) {
         for (let x of songBtns) {
             x.style.color = 'white';
         }
-        const filterBtn = document.getElementById('bassSongFilter');
         if (filterBtn) {
             filterBtn.style.color = 'var(--secondary)';
         }
         return;
     }
+
     if (type == 'songs' && clef == 'purchased') {
+        const filterBtn = document.getElementById('purchasedSongFilter');
+        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
+            /* already on, turn off */
+            const songs = document.getElementsByClassName('songCard');
+            for (let x of songs) {
+                x.style.display = 'block';
+            }
+            filterBtn.style.color = 'white';
+            return;
+        }
         const songs = document.getElementsByClassName('songCard');
         for (let x of songs) {
             if (!x.classList.contains('purchasedCard')) {
@@ -530,7 +580,6 @@ function filter(type, clef) {
         for (let x of songBtns) {
             x.style.color = 'white';
         }
-        const filterBtn = document.getElementById('purchasedSongFilter');
         if (filterBtn) {
             filterBtn.style.color = 'var(--secondary)';
         }
@@ -644,9 +693,21 @@ function closePopUp() {
     }, 1000)
 }
 
-function buySong(songId, name) {
+async function buySong(songId, name) {
     closePopUp();
-    purchaseSuccessful(name);
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            song: songId
+        })
+    };
+    const postResult = await fetch("http://localhost:3030/buySong", requestOptions);
+    if (postResult.ok) {
+        purchaseSuccessful(name);
+    }
 }
 
 startCountOff();

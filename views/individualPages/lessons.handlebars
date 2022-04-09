@@ -2,16 +2,16 @@
     <article class="filters">
         <h2 class="lessonHeader filterHeader">Filters</h2>
         <ul class="filter-list">
-            <li class="filterSubheader">Songs</li>
-                <ul class="filter-list subFilter">
-                    <li onClick="filter('songs', 'bass')" id="bassSongFilter" class="songFilterBtn">Bass Clef</li>
-                    <li onClick="filter('songs', 'treble')" id="trebleSongFilter" class="songFilterBtn">Treble Clef</li>
-                    <li onClick="filter('songs', 'purchased')" id="purchasedSongFilter" class="songFilterBtn">Purchased</li>
-                </ul>
                 <li class="filterSubheader">Lessons</li>
                 <ul class="filter-list subFilter">
                     <li onClick="filter('lessons', 'bass')" id="bassLessonFilter" class="lessonFilterBtn">Bass Clef</li>
                     <li onClick="filter('lessons', 'treble')" id="trebleLessonFilter" class="lessonFilterBtn">Treble Clef</li>
+                </ul>
+                <li class="filterSubheader">Songs</li>
+                <ul class="filter-list subFilter">
+                    <li onClick="filter('songs', 'bass')" id="bassSongFilter" class="songFilterBtn">Bass Clef</li>
+                    <li onClick="filter('songs', 'treble')" id="trebleSongFilter" class="songFilterBtn">Treble Clef</li>
+                    <li onClick="filter('songs', 'purchased')" id="purchasedSongFilter" class="songFilterBtn">Purchased</li>
                 </ul>
                 <li class="filterSubheader filterBtn" onClick="filter('none', 'none')">Clear Filters</li>
         </ul>
@@ -20,7 +20,7 @@
         <h2 class="lessonHeader">Lessons</h2>
         <section class="subHeaderGroup">
             <span id='hideLessons' class='hideSpan' onClick="toggleLessons()">Hide</span>
-            <select class="filterSort">
+            {{!-- <select class="filterSort">
                 <option>Sort By:</option>
                 <option>Name A-Z</option>
                 <option>Name Z-A</option>
@@ -28,7 +28,7 @@
                 <option>Difficulty 3-1</option>
                 <option>Progress Lo-Hi</option>
                 <option>Progress Hi-Lo</option>
-            </select>
+            </select> --}}
          </section>
             <article class="lessonSection">
                 <section onClick="toLink('/treble/newLesson/notes/{{btLevels}}')" class="lessonCard trebleCard">
@@ -67,7 +67,7 @@
         <h2 class="lessonHeader">Song Levels</h2>
         <section class="subHeaderGroup">
             <span id='hideSongs' class='hideSpan' onClick="toggleSongs()">Hide</span>
-            <select class="filterSort">
+            {{!-- <select class="filterSort">
                 <option>Sort By:</option>
                 <option>Name A-Z</option>
                 <option>Name Z-A</option>
@@ -75,7 +75,7 @@
                 <option>Difficulty 3-1</option>
                 <option>Progress Lo-Hi</option>
                 <option>Progress Hi-Lo</option>
-            </select>
+            </select> --}}
          </section>
          <article class="lessonSection">
                 <section onClick="toLink('/treble/newLesson/songs/0')" class="songCard trebleCard">
