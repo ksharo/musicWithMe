@@ -4,6 +4,7 @@
     --secondary: #E38F8F;
     --accent: #E38F8F;
     --lightBackground: #EDEDED;
+    --success: #ccf38a;
 }
 
 html {
@@ -91,6 +92,71 @@ button:hover {
     max-width: 504px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.buttonAnswerError{
+    outline-offset: 0px;
+    animation: pulseOutlineError .7s linear forwards;
+}
+
+.buttonAnswerSuccess{
+    outline-offset: 0px;
+    animation: pulseOutlineSuccess .7s linear forwards;
+}
+
+@keyframes pulseOutlineError {
+    0%{
+        outline: 3px solid var(--error);
+    }
+    30%{
+        outline: 8px solid var(--error);
+        outline-offset: 4px;
+    }
+    100%{
+        outline: 12px solid rgba(255, 0, 0, 0);
+        outline-offset: 4px;
+    }
+}
+
+@keyframes pulseOutlineSuccess {
+    0%{
+        outline: 3px solid var(--success);
+    }
+    30%{
+        outline: 8px solid var(--success);
+        outline-offset: 4px;
+    }
+    100%{
+        outline: 12px solid rgba(255, 0, 0, 0);
+        outline-offset: 4px;
+    }
+}
+
+@keyframes doublePulseOutline {
+    0%{
+        outline: 3px solid red;
+    }
+    15%{
+        outline: 8px solid red;
+        outline-offset: 2px;
+
+    }
+    40%{
+        outline: 8px solid;
+        outline-offset: 2px;
+    }
+    41%{
+        outline: 0px solid rgba(255, 0, 0, 0);
+        outline-offset: 0px;
+    }
+    45%{
+        outline: 0px solid red;
+        outline-offset: 0px;
+    }
+    100%{
+        outline: 12px solid rgba(255, 0, 0, 0);
+        outline-offset: 4px;
+    }
 }
 
 .actionButton {

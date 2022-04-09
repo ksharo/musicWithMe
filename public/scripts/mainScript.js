@@ -107,14 +107,23 @@ function checkAnswer(clickedButton, rightAnswer) {
     const rightNoteSplit = rightAnswer.split('_');
     let rightNote = rightNoteSplit[rightNoteSplit.length - 1]
     rightNote = rightNote.substring(0, rightNote.indexOf(".png")).replace('%23', '#');
-    if (clickedButton == rightNote.substring(0, rightNote.length - 1)) {
+    noteName = rightNote.substring(0, rightNote.length - 1)
+    if (clickedButton == noteName) {
         scoreCorrect();
         playSound(rightNote);
+        document.getElementById(noteName).classList.add("buttonAnswerSuccess");
+        setTimeout(()=> {
+            document.getElementById(noteName).classList.remove("buttonAnswerSuccess");
+        }, 700)
     } else {
         scoreIncorrect();
         stopTimer();
         playSound("");
         INCORRECT_BEEP && playSound("");
+        document.getElementById(noteName).classList.add("buttonAnswerError");
+        setTimeout(()=> {
+            document.getElementById(noteName).classList.remove("buttonAnswerError");
+        }, 700)
     }
 }
 
