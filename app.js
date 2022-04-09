@@ -45,13 +45,15 @@ app.use(
 // })
 
 app.use('/', (req, res, next) => {
-    if ((req.originalUrl != '/account' && req.originalUrl != '/' &&
-            req.originalUrl != '/account/logout' && !req.originalUrl.includes('/treble')) ||
+    if ((req.method != 'POST') && (req.originalUrl != '/account' && req.originalUrl != '/' &&
+            req.originalUrl != '/account/logout' && req.originalUrl != '/account/create' &&
+            req.originalUrl != '/account/checkAccount' &&
+            !req.originalUrl.includes('/treble')) ||
         (req.originalUrl.includes('/treble') &&
             !isNaN(Number(req.originalUrl.substring(req.originalUrl.length - 1))) &&
             Number(req.originalUrl.substring(req.originalUrl.length - 1)) > 3)) {
         if (!req.session.user) {
-            return res.status(403).redirect('/account');
+            return res.status(403).redirect('/account/create');
         } else {
             next();
         }

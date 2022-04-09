@@ -1,12 +1,12 @@
-<form name="myForm" action="/account/checkAccount" method="post" id="form">
-    <label for="username">Usename:</label><br>
+<form name="myForm" class='login-form' action="/account/checkAccount" method="post" id="form">
+    {{#if error}}
+        <p class="errorMessage">{{error}}</p>
+    {{/if}}
+    <label for="username">Username:</label><br>
     <input type="text" id="username" name="username" required="required" minlength="5"><br>
     <label for="password">Password:</label><br>
     <input type="password" id="password" name="password" required="required" minlength="5"><br>
     <br>
-    {{#if error}}
-        <p>{{error}}</p>
-    {{/if}}    <br>
     <button class="actionButton" type="submit" id="btn">Login</button>
 </form>
 

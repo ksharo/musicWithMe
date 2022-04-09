@@ -4,6 +4,7 @@
     --secondary: #E38F8F;
     --accent: #E38F8F;
     --lightBackground: #EDEDED;
+    --error: #cb5959;
 }
 
 html {
@@ -37,8 +38,7 @@ h1 {
     box-shadow: 0px 1px 12px rgb(0 0 0 / 20%);
 }
 
-
-h1 a{
+h1 a {
     text-decoration: none;
     color: inherit;
 }
@@ -184,6 +184,7 @@ button:hover {
     width: 1000px;
 }
 
+
 /* report card section */
 
 .reportCard {
@@ -295,12 +296,12 @@ button:hover {
     grid-row-gap: 35px;
 }
 
-.disabledCard{
+.disabledCard {
     cursor: default;
     color: #c5c5c5;
 }
 
-.disabledCard .cardImage{
+.disabledCard .cardImage {
     filter: grayscale(1);
 }
 
@@ -722,4 +723,26 @@ footer {
     justify-content: space-between;
     margin-right: 60px;
     margin-bottom: 12px;
+}
+
+.login-form {
+    width: 400px;
+    margin: 20px auto;
+}
+
+input {
+    border-radius: 4px;
+    padding: 8px;
+    border: none;
+    outline: none;
+    margin: 8px;
+}
+
+input:focus {
+    outline: 3px solid var(--secondary);
+}
+
+.errorMessage {
+    color: var(--error);
+    font-size: 22px;
 }
