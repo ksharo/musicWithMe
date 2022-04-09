@@ -287,6 +287,15 @@ button:hover {
     grid-row-gap: 35px;
 }
 
+.disabledCard{
+    cursor: default;
+    color: #c5c5c5;
+}
+
+.disabledCard .cardImage{
+    filter: grayscale(1);
+}
+
 @media screen and (max-width: 1300px) {
     .storeBody{
         grid-template-columns: 1fr 1fr;
@@ -347,7 +356,7 @@ button:hover {
     z-index: 2;
 }
 
-.storeBody .storeCard:hover .cardPrice {
+.storeBody .storeCard:not(.disabledCard):hover .cardPrice {
     padding: 4px 19px 2px 8px;
 }
 
@@ -362,13 +371,13 @@ button:hover {
     /* transition-delay: .0s; */
 }
 
-.storeBody .storeCard:hover .cardPrice:after {
+.storeBody .storeCard:not(.disabledCard):hover .cardPrice:after {
     content: "♪";
     /* transition-delay: .1s; */
     opacity: 1;
 }
 
-.storeBody .storeCard:hover .cardName {
+.storeBody .storeCard:not(.disabledCard):hover .cardName {
     transform: scale(1.05);
 }
 
@@ -396,6 +405,7 @@ button:hover {
 
 .modalText{
     margin-bottom: 54px;
+    line-height: 39px;
 }
 
 .modalButton {

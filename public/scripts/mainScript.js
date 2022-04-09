@@ -568,14 +568,15 @@ function toggleSongs() {
     }
 }
 
-function purchaseSong(name, price){
+function purchaseSong(name, price, canAfford = true, coins){
     let modalBackdrop   = document.createElement('section')
     let popUpModal      = document.createElement('section')
     let modalText       = document.createElement('section')
     let okButton        = document.createElement('button')
     let cancelButton    = document.createElement('button')
 
-    modalText.innerText     = "You are about to buy " + name + " for " + price + "♪"
+    modalText.innerText     = canAfford ? "You are about to buy " + name + " for " + price + "♪"
+                                        : "You need " + price - coins + " more ♪ to buy " + name + ".\nPlay to collect more!"
     cancelButton.innerText  = "Cancel"
     okButton.innerText      = "OK"
 
@@ -589,7 +590,9 @@ function purchaseSong(name, price){
     modalBackdrop.setAttribute("onclick", "closePopUp()")
 
     popUpModal.appendChild(modalText)
-    popUpModal.appendChild(cancelButton)
+    if(canAfford){
+        popUpModal.appendChild(cancelButton)
+    }
     popUpModal.appendChild(okButton)
 
     document.getElementById("modalInsert").appendChild(modalBackdrop)
