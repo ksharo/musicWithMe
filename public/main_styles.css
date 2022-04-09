@@ -260,7 +260,7 @@ button:hover {
 
 /* store section */
 
-.store{
+.store {
     margin-bottom: 80px;
 }
 
@@ -271,7 +271,7 @@ button:hover {
     margin-top: 66px;
 }
 
-.store h3{
+.store h3 {
     font-size: 28px;
     margin-top: 40px;
     font-weight: 100;
@@ -297,14 +297,14 @@ button:hover {
 }
 
 @media screen and (max-width: 1300px) {
-    .storeBody{
+    .storeBody {
         grid-template-columns: 1fr 1fr;
         max-width: 900px;
     }
 }
 
 @media screen and (max-width: 900px) {
-    .storeBody{
+    .storeBody {
         grid-template-columns: 1fr;
     }
 }
@@ -381,11 +381,11 @@ button:hover {
     transform: scale(1.05);
 }
 
-.modalBackdrop{
+.modalBackdrop {
     z-index: 3;
     position: fixed;
     top: 0;
-    bottom:0;
+    bottom: 0;
     right: 0;
     left: 0;
     background-color: rgba(0, 0, 0, .5);
@@ -403,7 +403,7 @@ button:hover {
     font-size: 28px;
 }
 
-.modalText{
+.modalText {
     margin-bottom: 54px;
     line-height: 39px;
 }
@@ -413,8 +413,6 @@ button:hover {
     width: 139px;
     padding: 20px 20px 18px 20px;
 }
-
-
 
 
 /* Count in section */
@@ -493,23 +491,23 @@ button:hover {
     animation: .3s fadeOut;
 }
 
-.animateFadeOut{
+.animateFadeOut {
     animation: .3s fadeOut;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
 }
 
-.animateSwipeUpAway{
+.animateSwipeUpAway {
     animation: .8s animateSwipeUp, .3s fadeOut;
     animation-timing-function: ease-out, ease-out;
     animation-fill-mode: forwards, forwards;
 }
 
-@keyframes animateSwipeUp{
-    0%{
-        transform:translate(-50%, -50%)
+@keyframes animateSwipeUp {
+    0% {
+        transform: translate(-50%, -50%)
     }
-    100%{
+    100% {
         transform: translate(-50%, -871px);
     }
 }
@@ -677,6 +675,10 @@ footer {
     color: var(--primary);
     font-size: 24px;
     margin-bottom: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: clip;
+    padding: 0px 14px;
 }
 
 .lessonCard h4,
@@ -712,4 +714,21 @@ footer {
     justify-content: space-between;
     margin-right: 60px;
     margin-bottom: 12px;
+}
+
+.noStyle {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    filter: none;
+}
+
+.noStyle h1 {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.noStyle:hover {
+    background-color: transparent;
+    filter: none;
 }

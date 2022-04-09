@@ -48,8 +48,8 @@ document.addEventListener("keydown", (event) => {
         event.preventDefault();
     }
     if (
-        (window.location.href.includes("noteLesson") || window.location.href.includes("songLesson")) &&
-        !counting
+        (window.location.href.includes("noteLesson") || window.location.href.includes("songLesson") ||
+            window.location.href.includes("allSongs")) && !counting
     ) {
         if (key1 == null) {
             key1 = event.key.toUpperCase();
@@ -57,8 +57,8 @@ document.addEventListener("keydown", (event) => {
             key2 = event.key.toUpperCase();
         }
     } else if (
-        (window.location.href.includes("noteLesson") || window.location.href.includes("songLesson")) &&
-        counting
+        (window.location.href.includes("noteLesson") || window.location.href.includes("songLesson") ||
+            window.location.href.includes("allSongs")) && counting
     ) {
         if (event.key == "Enter" || event.key == "Return") {
             // TODO: speed up countoff
@@ -104,9 +104,7 @@ function playSound(noteName) {
 
 function checkAnswer(clickedButton, rightAnswer) {
     // will not work for Sharps and Flats yet!
-    console.log(rightAnswer);
     const rightNoteSplit = rightAnswer.split('_');
-    console.log(rightNoteSplit);
     let rightNote = rightNoteSplit[rightNoteSplit.length - 1]
     rightNote = rightNote.substring(0, rightNote.indexOf(".png")).replace('%23', '#');
     if (clickedButton == rightNote.substring(0, rightNote.length - 1)) {
@@ -144,6 +142,13 @@ async function processClick(noteName, rightAnswer, imgList, numQs) {
                     levelComplete('treble', 'Song', Number(curLocation));
                 } else if (window.location.href.includes("bass")) {
                     levelComplete('bass', 'Song', Number(curLocation));
+                }
+            } else if (window.location.href.includes("allSongs")) {
+                const curLocation = window.location.href.split("play/")[1];
+                if (window.location.href.includes("treble")) {
+                    levelComplete('treble', 'Song', curLocation);
+                } else if (window.location.href.includes("bass")) {
+                    levelComplete('bass', 'Song', curLocation);
                 }
             }
         } catch (e) {
@@ -216,7 +221,14 @@ async function restart() {
 }
 
 async function nextLevel(level) {
-    if (window.location.href.includes("songs")) {
+    if (window.location.href.includes("allSongs")) {
+        const clef = window.location.href.includes("bass") ? "bass" : "treble";
+        const fetchResult = await fetch(
+            "http://localhost:3030/allSongs/play/" + level + "?" + clef
+        );
+        window.location.href = fetchResult.url;
+        return;
+    } else if (window.location.href.includes("songs")) {
         if (window.location.href.includes("treble")) {
             const fetchResult = await fetch(
                 "http://localhost:3030/treble/songLesson/" + Number(level).toString()
@@ -408,6 +420,8 @@ function filter(type, clef) {
     }
 
     if (type == 'none' && clef == 'none') {
+        document.getElementById('hideSongs').textContent = 'Hide';
+        document.getElementById('hideLessons').textContent = 'Hide';
         const lessons = document.getElementsByClassName('lessonCard');
         const songs = document.getElementsByClassName('songCard');
         for (let x of lessons) {
@@ -428,6 +442,16 @@ function filter(type, clef) {
     }
 
     if (type == 'lessons' && clef == 'treble') {
+        const filterBtn = document.getElementById('trebleLessonFilter');
+        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
+            /* already on, turn off */
+            const lessons = document.getElementsByClassName('lessonCard');
+            for (let x of lessons) {
+                x.style.display = 'block';
+            }
+            filterBtn.style.color = 'white';
+            return;
+        }
         const lessons = document.getElementsByClassName('lessonCard');
         for (let x of lessons) {
             if (!x.classList.contains('trebleCard')) {
@@ -440,7 +464,6 @@ function filter(type, clef) {
         for (let x of lessonBtns) {
             x.style.color = 'white';
         }
-        const filterBtn = document.getElementById('trebleLessonFilter');
         if (filterBtn) {
             filterBtn.style.color = 'var(--secondary)';
         }
@@ -448,6 +471,16 @@ function filter(type, clef) {
     }
 
     if (type == 'lessons' && clef == 'bass') {
+        const filterBtn = document.getElementById('bassLessonFilter');
+        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
+            /* already on, turn off */
+            const lessons = document.getElementsByClassName('lessonCard');
+            for (let x of lessons) {
+                x.style.display = 'block';
+            }
+            filterBtn.style.color = 'white';
+            return;
+        }
         const lessons = document.getElementsByClassName('lessonCard');
         for (let x of lessons) {
             if (!x.classList.contains('bassCard')) {
@@ -460,7 +493,6 @@ function filter(type, clef) {
         for (let x of lessonBtns) {
             x.style.color = 'white';
         }
-        const filterBtn = document.getElementById('bassLessonFilter');
         if (filterBtn) {
             filterBtn.style.color = 'var(--secondary)';
         }
@@ -468,6 +500,16 @@ function filter(type, clef) {
     }
 
     if (type == 'songs' && clef == 'treble') {
+        const filterBtn = document.getElementById('trebleSongFilter');
+        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
+            /* already on, turn off */
+            const songs = document.getElementsByClassName('songCard');
+            for (let x of songs) {
+                x.style.display = 'block';
+            }
+            filterBtn.style.color = 'white';
+            return;
+        }
         const songs = document.getElementsByClassName('songCard');
         for (let x of songs) {
             if (!x.classList.contains('trebleCard')) {
@@ -480,13 +522,23 @@ function filter(type, clef) {
         for (let x of songBtns) {
             x.style.color = 'white';
         }
-        const filterBtn = document.getElementById('trebleSongFilter');
         if (filterBtn) {
             filterBtn.style.color = 'var(--secondary)';
         }
         return;
     }
+
     if (type == 'songs' && clef == 'bass') {
+        const filterBtn = document.getElementById('bassSongFilter');
+        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
+            /* already on, turn off */
+            const songs = document.getElementsByClassName('songCard');
+            for (let x of songs) {
+                x.style.display = 'block';
+            }
+            filterBtn.style.color = 'white';
+            return;
+        }
         const songs = document.getElementsByClassName('songCard');
         for (let x of songs) {
             if (!x.classList.contains('bassCard')) {
@@ -499,13 +551,23 @@ function filter(type, clef) {
         for (let x of songBtns) {
             x.style.color = 'white';
         }
-        const filterBtn = document.getElementById('bassSongFilter');
         if (filterBtn) {
             filterBtn.style.color = 'var(--secondary)';
         }
         return;
     }
+
     if (type == 'songs' && clef == 'purchased') {
+        const filterBtn = document.getElementById('purchasedSongFilter');
+        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
+            /* already on, turn off */
+            const songs = document.getElementsByClassName('songCard');
+            for (let x of songs) {
+                x.style.display = 'block';
+            }
+            filterBtn.style.color = 'white';
+            return;
+        }
         const songs = document.getElementsByClassName('songCard');
         for (let x of songs) {
             if (!x.classList.contains('purchasedCard')) {
@@ -518,7 +580,6 @@ function filter(type, clef) {
         for (let x of songBtns) {
             x.style.color = 'white';
         }
-        const filterBtn = document.getElementById('purchasedSongFilter');
         if (filterBtn) {
             filterBtn.style.color = 'var(--secondary)';
         }
@@ -568,7 +629,7 @@ function toggleSongs() {
     }
 }
 
-function purchaseSong(name, price, canAfford = true, coins){
+function purchaseSong(name, price, id, canAfford = true, coins){
     let modalBackdrop   = document.createElement('section')
     let popUpModal      = document.createElement('section')
     let modalText       = document.createElement('section')
@@ -588,6 +649,8 @@ function purchaseSong(name, price, canAfford = true, coins){
 
     cancelButton.setAttribute("onclick", "closePopUp()")
     modalBackdrop.setAttribute("onclick", "closePopUp()")
+    const funcCall = "buySong('" + id + "', `" + name + "`)"
+    okButton.setAttribute("onclick", funcCall);
 
     popUpModal.appendChild(modalText)
     if(canAfford){
@@ -599,14 +662,55 @@ function purchaseSong(name, price, canAfford = true, coins){
     document.getElementById("modalInsert").appendChild(popUpModal)
 }
 
-function closePopUp(){
+function purchaseSuccessful(name) {
+    let modalBackdrop = document.createElement('section')
+    let popUpModal = document.createElement('section')
+    let modalText = document.createElement('section')
+    let closeButton = document.createElement('button')
+
+    modalText.innerText = "Purchase of " + name + " successful!";
+    closeButton.innerText = "Close"
+
+    modalBackdrop.classList.add("modalBackdrop")
+    popUpModal.classList.add("popUpModal")
+    modalText.classList.add("modalText")
+    closeButton.classList.add("modalButton", "actionButton")
+
+    closeButton.setAttribute("onclick", "closePopUp()")
+    modalBackdrop.setAttribute("onclick", "closePopUp()")
+
+    popUpModal.appendChild(modalText)
+    popUpModal.appendChild(closeButton)
+
+    document.getElementById("modalInsert").appendChild(modalBackdrop)
+    document.getElementById("modalInsert").appendChild(popUpModal)
+}
+
+function closePopUp() {
     document.getElementsByClassName("popUpModal")[0].classList.add("animateSwipeUpAway")
     document.getElementsByClassName("modalBackdrop")[0].classList.add("animateFadeOut")
 
-    setTimeout(() =>{
+    setTimeout(() => {
         document.getElementsByClassName("modalBackdrop")[0].remove()
         document.getElementsByClassName("popUpModal")[0].remove()
     }, 1000)
+}
+
+async function buySong(songId, name) {
+    closePopUp();
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            song: songId
+        })
+    };
+    const postResult = await fetch("http://localhost:3030/buySong", requestOptions);
+    if (postResult.ok) {
+        purchaseSuccessful(name);
+    }
 }
 
 startCountOff();

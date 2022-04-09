@@ -1,4 +1,4 @@
-function renderRandomLevel(curLevel, levels, res, mode = 'treble') {
+function renderRandomLevel(curLevel, levels, res, clef = 'treble') {
     // set number of rounds
     let numQs = 25;
     if (curLevel < 2) {
@@ -21,13 +21,13 @@ function renderRandomLevel(curLevel, levels, res, mode = 'treble') {
         numQs = 50;
     }
     // get a random picture 
-    const image = '/public/assets/images/' + mode + '/' + mode + '_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
+    const image = '/public/assets/images/' + clef + '/' + clef + '_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
     // get a list of random pictures
     let imgList = image;
     for (let i = 0; i < numQs - 1; i++) {
-        let newImg = ',/public/assets/images/' + mode + '/' + mode + '_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
+        let newImg = ',/public/assets/images/' + clef + '/' + clef + '_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
         while (imgList.endsWith(newImg.substring(1))) {
-            newImg = ',/public/assets/images/' + mode + '/' + mode + '_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
+            newImg = ',/public/assets/images/' + clef + '/' + clef + '_' + levels[curLevel][Math.floor(Math.random() * levels[curLevel].length)] + '.png';
         }
         imgList += newImg;
     }
@@ -46,12 +46,16 @@ function renderRandomLevel(curLevel, levels, res, mode = 'treble') {
     return res.render('individualPages/noteLesson', { notes: levels[curLevel].sort(), noteNames: noteNames.sort((a, b) => (a.note > b.note) ? 1 : -1), img: image, imgList: imgList, i: 1, numQs: numQs });
 }
 
-function renderSongLevel(songIndices, songName, levels, res, mode = 'treble') {
+function renderSongLevel(songIndices, songName, levels, res, clef = 'treble', mode = 'indices') {
     const notes = levels[levels.length - 1];
     let imgList = [];
     // set pictures for the song
     for (let x of songIndices) {
-        imgList += '/public/assets/images/' + mode + '/' + mode + '_' + notes[x] + '.png,';
+        if (mode == 'indices') {
+            imgList += '/public/assets/images/' + clef + '/' + clef + '_' + notes[x] + '.png,';
+        } else {
+            imgList += '/public/assets/images/' + clef + '/' + clef + '_' + x + '.png,';
+        }
     }
     // get rid of ending comma
     imgList = imgList.substring(0, imgList.length - 1);

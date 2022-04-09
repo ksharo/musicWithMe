@@ -57,8 +57,25 @@ const getAndValidate = async function getAndValidate(username, password) {
         }
     }
 }
+
+async function getPurchased(uID) {
+    const user = await getUser(uID);
+    const toReturn = [];
+    if (user != undefined) {
+        const songs = user.purchasedSongs;
+        if (songs != undefined) {
+            for (let x of songs) {
+                let song = await songFunctions.getSong(x)
+                toReturn.push(song);
+            }
+        }
+    }
+    return toReturn;
+}
+
 module.exports = {
     create,
     getAndValidate,
-    buySong
+    buySong,
+    getPurchased
 };
