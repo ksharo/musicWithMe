@@ -1,10 +1,13 @@
-<body>
-    <form name="myForm" action="/" method="post" id="form">
-        <label for="username">Usename:</label><br>
-        <input type="text" id="username" name="username" required="required" minlength="5"><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required="required" minlength="5"><br>
-        <br>
-        <button class="actionButton" type="submit" id="btn">Submit</button>
-    </form>
-</body>
+<form name="myForm" action="/account/create" method="post" id="form">
+    <label for="username">Usename:</label><br>
+    <input type="text" id="username" name="username" required="required" minlength="5"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required="required" minlength="5"><br>
+    <br>
+    {{#if error}}
+        <p>{{error}}</p>
+    {{/if}}
+    <button class="actionButton" type="submit" id="btn">Submit</button>
+</form>
+
+<a href="/account/">Already have an account? Log in!</a>

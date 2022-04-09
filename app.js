@@ -46,6 +46,7 @@ app.use(
 
 app.use('/', (req, res, next) => {
     if (req.originalUrl != '/account' && req.originalUrl != '/' &&
+        req.originalUrl != '/account/logout' &&
         req.originalUrl != '/treble' && (!req.originalUrl.includes('/treble') &&
             Number(req.originalUrl.substring(req.originalUrl.length - 1)) < 3)) {
         if (!req.session.user) {
@@ -65,15 +66,18 @@ app.use('/', (req, res, next) => {
 });
 
 app.use('/account', (req, res, next) => {
-    if (req.originalUrl != '/account/view') {
+    if (req.originalUrl != '/account/view' && req.originalUrl != '/account/logout') {
         if (req.session.user) {
-            console.log('here');
             return res.redirect('/account/view');
         } else {
             next();
         }
     } else {
-        next();
+        if (!req.session.user && req.originalUrl != '/account') {
+            return res.redirect('/account');
+        } else {
+            next();
+        }
     }
 });
 
