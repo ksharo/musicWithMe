@@ -10,10 +10,10 @@ async function main() {
     db.collection("accounts").drop();
 
 
-    const k = await accounts.create('ksharo', '1234');
-    const c = await accounts.create('cchoy', '1234');
-    const l = await accounts.create('lrechler', '1234');
-    const j = await accounts.create('jschneid', '1234');
+    const k = await accounts.create('ksharo', '12345');
+    const c = await accounts.create('cchoy', '12345');
+    const l = await accounts.create('lrechler', '12345');
+    const j = await accounts.create('jschneid', '12345');
 
     const tA1 = 0;
     const tB1 = 1;
@@ -103,7 +103,7 @@ async function main() {
 
     bassSongNames = [
         'Under the Sea',
-        'Bear Necessities'
+        'Bare Necessities'
     ]
 
     bassSongPrices = [

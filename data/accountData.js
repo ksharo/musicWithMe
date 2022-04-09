@@ -17,7 +17,10 @@ async function getUser(userId) {
 
 const create = async function create(username, password) {
     const myAccounts = await accountsDB();
-    const insert = await myAccounts.insertOne({ username: username, password: password, hiscores: [], lessonsCompleted: [], purchasedSongs: [], coins: 50 });
+    /* check if there is already a user with username in the database */
+    let hasUsername = await myAccounts.findOne({ username: username.toLowerCase() });
+    if (hasUsername != undefined && hasUsername != null) throw `Error: Username ${username} already exists.`;
+    const insert = await myAccounts.insertOne({ username: username.toLowerCase(), password: password, hiscores: [], lessonsCompleted: [], purchasedSongs: [], coins: 50 });
     if (!insert.acknowledged || !insert.insertedId) {
         throw "Error: Could not add account!";
     }
