@@ -28,10 +28,10 @@ const buySong = async function buySong(userId, songId) {
     const myAccounts = await accountsDB();
     const user = await getUser(userId);
     const userSongs = [...user.purchasedSongs];
-    let userCoins = user.coins;
-    userSongs.push(songId);
-    const song = songFunctions.getSong(songId);
-    userCoins -= song.price;
+    let userCoins = Number(user.coins);
+    userSongs.push(ObjectId(songId));
+    const song = await songFunctions.getSong(songId);
+    userCoins -= Number(song.price);
 
     const updated = await myAccounts.updateOne({
         _id: ObjectId(userId)
