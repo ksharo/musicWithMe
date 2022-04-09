@@ -629,7 +629,7 @@ function toggleSongs() {
     }
 }
 
-function purchaseSong(name, price, id, canAfford = true, coins){
+function purchaseSong(name, id, price, canAfford = true, coins){
     let modalBackdrop   = document.createElement('section')
     let popUpModal      = document.createElement('section')
     let modalText       = document.createElement('section')
