@@ -16,16 +16,16 @@ router
 
 router
     .route('/store')
-    .get(async(_, res) => {
+    .get(async(req, res) => {
         let trebleSongs = await songData.getTreble();
         let bassSongs = await songData.getBass();
         for (let x of trebleSongs) {
             x.id = x._id;
-            x.canAfford = (globals.coins >= x.price);
+            x.canAfford = (req.session.user.coins >= x.price);
         }
         for (let x of bassSongs) {
             x.id = x._id;
-            x.canAfford = (globals.coins >= x.price);
+            x.canAfford = (req.session.user.coins >= x.price);
         }
         return res.render('individualPages/store', { trebleSongs: trebleSongs, bassSongs: bassSongs });
     });
@@ -70,8 +70,8 @@ router
     .route('/buySong')
     .post(async(req, res) => {
         try {
-            const result = await accountFunctions.buySong(globals.user._id, req.body.song);
-            globals.coins = result.coins;
+            const result = await accountFunctions.buySong(req.session.user._id, req.body.song);
+            req.session.user.coins = result.coins;
             return res.redirect('/store');
         } catch (e) {
             return res.status(500).render('individualPages/error', { error: { message: e, status: 500 } })
