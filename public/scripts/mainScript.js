@@ -637,7 +637,7 @@ function purchaseSong(name, id, price, canAfford = true, coins){
     let cancelButton    = document.createElement('button')
 
     modalText.innerText     = canAfford ? "You are about to buy " + name + " for " + price + "♪"
-                                        : "You need " + price - coins + " more ♪ to buy " + name + ".\nPlay to collect more!"
+                                        : "You need " + (price - coins) + " more ♪ to buy " + name + ".\nPlay to collect more!"
     cancelButton.innerText  = "Cancel"
     okButton.innerText      = "OK"
 
@@ -649,8 +649,15 @@ function purchaseSong(name, id, price, canAfford = true, coins){
 
     cancelButton.setAttribute("onclick", "closePopUp()")
     modalBackdrop.setAttribute("onclick", "closePopUp()")
-    const funcCall = "buySong('" + id + "', `" + name + "`)"
-    okButton.setAttribute("onclick", funcCall);
+
+    if(canAfford){
+        const funcCall = "buySong('" + id + "', `" + name + "`)"
+        okButton.setAttribute("onclick", funcCall);
+    }
+    else{
+        okButton.setAttribute("onclick", "closePopUp()");
+    }
+
 
     popUpModal.appendChild(modalText)
     if(canAfford){
@@ -693,7 +700,7 @@ function closePopUp() {
     setTimeout(() => {
         document.getElementsByClassName("modalBackdrop")[0].remove()
         document.getElementsByClassName("popUpModal")[0].remove()
-    }, 1000)
+    }, 350)
 }
 
 async function buySong(songId, name) {

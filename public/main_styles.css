@@ -178,6 +178,8 @@ button:hover {
     width: 1000px;
 }
 
+/* report card section */
+
 .reportCard {
     background: var(--lightBackground);
     color: black;

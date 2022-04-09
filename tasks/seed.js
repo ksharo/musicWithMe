@@ -81,7 +81,7 @@ async function main() {
         50,
         15,
         30,
-        5
+        5000
     ]
 
     trebleDifficulty = [
