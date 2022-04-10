@@ -112,7 +112,7 @@ function checkAnswer(clickedButton, rightAnswer) {
         scoreCorrect();
         playSound(rightNote);
         document.getElementById(noteName).classList.add("buttonAnswerSuccess");
-        setTimeout(()=> {
+        setTimeout(() => {
             document.getElementById(noteName).classList.remove("buttonAnswerSuccess");
         }, 700)
     } else {
@@ -120,12 +120,12 @@ function checkAnswer(clickedButton, rightAnswer) {
         stopTimer();
         playSound("");
         INCORRECT_BEEP && playSound("");
-        document.getElementById("wrongAnswerX").style.opacity=.95;
+        document.getElementById("wrongAnswerX").style.opacity = .95;
         document.getElementById(noteName).classList.add("buttonAnswerError");
         setTimeout(() => {
-            document.getElementById("wrongAnswerX").style.opacity=0;
-        },500)
-        setTimeout(()=> {
+            document.getElementById("wrongAnswerX").style.opacity = 0;
+        }, 500)
+        setTimeout(() => {
             document.getElementById(noteName).classList.remove("buttonAnswerError");
         }, 700)
     }
@@ -178,57 +178,27 @@ async function processClick(noteName, rightAnswer, imgList, numQs) {
 }
 
 async function startBass() {
-    const fetchResult = await fetch(
-        "http://localhost:3030/bass/newLesson/notes/0"
-    );
-    window.location.href = fetchResult.url;
+    window.location.href = "http://localhost:3030/bass/newLesson/notes/0";
 }
 
 async function startTreble() {
-    const fetchResult = await fetch(
-        "http://localhost:3030/treble/newLesson/notes/0"
-    );
-    window.location.href = fetchResult.url;
+    window.location.href = "http://localhost:3030/treble/newLesson/notes/0";
 }
 
 async function restart() {
     if (window.location.href.includes("noteLesson")) {
         const curLocation = window.location.href.split("noteLesson/")[1];
         if (window.location.href.includes("treble")) {
-            const fetchResult = await fetch(
-                "http://localhost:3030/treble/newLesson/notes/" +
-                Number(curLocation).toString()
-            );
-            setTimeout(() => {
-                window.location.href = fetchResult.url;
-            }, 1000);
+            window.location.href = "http://localhost:3030/treble/newLesson/notes/" + Number(curLocation).toString()
         } else if (window.location.href.includes("bass")) {
-            const fetchResult = await fetch(
-                "http://localhost:3030/bass/newLesson/notes/" +
-                Number(curLocation).toString()
-            );
-            setTimeout(() => {
-                window.location.href = fetchResult.url;
-            }, 1000);
+            window.location.href = "http://localhost:3030/bass/newLesson/notes/" + Number(curLocation).toString();
         }
     } else if (window.location.href.includes("songLesson")) {
         const curLocation = window.location.href.split("songLesson/")[1];
         if (window.location.href.includes("treble")) {
-            const fetchResult = await fetch(
-                "http://localhost:3030/treble/newLesson/songs/" +
-                Number(curLocation).toString()
-            );
-            setTimeout(() => {
-                window.location.href = fetchResult.url;
-            }, 1000);
+            window.location.href = "http://localhost:3030/treble/newLesson/songs/" + Number(curLocation).toString();
         } else if (window.location.href.includes("bass")) {
-            const fetchResult = await fetch(
-                "http://localhost:3030/bass/newLesson/songs/" +
-                Number(curLocation).toString()
-            );
-            setTimeout(() => {
-                window.location.href = fetchResult.url;
-            }, 1000);
+            window.location.href = "http://localhost:3030/bass/newLesson/songs/" + Number(curLocation).toString();
         }
     }
 }
@@ -236,34 +206,19 @@ async function restart() {
 async function nextLevel(level) {
     if (window.location.href.includes("allSongs")) {
         const clef = window.location.href.includes("bass") ? "bass" : "treble";
-        const fetchResult = await fetch(
-            "http://localhost:3030/allSongs/play/" + level + "?" + clef
-        );
-        window.location.href = fetchResult.url;
+        window.location.href = "http://localhost:3030/allSongs/play/" + level + "?" + clef;
         return;
     } else if (window.location.href.includes("songs")) {
         if (window.location.href.includes("treble")) {
-            const fetchResult = await fetch(
-                "http://localhost:3030/treble/songLesson/" + Number(level).toString()
-            );
-            window.location.href = fetchResult.url;
+            window.location.href = "http://localhost:3030/treble/songLesson/" + Number(level).toString();
         } else if (window.location.href.includes("bass")) {
-            const fetchResult = await fetch(
-                "http://localhost:3030/bass/songLesson/" + Number(level).toString()
-            );
-            window.location.href = fetchResult.url;
+            window.location.href = "http://localhost:3030/bass/songLesson/" + Number(level).toString();
         }
     } else if (window.location.href.includes("notes")) {
         if (window.location.href.includes("treble")) {
-            const fetchResult = await fetch(
-                "http://localhost:3030/treble/noteLesson/" + Number(level).toString()
-            );
-            window.location.href = fetchResult.url;
+            window.location.href = "http://localhost:3030/treble/noteLesson/" + Number(level).toString();
         } else if (window.location.href.includes("bass")) {
-            const fetchResult = await fetch(
-                "http://localhost:3030/bass/noteLesson/" + Number(level).toString()
-            );
-            window.location.href = fetchResult.url;
+            window.location.href = "http://localhost:3030/bass/noteLesson/" + Number(level).toString();
         }
     }
 }
@@ -280,10 +235,7 @@ async function toLink(url) {
             url = '/treble';
         }
     }
-    const fetchResult = await fetch(
-        "http://localhost:3030" + url
-    );
-    window.location.href = fetchResult.url;
+    window.location.href = "http://localhost:3030" + url;
 }
 
 async function nextLesson(retry = false) {
@@ -293,27 +245,15 @@ async function nextLesson(retry = false) {
     }
     if (window.location.href.includes("Song")) {
         if (window.location.href.includes("treble")) {
-            const fetchResult = await fetch(
-                "http://localhost:3030/treble/newLesson/songs/" + Number(level).toString()
-            );
-            window.location.href = fetchResult.url;
+            window.location.href = "http://localhost:3030/treble/newLesson/songs/" + Number(level).toString();
         } else if (window.location.href.includes("bass")) {
-            const fetchResult = await fetch(
-                "http://localhost:3030/bass/newLesson/songs/" + Number(level).toString()
-            );
-            window.location.href = fetchResult.url;
+            window.location.href = "http://localhost:3030/bass/newLesson/songs/" + Number(level).toString();
         }
     } else if (window.location.href.includes("Note")) {
         if (window.location.href.includes("treble")) {
-            const fetchResult = await fetch(
-                "http://localhost:3030/treble/newLesson/notes/" + Number(level).toString()
-            );
-            window.location.href = fetchResult.url;
+            window.location.href = "http://localhost:3030/treble/newLesson/notes/" + Number(level).toString();
         } else if (window.location.href.includes("bass")) {
-            const fetchResult = await fetch(
-                "http://localhost:3030/bass/newLesson/notes/" + Number(level).toString()
-            );
-            window.location.href = fetchResult.url;
+            window.location.href = "http://localhost:3030/bass/newLesson/notes/" + Number(level).toString();
         }
     }
 }
@@ -336,10 +276,7 @@ async function levelComplete(clef, type, level) {
     };
     const postResult = await fetch("http://localhost:3030/" + clef + "/send" + type + 'Data/' + level.toString(), requestOptions);
     if (postResult.ok) {
-        const fetchResult = await fetch("http://localhost:3030/" + clef + "/end" + type + 'Level/' + level.toString());
-        setTimeout(() => {
-            window.location.href = fetchResult.url;
-        }, 1000);
+        window.location.href = "http://localhost:3030/" + clef + "/end" + type + 'Level/' + level.toString();
     }
 }
 
@@ -642,17 +579,17 @@ function toggleSongs() {
     }
 }
 
-function purchaseSong(name, id, price, canAfford = true, coins){
-    let modalBackdrop   = document.createElement('section')
-    let popUpModal      = document.createElement('section')
-    let modalText       = document.createElement('section')
-    let okButton        = document.createElement('button')
-    let cancelButton    = document.createElement('button')
+function purchaseSong(name, id, price, canAfford = true, coins) {
+    let modalBackdrop = document.createElement('section')
+    let popUpModal = document.createElement('section')
+    let modalText = document.createElement('section')
+    let okButton = document.createElement('button')
+    let cancelButton = document.createElement('button')
 
-    modalText.innerText     = canAfford ? "You are about to buy " + name + " for " + price + "♪"
-                                        : "You need " + (price - coins) + "♪ more to buy " + name + ".\nPlay to collect more!"
-    cancelButton.innerText  = "Cancel"
-    okButton.innerText      = "OK"
+    modalText.innerText = canAfford ? "You are about to buy " + name + " for " + price + "♪" :
+        "You need " + (price - coins) + "♪ more to buy " + name + ".\nPlay to collect more!"
+    cancelButton.innerText = "Cancel"
+    okButton.innerText = "OK"
 
     modalBackdrop.classList.add("modalBackdrop")
     popUpModal.classList.add("popUpModal")
@@ -664,17 +601,16 @@ function purchaseSong(name, id, price, canAfford = true, coins){
     cancelButton.setAttribute("onclick", "closePopUp()")
     modalBackdrop.setAttribute("onclick", "closePopUp()")
 
-    if(canAfford){
+    if (canAfford) {
         const funcCall = "buySong('" + id + "', `" + name + "`)"
         okButton.setAttribute("onclick", funcCall);
-    }
-    else{
+    } else {
         okButton.setAttribute("onclick", "closePopUp()");
     }
 
 
     popUpModal.appendChild(modalText)
-    if(canAfford){
+    if (canAfford) {
         popUpModal.appendChild(cancelButton)
     }
     popUpModal.appendChild(okButton)
@@ -689,8 +625,8 @@ function purchaseStatusModal(name, purchaseStatus) {
     let modalText = document.createElement('section')
     let closeButton = document.createElement('button')
 
-    modalText.innerText = purchaseStatus    ? "Purchase of " + name + " successful!"
-                                            : "Failed to purchase " + name + ". Please try again later";
+    modalText.innerText = purchaseStatus ? "Purchase of " + name + " successful!" :
+        "Failed to purchase " + name + ". Please try again later";
     closeButton.innerText = "Close"
 
     modalBackdrop.classList.add("modalBackdrop")
@@ -708,8 +644,8 @@ function purchaseStatusModal(name, purchaseStatus) {
     document.getElementById("modalInsert").appendChild(popUpModal)
 }
 
-function closePopUp(animate=true) {
-    if(animate){
+function closePopUp(animate = true) {
+    if (animate) {
         document.getElementsByClassName("popUpModal")[0].classList.add("animateSwipeUpAway")
         document.getElementsByClassName("modalBackdrop")[0].classList.add("animateFadeOut")
 
@@ -717,8 +653,7 @@ function closePopUp(animate=true) {
             document.getElementsByClassName("modalBackdrop")[0].remove()
             document.getElementsByClassName("popUpModal")[0].remove()
         }, 350)
-    }
-    else{
+    } else {
         document.getElementsByClassName("modalBackdrop")[0].remove()
         document.getElementsByClassName("popUpModal")[0].remove()
     }
@@ -737,24 +672,26 @@ async function buySong(songId, name) {
     };
     const postResult = await fetch("http://localhost:3030/buySong", requestOptions);
     //show the loading prompt for a little, so no jarring prompt flash if the req is served instantly
-    setTimeout(()=>{
+    setTimeout(() => {
         if (postResult.ok) {
-            closePopUp(animate=false);
+            closePopUp(animate = false);
             purchaseStatusModal(name, true);
-        }
-        else{
-            closePopUp(animate=false);
+        } else {
+            closePopUp(animate = false);
             purchaseStatusModal(name, false);
         }
     }, 300)
 
 }
 
-function initializeHidden(){
-    document.getElementById("wrongAnswerX").style.display = "block"
+function initializeHidden() {
+    const x = document.getElementById("wrongAnswerX");
+    if (x) {
+        x.style.display = "block";
+    }
 }
 
 startCountOff();
-window.addEventListener("load", function(){
+window.addEventListener("load", function() {
     initializeHidden();
 });

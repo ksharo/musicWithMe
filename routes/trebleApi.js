@@ -114,8 +114,8 @@ router
 router
     .route('/endNoteLevel/:level')
     .get(async(req, res) => {
-        const rendered = await generalFunctions.renderLessonResult(req, res, req.params.level, 'treble', 'note', accuracy, score, totalQs, streak, false);
-        return rendered;
+        await generalFunctions.renderLessonResult(req, res, req.params.level, 'treble', 'note', accuracy, score, totalQs, streak, false);
+        return;
     });
 
 router

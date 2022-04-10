@@ -21,13 +21,16 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
     let result = 'did not pass'
     let fail = true;
     grade = '&#9785;';
+    let newHi = false;
     if (accuracy >= 80 && score > timeThreshold * totalQs) {
         levelName = clef + type + strLevel;
         if (!req.session.user) {
             if (!req.session.tmpUser) {
+                highScores = {};
+                highScores[levelName] = score;
                 req.session.tmpUser = {
                     levels: [levelName],
-                    highScores: { levelName: score }
+                    highScores: highScores
                 }
             } else {
                 if (!req.session.tmpUser.levels.includes(levelName)) {
@@ -36,6 +39,7 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
                 } else {
                     if (req.session.tmpUser.highScores[levelName] < score) {
                         req.session.tmpUser.highScores[levelName] = score;
+                        newHi = true;
                     }
                 }
             }
@@ -49,6 +53,7 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
             } else {
                 if (curHighScores[levelName] < score) {
                     curHighScores[levelName] = score;
+                    newHi = true;
                 }
             }
             const updatedConfig = {
@@ -69,7 +74,7 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
         result = 'passed!'
         fail = false;
     }
-    return res.status(200).render('individualPages/lessonResult', { result: result, grade: grade, fail: fail, minScore: timeThreshold * totalQs, score: score, streak: streak, accuracy: accuracy, finalRound: Number(strLevel) == 38 });
+    return res.status(200).render('individualPages/lessonResult', { result: result, grade: grade, fail: fail, minScore: timeThreshold * totalQs, score: score, streak: streak, accuracy: accuracy, finalRound: Number(strLevel) == 38, newHi: newHi });
 }
 
 module.exports = {
