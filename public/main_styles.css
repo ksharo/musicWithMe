@@ -839,3 +839,8 @@ input:focus {
 .littleLink:visited {
     color: var(--secondary);
 }
+
+.highScoreTxt {
+    color: var(--secondary);
+    margin: 6px 0px 0px 0px;
+}

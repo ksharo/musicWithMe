@@ -5,14 +5,14 @@
 	<table class="reportDetailsTable ">
 		<tbody>
 			<tr>
-				<td>Score</td>
+				<td>
+					<span>Score</span>
+					{{#if newHi}}
+						<p class="highScoreTxt">New High Score!</p>
+					{{/if}}
+				</td>
 				<td>{{score}}</td>
 			</tr>
-			{{#if newHi}}
-			<tr>
-				<td>New High Score!</td>
-			</tr>
-			{{/if}}
 			<tr>
 				<td>Accuracy</td>
 				<td>{{accuracy}}%</td>
