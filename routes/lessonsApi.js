@@ -67,8 +67,8 @@ router
             tsPerc: cleanPerc(tSongs, 7),
             bsPerc: cleanPerc(bSongs, 6),
             purchasedSongs: purchased,
-            atDisabled: btLevels < 13 ? 'disabledCard' : '',
-            abDisabled: bbLevels < 13 ? 'disabledCard' : ''
+            atDisabled: btLevels < 13 ? 'disabledLessonCard' : '',
+            abDisabled: bbLevels < 13 ? 'disabledLessonCard' : ''
         });
     });
 

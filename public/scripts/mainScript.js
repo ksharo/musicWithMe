@@ -630,14 +630,14 @@ function toggleSongs() {
     }
 }
 
-function purchaseSong(name, id, price, canAfford = true, coins) {
+function purchaseSong(name, id, price, canAfford = true, ownsSong = false, coins) {
     let modalBackdrop = document.createElement('section')
     let popUpModal = document.createElement('section')
     let modalText = document.createElement('section')
     let okButton = document.createElement('button')
     let cancelButton = document.createElement('button')
 
-    modalText.innerText = canAfford ? "You are about to buy " + name + " for " + price + "♪" :
+    modalText.innerText = ownsSong ? "You already own this song!" : canAfford ? "You are about to buy " + name + " for " + price + "♪" :
         "You need " + (price - coins) + "♪ more to buy " + name + ".\nPlay to collect more!"
     cancelButton.innerText = "Cancel"
     okButton.innerText = "OK"

@@ -19,15 +19,19 @@ router
     .get(async(req, res) => {
         let trebleSongs = await songData.getTreble();
         let bassSongs = await songData.getBass();
+        let user = await accountFunctions.getUser(req.session.user._id);
+        let purchased = user.purchasedSongs.map((s) => { return s.toString(); });
         for (let x of trebleSongs) {
             x.id = x._id;
-            x.canAfford = (req.session.user.coins >= x.price);
+            x.canAfford = (user.coins >= x.price);
+            x.ownsSong = (purchased.includes(x._id.toString()));
         }
         for (let x of bassSongs) {
             x.id = x._id;
-            x.canAfford = (req.session.user.coins >= x.price);
+            x.canAfford = (user.coins >= x.price);
+            x.ownsSong = (purchased.includes(x._id.toString()));
         }
-        return res.render('individualPages/store', { trebleSongs: trebleSongs, bassSongs: bassSongs, coins: req.session.user.coins });
+        return res.render('individualPages/store', { trebleSongs: trebleSongs, bassSongs: bassSongs, coins: user.coins });
     });
 
 router
