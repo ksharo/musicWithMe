@@ -217,6 +217,8 @@ async function restart() {
         } else if (window.location.href.includes("bass")) {
             window.location.href = "http://localhost:3030/bass/newLesson/songs/" + Number(curLocation).toString();
         }
+    } else if (window.location.href.includes("allSongs")) {
+        window.location.href = window.location.href.replace("play", "begin");
     }
 }
 
@@ -240,7 +242,31 @@ async function nextLevel(level) {
     }
 }
 
-async function toLink(url) {
+async function toLink(url, disabled = '') {
+    if (disabled != '') {
+        let modalBackdrop = document.createElement('section');
+        let popUpModal = document.createElement('section');
+        let modalText = document.createElement('section');
+        let closeButton = document.createElement('button');
+
+        modalText.innerText = 'Finish beginner levels to unlock!';
+        closeButton.innerText = "Close";
+
+        modalBackdrop.classList.add("modalBackdrop");
+        popUpModal.classList.add("popUpModal");
+        modalText.classList.add("modalText");
+        closeButton.classList.add("modalButton", "actionButton");
+
+        closeButton.setAttribute("onclick", "closePopUp()");
+        modalBackdrop.setAttribute("onclick", "closePopUp()");
+
+        popUpModal.appendChild(modalText);
+        popUpModal.appendChild(closeButton);
+
+        document.getElementById("modalInsert").appendChild(modalBackdrop);
+        document.getElementById("modalInsert").appendChild(popUpModal);
+        return;
+    }
     if (url[0] != '/') {
         url = '/' + url;
     }
@@ -257,6 +283,10 @@ async function toLink(url) {
 
 async function nextLesson(retry = false) {
     let level = Number(window.location.href.split("Level/")[1]) + 1;
+    if (isNaN(level)) {
+        window.location.href = 'http://localhost:3030/allSongs/begin/' + window.location.href.split("Level/")[1];
+        return;
+    }
     if (retry) {
         level = level - 1;
     }
@@ -384,6 +414,10 @@ function filter(type, clef) {
     }
     if (type == 'songs') {
         document.getElementById('hideSongs').textContent = 'Hide';
+        /* hide lessons so you can see the filtered songs */
+        if (document.getElementById('hideLessons').textContent == 'Hide') {
+            toggleLessons();
+        }
     }
 
     if (type == 'none' && clef == 'none') {

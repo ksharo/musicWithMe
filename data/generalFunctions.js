@@ -76,7 +76,7 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
         result = 'passed!'
         fail = false;
     }
-    return res.status(200).render('individualPages/lessonResult', { result: result, grade: grade, fail: fail, minScore: timeThreshold * totalQs, score: score, streak: streak, accuracy: accuracy, finalRound: Number(strLevel) == 38, newHi: newHi });
+    return res.status(200).render('individualPages/lessonResult', { result: result, grade: grade, fail: fail, minScore: timeThreshold * totalQs, score: score, streak: streak, accuracy: accuracy, finalRound: Number(strLevel) == 38 || isNaN(Number(strLevel)), newHi: newHi });
 }
 
 module.exports = {

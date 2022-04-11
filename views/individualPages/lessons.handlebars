@@ -1,4 +1,5 @@
 <section class="lesson-container"> 
+    <p id="modalInsert"></p>
     <article class="filters">
         <h2 class="lessonHeader filterHeader">Filters</h2>
         <ul class="filter-list">
@@ -47,7 +48,7 @@
                     </div>
                     <h4>Progress: {{bbPerc}}%</h4>
                 </section>
-                <section class="lessonCard trebleCard">
+                <section onClick="toLink('/treble/newLesson/notes/{{atLevels}}', `{{atDisabled}}`)" class="lessonCard trebleCard {{atDisabled}}">
                     <h3>Treble Clef</h3>    
                     <h4>Advanced Notes</h4>
                     <div class="imgContainer">
@@ -55,11 +56,11 @@
                     </div>
                     <h4>Progress: {{atPerc}}%</h4>
                 </section>
-                <section class="lessonCard bassCard">
+                <section onClick="toLink('/bass/newLesson/notes/{{abLevels}}', `{{atDisabled}}`)" class="lessonCard bassCard {{abDisabled}}">
                     <h3>Bass Clef</h3>
                     <h4>Advanced Notes</h4>
                     <div class="imgContainer">
-                        <img src="/public/assets/images/bass/bass_C%233.png" />
+                        <img src="/public/assets/images/bass/bass_G%232.png" />
                     </div>
                     <h4>Progress: {{abPerc}}%</h4>
                 </section>
@@ -78,23 +79,23 @@
             </select> --}}
          </section>
          <article class="lessonSection">
-                <section onClick="toLink('/treble/newLesson/songs/0')" class="songCard trebleCard">
+                <section onClick="toLink('/treble/newLesson/songs/{{tSongs}}', `{{atDisabled}}`)" class="songCard trebleCard {{atDisabled}}">
                     <h3>Treble Clef</h3>
                     <h4>Beginner Songs</h4>
                     <div class="imgContainer">
                         <img src="/public/assets/images/treble/treble_B2.png" />
                     </div>
-                    <h4>Progress: 0%</h4>
+                    <h4>Progress: {{tsPerc}}%</h4>
                 </section>
-                <section onClick="toLink('/bass/newLesson/songs/0')" class="songCard bassCard">
+                <section onClick="toLink('/bass/newLesson/songs/{{bSongs}}', `{{abDisabled}}`)" class="songCard bassCard {{abDisabled}}">
                     <h3>Bass Clef</h3>
                     <h4>Beginner Songs</h4>
                     <div class="imgContainer">
                         <img src="/public/assets/images/bass/bass_C2.png" />
                     </div>
-                    <h4>Progress: 0%</h4>
+                    <h4>Progress: {{bsPerc}}%</h4>
                 </section>
-                <section class="songCard trebleCard">
+                {{!-- <section class="songCard trebleCard">
                     <h3>Treble Clef</h3>    
                     <h4>Advanced Songs</h4>
                     <div class="imgContainer">
@@ -106,18 +107,18 @@
                     <h3>Bass Clef</h3>
                     <h4>Advanced Songs</h4>
                     <div class="imgContainer">
-                        <img src="/public/assets/images/bass/bass_Bb2.png" />
+                        <img src="/public/assets/images/bass/bass_Bb1.png" />
                     </div>
                     <h4>Progress: 0%</h4>
-                </section>
+                </section> --}}
                 {{#each purchasedSongs}}
-                    <section onClick="toLink(`allSongs/begin/{{id}}?{{clef}}`)" class="songCard purchasedCard">
-                    <h3>{{name}}</h3>
+                    <section onClick="toLink(`allSongs/begin/{{id}}?{{clef}}`)" class="songCard purchasedCard {{clef}}Card">
+                    <h3 title="{{name}}">{{name}}</h3>
                     <h4>Level: {{level}}</h4>
                     <div class="imgContainer">
                         <img src={{image}} />
                     </div>
-                    <h4>High Score: 0</h4>
+                    <h4>High Score: {{hiScore}}</h4>
                 </section>
                 {{/each}}
             </article>
