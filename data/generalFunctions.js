@@ -1,6 +1,6 @@
 const accountFunctions = require('./accountData');
 
-async function renderLessonResult(req, res, strLevel, clef, type, accuracy, score, totalQs, streak, song = false) {
+async function renderLessonResult(req, res, strLevel, clef, type, accuracy, score, totalQs, streak, coins, song = false) {
     let level = Number(strLevel);
     let grade = 'A+';
     let timeThreshold = 800;
@@ -30,9 +30,11 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
             highScores[levelName] = score;
             req.session.tmpUser = {
                 levels: [levelName],
-                highScores: highScores
+                highScores: highScores,
+                coins: 50 + coins
             }
         } else {
+            req.session.tmpUser.coins += coins;
             if (!req.session.tmpUser.levels.includes(levelName)) {
                 req.session.tmpUser.levels.push(levelName);
                 req.session.tmpUser.highScores[levelName] = score;
@@ -45,6 +47,7 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
         }
     } else {
         const user = await accountFunctions.getUser(req.session.user._id);
+        const updatedCoins = user.coins + coins;
         const curLevels = [...user.lessonsCompleted];
         const curHighScores = Object.assign({}, user.hiscores);
         if (!curLevels.includes(levelName)) {
@@ -58,7 +61,8 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
         }
         const updatedConfig = {
             lessonsCompleted: curLevels,
-            hiscores: curHighScores
+            hiscores: curHighScores,
+            coins: updatedCoins
         };
         await accountFunctions.updateUser(req.session.user._id, updatedConfig);
     }
@@ -76,7 +80,7 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
         result = 'passed!'
         fail = false;
     }
-    return res.status(200).render('individualPages/lessonResult', { result: result, grade: grade, fail: fail, minScore: timeThreshold * totalQs, score: score, streak: streak, accuracy: accuracy, finalRound: Number(strLevel) == 38 || isNaN(Number(strLevel)), newHi: newHi });
+    return res.status(200).render('individualPages/lessonResult', { result: result, grade: grade, fail: fail, minScore: timeThreshold * totalQs, score: score, streak: streak, accuracy: accuracy, finalRound: Number(strLevel) == 38 || isNaN(Number(strLevel)), newHi: newHi, coins: coins });
 }
 
 module.exports = {
