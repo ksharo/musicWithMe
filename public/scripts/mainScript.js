@@ -32,18 +32,35 @@ window.addEventListener("load", () => {
 
 let key1 = null;
 let key2 = null;
-document.addEventListener("keyup", () => {
+document.addEventListener("keyup", (event) => {
+    if (event.key.toUpperCase() == 'ARROWUP' || event.key.toUpperCase() == 'ARROWDOWN') {
+        key2 = null;
+        return;
+    }
+    let saveKey = null;
     if (key1 != null) {
         let key = key1;
         if (key2 != null) {
             if (key1 == 'ARROWUP') {
                 key = key2 + '#';
+                if (event.key.toUpperCase() != key1) {
+                    saveKey = key1;
+                }
             } else if (key1 == 'ARROWDOWN') {
                 key = key2 + 'b';
+                if (event.key.toUpperCase() != key1) {
+                    saveKey = key1;
+                }
             } else if (key2 == 'ARROWUP') {
                 key = key1 + '#';
-            } else if (key1 == 'ARROWDOWN') {
+                if (event.key.toUpperCase() != key2) {
+                    saveKey = key2;
+                }
+            } else if (key2 == 'ARROWDOWN') {
                 key = key1 + 'b';
+                if (event.key.toUpperCase() != key2) {
+                    saveKey = key2;
+                }
             }
         }
         const el = document.getElementById(key);
@@ -51,7 +68,7 @@ document.addEventListener("keyup", () => {
             el.click();
         }
         key1 = null;
-        key2 = null;
+        key2 = saveKey;
     }
 });
 
@@ -212,6 +229,8 @@ async function restart() {
         } else if (window.location.href.includes("bass")) {
             window.location.href = "http://localhost:3030/bass/newLesson/songs/" + Number(curLocation).toString();
         }
+    } else if (window.location.href.includes("allSongs")) {
+        window.location.href = window.location.href.replace("play", "begin");
     }
 }
 
@@ -235,7 +254,31 @@ async function nextLevel(level) {
     }
 }
 
-async function toLink(url) {
+async function toLink(url, disabled = '') {
+    if (disabled != '') {
+        let modalBackdrop = document.createElement('section');
+        let popUpModal = document.createElement('section');
+        let modalText = document.createElement('section');
+        let closeButton = document.createElement('button');
+
+        modalText.innerText = 'Finish beginner levels to unlock!';
+        closeButton.innerText = "Close";
+
+        modalBackdrop.classList.add("modalBackdrop");
+        popUpModal.classList.add("popUpModal");
+        modalText.classList.add("modalText");
+        closeButton.classList.add("modalButton", "actionButton");
+
+        closeButton.setAttribute("onclick", "closePopUp()");
+        modalBackdrop.setAttribute("onclick", "closePopUp()");
+
+        popUpModal.appendChild(modalText);
+        popUpModal.appendChild(closeButton);
+
+        document.getElementById("modalInsert").appendChild(modalBackdrop);
+        document.getElementById("modalInsert").appendChild(popUpModal);
+        return;
+    }
     if (url[0] != '/') {
         url = '/' + url;
     }
@@ -252,6 +295,10 @@ async function toLink(url) {
 
 async function nextLesson(retry = false) {
     let level = Number(window.location.href.split("Level/")[1]) + 1;
+    if (isNaN(level)) {
+        window.location.href = 'http://localhost:3030/allSongs/begin/' + window.location.href.split("Level/")[1];
+        return;
+    }
     if (retry) {
         level = level - 1;
     }
@@ -394,6 +441,10 @@ function filter(type, clef) {
     }
     if (type == 'songs') {
         document.getElementById('hideSongs').textContent = 'Hide';
+        /* hide lessons so you can see the filtered songs */
+        if (document.getElementById('hideLessons').textContent == 'Hide') {
+            toggleLessons();
+        }
     }
 
     if (type == 'none' && clef == 'none') {
@@ -718,11 +769,11 @@ function initializeHidden() {
     }
 }
 
-function openNav(){
+function openNav() {
     document.getElementById("sideNav").style.width = "250px";
 }
 
-function closeNav(){
+function closeNav() {
     document.getElementById("sideNav").style.width = "0";
 }
 

@@ -792,7 +792,10 @@ footer {
 .lessonCard img,
 .songCard img {
     width: 200px;
-    margin-top: -40px;
+    height: 100px;
+    margin-top: 10px;
+    object-fit: cover;
+    object-position: center center;
 }
 
 .imgContainer {
@@ -800,6 +803,7 @@ footer {
     height: 120px;
     overflow: hidden;
     margin: auto;
+    object-fit: cover;
 }
 
 .lessonCard h3,
@@ -934,4 +938,13 @@ input:focus {
     background-color: #4A374D;
     border: none;
     padding-top: 10px;
+}
+
+.disabledCard {
+    filter: brightness(30%);
+}
+
+.disabledCard:hover {
+    cursor: default;
+    filter: brightness(30%);
 }

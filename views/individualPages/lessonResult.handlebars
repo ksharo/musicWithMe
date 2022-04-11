@@ -43,9 +43,11 @@
 	<section class="cardNav">
 		{{#if fail}}
 		<button id='failBtn' class='actionButton' onClick="nextLesson(true)">Try Again</button>
+		<button class='actionButton' onClick="window.location.href='http://localhost:3030/lessons';">Return Home</button>
 		{{else}}
 			<button class='actionButton' onClick="nextLesson(true)">Play Again</button>
 			{{#if finalRound}}
+			<button class='actionButton' onClick="window.location.href='http://localhost:3030/lessons';">Return Home</button>
 			{{else}}
 			<button id='passBtn' class='actionButton' onClick="nextLesson()">Next Level</button>
 			{{/if}}
