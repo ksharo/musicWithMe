@@ -9,13 +9,25 @@
     {{!-- <form action = '/' method = 'GET'>
         <button class="noStyle"><h1>Music With Me!</h1></button>
     </form> --}}
-    <h1><a href="/">Music With Me</a>
+    <h1>
+        <button class = "openBut" onclick = "openNav()">&lArr;</button>
+        <a href="/">Music With Me</a>
     </h1>
 </header>
 <body>
-    <main>
-        {{{body}}}
-    </main>
+    <div id = "sideNav" class = "sidenav">
+        <a href = "javascript:void(0)" class = "closebtn" onclick = "closeNav()"> &times;</a>
+        <a href="/">Home</a>
+        <a href="/lessons">Lessons</a>
+        <a href="/createAccount">Create Account</a>
+        <a href = "/store">Store</a>
+        <a href = "/leaderboard">Leaderboard</a>
+    </div>
+    <div id = "main">
+        <main>
+            {{{body}}}
+        </main>
+    </div>
 </body>
 <script src='/public/scripts/mainScript.js'></script>
 </html>

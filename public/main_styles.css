@@ -844,3 +844,54 @@ input:focus {
     color: var(--secondary);
     margin: 6px 0px 0px 0px;
 }
+
+
+/*Nav Bar*/
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: .5s;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: .3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openBut {
+    width: 75px;
+    height: 86px;
+    font-size: 50px;
+    margin-bottom: 1rem;
+    position: absolute;
+    left: 0px;
+    top: -10px;
+    display: inline-block;
+    background-color: #4A374D;
+    border: none;
+    padding-top: 10px;
+}
