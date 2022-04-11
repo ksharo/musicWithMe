@@ -20,18 +20,35 @@ window.addEventListener("load", () => {
 
 let key1 = null;
 let key2 = null;
-document.addEventListener("keyup", () => {
+document.addEventListener("keyup", (event) => {
+    if (event.key.toUpperCase() == 'ARROWUP' || event.key.toUpperCase() == 'ARROWDOWN') {
+        key2 = null;
+        return;
+    }
+    let saveKey = null;
     if (key1 != null) {
         let key = key1;
         if (key2 != null) {
             if (key1 == 'ARROWUP') {
                 key = key2 + '#';
+                if (event.key.toUpperCase() != key1) {
+                    saveKey = key1;
+                }
             } else if (key1 == 'ARROWDOWN') {
                 key = key2 + 'b';
+                if (event.key.toUpperCase() != key1) {
+                    saveKey = key1;
+                }
             } else if (key2 == 'ARROWUP') {
                 key = key1 + '#';
-            } else if (key1 == 'ARROWDOWN') {
+                if (event.key.toUpperCase() != key2) {
+                    saveKey = key2;
+                }
+            } else if (key2 == 'ARROWDOWN') {
                 key = key1 + 'b';
+                if (event.key.toUpperCase() != key2) {
+                    saveKey = key2;
+                }
             }
         }
         const el = document.getElementById(key);
@@ -39,7 +56,7 @@ document.addEventListener("keyup", () => {
             el.click();
         }
         key1 = null;
-        key2 = null;
+        key2 = saveKey;
     }
 });
 
@@ -691,11 +708,11 @@ function initializeHidden() {
     }
 }
 
-function openNav(){
+function openNav() {
     document.getElementById("sideNav").style.width = "250px";
 }
 
-function closeNav(){
+function closeNav() {
     document.getElementById("sideNav").style.width = "0";
 }
 
