@@ -14,6 +14,9 @@
     </section>
 
     <section class="questionHeader">
+        <section class="coinSection">
+            <div id="levelCoins">Coins: 0</div>
+        </section>
         <p id="qTracker">Question: {{i}}/{{numQs}}</p>
         <section class="scoreSection">
             <div id="currentScore">Total: 0</div>
@@ -21,7 +24,9 @@
         </section>
         <progress id="qTrackerProgressBar" value={{i}} max={{numQs}}> 32% </progress>
         <section class="timerArea">
-            <div id="timer">1000</div>
+            <div id="timer">1100
+                <span id="multiplier">x1</span>
+            </div>
         </section>
     </section>
 

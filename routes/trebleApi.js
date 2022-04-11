@@ -17,6 +17,7 @@ let streak = 0;
 let score = 0;
 let accuracy = 0;
 let totalQs = 0;
+let coins = 0;
 
 router
     .route('/')
@@ -98,6 +99,7 @@ router
         streak = req.body.streak;
         totalQs = req.body.total;
         accuracy = Math.ceil((Number(req.body.correct) / Number(totalQs)) * 100);
+        coins = req.body.levelCoins;
         return res.status(200).json(req.body);
     });
 
@@ -108,20 +110,21 @@ router
         streak = req.body.streak;
         totalQs = req.body.total;
         accuracy = Math.ceil((Number(req.body.correct) / Number(totalQs)) * 100);
+        coins = req.body.levelCoins;
         return res.status(200).json(req.body);
     });
 
 router
     .route('/endNoteLevel/:level')
     .get(async(req, res) => {
-        await generalFunctions.renderLessonResult(req, res, req.params.level, 'treble', 'note', accuracy, score, totalQs, streak, false);
+        await generalFunctions.renderLessonResult(req, res, req.params.level, 'treble', 'note', accuracy, score, totalQs, streak, coins, false);
         return;
     });
 
 router
     .route('/endSongLevel/:level')
     .get(async(req, res) => {
-        const rendered = await generalFunctions.renderLessonResult(req, res, req.params.level, 'treble', 'song', accuracy, score, totalQs, streak, true);
+        const rendered = await generalFunctions.renderLessonResult(req, res, req.params.level, 'treble', 'song', accuracy, score, totalQs, streak, coins, true);
         return rendered;
     });
 

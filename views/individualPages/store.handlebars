@@ -24,7 +24,7 @@
             {{#if canAfford}}
                 <section class="storeCard">
                 {{else}}
-                    <section class="storeCard .disabledCard">
+                    <section class="storeCard disabledCard">
             {{/if}}
                 <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{../coins}})"></a>
                 <img src="{{image}}" alt="{{name}} image" class="cardImage"/>

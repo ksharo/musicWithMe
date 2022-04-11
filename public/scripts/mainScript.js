@@ -1,12 +1,24 @@
+// Edit these constants to edit the game
+
 const INCORRECT_BEEP = false;
+const START_SCORE_QUESTION = 1100;
+const MAX_MULTIPLIER = 2 //1.5
+const STREAK_INCREASES_MULTIPLIER_BY = .1
+
+//calculated constants
+const MULTIPLIER_STEPS = (MAX_MULTIPLIER - 1) / STREAK_INCREASES_MULTIPLIER_BY // 1/.1
 let streak = 0;
 let maxStreak = 0;
-let currScore = 0;
-let scoreCurrQuestion = 1000;
+let currLevelScore = 0;
+let scoreCurrQuestionWithMultipliers = 0;
+let scoreCurrQuestion = START_SCORE_QUESTION;
 let numRight = 0;
 let totalQs = 0;
 let interval = null;
 let counting = true;
+let multiplier = 0;
+let levelCoins = 0;
+
 
 window.addEventListener("load", () => {
     if (window.location.href.includes("end") && window.location.href.includes("Level")) {
@@ -268,10 +280,11 @@ async function levelComplete(clef, type, level) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            score: currScore,
+            score: currLevelScore,
             streak: maxStreak,
             correct: numRight,
-            total: totalQs
+            total: totalQs,
+            levelCoins: levelCoins
         })
     };
     const postResult = await fetch("http://localhost:3030/" + clef + "/send" + type + 'Data/' + level.toString(), requestOptions);
@@ -281,15 +294,15 @@ async function levelComplete(clef, type, level) {
 }
 
 function beginTimer() {
-    scoreCurrQuestion = 1000;
+    scoreCurrQuestion = START_SCORE_QUESTION;
     interval = setInterval(() => {
-        if (scoreCurrQuestion <= 500) {
+        if (scoreCurrQuestion <= 200) {
             stopTimer();
         } else {
             scoreCurrQuestion -= 10;
-            document.getElementById("timer").innerText = scoreCurrQuestion;
+            document.getElementById("timer").firstChild.data = scoreCurrQuestion + (scoreCurrQuestion/10 * multiplier);
         }
-    }, 150);
+    }, 90);
 }
 
 function stopTimer() {
@@ -297,18 +310,27 @@ function stopTimer() {
 }
 
 function resetTimer() {
-    scoreCurrQuestion = 1000;
+    scoreCurrQuestion = START_SCORE_QUESTION;
     clearInterval(interval);
 }
 
 function scoreCorrect() {
     clearInterval(interval);
-    currScore += scoreCurrQuestion;
+    scoreCurrQuestionWithMultipliers = scoreCurrQuestion + (scoreCurrQuestion/10 * multiplier)
+    let coins = Math.floor(scoreCurrQuestionWithMultipliers/100)
+    levelCoins += coins
+    console.log("coins: ", coins, scoreCurrQuestionWithMultipliers);
+    currLevelScore += scoreCurrQuestionWithMultipliers;
     streak++;
     totalQs++;
     numRight++;
-    document.getElementById("currentScore").innerText = "Total: " + currScore;
+    streak <= MULTIPLIER_STEPS
+        && ++multiplier
+        && (document.getElementById("multiplier").innerHTML     = "x" + (1 + multiplier/10))
+        && (document.getElementById("timer").style.transform    = "scale(" + (1+ multiplier/MULTIPLIER_STEPS) + ")")
+    document.getElementById("currentScore").innerText = "Total: " + currLevelScore;
     document.getElementById("streak").innerText = "Streak: " + streak;
+    document.getElementById("levelCoins").innerText = "Coins: " + levelCoins;
 }
 
 function scoreIncorrect() {
@@ -316,6 +338,11 @@ function scoreIncorrect() {
         maxStreak = streak;
     }
     streak = 0;
+    if (multiplier != 0){
+        multiplier = 0;
+        document.getElementById("multiplier").innerHTML = "x1"
+        document.getElementById("timer").style.transform = "scale(1)"
+    }
     totalQs++;
     document.getElementById("streak").innerText = "Streak: " + streak;
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Pacifico&family=Red+Hat+Mono&display=swap');
 :root {
     --primary: #251926;
     --secondary: #E38F8F;
@@ -43,6 +43,11 @@ h1 {
 h1 a {
     text-decoration: none;
     color: inherit;
+}
+
+
+.newLessonHeader{
+    margin-top: 74px;
 }
 
 .lessonBody {
@@ -199,22 +204,44 @@ button:hover {
     grid-column: 1 / span 3;
 }
 
+#qImg{
+    margin-top: 50px;
+}
+
+#multiplier {
+    font-size: 20px;
+    margin-left: 8px;
+    position: absolute;
+    top: 39%;
+}
+
 .lessonDetailsCard {
     background-color: white;
-    width: 300px;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 4px;
+    width: 260px;
+    padding: 20px 35px;
+    margin-inline: 20px;
+    border-radius: 8px;
+}
+
+.lessonDetailsCard h3{
+    font-size: 24px;
 }
 
 .lessonDetailsCard img {
-    width: 200px;
+    width: 260px;
+    object-fit: cover;
+    height: 185px;
+    margin-top: 14px;
+}
+
+.lessonDetailsCard p{
+    text-align: justify;
 }
 
 .lessonCards {
     display: flex;
     flex-direction: row;
-    margin: 30px auto;
+    margin:32px auto 40px auto;
     color: black;
     overflow-x: auto;
     max-width: 1120px;
@@ -231,6 +258,14 @@ button:hover {
     grid-column: 2;
 }
 
+
+.coinSection {
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 4px;
+}
+
 .scoreSection {
     text-align: right;
     margin-top: auto;
@@ -240,18 +275,23 @@ button:hover {
 
 .timerArea {
     grid-column: 2;
-    margin-top: 16px;
+    margin-top: -6px;
     /* font-size: 100px; */
     /* position: absolute; */
 }
 
 #timer {
     position: absolute;
-    font-size: 108px;
+    font-size: 54px;
     left: 50%;
     text-align: center;
     margin-left: -500px;
     width: 1000px;
+    font-family: 'Red Hat Mono', monospace;
+    margin-top: 35px;
+    transition: transform .3s ease;
+    will-change: transform;
+    transform: scale(1);
 }
 
 
