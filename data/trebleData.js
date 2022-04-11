@@ -68,38 +68,38 @@ const songNames = ['Hot Cross Buns', 'London Bridge is Falling Down', 'Ode to Jo
 const songDetails = [
     [{
         title: 'New Song: Hot Cross Buns',
-        img: '',
-        details: 'details about HCB',
+        img: 'https://images.pexels.com/photos/4099184/pexels-photo-4099184.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        details: 'Hot Cross Buns was originally an English street cry that turned into a nursery rhyme. It is also often the first song musicians learn to play, due to its simplicity and small number of notes.',
     }],
     [{
         title: 'New Song: London Bridge is Falling Down',
-        img: '',
-        details: 'details about LBiFD',
+        img: 'https://images.pexels.com/photos/427679/pexels-photo-427679.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        details: 'London Bridge is Falling Down is a popular English nursery rhyme, often accompanied by playing a game. Nobody knows who wrote it or what it means, but it was first published in 1744.',
     }],
     [{
-        title: 'New Song: Ode to Joy',
-        img: '',
-        details: 'details about OTJ',
+        title: 'New Song: Ode to Joy (Pt. 1)',
+        img: 'https://images.pexels.com/photos/934067/pexels-photo-934067.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        details: 'Ode to Joy is an ode written in 1785 by Friedrich Schiller. It is better known for its use by Ludwig van Beethoven in the last movement of his last symphony.',
     }],
     [{
         title: 'New Song: Row, Row, Row Your Boat',
-        img: '',
-        details: 'details about RRRYB',
+        img: 'https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        details: 'Row, Row, Row Your Boat is a popular nursery rhyme, published in 1852 by Eliphalet Oram Lyte. It is often sung in a round, meaning each singer or group of singers begin the song at different times, making the song fuller and more exciting.',
     }],
     [{
-        title: 'Ode to Joy',
-        img: '',
-        details: 'details about OTJ',
+        title: 'New Song: Ode to Joy (Pt. 2)',
+        img: 'https://images.pexels.com/photos/934067/pexels-photo-934067.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        details: 'Ode to Joy is an ode written in 1785 by Friedrich Schiller. It is better known for its use by Ludwig van Beethoven in the last movement of his last symphony.',
     }],
     [{
         title: 'New Song: Twinkle Twinkle Little Star',
-        img: '',
-        details: 'details about TTLS',
+        img: 'https://images.pexels.com/photos/980859/pexels-photo-980859.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        details: 'Twinkle Twinkle Little Star is a popular English lullaby written by Jane Taylor in 1806. It follows the same tune as the Alphabet Song and Baa, Baa, Black Sheep.',
     }],
     [{
         title: 'Review Song: Ode to Joy',
-        img: '',
-        details: 'details about OTJ',
+        img: 'https://images.pexels.com/photos/934067/pexels-photo-934067.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        details: 'Ode to Joy is an ode written in 1785 by Friedrich Schiller. It is better known for its use by Ludwig van Beethoven in the last movement of his last symphony.',
     }]
 ];
 

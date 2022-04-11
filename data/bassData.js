@@ -617,33 +617,33 @@ const songNames = ['Beethoven\'s Fifth', 'Jaws Theme', 'Twinkle Twinkle Little S
 const songDetails = [
     [{
         title: 'New Song: Beethoven\'s Fifth',
-        img: '',
-        details: 'details about BF',
+        img: 'https://images.pexels.com/photos/7325138/pexels-photo-7325138.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        details: 'Beethoven\'s Fifth Symphony was composed between 1804 and 1808. It contains one of the most recognizable tunes in all of music with its short-short-short-long fate motif.',
     }],
     [{
         title: 'New Song: Jaws Theme',
-        img: '',
-        details: 'details about JT',
+        img: 'https://images.pexels.com/photos/11348767/pexels-photo-11348767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        details: 'The Jaws Theme was written by famous soundtrack composer John Williams for the 1975 movie Jaws. His goal was for it to sound as if it was, "grinding away at you, just as a shark would do, instinctual, relentless, unstoppable."',
     }],
     [{
         title: 'New Song: Twinkle Twinkle Little Star',
-        img: '',
-        details: 'details about TTLS',
+        img: 'https://images.pexels.com/photos/980859/pexels-photo-980859.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        details: 'Twinkle Twinkle Little Star is a popular English lullaby written by Jane Taylor in 1806. It follows the same tune as the Alphabet Song and Baa, Baa, Black Sheep.',
     }],
     [{
-        title: 'New Song: Star Wars Theme',
-        img: '',
-        details: 'details about SWT',
+        title: 'New Song: Star Wars (Main Title)',
+        img: 'https://images.pexels.com/photos/6335954/pexels-photo-6335954.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        details: 'The Star Wars Theme was written by famous soundtrack composer John Williams for the 1977 movie Star Wars: A New Hope.',
     }],
     [{
         title: 'New Song: Avengers Theme',
-        img: '',
-        details: 'details about AT',
+        img: 'https://images.pexels.com/photos/7768663/pexels-photo-7768663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        details: 'Alan Silvestri wrote the Avengers Theme in 2012, a theme that appears in many of Marvel\'s Avengers movies. ',
     }],
     [{
         title: 'New Song: Spongebob Theme',
-        img: '',
-        details: 'details about ST',
+        img: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/640px-SpongeBob_SquarePants_character.svg.png',
+        details: 'The Spongebob Theme Song, loved by children and adults across America, was written by Stephen Hillenburg and Derek Drymon. It was originally released in 1999 during the first season of the Spongebob TV Show and has been shown at the beginning every episode since.',
     }]
 ]
 

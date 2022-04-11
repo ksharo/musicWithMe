@@ -42,7 +42,7 @@ async function main() {
     const amazingGrace = [tC1, tF1, tA2, tF1, tA2, tG1, tF1, tD1, tC1, tC1, tF1, tA2, tF1, tA2, tG1, tC2, tA2, tC2, tA2, tC2, tA2, tF1, tC1, tD1, tF1, tF1, tD1, tC1, tC1, tF1, tA2, tF1, tA2, tG1, tF1];
     const raining = [tG1, tG1, tE1, tA2, tG1, tE1, tF1, tG1, tE1, tA2, tG1, tE1, tE1, tF1, tF1, tD1, tD1, tF1, tF1, tD1, tD1, tG1, tF1, tE1, tD1, tE1, tC1];
     const birthday = [tG1, tG1, tA2, tG1, tC2, tB2, tG1, tG1, tA2, tG1, tD2, tC2, tG1, tG1, tG2, tE2, tC2, tB2, tA2, tF2, tF2, tE2, tC2, tD2, tC2];
-    const hotCrossedBuns = [tG1, tG1, tA2, tG1, tC2, tB2, tG1, tG1, tA2, tG1, tD2, tC2, tG1, tG1, tG2, tE2, tC2, tB2, tA2, tF2, tF2, tE2, tC2, tD2, tC2];
+    const baseball = [tC1, tC2, tA2, tG1, tE1, tG1, tD1, tC1, tC2, tA2, tG1, tE1, tG1];
 
     const bC1 = 0;
     const bD1 = 1;
@@ -73,37 +73,39 @@ async function main() {
     trebleSongNames = [
         'Amazing Grace',
         'It\'s Raining, It\'s Pouring',
-        'Happy Birthday',
-        "Hot Crossed Buns"
+        'Happy Birthday'
     ]
 
     trebleSongPrices = [
         50,
         15,
-        30,
-        5000
+        30
     ]
 
     trebleDifficulty = [
         'Medium',
         'Easy',
-        'Medium',
-        "Easy"
+        'Medium'
     ]
 
     trebleImages = [
         "https://images.unsplash.com/photo-1490682143684-14369e18dce8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=8",
         "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=8",
-        "https://images.unsplash.com/photo-1531956531700-dc0ee0f1f9a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=8",
-        "https://images.unsplash.com/photo-1509365465985-25d11c17e812?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=8",
+        "https://images.unsplash.com/photo-1531956531700-dc0ee0f1f9a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=8"
     ]
 
-    const trebleSongs = [amazingGrace, raining, birthday, hotCrossedBuns];
+    trebleDetails = [
+        'The words to Amazing Grace were written by John Newton in 1772. It was set to a tune by William Walker in 1835 and is commonly sung in churches today.',
+        'It\'s Raining, It\'s Pouring is a popular English nursery rhyme. The words were originally published in 1912, and Charles Ives added the music in 1939.',
+        'Happy Birthday is the most recognized song in the English language. It was published in 1893, but nobody knows for sure who wrote it. '
+    ];
+
+    const trebleSongs = [amazingGrace, raining, birthday];
 
 
     bassSongNames = [
         'Under the Sea',
-        'Bare Necessities'
+        'The Bare Necessities'
     ]
 
     bassSongPrices = [
@@ -121,16 +123,21 @@ async function main() {
         "https://images.unsplash.com/photo-1589656966895-2f33e7653819?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=8",
     ]
 
+    bassDetails = [
+        'Under the Sea was written by Alan Menken for the 1989 Disney film, The Little Mermaid. In the movie, it is sung by Sebastian, the Jamaican crab, as he attempts to convince Ariel to stay where she belongs - under the sea.',
+        'The Bare Necessities was written by Terry Gilkyson for the 1967 Disney film, The Jungle Book. It is an exciting jazz song sung by the bear Baloo, who is teaching young Mowgli how to survive in the wild.',
+    ];
+
     const bassSongs = [underSea, bareNecessities];
     const ids = [];
 
     for (let x in trebleSongs) {
-        const song = await songs.create(trebleSongNames[x], trebleNotes, trebleSongs[x], trebleDifficulty[x], trebleSongPrices[x], trebleImages[x], 'treble');
+        const song = await songs.create(trebleSongNames[x], trebleNotes, trebleSongs[x], trebleDifficulty[x], trebleSongPrices[x], trebleImages[x], trebleDetails[x], 'treble');
         ids.push(song._id);
     }
 
     for (let x in bassSongs) {
-        const song = await songs.create(bassSongNames[x], bassNotes, bassSongs[x], bassDifficulty[x], bassSongPrices[x], bassImages[x], 'bass');
+        const song = await songs.create(bassSongNames[x], bassNotes, bassSongs[x], bassDifficulty[x], bassSongPrices[x], bassImages[x], bassDetails[x], 'bass');
         ids.push(song._id);
     }
 

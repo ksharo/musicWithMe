@@ -14,13 +14,13 @@ async function getSong(songId) {
     return song;
 }
 
-const create = async function create(name, notes, indices, level, price, image, clef) {
+const create = async function create(name, notes, indices, level, price, image, details, clef) {
     const noteList = [];
     for (let x of indices) {
         noteList.push(notes[x]);
     }
     const mySongs = await songsDB();
-    const insert = await mySongs.insertOne({ name: name, notes: noteList, level: level, price: price, image: image, clef: clef });
+    const insert = await mySongs.insertOne({ name: name, notes: noteList, level: level, price: price, image: image, details: details, clef: clef });
     if (!insert.acknowledged || !insert.insertedId) {
         throw "Error: Could not add song!";
     }

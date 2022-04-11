@@ -44,12 +44,12 @@ router
         const details = {
             title: song.name,
             img: song.image,
-            details: ''
+            details: song.details
         }
         return res.render('individualPages/newLesson', {
             name: song.name,
             subtitle: '',
-            details: details,
+            details: [details],
             level: req.params.id,
             levelName: ''
         })

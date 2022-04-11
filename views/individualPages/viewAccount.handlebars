@@ -9,10 +9,15 @@
         No Lessons Completed
         <br>
         <br>
-        <form class = 'index-form' action = '/lessons' method = 'GET'>
-                <button class = "startLearn"> Start Learning Today!</button>
+        <form class = 'index-form' action = '/treble' method = 'GET'>
+                <button class = "startLearn">Start Learning Today!</button>
         </form>
         {{/each}}
+        {{#if lessonsCompleted}}
+        <form class = 'index-form' action = '/lessons' method = 'GET'>
+                <button class = "startLearn">Keep Learning!</button>
+        </form>
+        {{/if}}
     </ul>
 </div>
 <a href="/account/logout" class="littleLink">Logout</a>
