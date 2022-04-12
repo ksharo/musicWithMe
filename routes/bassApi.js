@@ -20,8 +20,15 @@ let coins = 0;
 
 router
     .route('/')
-    .get(async(_, res) => {
-        return res.status(200).render('individualPages/bassIntro');
+    .get(async(req, res) => {
+        let user = null;
+        if (req.session.user) {
+            user = {
+                username: req.session.user.username,
+                coins: req.session.user.coins
+            }
+        }
+        return res.status(200).render('individualPages/bassIntro', { user: user });
     });
 
 router
@@ -29,16 +36,30 @@ router
     .get(async(req, res) => {
         curLevel = Number(req.params.level);
         if (bass_levels.length <= curLevel) {
-            return res.status(404).render('individualPages/error', { status: 404, message: 'Song with id ' + req.params.songId + 'does not exist!' });
+            let user = null;
+            if (req.session.user) {
+                user = {
+                    username: req.session.user.username,
+                    coins: req.session.user.coins
+                }
+            }
+            return res.status(404).render('individualPages/error', { status: 404, message: 'Song with id ' + req.params.songId + 'does not exist!', user: user });
         }
-        return noteFunctions.renderRandomLevel(curLevel, bass_levels, res, 'bass');
+        return noteFunctions.renderRandomLevel(req, curLevel, bass_levels, res, 'bass');
     });
 
 router
     .route('/newLesson/notes/:level')
     .get(async(req, res) => {
         if (bass_levels.length <= Number(req.params.level)) {
-            return res.status(404).render('individualPages/error', { status: 404, message: 'Bass Notes Level ' + req.params.level + 'does not exist!' });
+            let user = null;
+            if (req.session.user) {
+                user = {
+                    username: req.session.user.username,
+                    coins: req.session.user.coins
+                }
+            }
+            return res.status(404).render('individualPages/error', { status: 404, message: 'Bass Notes Level ' + req.params.level + 'does not exist!', user: user });
         }
         let newNotes = [];
         if (req.params.level != 0) {
@@ -54,12 +75,20 @@ router
                 learningString += x.substring(0, x.length - 1).replace('%23', '#') + ' and ';
             }
         }
+        let user = null;
+        if (req.session.user) {
+            user = {
+                username: req.session.user.username,
+                coins: req.session.user.coins
+            }
+        }
         return res.render('individualPages/newLesson', {
             name: 'Bass Notes',
             subtitle: learningString == 'Learning ' ? 'Review!' : learningString.substring(0, learningString.length - 4),
             details: bass_noteDetails[Number(req.params.level)],
             level: req.params.level,
-            levelName: req.params.level
+            levelName: req.params.level,
+            user: user
         });
     });
 
@@ -67,14 +96,29 @@ router
     .route('/newLesson/songs/:level')
     .get(async(req, res) => {
         if (songs.length <= Number(req.params.level)) {
-            return res.status(404).render('individualPages/error', { status: 404, message: 'Song with id ' + req.params.level + 'does not exist!' });
+            let user = null;
+            if (req.session.user) {
+                user = {
+                    username: req.session.user.username,
+                    coins: req.session.user.coins
+                }
+            }
+            return res.status(404).render('individualPages/error', { status: 404, message: 'Song with id ' + req.params.level + 'does not exist!', user: user });
+        }
+        let user = null;
+        if (req.session.user) {
+            user = {
+                username: req.session.user.username,
+                coins: req.session.user.coins
+            }
         }
         return res.render('individualPages/newLesson', {
             name: 'Songs',
             subtitle: songNames[Number(req.params.level)],
             details: songDetails[Number(req.params.level)],
             level: req.params.level,
-            levelName: req.params.level
+            levelName: req.params.level,
+            user: user
         });
     });
 
@@ -82,13 +126,21 @@ router
     .route('/songLesson/:songId')
     .get(async(req, res) => {
         if (songs.length <= Number(req.params.songId)) {
+            let user = null;
+            if (req.session.user) {
+                user = {
+                    username: req.session.user.username,
+                    coins: req.session.user.coins
+                }
+            }
             return res.status(404).render('individualPages/error', {
                 status: 404,
-                message: 'Song with id ' + req.params.songId + 'does not exist!'
+                message: 'Song with id ' + req.params.songId + 'does not exist!',
+                user: user
             });
         }
         const song = songs[Number(req.params.songId)];
-        return noteFunctions.renderSongLevel(song, songNames[Number(req.params.songId)], bass_levels, res, 'bass');
+        return noteFunctions.renderSongLevel(req, song, songNames[Number(req.params.songId)], bass_levels, res, 'bass');
     });
 
 router

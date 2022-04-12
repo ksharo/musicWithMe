@@ -7,8 +7,15 @@ const accountFunctions = data.accountFunctions;
 
 router
     .route('/')
-    .get(async(_, res) => {
-        return res.status(200).render('individualPages/login');
+    .get(async(req, res) => {
+        let user = null;
+        if (req.session.user) {
+            user = {
+                username: req.session.user.username,
+                coins: req.session.user.coins
+            }
+        }
+        return res.status(200).render('individualPages/login', { user: user });
     });
 router
     .route('/checkAccount')
@@ -17,7 +24,14 @@ router
         try {
             let account = await accountFunctions.getAndValidate(req.body['username'], req.body['password']);
             if (!account) {
-                return res.status(400).render('individualPages/login', { error: "Error: Invalid Username or Password" });
+                let user = null;
+                if (req.session.user) {
+                    user = {
+                        username: req.session.user.username,
+                        coins: req.session.user.coins
+                    }
+                }
+                return res.status(400).render('individualPages/login', { error: "Error: Invalid Username or Password", user: user });
             }
             /* set up global variable */
             const newUser = {
@@ -31,7 +45,14 @@ router
             // fill in handlebars data
             return res.redirect('/account/view');
         } catch (e) {
-            return res.status(400).render('individualPages/login', { error: e });
+            let user = null;
+            if (req.session.user) {
+                user = {
+                    username: req.session.user.username,
+                    coins: req.session.user.coins
+                }
+            }
+            return res.status(400).render('individualPages/login', { error: e, user: user });
         }
     });
 
@@ -50,7 +71,14 @@ router
             }
             const account = await accountFunctions.create(req.body['username'], req.body['password'], levels, highScores, coins);
             if (!account) {
-                return res.status(400).render('individualPages/createAccount', { error: "Error: Problem creating account" });
+                let user = null;
+                if (req.session.user) {
+                    user = {
+                        username: req.session.user.username,
+                        coins: req.session.user.coins
+                    }
+                }
+                return res.status(400).render('individualPages/createAccount', { error: "Error: Problem creating account", user: user });
             }
             /* set up global variable */
             const newUser = {
@@ -64,7 +92,14 @@ router
             // fill in handlebars data
             return res.redirect('/account/view');
         } catch (e) {
-            return res.status(400).render('individualPages/createAccount', { error: e });
+            let user = null;
+            if (req.session.user) {
+                user = {
+                    username: req.session.user.username,
+                    coins: req.session.user.coins
+                }
+            }
+            return res.status(400).render('individualPages/createAccount', { error: e, user: user });
         }
     });
 
@@ -72,12 +107,23 @@ router
     .route('/view')
     .get(async(req, res) => {
         const user = await accountFunctions.getUser(req.session.user._id);
-        return res.status(200).render('individualPages/viewAccount', { username: user.username, lessonsCompleted: user.lessonsCompleted, highScores: user.hiscores });
+        let userData = {
+            username: user.username,
+            coins: user.coins
+        };
+        return res.status(200).render('individualPages/viewAccount', { username: user.username, lessonsCompleted: user.lessonsCompleted, highScores: user.hiscores, user: userData });
     })
 router
     .route('/create')
-    .get(async(_, res) => {
-        return res.status(200).render('individualPages/createAccount');
+    .get(async(req, res) => {
+        let user = null;
+        if (req.session.user) {
+            user = {
+                username: req.session.user.username,
+                coins: req.session.user.coins
+            }
+        }
+        return res.status(200).render('individualPages/createAccount', { user: user });
     });
 
 router

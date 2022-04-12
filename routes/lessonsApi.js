@@ -15,7 +15,10 @@ router
                 x.hiScore = 0;
             }
         }
-
+        let userData = {
+            username: user.username,
+            coins: user.coins
+        }
         let bbLevels = 0; // bass note basic levels
         let btLevels = 0; // treble note basic levels
         let atLevels = 0; // treble note advanced
@@ -53,6 +56,7 @@ router
                 }
             }
         }
+
         return res.render('individualPages/lessons', {
             bbLevels: bbLevels,
             btLevels: btLevels,
@@ -68,7 +72,8 @@ router
             bsPerc: cleanPerc(bSongs, 6),
             purchasedSongs: purchased,
             atDisabled: btLevels < 13 ? 'disabledLessonCard' : '',
-            abDisabled: bbLevels < 13 ? 'disabledLessonCard' : ''
+            abDisabled: bbLevels < 13 ? 'disabledLessonCard' : '',
+            user: userData
         });
     });
 

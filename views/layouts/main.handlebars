@@ -10,9 +10,17 @@
         <button class="noStyle"><h1>Music With Me!</h1></button>
     </form> --}}
     <h1 class="header">
+        {{#if user}}
         <button class = "openBut" onclick = "openNav()">&#8801;</button>
+        {{else}}
+        <p class="openBut"></p>
+        {{/if}}
         <a href="/">Music With Me</a>
-        <a class='littleLink loginLink' href = "/account">Log in/Create Account</a>
+        {{#if user}}
+            <a class='littleLink loginLink' href = "/store">Coins: {{user.coins}}</a>
+        {{else}}
+            <a class='littleLink loginLink' href = "/account">Log in/Create Account</a>
+        {{/if}}
     </h1>
 </header>
 <body>

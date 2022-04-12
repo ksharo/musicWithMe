@@ -10,8 +10,15 @@ const globals = data.globals.globals;
 
 router
     .route('/')
-    .get(async(_, res) => {
-        return res.render('individualPages/homepage');
+    .get(async(req, res) => {
+        let user = null;
+        if (req.session.user) {
+            user = {
+                username: req.session.user.username,
+                coins: req.session.user.coins
+            }
+        }
+        return res.render('individualPages/homepage', { user: user });
     });
 
 router
@@ -31,14 +38,25 @@ router
             x.canAfford = (user.coins >= x.price);
             x.ownsSong = (purchased.includes(x._id.toString()));
         }
-        return res.render('individualPages/store', { trebleSongs: trebleSongs, bassSongs: bassSongs, coins: user.coins });
+        let userData = {
+            username: user.username,
+            coins: user.coins
+        };
+        return res.render('individualPages/store', { trebleSongs: trebleSongs, bassSongs: bassSongs, coins: user.coins, user: userData });
     });
 
 router
     .route('/')
     .post(async(req, res) => {
         let created = await accountFunctions.create(req.body['username'], req.body['password'], []);
-        return res.render('individualPages/homepage');
+        let user = null;
+        if (req.session.user) {
+            user = {
+                username: req.session.user.username,
+                coins: req.session.user.coins
+            }
+        }
+        return res.render('individualPages/homepage', { user: user });
     });
 
 router
@@ -50,12 +68,20 @@ router
             img: song.image,
             details: song.details
         }
+        let user = null;
+        if (req.session.user) {
+            user = {
+                username: req.session.user.username,
+                coins: req.session.user.coins
+            }
+        }
         return res.render('individualPages/newLesson', {
             name: song.name,
             subtitle: '',
             details: [details],
             level: req.params.id,
-            levelName: ''
+            levelName: '',
+            user: user
         })
     });
 
@@ -64,9 +90,9 @@ router
     .get(async(req, res) => {
         const song = await songFunctions.getSong(req.params.id);
         if (song.clef == 'bass') {
-            return renderSongLevel(song.notes, song.name, bassData.bass_levels, res, 'bass', 'notes')
+            return renderSongLevel(req, song.notes, song.name, bassData.bass_levels, res, 'bass', 'notes')
         } else if (song.clef == 'treble') {
-            return renderSongLevel(song.notes, song.name, trebleData.treble_levels, res, 'treble', 'notes')
+            return renderSongLevel(req, song.notes, song.name, trebleData.treble_levels, res, 'treble', 'notes')
         }
     });
 
@@ -78,7 +104,14 @@ router
             req.session.user.coins = result.coins;
             return res.redirect('/store');
         } catch (e) {
-            return res.status(500).render('individualPages/error', { error: { message: e, status: 500 } })
+            let user = null;
+            if (req.session.user) {
+                user = {
+                    username: req.session.user.username,
+                    coins: req.session.user.coins
+                }
+            }
+            return res.status(500).render('individualPages/error', { error: { message: e, status: 500 }, user: user })
         }
 
     });

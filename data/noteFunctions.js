@@ -1,4 +1,4 @@
-function renderRandomLevel(curLevel, levels, res, clef = 'treble') {
+function renderRandomLevel(req, curLevel, levels, res, clef = 'treble') {
     // set number of rounds
     let numQs = 25;
     if (curLevel < 2) {
@@ -43,10 +43,17 @@ function renderRandomLevel(curLevel, levels, res, clef = 'treble') {
             justNotes.push(n);
         }
     }
-    return res.render('individualPages/noteLesson', { notes: levels[curLevel].sort(), noteNames: noteNames.sort((a, b) => (a.note > b.note) ? 1 : -1), img: image, imgList: imgList, i: 1, numQs: numQs });
+    let user = null;
+    if (req.session.user) {
+        user = {
+            username: req.session.user.username,
+            coins: req.session.user.coins
+        }
+    }
+    return res.render('individualPages/noteLesson', { notes: levels[curLevel].sort(), noteNames: noteNames.sort((a, b) => (a.note > b.note) ? 1 : -1), img: image, imgList: imgList, i: 1, numQs: numQs, user: user });
 }
 
-function renderSongLevel(songIndices, songName, levels, res, clef = 'treble', mode = 'indices') {
+function renderSongLevel(req, songIndices, songName, levels, res, clef = 'treble', mode = 'indices') {
     const notes = levels[levels.length - 1];
     let imgList = [];
     // set pictures for the song
@@ -72,7 +79,14 @@ function renderSongLevel(songIndices, songName, levels, res, clef = 'treble', mo
             justNotes.push(n);
         }
     }
-    return res.render('individualPages/noteLesson', { notes: notes.sort(), songName: songName, noteNames: noteNames.sort((a, b) => (a.note > b.note) ? 1 : -1), img: image, imgList: imgList, i: 1, numQs: songIndices.length });
+    let user = null;
+    if (req.session.user) {
+        user = {
+            username: req.session.user.username,
+            coins: req.session.user.coins
+        }
+    }
+    return res.render('individualPages/noteLesson', { notes: notes.sort(), songName: songName, noteNames: noteNames.sort((a, b) => (a.note > b.note) ? 1 : -1), img: image, imgList: imgList, i: 1, numQs: songIndices.length, user: user });
 }
 
 module.exports = {
