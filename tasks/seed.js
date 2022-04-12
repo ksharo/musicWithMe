@@ -67,7 +67,7 @@ async function main() {
     const raining = [tG1, tG1, tE1, tA2, tG1, tE1, tF1, tG1, tE1, tA2, tG1, tE1, tE1, tF1, tF1, tD1, tD1, tF1, tF1, tD1, tD1, tG1, tF1, tE1, tD1, tE1, tC1];
     const birthday = [tG1, tG1, tA2, tG1, tC2, tB2, tG1, tG1, tA2, tG1, tD2, tC2, tG1, tG1, tG2, tE2, tC2, tB2, tA2, tF2, tF2, tE2, tC2, tD2, tC2];
     const baseball = [tC1, tC2, tA2, tG1, tE1, tG1, tD1, tC1, tC2, tA2, tG1, tE1, tG1, tA2, tGs1, tA2, tE1, tF1, tG1, tA2, tF1, tD1, tA2, tA2, tA2, tB2, tC2, tD2, tB2, tA2, tG1, tE1, tD1, tC1, tC2, tA2, tG1, tE1, tG1, tD1, tD1, tC1, tD1, tE1, tF1, tG1, tA2, tA2, tB2, tC2, tC2, tC2, tB2, tA2, tG1, tFs1, tG1, tA2, tB2, tC2, tG1, tE1, tC1];
-    const clair = [tG1, tG2, tE2, tD2, tE2, tD2, tC2, tD2, tC2, tE2, tC2, tB2, tC2, tB2, tF1, tA2, tB2, tA2, tD2, tA2, tG1, tA2, tG1, tF1, tG1, tF1, tE1, tE1, tF1, tE1, tA2, tE1, tD1, tE1, tD1, tC1, tD1, tB1, tG1, tG2, tE2, tD2, tE2, tD2, tC2, tD2, tG2, tE2, tD2, tE2, tD2, tC2, tC1, tD1, tA2, tG1, tF1, tG1, tC2, tA2, tA2, tB1, tG2, tG1, tC1, tG1, tE2, tE1, tB2, tG2, tBb2, tC2, tC1, tG1, tE2, tE1, tB2, tG2, tBb2, tC2, tBb2, tC2, tEb2, tG2, tE1, tG2]
+    const clair = [tG1, tG2, tE2, tD2, tE2, tD2, tC2, tD2, tC2, tE2, tC2, tB2, tC2, tB2, tF1, tA2, tB2, tA2, tD2, tA2, tG1, tA2, tG1, tF1, tG1, tF1, tE1, tE1, tF1, tE1, tA2, tE1, tD1, tE1, tD1, tC1, tD1, tB1, tG1, tG2, tE2, tD2, tE2, tD2, tC2, tD2, tG2, tE2, tD2, tE2, tD2, tC2]
 
     trebleSongNames = [
         'Amazing Grace',
@@ -78,11 +78,11 @@ async function main() {
     ]
 
     trebleSongPrices = [
-        50,
-        15,
-        30,
-        50,
-        75
+        500,
+        200,
+        300,
+        500,
+        200
     ]
 
     trebleDifficulty = [
@@ -90,7 +90,7 @@ async function main() {
         'Easy',
         'Medium',
         'Hard',
-        'Hard'
+        'Easy'
     ]
 
     trebleImages = [
@@ -173,11 +173,11 @@ async function main() {
     ]
 
     bassSongPrices = [
-        50,
-        50,
-        40,
-        30,
-        100
+        750,
+        750,
+        400,
+        300,
+        1000
     ]
 
     bassDifficulty = [

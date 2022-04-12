@@ -4,6 +4,7 @@ const router = express.Router();
 const data = require('../data');
 const globals = data.globals.globals;
 const accountFunctions = data.accountFunctions;
+const songFunctions = data.songFunctions;
 
 router
     .route('/')
@@ -39,11 +40,16 @@ router
                 username: account.username,
                 coins: account.coins,
                 purchased: account.purchasedSongs,
-                levels: account.lessonsCompleted
+                levels: account.lessonsCompleted,
+                hiscores: account.hiscores
             }
             req.session.user = newUser;
             // fill in handlebars data
-            return res.redirect('/account/view');
+            if (newUser.levels.length == 0) {
+                return res.redirect('/account/view');
+            } else {
+                return res.redirect('/lessons');
+            }
         } catch (e) {
             let user = null;
             if (req.session.user) {
@@ -86,7 +92,8 @@ router
                 username: account.username,
                 coins: account.coins,
                 purchased: account.purchasedSongs,
-                levels: account.lessonsCompleted
+                levels: account.lessonsCompleted,
+                hiscores: account.hiscores
             }
             req.session.user = newUser;
             // fill in handlebars data
@@ -111,8 +118,97 @@ router
             username: user.username,
             coins: user.coins
         };
-        return res.status(200).render('individualPages/viewAccount', { username: user.username, lessonsCompleted: user.lessonsCompleted, highScores: user.hiscores, user: userData });
-    })
+        const lessonsCompleted = [];
+        for (let x of user.lessonsCompleted) {
+            let name = 'No Name Available';
+            let link = '';
+            let difficulty = 'N/A';
+            if (x.includes('bass')) {
+                name = 'Bass ';
+                link = '/bass/newLesson';
+                if (x.includes('song')) {
+                    let level = x.split('song')[1].toString();
+                    if (isNaN(Number(level))) {
+                        // get name of song!
+                        const song = await songFunctions.getSong(level);
+                        name = song.name;
+                        link = '/allSongs/begin/' + level + '?bass';
+                        difficulty = song.level;
+                    } else {
+                        name += 'Song Level ' + level;
+                        link += '/songs/' + level;
+                        level = Number(level);
+                        if (level < 8) {
+                            difficulty = 'Easy';
+                        } else if (level < 20) {
+                            difficulty = 'Medium';
+                        } else {
+                            difficulty = 'Hard';
+                        }
+                    }
+                } else if (x.includes('note')) {
+                    let level = x.split('note')[1].toString();
+                    name += 'Note Level ' + level;
+                    link += '/notes/' + level;
+                    level = Number(level);
+                    if (level < 8) {
+                        difficulty = 'Easy';
+                    } else if (level < 20) {
+                        difficulty = 'Medium';
+                    } else {
+                        difficulty = 'Hard';
+                    }
+                }
+            } else if (x.includes('treble')) {
+                name = 'Treble ';
+                link = '/treble/newLesson';
+                if (x.includes('song')) {
+                    let level = x.split('song')[1].toString();
+                    if (isNaN(Number(level))) {
+                        // get name of song!
+                        const song = await songFunctions.getSong(level);
+                        name = song.name;
+                        link = '/allSongs/begin/' + level + '?treble';
+                        difficulty = song.level;
+                    } else {
+                        name += 'Song Level ' + level;
+                        link += '/songs/' + level;
+                        level = Number(level);
+                        if (level < 8) {
+                            difficulty = 'Easy';
+                        } else if (level < 20) {
+                            difficulty = 'Medium';
+                        } else {
+                            difficulty = 'Hard';
+                        }
+                    }
+                } else if (x.includes('note')) {
+                    let level = x.split('note')[1].toString();
+                    name += 'Note Level ' + level;
+                    link += '/notes/' + level;
+                    level = Number(level);
+                    if (level < 8) {
+                        difficulty = 'Easy';
+                    } else if (level < 20) {
+                        difficulty = 'Medium';
+                    } else {
+                        difficulty = 'Hard';
+                    }
+                }
+            }
+            let newLesson = {
+                name: name,
+                level: difficulty,
+                hiscore: user.hiscores[x],
+                link: link,
+            }
+            lessonsCompleted.push(newLesson);
+        }
+        // sort lessons completed by name
+        lessonsCompleted.sort((a, b) => a.name.localeCompare(b.name));
+        return res.status(200).render('individualPages/viewAccount', { username: user.username, lessonsCompleted: lessonsCompleted, user: userData });
+    });
+
 router
     .route('/create')
     .get(async(req, res) => {

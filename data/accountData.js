@@ -33,9 +33,12 @@ async function updateUser(userId, updatedConfig) {
         _id: ObjectId(userId)
     }, {
         $set: updatedConfig
-    })
-
-    return updated;
+    });
+    let user = null;
+    if (updated.matchedCount == 1) {
+        user = await this.getUser(userId);
+    }
+    return user;
 
 }
 

@@ -970,3 +970,46 @@ input:focus {
     cursor: default;
     filter: brightness(30%);
 }
+
+.homeLink {
+    text-align: left;
+    font-size: 22px;
+}
+
+.lessonList {
+    /* border: 1px solid white; */
+    /* margin: 10px auto 20px auto; */
+    width: 700px;
+    padding-left: 8px;
+}
+
+.scrollingTable {
+    max-height: 300px;
+    overflow-y: scroll;
+    border: 1px solid white;
+    width: 700px;
+    margin: 10px auto 20px auto;
+}
+
+.lessonList tr:hover {
+    background-color: black;
+}
+
+.lessonList td {
+    padding: 4px;
+    font-size: 16px;
+}
+
+.tableHeader td {
+    font-weight: bold;
+    color: var(--secondary);
+    font-size: 20px !important;
+    position: sticky;
+    top: 0;
+    background-color: var(--primary);
+    padding-top: 6px;
+}
+
+.levelName {
+    text-align: left;
+}

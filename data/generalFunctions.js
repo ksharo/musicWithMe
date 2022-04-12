@@ -64,7 +64,14 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
             hiscores: curHighScores,
             coins: updatedCoins
         };
-        await accountFunctions.updateUser(req.session.user._id, updatedConfig);
+        // update user in database
+        const updatedUser = await accountFunctions.updateUser(req.session.user._id, updatedConfig);
+        // update user in req.session
+        req.session.user.username = updatedUser.username;
+        req.session.user.coins = updatedUser.coins;
+        req.session.user.purchased = updatedUser.purchasedSongs;
+        req.session.user.hiscores = updatedUser.hiscores;
+        req.session.user.levels = updatedUser.lessonsCompleted;
     }
     /* if the players has won, set their grade */
     if (accuracy >= 80 && score > timeThreshold * totalQs) {

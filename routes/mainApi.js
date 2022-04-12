@@ -102,6 +102,7 @@ router
         try {
             const result = await accountFunctions.buySong(req.session.user._id, req.body.song);
             req.session.user.coins = result.coins;
+            req.session.user.purchased.push(req.body.song);
             return res.redirect('/store');
         } catch (e) {
             let user = null;

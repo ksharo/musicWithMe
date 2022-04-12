@@ -1,23 +1,32 @@
 <h2>Welcome, {{username}}!</h1>
-<div>
-    <h3>Lessons Completed</h3>
-    <ul class="lessonList">
-        {{#each lessonsCompleted}}
-        <li>{{this}} - {{lookup ../highScores this}}</li>
-        {{else}}
-        </ul>
-        No Lessons Completed
-        <br>
-        <br>
-        <form class = 'index-form' action = '/treble' method = 'GET'>
-                <button class = "startLearn">Start Learning Today!</button>
-        </form>
-        {{/each}}
+    <div>
         {{#if lessonsCompleted}}
-        <form class = 'index-form' action = '/lessons' method = 'GET'>
-                <button class = "startLearn">Keep Learning!</button>
+        <h3>Lessons Completed</h3>
+        <div class="scrollingTable">
+            <table class="lessonList">
+                <tr class="tableHeader">
+                    <td class="levelName">Level Name</td>
+                    <td>Level Difficulty</td>
+                    <td>High Score</td>
+                </tr>
+                {{#each lessonsCompleted}}
+                <tr onClick="toLink(`{{link}}`)">
+                    <td class="levelName">{{name}}</td>
+                    <td>{{level}}</td>
+                    <td>{{hiscore}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+        <form class='index-form' action='/lessons' method='GET'>
+            <button class="startLearn">Keep Learning!</button>
+        </form>
+        {{else}}
+        <p>No Lessons Completed</p>
+        <form class='index-form' action='/treble' method='GET'>
+            <button class="startLearn">Start Learning Today!</button>
         </form>
         {{/if}}
-    </ul>
-</div>
-<a href="/account/logout" class="littleLink">Logout</a>
+
+    </div>
+    <a href="/account/logout" class="littleLink">Logout</a>

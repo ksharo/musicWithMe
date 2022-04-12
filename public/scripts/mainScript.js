@@ -135,7 +135,6 @@ function playSound(noteName) {
 }
 
 function checkAnswer(clickedButton, rightAnswer) {
-    // will not work for Sharps and Flats yet!
     const rightNoteSplit = rightAnswer.split('_');
     let rightNote = rightNoteSplit[rightNoteSplit.length - 1]
     rightNote = rightNote.substring(0, rightNote.indexOf(".png")).replace('%23', '#');
@@ -164,6 +163,9 @@ function checkAnswer(clickedButton, rightAnswer) {
 }
 
 async function processClick(noteName, rightAnswer, imgList, numQs) {
+    if (totalQs >= numQs) {
+        return;
+    }
     let pictures = imgList.split(",");
     let curQ = document
         .getElementById("qTracker")
