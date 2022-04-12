@@ -42,11 +42,13 @@ router
         try {
             let levels = [];
             let highScores = {};
+            let coins = 200;
             if (req.session.tmpUser) {
                 levels = req.session.tmpUser.levels;
                 highScores = req.session.tmpUser.highScores;
+                coins = req.session.tmpUser.coins;
             }
-            const account = await accountFunctions.create(req.body['username'], req.body['password'], levels, highScores);
+            const account = await accountFunctions.create(req.body['username'], req.body['password'], levels, highScores, coins);
             if (!account) {
                 return res.status(400).render('individualPages/createAccount', { error: "Error: Problem creating account" });
             }

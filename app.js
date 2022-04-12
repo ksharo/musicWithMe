@@ -31,7 +31,7 @@ app.use(
 // app.use('/', (req, res, next) => {
 //     req.session.user = {
 //         _id: '624fa1a602009b3fece0e4ee', // user id
-//         coins: 50, // number of coins the user has
+//         coins: 200, // number of coins the user has
 //         username: 'ksharo',
 //         purchased: ["624fa1a602009b3fece0e4f2",
 //             "624fa1a602009b3fece0e4f3",

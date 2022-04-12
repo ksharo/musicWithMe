@@ -953,11 +953,11 @@ input:focus {
     padding-top: 10px;
 }
 
-.disabledCard {
+.disabledLessonCard {
     filter: brightness(30%);
 }
 
-.disabledCard:hover {
+.disabledLessonCard:hover {
     cursor: default;
     filter: brightness(30%);
 }

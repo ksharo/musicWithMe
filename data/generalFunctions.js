@@ -31,7 +31,7 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
             req.session.tmpUser = {
                 levels: [levelName],
                 highScores: highScores,
-                coins: 50 + coins
+                coins: 200 + coins
             }
         } else {
             req.session.tmpUser.coins += coins;

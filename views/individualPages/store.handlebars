@@ -5,11 +5,15 @@
     <section class="storeBody">
         {{#each trebleSongs}}
             {{#if canAfford}}
-                <section class="storeCard">
-                {{else}}
+                {{#if ownsSong}}
                     <section class="storeCard disabledCard">
+                {{else}}
+                    <section class="storeCard">
+                {{/if}}
+            {{else}}
+                <section class="storeCard disabledCard">
             {{/if}}
-                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{../coins}})"></a>
+                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{ownsSong}}, {{../coins}})"></a>
                 <img src="{{image}}" alt="{{name}} image" class="cardImage"/>
                 <p class="cardName">{{name}}</p>
                 <p class="cardPrice">{{price}}</p>
@@ -22,11 +26,15 @@
     <section class="storeBody">
         {{#each bassSongs}}
             {{#if canAfford}}
-                <section class="storeCard">
-                {{else}}
+                {{#if ownsSong}}
                     <section class="storeCard disabledCard">
+                {{else}}
+                    <section class="storeCard">
+                {{/if}}
+            {{else}}
+                <section class="storeCard disabledCard">
             {{/if}}
-                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{../coins}})"></a>
+                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{ownsSong}}, {{../coins}})"></a>
                 <img src="{{image}}" alt="{{name}} image" class="cardImage"/>
                 <p class="cardName">{{name}}</p>
                 <p class="cardPrice">{{price}}</p>

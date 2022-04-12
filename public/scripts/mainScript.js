@@ -28,6 +28,9 @@ window.addEventListener("load", () => {
             new Audio("/public/assets/sounds/success.wav").play();
         }
     }
+    if (window.location.href.split('loc').length > 2) {
+        window.scrollTo({ top: window.location.href.split('loc')[2].substring(2), left: window.location.href.split('loc')[3].substring(2), behavior: 'smooth' });
+    }
 });
 
 let key1 = null;
@@ -336,7 +339,9 @@ async function levelComplete(clef, type, level) {
     };
     const postResult = await fetch("http://localhost:3030/" + clef + "/send" + type + 'Data/' + level.toString(), requestOptions);
     if (postResult.ok) {
-        window.location.href = "http://localhost:3030/" + clef + "/end" + type + 'Level/' + level.toString();
+        setTimeout(() => {
+            window.location.href = "http://localhost:3030/" + clef + "/end" + type + 'Level/' + level.toString();
+        }, 1000);
     }
 }
 
@@ -347,7 +352,7 @@ function beginTimer() {
             stopTimer();
         } else {
             scoreCurrQuestion -= 10;
-            document.getElementById("timer").firstChild.data = scoreCurrQuestion + (scoreCurrQuestion/10 * multiplier);
+            document.getElementById("timer").firstChild.data = scoreCurrQuestion + (scoreCurrQuestion / 10 * multiplier);
         }
     }, 90);
 }
@@ -363,18 +368,18 @@ function resetTimer() {
 
 function scoreCorrect() {
     clearInterval(interval);
-    scoreCurrQuestionWithMultipliers = scoreCurrQuestion + (scoreCurrQuestion/10 * multiplier)
-    let coins = Math.floor(scoreCurrQuestionWithMultipliers/100)
+    scoreCurrQuestionWithMultipliers = scoreCurrQuestion + (scoreCurrQuestion / 10 * multiplier)
+    let coins = Math.floor(scoreCurrQuestionWithMultipliers / 100)
     levelCoins += coins
     console.log("coins: ", coins, scoreCurrQuestionWithMultipliers);
     currLevelScore += scoreCurrQuestionWithMultipliers;
     streak++;
     totalQs++;
     numRight++;
-    streak <= MULTIPLIER_STEPS
-        && ++multiplier
-        && (document.getElementById("multiplier").innerHTML     = "x" + (1 + multiplier/10))
-        && (document.getElementById("timer").style.transform    = "scale(" + (1+ multiplier/MULTIPLIER_STEPS) + ")")
+    streak <= MULTIPLIER_STEPS &&
+        ++multiplier &&
+        (document.getElementById("multiplier").innerHTML = "x" + (1 + multiplier / 10)) &&
+        (document.getElementById("timer").style.transform = "scale(" + (1 + multiplier / MULTIPLIER_STEPS) + ")")
     document.getElementById("currentScore").innerText = "Total: " + currLevelScore;
     document.getElementById("streak").innerText = "Streak: " + streak;
     document.getElementById("levelCoins").innerText = "Coins: " + levelCoins;
@@ -385,7 +390,7 @@ function scoreIncorrect() {
         maxStreak = streak;
     }
     streak = 0;
-    if (multiplier != 0){
+    if (multiplier != 0) {
         multiplier = 0;
         document.getElementById("multiplier").innerHTML = "x1"
         document.getElementById("timer").style.transform = "scale(1)"
@@ -657,14 +662,14 @@ function toggleSongs() {
     }
 }
 
-function purchaseSong(name, id, price, canAfford = true, coins) {
+function purchaseSong(name, id, price, canAfford = true, ownsSong = false, coins) {
     let modalBackdrop = document.createElement('section')
     let popUpModal = document.createElement('section')
     let modalText = document.createElement('section')
     let okButton = document.createElement('button')
     let cancelButton = document.createElement('button')
 
-    modalText.innerText = canAfford ? "You are about to buy " + name + " for " + price + "♪" :
+    modalText.innerText = ownsSong ? "You already own this song!" : canAfford ? "You are about to buy " + name + " for " + price + "♪" :
         "You need " + (price - coins) + "♪ more to buy " + name + ".\nPlay to collect more!"
     cancelButton.innerText = "Cancel"
     okButton.innerText = "OK"
@@ -679,7 +684,7 @@ function purchaseSong(name, id, price, canAfford = true, coins) {
     cancelButton.setAttribute("onclick", "closePopUp()")
     modalBackdrop.setAttribute("onclick", "closePopUp()")
 
-    if (canAfford) {
+    if (canAfford && !ownsSong) {
         const funcCall = "buySong('" + id + "', `" + name + "`)"
         okButton.setAttribute("onclick", funcCall);
     } else {
@@ -724,12 +729,15 @@ function purchaseStatusModal(name, purchaseStatus) {
 
 function closePopUp(animate = true) {
     if (animate) {
-        document.getElementsByClassName("popUpModal")[0].classList.add("animateSwipeUpAway")
-        document.getElementsByClassName("modalBackdrop")[0].classList.add("animateFadeOut")
+        document.getElementsByClassName("popUpModal")[0].classList.add("animateSwipeUpAway");
+        document.getElementsByClassName("modalBackdrop")[0].classList.add("animateFadeOut");
 
         setTimeout(() => {
-            document.getElementsByClassName("modalBackdrop")[0].remove()
-            document.getElementsByClassName("popUpModal")[0].remove()
+            document.getElementsByClassName("modalBackdrop")[0].remove();
+            document.getElementsByClassName("popUpModal")[0].remove();
+            let x = window.scrollX;
+            let y = window.scrollY;
+            window.location.href = window.location.href.split('?locy')[0] + '?locy=' + y + 'locx=' + x;
         }, 350)
     } else {
         document.getElementsByClassName("modalBackdrop")[0].remove()
