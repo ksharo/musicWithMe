@@ -1013,3 +1013,11 @@ input:focus {
 .levelName {
     text-align: left;
 }
+
+.logoutLink {
+    color: var(--secondary) !important;
+}
+
+.logoutLink:hover {
+    filter: brightness(70%);
+}
