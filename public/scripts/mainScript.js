@@ -28,7 +28,7 @@ window.addEventListener("load", () => {
             new Audio("/public/assets/sounds/success.wav").play();
         }
     }
-    if (window.location.href.split('loc').length == 3) {
+    if (window.location.href.split('loc').length > 2) {
         window.scrollTo({ top: window.location.href.split('loc')[2].substring(2), left: window.location.href.split('loc')[3].substring(2), behavior: 'smooth' });
     }
 });
