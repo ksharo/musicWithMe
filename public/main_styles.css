@@ -45,8 +45,7 @@ h1 a {
     color: inherit;
 }
 
-
-.newLessonHeader{
+.newLessonHeader {
     margin-top: 74px;
 }
 
@@ -204,7 +203,7 @@ button:hover {
     grid-column: 1 / span 3;
 }
 
-#qImg{
+#qImg {
     margin-top: 50px;
 }
 
@@ -223,7 +222,7 @@ button:hover {
     border-radius: 8px;
 }
 
-.lessonDetailsCard h3{
+.lessonDetailsCard h3 {
     font-size: 24px;
 }
 
@@ -234,14 +233,14 @@ button:hover {
     margin-top: 14px;
 }
 
-.lessonDetailsCard p{
+.lessonDetailsCard p {
     text-align: justify;
 }
 
 .lessonCards {
     display: flex;
     flex-direction: row;
-    margin:32px auto 40px auto;
+    margin: 32px auto 40px auto;
     color: black;
     overflow-x: auto;
     max-width: 1120px;
@@ -257,7 +256,6 @@ button:hover {
 #qTracker {
     grid-column: 2;
 }
-
 
 .coinSection {
     text-align: left;
@@ -878,6 +876,7 @@ input:focus {
     color: white;
     margin-top: 14px;
     display: block;
+    font-size: 16px;
 }
 
 .littleLink:visited {
@@ -927,17 +926,27 @@ input:focus {
 }
 
 .openBut {
-    width: 75px;
-    height: 86px;
+    width: 50px;
+    margin-right: 130px;
+    text-align: center;
     font-size: 50px;
-    margin-bottom: 1rem;
-    position: absolute;
-    left: 0px;
-    top: -10px;
     display: inline-block;
     background-color: #4A374D;
     border: none;
-    padding-top: 10px;
+    border-radius: 4px;
+}
+
+.loginLink {
+    width: 180px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    height: 60px;
+    margin: auto;
+    padding: auto 24px;
 }
 
 .disabledLessonCard {
