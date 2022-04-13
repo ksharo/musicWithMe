@@ -898,6 +898,39 @@ input:focus {
 
 /*Nav Bar*/
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    height: 60px;
+    margin: auto;
+    padding: auto 24px;
+}
+
+.header .littleLink{
+    font-family: "Josefin Sans", sans-serif;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 20%;
+    margin-inline: 18px;
+}
+
+.headerSideControl{
+    width: 20%;
+    text-align: left;
+    margin-right: 36px;
+}
+
+.loginLink {
+    text-align: right;
+    font-size: 18px;;
+}
+
+.homeLink {
+    text-align: left;
+    font-size: 22px;
+}
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -947,20 +980,10 @@ input:focus {
     background-color: #4A374D;
     border: none;
     border-radius: 4px;
+    color: white;
 }
 
-.loginLink {
-    width: 180px;
-}
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    height: 60px;
-    margin: auto;
-    padding: auto 24px;
-}
 
 .disabledLessonCard {
     filter: brightness(30%);
@@ -971,10 +994,7 @@ input:focus {
     filter: brightness(30%);
 }
 
-.homeLink {
-    text-align: left;
-    font-size: 22px;
-}
+
 
 .lessonList {
     /* border: 1px solid white; */

@@ -683,14 +683,14 @@ function purchaseSong(name, id, price, canAfford = true, ownsSong = false, coins
     okButton.id = "modalOk"
     okButton.classList.add("modalButton", "actionButton")
 
-    cancelButton.setAttribute("onclick", "closePopUp()")
-    modalBackdrop.setAttribute("onclick", "closePopUp()")
+    cancelButton.setAttribute("onclick", "closePopUp(animate=true, reload=false)")
+    modalBackdrop.setAttribute("onclick", "closePopUp(animate=true, reload=false)")
 
     if (canAfford && !ownsSong) {
         const funcCall = "buySong('" + id + "', `" + name + "`)"
         okButton.setAttribute("onclick", funcCall);
-    } else {
-        okButton.setAttribute("onclick", "closePopUp()");
+    } else { //cant afford song or can afford but already reload
+        okButton.setAttribute("onclick", "closePopUp(animate=true, reload=false)");
     }
 
 
@@ -729,7 +729,7 @@ function purchaseStatusModal(name, purchaseStatus) {
     document.getElementById("modalInsert").appendChild(popUpModal)
 }
 
-function closePopUp(animate = true) {
+function closePopUp(animate = true, reload = true) {
     if (animate) {
         document.getElementsByClassName("popUpModal")[0].classList.add("animateSwipeUpAway");
         document.getElementsByClassName("modalBackdrop")[0].classList.add("animateFadeOut");
@@ -739,7 +739,9 @@ function closePopUp(animate = true) {
             document.getElementsByClassName("popUpModal")[0].remove();
             let x = window.scrollX;
             let y = window.scrollY;
-            window.location.href = window.location.href.split('?locy')[0] + '?locy=' + y + 'locx=' + x;
+            if (reload){
+                window.location.href = window.location.href.split('?locy')[0] + '?locy=' + y + 'locx=' + x;
+            }
         }, 350)
     } else {
         document.getElementsByClassName("modalBackdrop")[0].remove()

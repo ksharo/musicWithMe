@@ -11,15 +11,17 @@
     </form> --}}
     <h1 class="header">
         {{#if user}}
-        <button class = "openBut" onclick = "openNav()">&#8801;</button>
-        {{else}}
-        <a class='littleLink loginLink homeLink' href="/">Home</a>
+            <section class="headerSideControl">
+                <button class = "openBut" onclick = "openNav()">&#8801;</button>
+            </section>
+            {{else}}
+                <a class='littleLink loginLink homeLink' href="/">Home</a>
         {{/if}}
         <a href="/">Music With Me</a>
         {{#if user}}
             <a class='littleLink loginLink' href = "/store">Coins: {{user.coins}}</a>
-        {{else}}
-            <a class='littleLink loginLink' href = "/account">Log in/Create Account</a>
+            {{else}}
+                <a class='littleLink loginLink' href = "/account">Log in/Create Account</a>
         {{/if}}
     </h1>
 </header>
