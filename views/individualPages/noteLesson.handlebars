@@ -1,45 +1,48 @@
 <section class="lessonBody">
+
+    <section class="lessonContent">
+
+
+        <section class="wrongAnswerSection">
+            <div id="wrongAnswerX">✖</div>
+        </section>
+
+
+
+        <section class="questionHeader">
+            <section class="coinSection">
+                <div id="levelCoins">Coins: 0</div>
+            </section>
+            <p id="qTracker">Question: {{i}}/{{numQs}}</p>
+            <section class="scoreSection">
+                <div id="currentScore">Total: 0</div>
+                <div id="streak">Streak: 0</div>
+            </section>
+            <progress id="qTrackerProgressBar" value={{i}} max={{numQs}}> 32% </progress>
+            <section class="timerArea">
+                <div id="timer">1100
+                    <span id="multiplier">x1</span>
+                </div>
+            </section>
+        </section>
+        <img id='qImg' src={{img}} />
+    </section>
+
+    <section class="buttonGroup">
+        {{#each noteNames}}
+            <button id={{note}} type='button' onClick={{func}}>{{note}}</button>
+        {{/each}}
+    </section>
+
     <section class="countNumberSection">
         <div class="countNumber" id="countNumber3">3</div>
         <div class="countNumber" id="countNumber2">2</div>
         <div class="countNumber" id="countNumber1">1</div>
         <div class="countNumber" id="countNumberGo">Go!</div>
     </section>
-    <section class="wrongAnswerSection">
-        <div id="wrongAnswerX">✖</div>
-    </section>
-
-    <section class="blurBackground">
-
-    </section>
-
-    <section class="questionHeader">
-        <section class="coinSection">
-            <div id="levelCoins">Coins: 0</div>
-        </section>
-        <p id="qTracker">Question: {{i}}/{{numQs}}</p>
-        <section class="scoreSection">
-            <div id="currentScore">Total: 0</div>
-            <div id="streak">Streak: 0</div>
-        </section>
-        <progress id="qTrackerProgressBar" value={{i}} max={{numQs}}> 32% </progress>
-        <section class="timerArea">
-            <div id="timer">1100
-                <span id="multiplier">x1</span>
-            </div>
-        </section>
-    </section>
-
-
-
-
-    <img id='qImg' src={{img}} />
-    <section class="buttonGroup">
-        {{#each noteNames}}
-            <button id={{note}} type='button' onClick={{func}}>{{note}}</button>
-        {{/each}}
-    </section>
+    <section class="blurBackground"></section>
 </section>
+
 <section class="bottomNav">
     <button class="actionButton" onClick="restart()">Restart</button>
 
