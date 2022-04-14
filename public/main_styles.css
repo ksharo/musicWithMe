@@ -315,7 +315,8 @@ button:hover {
 }
 
 .reportCard h2,
-.store h2 {
+.store h2,
+.lesson-container h2 {
     font-size: 60px;
     margin-bottom: 4px;
     font-weight: normal;
@@ -413,11 +414,11 @@ button:hover {
 
 .disabledCard {
     cursor: default;
-    color: #c5c5c5;
+    color: #c0c0c0;
 }
 
 .disabledCard .cardImage {
-    filter: grayscale(1);
+    filter: grayscale(1) brightness(0.7);
 }
 
 @media screen and (max-width: 1300px) {
@@ -503,6 +504,10 @@ button:hover {
 
 .storeBody .storeCard:not(.disabledCard):hover .cardName {
     transform: scale(1.05);
+}
+
+#modalInsert{
+    position: absolute;
 }
 
 .modalBackdrop {
@@ -712,6 +717,10 @@ footer {
 
 /*lessons styling*/
 
+.lesson-container h2{
+    grid-column: 1 / span 3;
+}
+
 .lessonHeader {
     font-size: 32px !important;
     margin-bottom: 4px;
@@ -723,9 +732,10 @@ footer {
 
 .lesson-container {
     display: grid;
-    grid-template-columns: [filters] 30% [lessons] 70%;
+    grid-template-columns: [filters] 220px [lessons] auto [rightgutter] 220px;
     margin: auto;
     padding: 50px;
+    max-width: 1545px;
 }
 
 .filters {

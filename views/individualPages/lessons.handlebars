@@ -1,4 +1,6 @@
-<section class="lesson-container"> 
+<section class="lesson-container">
+    <h2>Level Select</h2>
+
     <p id="modalInsert"></p>
     <article class="filters">
         <h2 class="lessonHeader filterHeader">Filters</h2>
@@ -18,7 +20,7 @@
         </ul>
     </article>
     <article class="lessons">
-        <h2 class="lessonHeader">Lessons</h2>
+        <h3 class="lessonHeader">Lessons</h3>
         <section class="subHeaderGroup">
             <span id='hideLessons' class='hideSpan' onClick="toggleLessons()">Hide</span>
             {{!-- <select class="filterSort">
@@ -49,7 +51,7 @@
                     <h4>Progress: {{bbPerc}}%</h4>
                 </section>
                 <section onClick="toLink('/treble/newLesson/notes/{{atLevels}}', `{{atDisabled}}`)" class="lessonCard trebleCard {{atDisabled}}">
-                    <h3>Treble Clef</h3>    
+                    <h3>Treble Clef</h3>
                     <h4>Advanced Notes</h4>
                     <div class="imgContainer">
                         <img src="/public/assets/images/treble/treble_Bb2.png" />
@@ -65,7 +67,7 @@
                     <h4>Progress: {{abPerc}}%</h4>
                 </section>
             </article>
-        <h2 class="lessonHeader">Song Levels</h2>
+        <h3 class="lessonHeader">Songs</h3>
         <section class="subHeaderGroup">
             <span id='hideSongs' class='hideSpan' onClick="toggleSongs()">Hide</span>
             {{!-- <select class="filterSort">
@@ -96,7 +98,7 @@
                     <h4>Progress: {{bsPerc}}%</h4>
                 </section>
                 {{!-- <section class="songCard trebleCard">
-                    <h3>Treble Clef</h3>    
+                    <h3>Treble Clef</h3>
                     <h4>Advanced Songs</h4>
                     <div class="imgContainer">
                         <img src="/public/assets/images/treble/treble_D%232.png" />
