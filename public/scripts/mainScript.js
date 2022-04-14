@@ -37,6 +37,10 @@ let key1 = null;
 let key2 = null;
 document.addEventListener("keyup", (event) => {
     if (event.key.toUpperCase() == 'ARROWUP' || event.key.toUpperCase() == 'ARROWDOWN') {
+        if (key2 == null) {
+            key1 = null;
+            return;
+        }
         key2 = null;
         return;
     }

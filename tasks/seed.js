@@ -68,13 +68,17 @@ async function main() {
     const birthday = [tG1, tG1, tA2, tG1, tC2, tB2, tG1, tG1, tA2, tG1, tD2, tC2, tG1, tG1, tG2, tE2, tC2, tB2, tA2, tF2, tF2, tE2, tC2, tD2, tC2];
     const baseball = [tC1, tC2, tA2, tG1, tE1, tG1, tD1, tC1, tC2, tA2, tG1, tE1, tG1, tA2, tGs1, tA2, tE1, tF1, tG1, tA2, tF1, tD1, tA2, tA2, tA2, tB2, tC2, tD2, tB2, tA2, tG1, tE1, tD1, tC1, tC2, tA2, tG1, tE1, tG1, tD1, tD1, tC1, tD1, tE1, tF1, tG1, tA2, tA2, tB2, tC2, tC2, tC2, tB2, tA2, tG1, tFs1, tG1, tA2, tB2, tC2, tG1, tE1, tC1];
     const clair = [tG1, tG2, tE2, tD2, tE2, tD2, tC2, tD2, tC2, tE2, tC2, tB2, tC2, tB2, tF1, tA2, tB2, tA2, tD2, tA2, tG1, tA2, tG1, tF1, tG1, tF1, tE1, tE1, tF1, tE1, tA2, tE1, tD1, tE1, tD1, tC1, tD1, tB1, tG1, tG2, tE2, tD2, tE2, tD2, tC2, tD2, tG2, tE2, tD2, tE2, tD2, tC2]
+    const legend = [tBb2, tC2, tC2, tC2, tC2, tC2, tC2, tAb2, tAb2, tBb2, tC2, tC2, tC2, tBb2, tC2, tC2, tBb2, tAb2, tAb2, tF1, tC2, tC2, tDb2, tC2, tAb2, tDb2, tC2, tAb2, tAb2, tBb2, tC2, tBb2, tF1, tBb2, tC2, tC2, tC2, tBb2, tC2, tC2, tBb2, tAb2, tAb2, tC2, tC2, tC2, tEb2, tDb2, tC2, tC2, tBb2, tAb2, tAb2, tC2, tC2, tDb2, tC2, tAb2, tAb2, tDb2, tDb2, tC2, tAb2, tAb2, tBb2, tC2, tBb2, tDb2, tAb2, tF2, tEb2, tDb2, tC2, tBb2, tAb2, tG1, tF1, tEb1, tF1, tF2, tF2, tEb2, tDb2, tC2, tC2, tBb2, tAb2, tBb2, tC2, tEb2, tC2, tF2, tC2, tBb2, tAb2, tC2, tC2, tC2, tBb2, tBb2, tBb2, tAb2, tBb2, tEb1, tC2, tC2, tBb2, tBb2, tBb2, tAb2, tBb2, tEb1, tC2, tC2, tEb2, tC2, tF2, tC2, tF2, tC2, tBb2, tAb2, tC2, tC2, tC2, tBb2, tBb2, tBb2, tAb2, tBb2, tC2, tC2, tBb2, tBb2, tBb2, tAb2, tBb2, tC2, tC2, tDb2, tEb2, tAb3, tG2, tF2, tEb2, tC2, tC2, tC2, tC2, tDb2, tEb2, tAb3, tG2, tF2, tEb2, tC2, tC2, tBb2, tAb2];
+    const letitgo = [tBb2, tC2, tC2, tC2, tC2, tC2, tC2, tBb2, tAb2, tAb2, tAb2, tAb2, tBb2, tBb2, tAb2, tG1, tF1, tF1, tC2, tC2, tC2, tC2, tEb2, tEb2, tC2, tAb2, tAb2, tBb2, tC2, tBb2, tAb2, tBb2, tC2, tC2, tEb2, tF2, tEb2, tC2, tEb2, tEb2, tEb2, tDb2, tC2, tDb2, tC2, tC2, tC2, tBb2, tAb2, tBb2, tBb2, tC2, tBb2, tAb2, tF1, tBb2, tBb2, tEb2, tEb2, tBb2, tBb2, tF2, tF2, tF2, tEb2, tF2, tF2, tEb2, tF2, tG2, tAb3, tG2, tG2, tBb2, tBb2, tEb2, tEb2, tBb2, tBb2, tF2, tF2, tEb2, tF2, tG2, tAb3, tF1, tG1, tAb2, tEb1, tEb1, tBb2, tAb2, tF1, tF1, tF1, tF1, tG1, tAb2, tF1, tG1, tAb2, tEb1, tC2, tC2, tBb2, tAb2, tBb2, tC2, tC2, tDb2, tC2, tBb2, tAb2, tBb2, tAb2, tEb2, tC2, tBb2, tAb2, tAb2, tEb2, tC2, tAb2, tAb2, tAb2, tG1, tEb1, tEb1, tDb1, tDb1, tDb1, tC1, tDb1, tC1, tDb1, tDb1, tC1, tAb1];
 
     trebleSongNames = [
         'Amazing Grace',
         'It\'s Raining, It\'s Pouring',
         'Happy Birthday',
         'The Baseball Song',
-        'Clair De Lune'
+        'Clair De Lune',
+        'All of Me - John Legend',
+        'Let It Go'
     ]
 
     trebleSongPrices = [
@@ -82,7 +86,9 @@ async function main() {
         200,
         300,
         500,
-        200
+        200,
+        1000,
+        800
     ]
 
     trebleDifficulty = [
@@ -90,7 +96,9 @@ async function main() {
         'Easy',
         'Medium',
         'Hard',
-        'Easy'
+        'Easy',
+        'Hard',
+        'Hard'
     ]
 
     trebleImages = [
@@ -98,7 +106,9 @@ async function main() {
         "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=8",
         "https://images.unsplash.com/photo-1531956531700-dc0ee0f1f9a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=8",
         'https://images.pexels.com/photos/1661950/pexels-photo-1661950.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        'https://images.pexels.com/photos/596134/pexels-photo-596134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+        'https://images.pexels.com/photos/596134/pexels-photo-596134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/712520/pexels-photo-712520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/813872/pexels-photo-813872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ]
 
     trebleDetails = [
@@ -106,10 +116,12 @@ async function main() {
         'It\'s Raining, It\'s Pouring is a popular English nursery rhyme. The words were originally published in 1912, and Charles Ives added the music in 1939.',
         'Happy Birthday is the most recognized song in the English language. It was published in 1893, but nobody knows for sure who wrote it.',
         'Take me out to the Ball Game was written in 1908 by two men who had never attended a baseball game.',
-        'Clair de Lune - Moonlight in French - is part of a suite written by Claude Debussy in 1890. The title refers to a French folk song about love.'
+        'Clair de Lune - Moonlight in French - is part of a suite written by Claude Debussy in 1890. The title refers to a French folk song about love.',
+        'Written in 2013, All of Me by John Legend was written for his then-fiancee, now wife, Chrissy Teigen.',
+        'Let it Go was written by Kristen Anderson-Lopez and Robert Lopez for Disney\'s popular 2013 animated film, Frozen.',
     ];
 
-    const trebleSongs = [amazingGrace, raining, birthday, baseball, clair];
+    const trebleSongs = [amazingGrace, raining, birthday, baseball, clair, legend, letitgo];
 
     const bC1 = 0;
     const bD1 = 1;
@@ -163,13 +175,17 @@ async function main() {
     const jurassic = [bG2, bFs2, bG2, bG2, bFs2, bG2, bG2, bFs2, bG2, bA2, bA2, bC3, bC3, bB2, bG2, bA2, bFs2, bD2, bB2, bG2, bA2, bD3, bG2, bC3, bB2, bB2, bA2, bA2, bG2, bFs2, bG2, bD2, bC2, bG2, bFs2, bG2, bD2, bC2, bG2, bFs2, bFs2, bG2, bD2, bG1, bF2, bG2, bFs2, bG2, bD2, bC2, bG2, bFs2, bG2, bD2, bC2, bG2, bFs2, bFs2, bG2, bD2, bG1, bG2, bFs2, bG2, bD2, bC2, bB1, bB1]
     const mulan = [bD3, bA2, bC3, bG2, bA2, bC3, bG2, bA2, bBb2, bC3, bG2, bD3, bA2, bC3, bG2, bA2, bC3, bG2, bA2, bBb2, bC3, bC3, bC2, bC2, bD2, bD2, bD2, bG2, bF2, bE2, bE2, bF2, bG2, bA2, bBb2, bA2, bC2, bD2, bBb2, bA2, bF2, bD2, bA2, bG2, bF2, bE2, bF2, bD2]
     const linus = [bAb1, bEb2, bAb2, bAb1, bEb2, bAb2, bAb1, bEb2, bF2, bAb1, bEb2, bF2, bAb1, bEb2, bAb2, bAb1, bEb2, bAb2, bAb1, bEb2, bF2, bAb1, bEb2, bF2, bAb1, bBb1, bC2, bC2, bBb1, bAb1, bBb1, bAb1, bAb1, bBb1, bC2, bC2, bAb1, bBb1, bC2, bC2, bBb1, bAb1, bBb1, bAb1, bAb1, bBb1, bBb1, bAb1, bBb1, bC2, bC2, bBb1, bAb1, bBb1, bAb1, bAb1, bBb1, bC2, bC2, bAb1, bBb1, bC2, bC2, bBb1, bAb1, bBb1, bAb1, bAb1, bBb1, bBb1, bAb1, bBb1, bBb1, bAb1, bDb2, bDb2, bDb2, bEb2, bEb2, bF2, bF2, bEb2, bF2, bF2, bEb2, bF2, bF2, bEb2, bAb1, bDb2, bDb2, bDb2, bEb2, bEb2, bF2, bF2, bEb2, bF2, bF2, bEb2, bF2, bF2, bEb2, bAb1, bDb2, bDb2, bDb2, bEb2, bEb2, bF2, bF2, bEb2, bF2, bF2, bEb2, bF2, bF2, bEb2, bAb1, bAb1, bEb2, bAb2, bAb1, bEb2, bAb2, bAb1, bEb2, bF2, bAb1, bEb2, bF2, bAb1, bEb2, bAb2, bAb1, bEb2, bAb2, bAb1];
+    const pie = [bD1, bD2, bD2, bD2, bB1, bG1, bC2, bA1, bB1, bC2, bB1, bA1, bG1, bFs1, bG1, bFs1, bG1, bFs1, bG1, bFs1, bD1, bD1, bD2, bD2, bD2, bB1, bD2, bE2, bG1, bG1, bA1, bB1, bC2, bB1, bA1, bB1, bC2, bA1, bG1, bE1, bG1, bE1, bG1, bE1, bG1, bB1, bA1, bE1, bB1, bB1, bB1, bB1, bC2, bB1, bG1, bA1, bB1, bB1, bB1, bB1, bB1, bC2, bB1, bG1, bE1, bG1, bG1, bG1, bFs1, bE1, bG1, bA1, bG1, bA1, bB1, bE2, bD2, bB1, bB1, bE2, bD2, bD2, bB1, bC2, bB1, bG1, bFs1, bE1, bA1, bB1, bC2, bB1, bB1, bA1, bB1, bA1, bB1, bB1, bB1, bB1, bB1, bB1, bG1, bE1, bG1, bE1, bG1, bC2, bB1, bG1, bD1, bD2, bC2, bC2, bB1, bB1, bA1, bG1, bA1, bD2, bD2, bD2, bD2, bD2, bC2, bC2, bC2, bC2, bB1, bB1, bA1, bG1, bD1, bD2, bD2, bC2, bC2, bC2, bB1, bB1, bA1, bG1, bA1, bB1, bA1, bC2, bB1, bA1, bG1, bFs1, bE1, bFs1, bG1];
+    const bruno = [bEb2, bC2, bEb2, bC2, bEb2, bD2, bBb1, bAb1, bF1, bG1, bEb2, bC2, bEb2, bC2, bEb2, bF2, bD2, bG2, bG2, bEb2, bG2, bG2, bEb2, bEb2, bF2, bG2, bF2, bG2, bF2, bG2, bF2, bG2, bG2, bAb2, bG2, bBb2, bAb2, bG2, bF2, bEb2, bBb1, bEb2, bG2, bEb2, bC2, bD2, bG1, bD2, bG2, bAb2, bAb2, bAb2, bAb2, bAb2, bEb2, bAb2, bEb2, bG2, bC2, bD2, bEb2, bF2, bG2, bAb2, bG2, bC3, bC2, bD2, bEb2, bF2, bG2, bAb2, bG2, bC2, bD2, bEb2, bF2, bG2, bAb2, bBb2, bAb2, bF2, bAb2, bF2, bAb2, bG2, bD2, bBb1, bG1, bAb1, bAb2, bF2, bAb2, bF2, bAb2, bBb2, bG2];
 
     bassSongNames = [
         'Under the Sea',
         'The Bare Necessities',
         'Jurassic Park',
         'I\'ll Make a Man Out of You',
-        'Linus and Lucy'
+        'Linus and Lucy',
+        'American Pie',
+        'We Don\'t Talk About Bruno',
     ]
 
     bassSongPrices = [
@@ -177,11 +193,15 @@ async function main() {
         750,
         400,
         300,
-        1000
+        1250,
+        1000,
+        800,
     ]
 
     bassDifficulty = [
         'Medium',
+        'Medium',
+        'Hard',
         'Medium',
         'Hard',
         'Medium',
@@ -193,7 +213,9 @@ async function main() {
         "https://images.unsplash.com/photo-1589656966895-2f33e7653819?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=8",
         'https://images.pexels.com/photos/1319591/pexels-photo-1319591.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/5971314/pexels-photo-5971314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        'https://images.pexels.com/photos/10565573/pexels-photo-10565573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+        'https://images.pexels.com/photos/10565573/pexels-photo-10565573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/2955816/pexels-photo-2955816.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/87452/flowers-background-butterflies-beautiful-87452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     ]
 
     bassDetails = [
@@ -201,10 +223,12 @@ async function main() {
         'The Bare Necessities was written by Terry Gilkyson for the 1967 Disney film, The Jungle Book. It is an exciting jazz song sung by the bear Baloo, who is teaching young Mowgli how to survive in the wild.',
         'The theme for Jurassic Park was written by John Williams for the 1993 film, Jurassic Park. It made it to position 28 on the US Billboard music charts in 1993.',
         'I\'ll Make a Man Out Of You was written by Donny Osmond for the 1998 animated Disney film, Mulan.',
-        'Linus and Lucy was written by Vince Guaraldi in 1964 for Lee Mendelson, the producer of the Peanuts films. While this jazzy tune is typically heard around Christmas time, it is an all-year favorite.'
+        'Linus and Lucy was written by Vince Guaraldi in 1964 for Lee Mendelson, the producer of the Peanuts films. While this jazzy tune is typically heard around Christmas time, it is an all-year favorite.',
+        'American Pie, by Don McLean, was the number one US hit for four weeks in 1972, just after being released in October 1971.',
+        'We Don\'t Talk About Bruno was written for the 2021 Disney Animated film, Encanto, by Lin-Manuel Miranda. It peaked at number 1 on four billboards, including the global billboard, a new record for Disney songs.'
     ];
 
-    const bassSongs = [underSea, bareNecessities, jurassic, mulan, linus];
+    const bassSongs = [underSea, bareNecessities, jurassic, mulan, linus, pie, bruno];
     const ids = [];
 
     for (let x in trebleSongs) {
