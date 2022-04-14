@@ -37,6 +37,10 @@ let key1 = null;
 let key2 = null;
 document.addEventListener("keyup", (event) => {
     if (event.key.toUpperCase() == 'ARROWUP' || event.key.toUpperCase() == 'ARROWDOWN') {
+        if (key2 == null) {
+            key1 = null;
+            return;
+        }
         key2 = null;
         return;
     }
@@ -274,8 +278,8 @@ async function toLink(url, disabled = '') {
         modalText.classList.add("modalText");
         closeButton.classList.add("modalButton", "actionButton");
 
-        closeButton.setAttribute("onclick", "closePopUp()");
-        modalBackdrop.setAttribute("onclick", "closePopUp()");
+        closeButton.setAttribute("onclick", "closePopUp(reload=false)");
+        modalBackdrop.setAttribute("onclick", "closePopUp(reload=false)");
 
         popUpModal.appendChild(modalText);
         popUpModal.appendChild(closeButton);
@@ -739,7 +743,7 @@ function closePopUp(animate = true, reload = true) {
             document.getElementsByClassName("popUpModal")[0].remove();
             let x = window.scrollX;
             let y = window.scrollY;
-            if (reload){
+            if (reload) {
                 window.location.href = window.location.href.split('?locy')[0] + '?locy=' + y + 'locx=' + x;
             }
         }, 350)
@@ -767,7 +771,7 @@ async function buySong(songId, name) {
             closePopUp(animate = false);
             purchaseStatusModal(name, true);
         } else {
-            closePopUp(animate = false);
+            closePopUp(animate = false, reload = false);
             purchaseStatusModal(name, false);
         }
     }, 300)

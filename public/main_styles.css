@@ -917,7 +917,7 @@ input:focus {
     padding: auto 24px;
 }
 
-.header .littleLink{
+.header .littleLink {
     font-family: "Josefin Sans", sans-serif;
     margin-top: auto;
     margin-bottom: auto;
@@ -925,7 +925,7 @@ input:focus {
     margin-inline: 18px;
 }
 
-.headerSideControl{
+.headerSideControl {
     width: 20%;
     text-align: left;
     margin-right: 36px;
@@ -933,7 +933,8 @@ input:focus {
 
 .loginLink {
     text-align: right;
-    font-size: 18px;;
+    font-size: 18px;
+    ;
 }
 
 .homeLink {
@@ -993,8 +994,6 @@ input:focus {
     color: white;
 }
 
-
-
 .disabledLessonCard {
     filter: brightness(30%);
 }
@@ -1003,8 +1002,6 @@ input:focus {
     cursor: default;
     filter: brightness(30%);
 }
-
-
 
 .lessonList {
     /* border: 1px solid white; */
@@ -1050,4 +1047,28 @@ input:focus {
 
 .logoutLink:hover {
     filter: brightness(70%);
+}
+
+.leaderheader {
+    font-size: 45px;
+    padding: 0px;
+}
+
+.leaderboard {
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #4A374D;
+    width: 25%;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.leaderboard-th {
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.leaderboard-h3 {
+    margin: 0px;
 }

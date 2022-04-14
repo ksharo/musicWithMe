@@ -50,11 +50,16 @@ function renderRandomLevel(req, curLevel, levels, res, clef = 'treble') {
             coins: req.session.user.coins
         }
     }
-    return res.render('individualPages/noteLesson', { notes: levels[curLevel].sort(), noteNames: noteNames.sort((a, b) => (a.note > b.note) ? 1 : -1), img: image, imgList: imgList, i: 1, numQs: numQs, user: user });
+    return res.render('individualPages/noteLesson', { notes: [...levels[curLevel]].sort(), noteNames: [...noteNames].sort((a, b) => (a.note > b.note) ? 1 : -1), img: image, imgList: imgList, i: 1, numQs: numQs, user: user });
 }
 
 function renderSongLevel(req, songIndices, songName, levels, res, clef = 'treble', mode = 'indices') {
-    const notes = levels[levels.length - 1];
+    let notes = [];
+    if (mode == 'indices') {
+        notes = levels[12];
+    } else {
+        notes = levels[levels.length - 1];
+    }
     let imgList = [];
     // set pictures for the song
     for (let x of songIndices) {
@@ -86,7 +91,7 @@ function renderSongLevel(req, songIndices, songName, levels, res, clef = 'treble
             coins: req.session.user.coins
         }
     }
-    return res.render('individualPages/noteLesson', { notes: notes.sort(), songName: songName, noteNames: noteNames.sort((a, b) => (a.note > b.note) ? 1 : -1), img: image, imgList: imgList, i: 1, numQs: songIndices.length, user: user });
+    return res.render('individualPages/noteLesson', { notes: [...notes].sort(), songName: songName, noteNames: [...noteNames].sort((a, b) => (a.note > b.note) ? 1 : -1), img: image, imgList: imgList, i: 1, numQs: songIndices.length, user: user });
 }
 
 module.exports = {
