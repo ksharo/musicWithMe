@@ -117,4 +117,17 @@ router
 
     });
 
+router
+    .route('/leaderboard')
+    .get(async(req, res) => {
+        let user = null;
+        if (req.session.user) {
+            user = {
+                username: req.session.user.username,
+                coins: req.session.user.coins
+            }
+        }
+        return res.render('individualPages/leaderboard', { user: user });
+    });
+
 module.exports = router;

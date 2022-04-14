@@ -1041,3 +1041,27 @@ input:focus {
 .logoutLink:hover {
     filter: brightness(70%);
 }
+
+.leaderheader{
+    font-size: 45px;
+    padding: 0px;
+}
+
+.leaderboard{
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:#4A374D;
+    width: 25%;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+th{
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+h3{
+    margin: 0px;
+}
