@@ -66,6 +66,22 @@
                     </div>
                     <h4>Progress: {{abPerc}}%</h4>
                 </section>
+                <section onClick="toLink('/treble/newLesson/theory/{{btTheory}}', `{{atDisabled}}`)" class="lessonCard trebleCard {{atDisabled}}">
+                    <h3>Treble Clef</h3>
+                    <h4>Basic Theory</h4>
+                    <div class="imgContainer">
+                        <img src="/public/assets/images/treble/treble_C%232.png" />
+                    </div>
+                    <h4>Progress: {{btTheoryPerc}}%</h4>
+                </section>
+                <section onClick="toLink('/bass/newLesson/theory/{{bbTheory}}', `{{atDisabled}}`)" class="lessonCard bassCard {{abDisabled}}">
+                    <h3>Bass Clef</h3>
+                    <h4>Basic Theory</h4>
+                    <div class="imgContainer">
+                        <img src="/public/assets/images/bass/bass_D2.png" />
+                    </div>
+                    <h4>Progress: {{bbTheoryPerc}}%</h4>
+                </section>
             </article>
         <h3 class="lessonHeader">Songs</h3>
         <section class="subHeaderGroup">

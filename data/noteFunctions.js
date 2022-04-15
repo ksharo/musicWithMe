@@ -54,12 +54,8 @@ function renderRandomLevel(req, curLevel, levels, res, clef = 'treble') {
 }
 
 function renderSongLevel(req, songIndices, songName, levels, res, clef = 'treble', mode = 'indices') {
-    let notes = [];
-    if (mode == 'indices') {
-        notes = levels[12];
-    } else {
-        notes = levels[levels.length - 1];
-    }
+    let notes = levels[levels.length - 1];
+
     let imgList = [];
     // set pictures for the song
     for (let x of songIndices) {

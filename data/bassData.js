@@ -45,7 +45,7 @@ const bass_l25 = bass_l24.concat(['D%233', 'Db3']);
 // REVIEW LEVEL
 const bass_r11 = bass_l25;
 const bass_l26 = bass_l25.concat(['E%233', 'Eb3']);
-const bass_all = bass_l26.concat(bass_r3);
+const bass_all = bass_r3.concat(bass_l26);
 const bass_levels = [bass_l1, bass_l2, bass_l3, bass_r0, bass_l4,
     bass_l5, bass_r1, bass_l6, bass_l7, bass_r2, bass_l8, bass_l9, bass_r3,
     bass_l10, bass_l11, bass_r4, bass_l12, bass_l13, bass_r5, bass_l14,
@@ -647,11 +647,149 @@ const songDetails = [
     }]
 ]
 
+// C2, D2, E2, B1, F2, G2, A2, A1, G1, B2, C3, E1, F1, C1, D1, D3, E3
+// 0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16
 
+const C2 = 0;
+const D2 = 1;
+const E2 = 2;
+const B1 = 3;
+const F2 = 4;
+const G2 = 5;
+const A2 = 6;
+const A1 = 7;
+const G1 = 8;
+const B2 = 9;
+const C3 = 10;
+const E1 = 11;
+const F1 = 12;
+const C1 = 13;
+const D1 = 14;
+const D3 = 15;
+const E3 = 16;
+const Cs1 = 17;
+const Cb1 = 18;
+const Ds1 = 19;
+const Db1 = 20;
+const Es1 = 21;
+const Eb1 = 22;
+const Fs1 = 23;
+const Fb1 = 24;
+const Gs1 = 25;
+const Gb1 = 26;
+const As1 = 27;
+const Ab1 = 28;
+const Bs1 = 29;
+const Bb1 = 30;
+const Cs2 = 31;
+const Cb2 = 32;
+const Ds2 = 33;
+const Db2 = 34;
+const Es2 = 35;
+const Eb2 = 36;
+const Fs2 = 37;
+const Fb2 = 38;
+const Gs2 = 39;
+const Gb2 = 40;
+const As2 = 41;
+const Ab2 = 42;
+const Bs2 = 43;
+const Bb2 = 44;
+const Cs3 = 45;
+const Cb3 = 46;
+const Ds3 = 47;
+const Db3 = 48;
+const Es3 = 49;
+const Eb3 = 50;
+
+// white majors
+const cMaj = [C2, D2, E2, F2, G2, A2, B2, C3, B2, A2, G2, F2, E2, D2, C2];
+const gMaj = [G1, A1, B1, C2, D2, E2, Fs2, G2, Fs2, E2, D2, C2, B1, A1, G1];
+const fMaj = [F1, G1, A1, Bb1, C2, D2, E2, F2, E2, D2, C2, Bb1, A1, G1, F1];
+const dMaj = [D2, E2, Fs2, G2, A2, B2, Cs3, D3, Cs3, B2, A2, G2, Fs2, E2, D2];
+const aMaj = [A1, B1, Cs2, D2, E2, Fs2, Gs2, A2, Gs2, Fs2, E2, D2, Cs2, B1, A1];
+const eMaj = [E2, Fs2, Gs2, A2, B2, Cs3, Ds3, E3, Ds3, Cs3, B2, A2, Gs2, Fs2, E2];
+const bMaj = [B1, Cs2, Ds2, E2, Fs2, Gs2, As2, B2, As2, Gs2, Fs2, E2, Ds2, Cs2, B1];
+
+// black majors
+const bbMaj = [Bb1, C2, D2, Eb2, F2, G2, A2, Bb2, A2, G2, F2, Eb2, D2, C2, Bb1];
+const ebMaj = [Eb2, F2, G2, Ab2, Bb2, C3, D3, Eb3, D3, C3, Bb2, Ab2, G2, F2, Eb2];
+const abMaj = [Ab1, Bb1, C2, Db2, Eb2, F2, G2, Ab2, G2, F2, Eb2, Db2, C2, Bb1, Ab1];
+const dbMaj = [Db2, Eb2, F2, Gb2, Ab2, Bb2, C3, Db3, C3, Bb2, Ab2, Gb2, F2, Eb2, Db2];
+const gbMaj = [Gb1, Ab1, Bb1, Cb2, Db2, Eb2, F2, Gb2, F2, Eb2, Db2, Cb2, Bb1, Ab1, Gb1];
+
+const scales = [cMaj, gMaj, fMaj, dMaj, aMaj, eMaj, bMaj, bbMaj, ebMaj, abMaj, dbMaj, gbMaj];
+const scaleNames = ['C Major', 'G Major', 'F Major', 'D Major', 'A Major', 'E Major', 'B Major', 'B Flat Major', 'E Flat Major', 'A Flat Major', 'D Flat Major', 'G Flat Major'];
+
+const scaleDetails = [
+    [{
+        title: 'New Scale: C Major',
+        img: '/public/assets/images/bass/bass_clef.png',
+        details: 'A scale is a series of notes that form a pattern, typically increasing and then decreasing.<br/>You are about to learn the C Major scale, which includes all the notes in the key of C Major.',
+    }],
+    [{
+        title: 'New Scale: G Major',
+        img: '/public/assets/images/bass/bass_clef.png',
+        details: 'A scale is a series of notes that form a pattern, typically increasing and then decreasing.<br/>You are about to learn the G Major scale, which includes all the notes in the key of G Major.',
+    }],
+    [{
+        title: 'New Scale: F Major',
+        img: '/public/assets/images/bass/bass_clef.png',
+        details: 'A scale is a series of notes that form a pattern, typically increasing and then decreasing.<br/>You are about to learn the F Major scale, which includes all the notes in the key of F Major.',
+    }],
+    [{
+        title: 'New Scale: D Major',
+        img: '/public/assets/images/bass/bass_clef.png',
+        details: 'A scale is a series of notes that form a pattern, typically increasing and then decreasing.<br/>You are about to learn the D Major scale, which includes all the notes in the key of D Major.',
+    }],
+    [{
+        title: 'New Scale: A Major',
+        img: '/public/assets/images/bass/bass_clef.png',
+        details: 'A scale is a series of notes that form a pattern, typically increasing and then decreasing.<br/>You are about to learn the A Major scale, which includes all the notes in the key of A Major.',
+    }],
+    [{
+        title: 'New Scale: E Major',
+        img: '/public/assets/images/bass/bass_clef.png',
+        details: 'A scale is a series of notes that form a pattern, typically increasing and then decreasing.<br/>You are about to learn the E Major scale, which includes all the notes in the key of E Major.',
+    }],
+    [{
+        title: 'New Scale: B Major',
+        img: '/public/assets/images/bass/bass_clef.png',
+        details: 'A scale is a series of notes that form a pattern, typically increasing and then decreasing.<br/>You are about to learn the B Major scale, which includes all the notes in the key of B Major.',
+    }],
+    [{
+        title: 'New Scale: B Flat Major',
+        img: '/public/assets/images/bass/bass_clef.png',
+        details: 'You are about to learn the B Flat Major scale, which includes all the notes in the key of B Flat Major.',
+    }],
+    [{
+        title: 'New Scale: E Flat Major',
+        img: '/public/assets/images/bass/bass_clef.png',
+        details: 'You are about to learn the E Flat Major scale, which includes all the notes in the key of E Flat Major.',
+    }],
+    [{
+        title: 'New Scale: A Flat Major',
+        img: '/public/assets/images/bass/bass_clef.png',
+        details: 'You are about to learn the A Flat Major scale, which includes all the notes in the key of A Flat Major.',
+    }],
+    [{
+        title: 'New Scale: D Flat Major',
+        img: '/public/assets/images/bass/bass_clef.png',
+        details: 'You are about to learn the D Flat Major scale, which includes all the notes in the key of D Flat Major.',
+    }],
+    [{
+        title: 'New Scale: G Flat Major',
+        img: '/public/assets/images/bass/bass_clef.png',
+        details: 'You are about to learn the G Flat Major scale, which includes all the notes in the key of G Flat Major.',
+    }],
+]
 module.exports = {
     songDetails,
     songNames,
     songs,
     bass_noteDetails,
-    bass_levels
+    bass_levels,
+    scales,
+    scaleNames,
+    scaleDetails
 }

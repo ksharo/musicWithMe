@@ -47,9 +47,9 @@
 		{{else}}
 			<button class='actionButton' onClick="nextLesson(true)">Play Again</button>
 			{{#if finalRound}}
-			<button class='actionButton' onClick="window.location.href='http://localhost:3030/lessons';">Return Home</button>
+			<button class='actionButton' autofocus onClick="window.location.href='http://localhost:3030/lessons';">Return Home</button>
 			{{else}}
-			<button id='passBtn' class='actionButton' onClick="nextLesson()">Next Level</button>
+			<button id='passBtn' class='actionButton' onClick="nextLesson()" autofocus>Next Level</button>
 			{{/if}}
 		{{/if}}
 	</section>

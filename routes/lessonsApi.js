@@ -25,6 +25,8 @@ router
         let abLevels = 0; // bass note advanced
         let tSongs = 0; // treble song levels
         let bSongs = 0; // bass song levels
+        let btTheory = 0; // basic treble theory
+        let bbTheory = 0; // basic bass theory
         for (let x of user.lessonsCompleted) {
             if (x.includes('bass')) {
                 if (x.includes('song')) {
@@ -32,13 +34,15 @@ router
                     if (!isNaN(level)) {
                         bSongs += 1;
                     }
-                } else {
+                } else if (x.includes('note')) {
                     let level = Number(x.split('note')[1]);
                     if (level > 12) {
                         abLevels += 1;
                     } else {
                         bbLevels += 1;
                     }
+                } else {
+                    bbTheory += 1;
                 }
             } else if (x.includes('treble')) {
                 if (x.includes('song')) {
@@ -46,13 +50,15 @@ router
                     if (!isNaN(level)) {
                         tSongs += 1;
                     }
-                } else {
+                } else if (x.includes('note')) {
                     let level = Number(x.split('note')[1]);
                     if (level > 12) {
                         atLevels += 1;
                     } else {
                         btLevels += 1;
                     }
+                } else {
+                    btTheory += 1;
                 }
             }
         }
@@ -64,12 +70,16 @@ router
             abLevels: abLevels + 13,
             tSongs: tSongs,
             bSongs: bSongs,
+            btTheory: btTheory,
+            bbTheory: bbTheory,
             bbPerc: cleanPerc(bbLevels, 13),
             btPerc: cleanPerc(btLevels, 13),
             atPerc: cleanPerc(atLevels, 26),
             abPerc: cleanPerc(abLevels, 26),
             tsPerc: cleanPerc(tSongs, 7),
             bsPerc: cleanPerc(bSongs, 6),
+            btTheoryPerc: cleanPerc(btTheory, 12),
+            bbTheoryPerc: cleanPerc(bbTheory, 12),
             purchasedSongs: purchased,
             atDisabled: btLevels < 13 ? 'disabledLessonCard' : '',
             abDisabled: bbLevels < 13 ? 'disabledLessonCard' : '',

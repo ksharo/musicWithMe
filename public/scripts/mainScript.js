@@ -84,7 +84,7 @@ document.addEventListener("keydown", (event) => {
         event.preventDefault();
     }
     if (
-        (window.location.href.includes("noteLesson") || window.location.href.includes("songLesson") ||
+        (window.location.href.includes("noteLesson") || window.location.href.includes("songLesson") || window.location.href.includes("theoryLesson") ||
             window.location.href.includes("allSongs")) && !counting
     ) {
         if (key1 == null) {
@@ -93,7 +93,7 @@ document.addEventListener("keydown", (event) => {
             key2 = event.key.toUpperCase();
         }
     } else if (
-        (window.location.href.includes("noteLesson") || window.location.href.includes("songLesson") ||
+        (window.location.href.includes("noteLesson") || window.location.href.includes("songLesson") || window.location.href.includes("theoryLesson") ||
             window.location.href.includes("allSongs")) && counting
     ) {
         if (event.key == "Enter" || event.key == "Return") {
@@ -201,6 +201,13 @@ async function processClick(noteName, rightAnswer, imgList, numQs) {
                 } else if (window.location.href.includes("bass")) {
                     levelComplete('bass', 'Song', curLocation);
                 }
+            } else if (window.location.href.includes("theoryLesson")) {
+                const curLocation = window.location.href.split("theoryLesson/")[1];
+                if (window.location.href.includes("treble")) {
+                    levelComplete('treble', 'Theory', curLocation);
+                } else if (window.location.href.includes("bass")) {
+                    levelComplete('bass', 'Theory', curLocation);
+                }
             }
         } catch (e) {
             console.log(e);
@@ -238,6 +245,13 @@ async function restart() {
         } else if (window.location.href.includes("bass")) {
             window.location.href = "http://localhost:3030/bass/newLesson/songs/" + Number(curLocation).toString();
         }
+    } else if (window.location.href.includes("theoryLesson")) {
+        const curLocation = window.location.href.split("theoryLesson/")[1];
+        if (window.location.href.includes("treble")) {
+            window.location.href = "http://localhost:3030/treble/newLesson/theory/" + Number(curLocation).toString();
+        } else if (window.location.href.includes("bass")) {
+            window.location.href = "http://localhost:3030/bass/newLesson/theory/" + Number(curLocation).toString();
+        }
     } else if (window.location.href.includes("allSongs")) {
         window.location.href = window.location.href.replace("play", "begin");
     }
@@ -259,6 +273,12 @@ async function nextLevel(level) {
             window.location.href = "http://localhost:3030/treble/noteLesson/" + Number(level).toString();
         } else if (window.location.href.includes("bass")) {
             window.location.href = "http://localhost:3030/bass/noteLesson/" + Number(level).toString();
+        }
+    } else if (window.location.href.includes("theory")) {
+        if (window.location.href.includes("treble")) {
+            window.location.href = "http://localhost:3030/treble/theoryLesson/" + Number(level).toString();
+        } else if (window.location.href.includes("bass")) {
+            window.location.href = "http://localhost:3030/bass/theoryLesson/" + Number(level).toString();
         }
     }
 }
@@ -292,7 +312,7 @@ async function toLink(url, disabled = '') {
         url = '/' + url;
     }
 
-    if (url.includes('/0') && !url.includes('song')) {
+    if (url.includes('/0') && !url.includes('song') && !url.includes('theory')) {
         if (url.includes('bass')) {
             url = '/bass';
         } else {
@@ -322,6 +342,12 @@ async function nextLesson(retry = false) {
             window.location.href = "http://localhost:3030/treble/newLesson/notes/" + Number(level).toString();
         } else if (window.location.href.includes("bass")) {
             window.location.href = "http://localhost:3030/bass/newLesson/notes/" + Number(level).toString();
+        }
+    } else if (window.location.href.includes("Theory")) {
+        if (window.location.href.includes("treble")) {
+            window.location.href = "http://localhost:3030/treble/newLesson/theory/" + Number(level).toString();
+        } else if (window.location.href.includes("bass")) {
+            window.location.href = "http://localhost:3030/bass/newLesson/theory/" + Number(level).toString();
         }
     }
 }
@@ -377,7 +403,6 @@ function scoreCorrect() {
     scoreCurrQuestionWithMultipliers = scoreCurrQuestion + (scoreCurrQuestion / 10 * multiplier)
     let coins = Math.floor(scoreCurrQuestionWithMultipliers / 100)
     levelCoins += coins
-    console.log("coins: ", coins, scoreCurrQuestionWithMultipliers);
     currLevelScore += scoreCurrQuestionWithMultipliers;
     streak++;
     totalQs++;

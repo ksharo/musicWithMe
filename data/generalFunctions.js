@@ -94,7 +94,27 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
             coins: req.session.user.coins
         }
     }
-    return res.status(200).render('individualPages/lessonResult', { result: result, grade: grade, fail: fail, minScore: timeThreshold * totalQs, score: score, streak: streak, accuracy: accuracy, finalRound: Number(strLevel) == 38 || isNaN(Number(strLevel)), newHi: newHi, coins: coins, user: user });
+    let maxLevels = 100;
+    if (type == 'note') {
+        maxLevels = 12;
+    } else if (type == 'song') {
+        maxLevels = clef == 'treble' ? 6 : 5;
+    } else if (type == 'theory') {
+        maxLevels = 11;
+    }
+    return res.status(200).render('individualPages/lessonResult', {
+        result: result,
+        grade: grade,
+        fail: fail,
+        minScore: timeThreshold * totalQs,
+        score: score,
+        streak: streak,
+        accuracy: accuracy,
+        finalRound: Number(strLevel) == maxLevels || (type == 'note' && Number(strLevel) == 38) || isNaN(Number(strLevel)),
+        newHi: newHi,
+        coins: coins,
+        user: user
+    });
 }
 
 module.exports = {

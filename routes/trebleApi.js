@@ -11,6 +11,9 @@ const songDetails = trebleData.songDetails;
 const treble_levels = trebleData.treble_levels;
 const treble_noteDetails = trebleData.treble_noteDetails;
 const songNames = trebleData.songNames;
+const scales = trebleData.scales;
+const scaleNames = trebleData.scaleNames;
+const scaleDetails = trebleData.scaleDetails;
 
 let curLevel = 0;
 let streak = 0;
@@ -145,6 +148,57 @@ router
     });
 
 router
+    .route('/newLesson/theory/:level')
+    .get(async(req, res) => {
+        if (scales.length <= Number(req.params.level)) {
+            let user = null;
+            if (req.session.user) {
+                user = {
+                    username: req.session.user.username,
+                    coins: req.session.user.coins
+                }
+            }
+            return res.status(404).render('individualPages/error', { status: 404, message: 'Theory level with id ' + req.params.level + 'does not exist!', user: user });
+        }
+        let user = null;
+        if (req.session.user) {
+            user = {
+                username: req.session.user.username,
+                coins: req.session.user.coins
+            }
+        }
+        return res.render('individualPages/newLesson', {
+            name: 'Theory',
+            subtitle: scaleNames[Number(req.params.level)],
+            details: scaleDetails[Number(req.params.level)],
+            level: req.params.level,
+            levelName: req.params.level,
+            user: user
+        });
+    });
+
+router
+    .route('/theoryLesson/:levelId')
+    .get(async(req, res) => {
+        if (scales.length <= Number(req.params.levelId)) {
+            let user = null;
+            if (req.session.user) {
+                user = {
+                    username: req.session.user.username,
+                    coins: req.session.user.coins
+                }
+            }
+            return res.status(404).render('individualPages/error', {
+                status: 404,
+                message: 'Theory Lesson with id ' + req.params.levelId + 'does not exist!',
+                user: user
+            });
+        }
+        const scale = scales[Number(req.params.levelId)];
+        return noteFunctions.renderSongLevel(req, scale, scaleNames[Number(req.params.levelId)], treble_levels, res);
+    });
+
+router
     .route('/sendNoteData/:level')
     .post(async(req, res) => {
         score = req.body.score;
@@ -167,6 +221,17 @@ router
     });
 
 router
+    .route('/sendTheoryData/:level')
+    .post(async(req, res) => {
+        score = req.body.score;
+        streak = req.body.streak;
+        totalQs = req.body.total;
+        accuracy = Math.ceil((Number(req.body.correct) / Number(totalQs)) * 100);
+        coins = req.body.levelCoins;
+        return res.status(200).json(req.body);
+    });
+
+router
     .route('/endNoteLevel/:level')
     .get(async(req, res) => {
         await generalFunctions.renderLessonResult(req, res, req.params.level, 'treble', 'note', accuracy, score, totalQs, streak, coins, false);
@@ -177,6 +242,13 @@ router
     .route('/endSongLevel/:level')
     .get(async(req, res) => {
         const rendered = await generalFunctions.renderLessonResult(req, res, req.params.level, 'treble', 'song', accuracy, score, totalQs, streak, coins, true);
+        return rendered;
+    });
+
+router
+    .route('/endTheoryLevel/:level')
+    .get(async(req, res) => {
+        const rendered = await generalFunctions.renderLessonResult(req, res, req.params.level, 'treble', 'theory', accuracy, score, totalQs, streak, coins, true);
         return rendered;
     });
 
