@@ -976,9 +976,69 @@ input:focus {
     color: var(--secondary);
 }
 
+.littleLink:hover {
+    cursor: pointer;
+}
+
 .highScoreTxt {
     color: var(--secondary);
     margin: 6px 0px 0px 0px;
+}
+
+.howToLink {
+    float: left;
+    position: fixed;
+    top: 100px;
+    margin-left: 40px;
+    text-decoration: underline;
+}
+
+#howTo {
+    float: left;
+    position: fixed;
+    top: 140px;
+    margin-left: 50px;
+    width: 500px;
+    height: 400px;
+    overflow: scroll;
+    background-color: var(--lightBackground);
+    padding: 12px;
+    border: 2px solid black;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.228);
+    border-radius: 4px;
+}
+
+#howTo * {
+    color: var(--primary);
+}
+
+#howTo img {
+    width: 400px;
+}
+
+.closeBtn {
+    font-size: 32px;
+    height: 32px;
+    width: 32px;
+}
+
+.closeBtn:hover {
+    cursor: pointer;
+}
+
+.centerFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.centerFlex span {
+    height: 32px;
+    width: 32px;
+}
+
+.howToTitle {
+    margin-bottom: 0;
 }
 
 
