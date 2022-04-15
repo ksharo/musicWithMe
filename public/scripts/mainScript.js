@@ -298,8 +298,8 @@ async function toLink(url, disabled = '', text = 'Finish beginner levels to unlo
         modalText.classList.add("modalText");
         closeButton.classList.add("modalButton", "actionButton");
 
-        closeButton.setAttribute("onclick", "closePopUp(reload=false)");
-        modalBackdrop.setAttribute("onclick", "closePopUp(reload=false)");
+        closeButton.setAttribute("onclick", "closePopUp(animation=true, reload=false)");
+        modalBackdrop.setAttribute("onclick", "closePopUp(animation=true, reload=false)");
 
         popUpModal.appendChild(modalText);
         popUpModal.appendChild(closeButton);

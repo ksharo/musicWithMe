@@ -70,6 +70,9 @@ async function main() {
     const clair = [tG1, tG2, tE2, tD2, tE2, tD2, tC2, tD2, tC2, tE2, tC2, tB2, tC2, tB2, tF1, tA2, tB2, tA2, tD2, tA2, tG1, tA2, tG1, tF1, tG1, tF1, tE1, tE1, tF1, tE1, tA2, tE1, tD1, tE1, tD1, tC1, tD1, tB1, tG1, tG2, tE2, tD2, tE2, tD2, tC2, tD2, tG2, tE2, tD2, tE2, tD2, tC2]
     const legend = [tBb2, tC2, tC2, tC2, tC2, tC2, tC2, tAb2, tAb2, tBb2, tC2, tC2, tC2, tBb2, tC2, tC2, tBb2, tAb2, tAb2, tF1, tC2, tC2, tDb2, tC2, tAb2, tDb2, tC2, tAb2, tAb2, tBb2, tC2, tBb2, tF1, tBb2, tC2, tC2, tC2, tBb2, tC2, tC2, tBb2, tAb2, tAb2, tC2, tC2, tC2, tEb2, tDb2, tC2, tC2, tBb2, tAb2, tAb2, tC2, tC2, tDb2, tC2, tAb2, tAb2, tDb2, tDb2, tC2, tAb2, tAb2, tBb2, tC2, tBb2, tDb2, tAb2, tF2, tEb2, tDb2, tC2, tBb2, tAb2, tG1, tF1, tEb1, tF1, tF2, tF2, tEb2, tDb2, tC2, tC2, tBb2, tAb2, tBb2, tC2, tEb2, tC2, tF2, tC2, tBb2, tAb2, tC2, tC2, tC2, tBb2, tBb2, tBb2, tAb2, tBb2, tEb1, tC2, tC2, tBb2, tBb2, tBb2, tAb2, tBb2, tEb1, tC2, tC2, tEb2, tC2, tF2, tC2, tF2, tC2, tBb2, tAb2, tC2, tC2, tC2, tBb2, tBb2, tBb2, tAb2, tBb2, tC2, tC2, tBb2, tBb2, tBb2, tAb2, tBb2, tC2, tC2, tDb2, tEb2, tAb3, tG2, tF2, tEb2, tC2, tC2, tC2, tC2, tDb2, tEb2, tAb3, tG2, tF2, tEb2, tC2, tC2, tBb2, tAb2];
     const letitgo = [tBb2, tC2, tC2, tC2, tC2, tC2, tC2, tBb2, tAb2, tAb2, tAb2, tAb2, tBb2, tBb2, tAb2, tG1, tF1, tF1, tC2, tC2, tC2, tC2, tEb2, tEb2, tC2, tAb2, tAb2, tBb2, tC2, tBb2, tAb2, tBb2, tC2, tC2, tEb2, tF2, tEb2, tC2, tEb2, tEb2, tEb2, tDb2, tC2, tDb2, tC2, tC2, tC2, tBb2, tAb2, tBb2, tBb2, tC2, tBb2, tAb2, tF1, tBb2, tBb2, tEb2, tEb2, tBb2, tBb2, tF2, tF2, tF2, tEb2, tF2, tF2, tEb2, tF2, tG2, tAb3, tG2, tG2, tBb2, tBb2, tEb2, tEb2, tBb2, tBb2, tF2, tF2, tEb2, tF2, tG2, tAb3, tF1, tG1, tAb2, tEb1, tEb1, tBb2, tAb2, tF1, tF1, tF1, tF1, tG1, tAb2, tF1, tG1, tAb2, tEb1, tC2, tC2, tBb2, tAb2, tBb2, tC2, tC2, tDb2, tC2, tBb2, tAb2, tBb2, tAb2, tEb2, tC2, tBb2, tAb2, tAb2, tEb2, tC2, tAb2, tAb2, tAb2, tG1, tEb1, tEb1, tDb1, tDb1, tDb1, tC1, tDb1, tC1, tDb1, tDb1, tC1, tAb1];
+    const teapot = [tC1, tD1, tE1, tF1, tG1, tC2, tA2, tC2, tG1, tF1, tF1, tG1, tE1, tE1, tD1, tD1, tE1, tC1, tC1, tD1, tE1, tF1, tG1, tC2, tA2, tC2, tG1, tC2, tA2, tG1, tF1, tE1, tD1, tC1];
+    const perfect = [tC1, tBb1, tAb1, tC1, tAb1, tBb1, tC1, tC1, tBb1, tAb1, tAb1, tAb1, tAb1, tBb1, tC1, tDb1, tDb1, tC1, tBb1, tBb1, tAb1, tAb1, tBb1, tC1, tBb1, tC1, tBb1, tAb1, tC1, tEb1, tC1, tBb1, tAb1, tAb1, tAb1, tBb1, tC1, tDb1, tDb1, tC1, tBb1, tBb1, tAb1, tAb1, tBb1, tC1, tBb1, tC1, tEb1, tEb1, tEb1, tF1, tC1, tBb1, tC1, tC1, tC1, tC1, tBb1, tAb1, tC1, tC1, tC1, tC1, tBb1, tAb1, tDb1, tC1, tAb1, tAb1, tC1, tDb1, tC1, tBb1, tC1, tBb1, tAb1, tC1, tC1, tC1, tAb1, tC1, tBb1, tAb1, tC1, tC1, tC1, tC1, tBb1, tAb1, tDb1, tC1, tAb1, tAb1, tBb1, tEb1, tC1, tBb1, tC1, tAb1, tAb2, tG1, tF1, tG1, tC1, tAb1, tEb1, tDb1, tC1, tBb1, tAb1, tAb2, tG1, tF1, tG1, tC1, tEb1, tEb1, tEb1, tEb1, tF1, tC1, tBb1, tAb1, tC1, tEb1, tAb2, tG1, tF1, tG1, tC1, tAb1, tBb1, tC1, tEb1, tDb1, tC1, tDb1, tC1, tBb1, tDb1, tC1, tAb1, tBb1, tC1, tBb1, tBb1, tAb1, tAb1, tAb1];
+    const loveStory = [tB2, tC2, tC2, tC2, tC2, tB2, tC2, tD2, tC2, tC2, tB2, tC2, tC2, tC2, tC2, tB2, tC2, tD2, tC2, tB2, tC2, tA2, tC2, tC2, tC2, tB2, tB2, tG1, tG1, tG1, tA2, tC2, tB2, tC2, tC2, tC2, tC2, tC2, tB2, tB2, tC2, tD2, tC2, tC2, tB2, tC2, tC2, tC2, tC2, tB2, tC2, tD2, tC2, tB2, tC2, tA2, tC2, tB2, tG1, tG1, tA2, tC2, tB2, tC2, tC2, tC2, tC2, tC2, tC2, tC2, tB2, tC2, tD2, tC2, tC2, tC2, tC2, tC2, tD2, tC2, tC2, tC2, tC2, tG2, tF2, tE2, tD2, tE2, tD2, tE2, tD2, tE2, tD2, tE2, tC2, tD2, tD2, tD2, tD2, tC2, tF2, tE2, tE2, tE2, tC2, tC2, tC2, tF2, tE2, tC2, tC2, tD2, tD2, tC2, tE2, tC2, tD2, tC2, tD2, tE2, tD2, tC2, tD2, tD2, tC2, tE2, tC2, tD2, tC2, tD2, tC2, tE2, tD2, tC2, tD2, tC2, tE2, tD2, tC2, tC2, tD2, tE2, tD2, tE2, tE2, tD2, tE2, tE2, tD2, tC2];
 
     trebleSongNames = [
         'Amazing Grace',
@@ -78,27 +81,36 @@ async function main() {
         'The Baseball Song',
         'Clair De Lune',
         'All of Me - John Legend',
-        'Let It Go'
+        'Let It Go',
+        'I\'m a Little Teapot',
+        'Perfect - Ed Sheeran',
+        'Love Story - Taylor Swift',
     ]
 
     trebleSongPrices = [
-        500,
-        200,
-        300,
-        500,
-        200,
-        1000,
-        800
+        750, // amazing grace
+        300, // its raining its pouring
+        400, // happy birthday
+        600, // the baseball song
+        300, // clair de lune
+        2000, // all of me john legend
+        1250, // let it go
+        300, // teapot
+        2250, // perfect
+        850, // love story
     ]
 
     trebleDifficulty = [
-        'Medium',
-        'Easy',
-        'Medium',
-        'Hard',
-        'Easy',
-        'Hard',
-        'Hard'
+        'Medium', // amazing grace
+        'Easy', // its raining its pouring
+        'Medium', // happy birthday
+        'Hard', // the baseball song
+        'Easy', // clair de lune
+        'Hard', // all of me john legend
+        'Hard', // let it go
+        'Easy', // teapot
+        'Hard', // perfect
+        'Easy', // love story
     ]
 
     trebleImages = [
@@ -108,7 +120,11 @@ async function main() {
         'https://images.pexels.com/photos/1661950/pexels-photo-1661950.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/596134/pexels-photo-596134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/712520/pexels-photo-712520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        'https://images.pexels.com/photos/813872/pexels-photo-813872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+        'https://images.pexels.com/photos/813872/pexels-photo-813872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/1170982/pexels-photo-1170982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/1067194/pexels-photo-1067194.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/704748/pexels-photo-704748.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+
     ]
 
     trebleDetails = [
@@ -119,9 +135,12 @@ async function main() {
         'Clair de Lune - Moonlight in French - is part of a suite written by Claude Debussy in 1890. The title refers to a French folk song about love.',
         'Written in 2013, All of Me by John Legend was written for his then-fiancee, now wife, Chrissy Teigen.',
         'Let it Go was written by Kristen Anderson-Lopez and Robert Lopez for Disney\'s popular 2013 animated film, Frozen.',
+        'I\'m a Little Teapot was written in 1939 by George Harold Sanders and Clarence Z. Kelley. It is a novelty song for children and is often accompanied with dance moves.',
+        'Perfect, by Ed Sheeran, was written for his girlfriend and features his brother, because it was their grandmother\'s dying wish that they worked together on a song.',
+        'Love Story, by Taylor Swift, is based on Shakespeare\'s Romeo and Juliet, a romantic tragedy that is well-known by many even still today.',
     ];
 
-    const trebleSongs = [amazingGrace, raining, birthday, baseball, clair, legend, letitgo];
+    const trebleSongs = [amazingGrace, raining, birthday, baseball, clair, legend, letitgo, teapot, perfect, loveStory];
 
     const bC1 = 0;
     const bD1 = 1;
@@ -177,6 +196,9 @@ async function main() {
     const linus = [bAb1, bEb2, bAb2, bAb1, bEb2, bAb2, bAb1, bEb2, bF2, bAb1, bEb2, bF2, bAb1, bEb2, bAb2, bAb1, bEb2, bAb2, bAb1, bEb2, bF2, bAb1, bEb2, bF2, bAb1, bBb1, bC2, bC2, bBb1, bAb1, bBb1, bAb1, bAb1, bBb1, bC2, bC2, bAb1, bBb1, bC2, bC2, bBb1, bAb1, bBb1, bAb1, bAb1, bBb1, bBb1, bAb1, bBb1, bC2, bC2, bBb1, bAb1, bBb1, bAb1, bAb1, bBb1, bC2, bC2, bAb1, bBb1, bC2, bC2, bBb1, bAb1, bBb1, bAb1, bAb1, bBb1, bBb1, bAb1, bBb1, bBb1, bAb1, bDb2, bDb2, bDb2, bEb2, bEb2, bF2, bF2, bEb2, bF2, bF2, bEb2, bF2, bF2, bEb2, bAb1, bDb2, bDb2, bDb2, bEb2, bEb2, bF2, bF2, bEb2, bF2, bF2, bEb2, bF2, bF2, bEb2, bAb1, bDb2, bDb2, bDb2, bEb2, bEb2, bF2, bF2, bEb2, bF2, bF2, bEb2, bF2, bF2, bEb2, bAb1, bAb1, bEb2, bAb2, bAb1, bEb2, bAb2, bAb1, bEb2, bF2, bAb1, bEb2, bF2, bAb1, bEb2, bAb2, bAb1, bEb2, bAb2, bAb1];
     const pie = [bD1, bD2, bD2, bD2, bB1, bG1, bC2, bA1, bB1, bC2, bB1, bA1, bG1, bFs1, bG1, bFs1, bG1, bFs1, bG1, bFs1, bD1, bD1, bD2, bD2, bD2, bB1, bD2, bE2, bG1, bG1, bA1, bB1, bC2, bB1, bA1, bB1, bC2, bA1, bG1, bE1, bG1, bE1, bG1, bE1, bG1, bB1, bA1, bE1, bB1, bB1, bB1, bB1, bC2, bB1, bG1, bA1, bB1, bB1, bB1, bB1, bB1, bC2, bB1, bG1, bE1, bG1, bG1, bG1, bFs1, bE1, bG1, bA1, bG1, bA1, bB1, bE2, bD2, bB1, bB1, bE2, bD2, bD2, bB1, bC2, bB1, bG1, bFs1, bE1, bA1, bB1, bC2, bB1, bB1, bA1, bB1, bA1, bB1, bB1, bB1, bB1, bB1, bB1, bG1, bE1, bG1, bE1, bG1, bC2, bB1, bG1, bD1, bD2, bC2, bC2, bB1, bB1, bA1, bG1, bA1, bD2, bD2, bD2, bD2, bD2, bC2, bC2, bC2, bC2, bB1, bB1, bA1, bG1, bD1, bD2, bD2, bC2, bC2, bC2, bB1, bB1, bA1, bG1, bA1, bB1, bA1, bC2, bB1, bA1, bG1, bFs1, bE1, bFs1, bG1];
     const bruno = [bEb2, bC2, bEb2, bC2, bEb2, bD2, bBb1, bAb1, bF1, bG1, bEb2, bC2, bEb2, bC2, bEb2, bF2, bD2, bG2, bG2, bEb2, bG2, bG2, bEb2, bEb2, bF2, bG2, bF2, bG2, bF2, bG2, bF2, bG2, bG2, bAb2, bG2, bBb2, bAb2, bG2, bF2, bEb2, bBb1, bEb2, bG2, bEb2, bC2, bD2, bG1, bD2, bG2, bAb2, bAb2, bAb2, bAb2, bAb2, bEb2, bAb2, bEb2, bG2, bC2, bD2, bEb2, bF2, bG2, bAb2, bG2, bC3, bC2, bD2, bEb2, bF2, bG2, bAb2, bG2, bC2, bD2, bEb2, bF2, bG2, bAb2, bBb2, bAb2, bF2, bAb2, bF2, bAb2, bG2, bD2, bBb1, bG1, bAb1, bAb2, bF2, bAb2, bF2, bAb2, bBb2, bG2];
+    const grandmother = [bD2, bD2, bD2, bD2, bB1, bC2, bD2, bD2, bD2, bD2, bG2, bG2, bG2, bFs2, bE2, bD2, bD2, bC2, bC2, bC2, bC2, bB1, bB1, bB1, bB1, bA1, bA1, bB1, bCs2, bD2, bD2, bD2, bD2, bD2, bB1, bC2, bD2, bD2, bD2, bD2, bG2, bG2, bG2, bFs2, bE2, bD2, bD2, bC2, bC2, bC2, bC2, bB1, bB1, bB1, bB1, bA1, bC2, bB1, bA1, bG1];
+    const pirates = [bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bF1, bAb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bEb2, bDb2, bC2, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bF1, bAb1, bBb1, bBb1, bBb1, bC2, bDb2, bDb2, bDb2, bEb2, bC2, bC2, bBb1, bAb1, bAb1, bBb1, bF1, bAb1, bBb1, bBb1, bBb1, bC2, bDb2, bDb2, bDb2, bEb2, bC2, bC2, bBb1, bAb1, bAb1, bBb1, bF1, bAb1, bBb1, bBb1, bBb1, bDb2, bEb2, bEb2, bEb2, bF2, bGb2, bGb2, bF2, bEb2, bF2, bBb1, bBb1, bC2, bDb2, bDb2, bEb2, bF2, bBb1, bBb1, bDb2, bC2, bC2, bBb1, bA1, bBb1, bBb1, bC2, bDb2, bDb2, bEb2, bF2, bDb2, bBb1, bF1, bGb2, bDb2, bBb1, bGb1, bF1, bA1, bBb1];
+    const fireflies = [bG1, bD2, bD2, bC2, bD2, bC2, bG1, bG1, bA1, bA1, bG1, bA1, bC2, bD2, bE2, bD2, bC2, bG1, bG1, bG1, bD2, bC2, bA1, bG1, bD2, bD2, bC2, bD2, bC2, bG1, bG1, bA1, bA1, bG1, bA1, bC2, bD2, bG1, bG1, bE2, bD2, bC2, bG1, bG1, bE2, bD2, bA1, bC2, bE2, bD2, bC2, bG2, bE2, bD2, bC2, bD2, bG1, bC2, bB1, bA1, bG1, bB1, bA1, bA1, bA1, bC2, bC2, bC2, bE2, bD2, bC2, bG1, bG1, bA1, bA1, bC2, bD2, bA1, bA1, bA1, bC2, bC2, bE2, bD2, bC2, bG1, bC2, bD2, bC2, bE2, bD2, bC2, bC2];
 
     bassSongNames = [
         'Under the Sea',
@@ -186,26 +208,35 @@ async function main() {
         'Linus and Lucy',
         'American Pie',
         'We Don\'t Talk About Bruno',
+        'To Grandmother\'s House',
+        'Pirates of the Caribbean',
+        'Fireflies - Owl City'
     ]
 
     bassSongPrices = [
-        750,
-        750,
-        400,
-        300,
-        1250,
-        1000,
-        800,
+        1500, // under the sea
+        1500, // bare necessities
+        900, // jurassic park
+        500, // ill make a man out of you
+        4000, // linus and lucy
+        2500, // american pie
+        1500, // bruno
+        300, // grandmothers house
+        700, // pirates
+        1000, // fireflies
     ]
 
     bassDifficulty = [
-        'Medium',
-        'Medium',
-        'Hard',
-        'Medium',
-        'Hard',
-        'Medium',
-        'Hard'
+        'Medium', // under the sea
+        'Medium', // bare necessities
+        'Hard', // jurassic park
+        'Medium', // ill make a man out of you
+        'Hard', // linus and lucy
+        'Medium', // american pie
+        'Hard', // bruno
+        'Easy', // grandmother
+        'Medium', // pirates
+        'Easy', // fireflies
     ]
 
     bassImages = [
@@ -216,6 +247,10 @@ async function main() {
         'https://images.pexels.com/photos/10565573/pexels-photo-10565573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/2955816/pexels-photo-2955816.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/87452/flowers-background-butterflies-beautiful-87452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/11594055/pexels-photo-11594055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/37730/sunset-boat-sea-ship-37730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/10911755/pexels-photo-10911755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+
     ]
 
     bassDetails = [
@@ -225,10 +260,14 @@ async function main() {
         'I\'ll Make a Man Out Of You was written by Donny Osmond for the 1998 animated Disney film, Mulan.',
         'Linus and Lucy was written by Vince Guaraldi in 1964 for Lee Mendelson, the producer of the Peanuts films. While this jazzy tune is typically heard around Christmas time, it is an all-year favorite.',
         'American Pie, by Don McLean, was the number one US hit for four weeks in 1972, just after being released in October 1971.',
-        'We Don\'t Talk About Bruno was written for the 2021 Disney Animated film, Encanto, by Lin-Manuel Miranda. It peaked at number 1 on four billboards, including the global billboard, a new record for Disney songs.'
+        'We Don\'t Talk About Bruno was written for the 2021 Disney Animated film, Encanto, by Lin-Manuel Miranda. It peaked at number 1 on four billboards, including the global billboard, a new record for Disney songs.',
+        'Over the River and Through the Wood (To Grandmother\'s House) is a Thanksgiving Day song that was originally about a boy going to his grandfather\'s house for Thanksgiving.',
+        'He\'s a Pirate was written by Klaus Badelt and Hans Zimmer for Disney\'s Pirates of the Caribbean movie series. There are also famous remixes of it, such as the one by Tiesto.',
+        'Fireflies was written by Owl City in 2009. Owl City is a band created by Adam Young and his song reached the top of many charts in quite a few countries.',
+
     ];
 
-    const bassSongs = [underSea, bareNecessities, jurassic, mulan, linus, pie, bruno];
+    const bassSongs = [underSea, bareNecessities, jurassic, mulan, linus, pie, bruno, grandmother, pirates, fireflies];
     const ids = [];
 
     for (let x in trebleSongs) {
