@@ -987,7 +987,7 @@ input:focus {
 
 .howToLink {
     float: left;
-    position: fixed;
+    position: absolute;
     top: 100px;
     margin-left: 40px;
     text-decoration: underline;
