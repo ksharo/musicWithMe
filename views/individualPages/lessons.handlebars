@@ -40,7 +40,7 @@
             </select> --}}
         </section>
         <article class="lessonSection">
-            <section onClick="toLink('/treble/newLesson/notes/{{btLevels}}')" 
+            <section tabindex="0" onClick="toLink('/treble/newLesson/notes/{{btLevels}}')" 
             class="lessonCard noteCard beginnerCard trebleCard">
                 <h3>Treble Clef</h3>
                 <h4>Beginner Notes</h4>
@@ -49,7 +49,7 @@
                 </div>
                 <h4>Progress: {{btPerc}}%</h4>
             </section>
-            <section onClick="toLink('/treble/newLesson/notes/12', `{{atDisabled}}`)"
+            <section tabindex="0" onClick="toLink('/treble/newLesson/notes/12', `{{atDisabled}}`)"
                 class="lessonCard trebleCard beginnerCard noteCard {{atDisabled}}">
                 <h3>Treble Clef</h3>
                 <h4>Beginner Notes - All</h4>
@@ -58,7 +58,7 @@
                 </div>
                 <h4>High Score: {{btHigh}}</h4>
             </section>
-            <section onClick="toLink('/bass/newLesson/notes/{{bbLevels}}')" 
+            <section tabindex="0" onClick="toLink('/bass/newLesson/notes/{{bbLevels}}')" 
                 class="lessonCard noteCard beginnerCard bassCard">
                 <h3>Bass Clef</h3>
                 <h4>Beginner Notes</h4>
@@ -67,7 +67,7 @@
                 </div>
                 <h4>Progress: {{bbPerc}}%</h4>
             </section>
-            <section onClick="toLink('/bass/newLesson/notes/12', `{{abDisabled}}`)"
+            <section tabindex="0" onClick="toLink('/bass/newLesson/notes/12', `{{abDisabled}}`)"
                 class="lessonCard bassCard beginnerCard noteCard {{abDisabled}}">
                 <h3>Bass Clef</h3>
                 <h4>Beginner Notes - All</h4>
@@ -76,7 +76,7 @@
                 </div>
                 <h4>High Score: {{bbHigh}}</h4>
             </section>
-            <section onClick="toLink('/treble/newLesson/notes/{{atLevels}}', `{{atDisabled}}`)"
+            <section tabindex="0" onClick="toLink('/treble/newLesson/notes/{{atLevels}}', `{{atDisabled}}`)"
                 class="lessonCard trebleCard advancedCard noteCard {{atDisabled}}">
                 <h3>Treble Clef</h3>
                 <h4>Advanced Notes</h4>
@@ -85,7 +85,7 @@
                 </div>
                 <h4>Progress: {{atPerc}}%</h4>
             </section>
-            <section
+            <section tabindex="0"
                 onClick="toLink('/treble/newLesson/notes/38', `{{tFreeplayDisabled}}`, 'Finish Advanced Treble Notes to unlock!')"
                 class="lessonCard trebleCard advancedCard noteCard {{tFreeplayDisabled}}">
                 <h3>Treble Clef</h3>
@@ -95,7 +95,7 @@
                 </div>
                 <h4>High Score: {{atHigh}}</h4>
             </section>
-            <section onClick="toLink('/bass/newLesson/notes/{{abLevels}}', `{{abDisabled}}`)"
+            <section tabindex="0" onClick="toLink('/bass/newLesson/notes/{{abLevels}}', `{{abDisabled}}`)"
                 class="lessonCard bassCard advancedCard noteCard {{abDisabled}}">
                 <h3>Bass Clef</h3>
                 <h4>Advanced Notes</h4>
@@ -105,7 +105,7 @@
                 <h4>Progress: {{abPerc}}%</h4>
             </section>
             <section
-                onClick="toLink('/bass/newLesson/notes/38', `{{bFreeplayDisabled}}`, 'Finish Advanced Bass Notes to unlock!')"
+                tabindex="0" onClick="toLink('/bass/newLesson/notes/38', `{{bFreeplayDisabled}}`, 'Finish Advanced Bass Notes to unlock!')"
                 class="lessonCard bassCard advancedCard noteCard {{bFreeplayDisabled}}">
                 <h3>Bass Clef</h3>
                 <h4>Advanced Notes - All</h4>
@@ -114,7 +114,7 @@
                 </div>
                 <h4>High Score: {{abHigh}}</h4>
             </section>
-            <section onClick="toLink('/treble/newLesson/theory/{{btTheory}}', `{{atDisabled}}`)"
+            <section tabindex="0" onClick="toLink('/treble/newLesson/theory/{{btTheory}}', `{{atDisabled}}`)"
                 class="lessonCard trebleCard beginnerCard theoryCard {{atDisabled}}">
                 <h3>Treble Clef</h3>
                 <h4>Basic Theory</h4>
@@ -123,7 +123,7 @@
                 </div>
                 <h4>Progress: {{btTheoryPerc}}%</h4>
             </section>
-            <section onClick="toLink('/bass/newLesson/theory/{{bbTheory}}', `{{abDisabled}}`)"
+            <section tabindex="0" onClick="toLink('/bass/newLesson/theory/{{bbTheory}}', `{{abDisabled}}`)"
                 class="lessonCard bassCard beginnerCard theoryCard {{abDisabled}}">
                 <h3>Bass Clef</h3>
                 <h4>Basic Theory</h4>
@@ -147,7 +147,7 @@
             </select> --}}
         </section>
         <article class="lessonSection">
-            <section onClick="toLink('/treble/newLesson/songs/{{tSongs}}', `{{atDisabled}}`)"
+            <section tabindex="0" onClick="toLink('/treble/newLesson/songs/{{tSongs}}', `{{atDisabled}}`)"
                 class="songCard trebleCard {{atDisabled}}">
                 <h3>Treble Clef</h3>
                 <h4>Beginner Songs</h4>
@@ -156,7 +156,7 @@
                 </div>
                 <h4>Progress: {{tsPerc}}%</h4>
             </section>
-            <section onClick="toLink('/bass/newLesson/songs/{{bSongs}}', `{{abDisabled}}`)"
+            <section tabindex="0" onClick="toLink('/bass/newLesson/songs/{{bSongs}}', `{{abDisabled}}`)"
                 class="songCard bassCard {{abDisabled}}">
                 <h3>Bass Clef</h3>
                 <h4>Beginner Songs</h4>
@@ -182,7 +182,7 @@
                 <h4>Progress: 0%</h4>
             </section> --}}
             {{#each purchasedSongs}}
-            <section onClick="toLink(`allSongs/begin/{{id}}?{{clef}}`)" class="songCard purchasedCard {{clef}}Card">
+            <section tabindex="0" onClick="toLink(`allSongs/begin/{{id}}?{{clef}}`)" class="songCard purchasedCard {{clef}}Card">
                 <h3 title="{{name}}">{{name}}</h3>
                 <h4>Level: {{level}}</h4>
                 <div class="imgContainer">

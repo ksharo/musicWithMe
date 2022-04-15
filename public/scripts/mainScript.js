@@ -114,6 +114,13 @@ document.addEventListener("keydown", (event) => {
                 el.click();
             }
         }
+    } else if (window.location.href.includes("/lessons")) {
+        if (event.key == "Enter" || event.key == "Return") {
+            if (document.activeElement.classList.contains('lessonCard') || document.activeElement.classList.contains('songCard')) {
+                event.preventDefault();
+                document.activeElement.click();
+            }
+        }
     }
 });
 
@@ -166,7 +173,7 @@ function checkAnswer(clickedButton, rightAnswer) {
     }
 }
 
-async function processClick(noteName, rightAnswer, imgList, numQs) {
+function processClick(noteName, rightAnswer, imgList, numQs) {
     if (totalQs >= numQs) {
         return;
     }
@@ -222,15 +229,15 @@ async function processClick(noteName, rightAnswer, imgList, numQs) {
     }
 }
 
-async function startBass() {
+function startBass() {
     window.location.href = "http://localhost:3030/bass/newLesson/notes/0";
 }
 
-async function startTreble() {
+function startTreble() {
     window.location.href = "http://localhost:3030/treble/newLesson/notes/0";
 }
 
-async function restart() {
+function restart() {
     if (window.location.href.includes("noteLesson")) {
         const curLocation = window.location.href.split("noteLesson/")[1];
         if (window.location.href.includes("treble")) {
@@ -257,7 +264,7 @@ async function restart() {
     }
 }
 
-async function nextLevel(level) {
+function nextLevel(level) {
     if (window.location.href.includes("allSongs")) {
         const clef = window.location.href.includes("bass") ? "bass" : "treble";
         window.location.href = "http://localhost:3030/allSongs/play/" + level + "?" + clef;
@@ -283,8 +290,9 @@ async function nextLevel(level) {
     }
 }
 
-async function toLink(url, disabled = '', text = 'Finish beginner levels to unlock!') {
+function toLink(url, disabled = '', text = 'Finish beginner levels to unlock!') {
     if (disabled != '') {
+        document.activeElement.blur();
         let modalBackdrop = document.createElement('section');
         let popUpModal = document.createElement('section');
         let modalText = document.createElement('section');
@@ -306,6 +314,7 @@ async function toLink(url, disabled = '', text = 'Finish beginner levels to unlo
 
         document.getElementById("modalInsert").appendChild(modalBackdrop);
         document.getElementById("modalInsert").appendChild(popUpModal);
+        closeButton.focus();
         return;
     }
     if (url[0] != '/') {
@@ -322,7 +331,7 @@ async function toLink(url, disabled = '', text = 'Finish beginner levels to unlo
     window.location.href = "http://localhost:3030" + url;
 }
 
-async function nextLesson(retry = false) {
+function nextLesson(retry = false) {
     let level = Number(window.location.href.split("Level/")[1]) + 1;
     if (isNaN(level)) {
         window.location.href = 'http://localhost:3030/allSongs/begin/' + window.location.href.split("Level/")[1];
@@ -629,6 +638,7 @@ function toggleSongs() {
 }
 
 function purchaseSong(name, id, price, canAfford = true, ownsSong = false, coins) {
+    document.activeElement.blur();
     let modalBackdrop = document.createElement('section')
     let popUpModal = document.createElement('section')
     let modalText = document.createElement('section')
@@ -639,6 +649,7 @@ function purchaseSong(name, id, price, canAfford = true, ownsSong = false, coins
         "You need " + (price - coins) + "♪ more to buy " + name + ".\nPlay to collect more!"
     cancelButton.innerText = "Cancel"
     okButton.innerText = "OK"
+
 
     modalBackdrop.classList.add("modalBackdrop")
     popUpModal.classList.add("popUpModal")
@@ -666,9 +677,11 @@ function purchaseSong(name, id, price, canAfford = true, ownsSong = false, coins
 
     document.getElementById("modalInsert").appendChild(modalBackdrop)
     document.getElementById("modalInsert").appendChild(popUpModal)
+    okButton.focus();
 }
 
 function purchaseStatusModal(name, purchaseStatus) {
+    document.activeElement.blur();
     let modalBackdrop = document.createElement('section')
     let popUpModal = document.createElement('section')
     let modalText = document.createElement('section')
@@ -691,6 +704,7 @@ function purchaseStatusModal(name, purchaseStatus) {
 
     document.getElementById("modalInsert").appendChild(modalBackdrop)
     document.getElementById("modalInsert").appendChild(popUpModal)
+    closeButton.focus();
 }
 
 function closePopUp(animate = true, reload = true) {
@@ -699,8 +713,12 @@ function closePopUp(animate = true, reload = true) {
         document.getElementsByClassName("modalBackdrop")[0].classList.add("animateFadeOut");
 
         setTimeout(() => {
-            document.getElementsByClassName("modalBackdrop")[0].remove();
-            document.getElementsByClassName("popUpModal")[0].remove();
+            if (document.getElementsByClassName("modalBackdrop").length > 0) {
+                document.getElementsByClassName("modalBackdrop")[0].remove();
+            } else if (document.getElementsByClassName("popUpModal").length > 0) {
+                document.getElementsByClassName("popUpModal")[0].remove();
+            }
+            document.getElementById("modalInsert").innerHTML = "";
             let x = window.scrollX;
             let y = window.scrollY;
             if (reload) {
@@ -708,8 +726,9 @@ function closePopUp(animate = true, reload = true) {
             }
         }, 350)
     } else {
-        document.getElementsByClassName("modalBackdrop")[0].remove()
-        document.getElementsByClassName("popUpModal")[0].remove()
+        document.getElementsByClassName("modalBackdrop")[0].remove();
+        document.getElementsByClassName("popUpModal")[0].remove();
+        document.getElementById("modalInsert").innerHTML = "";
     }
 }
 

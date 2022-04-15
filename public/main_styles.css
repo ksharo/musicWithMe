@@ -45,6 +45,7 @@ h1 a {
     color: inherit;
 }
 
+
 /* #main{
         justify-content: center;
     display: flex;
@@ -119,6 +120,21 @@ h1 a {
 button:hover {
     filter: brightness(1.4);
     cursor: pointer;
+}
+
+.actionButton:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+a:focus,
+.lessonCard:focus,
+.songCard:focus,
+.lessonCard:active,
+.songCard:active {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
 }
 
 .buttonGroup {
@@ -403,12 +419,11 @@ button:hover {
     opacity: .9;
 }
 
-@media screen and (max-width: 650px){
-    .reportGrade{
+@media screen and (max-width: 650px) {
+    .reportGrade {
         top: 61px;
     }
 }
-
 
 .animateStamp,
 .as {
