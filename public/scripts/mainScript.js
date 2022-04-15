@@ -283,14 +283,14 @@ async function nextLevel(level) {
     }
 }
 
-async function toLink(url, disabled = '') {
+async function toLink(url, disabled = '', text = 'Finish beginner levels to unlock!') {
     if (disabled != '') {
         let modalBackdrop = document.createElement('section');
         let popUpModal = document.createElement('section');
         let modalText = document.createElement('section');
         let closeButton = document.createElement('button');
 
-        modalText.innerText = 'Finish beginner levels to unlock!';
+        modalText.innerText = text;
         closeButton.innerText = "Close";
 
         modalBackdrop.classList.add("modalBackdrop");
@@ -506,149 +506,84 @@ function filter(type, clef) {
     }
 
     if (type == 'lessons' && clef == 'treble') {
-        const filterBtn = document.getElementById('trebleLessonFilter');
-        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
-            /* already on, turn off */
-            const lessons = document.getElementsByClassName('lessonCard');
-            for (let x of lessons) {
-                x.style.display = 'block';
-            }
-            filterBtn.style.color = 'white';
-            return;
-        }
-        const lessons = document.getElementsByClassName('lessonCard');
-        for (let x of lessons) {
-            if (!x.classList.contains('trebleCard')) {
-                x.style.display = 'none';
-            } else {
-                x.style.display = 'block';
-            }
-        }
-        const lessonBtns = document.getElementsByClassName('lessonFilterBtn');
-        for (let x of lessonBtns) {
-            x.style.color = 'white';
-        }
-        if (filterBtn) {
-            filterBtn.style.color = 'var(--secondary)';
-        }
+        filterHelper('trebleLessonFilter', 'lessonCard', 'trebleCard', 'lessonFilterBtn');
         return;
     }
 
     if (type == 'lessons' && clef == 'bass') {
-        const filterBtn = document.getElementById('bassLessonFilter');
-        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
-            /* already on, turn off */
-            const lessons = document.getElementsByClassName('lessonCard');
-            for (let x of lessons) {
-                x.style.display = 'block';
-            }
-            filterBtn.style.color = 'white';
-            return;
-        }
-        const lessons = document.getElementsByClassName('lessonCard');
-        for (let x of lessons) {
-            if (!x.classList.contains('bassCard')) {
-                x.style.display = 'none';
-            } else {
-                x.style.display = 'block';
-            }
-        }
-        const lessonBtns = document.getElementsByClassName('lessonFilterBtn');
-        for (let x of lessonBtns) {
-            x.style.color = 'white';
-        }
-        if (filterBtn) {
-            filterBtn.style.color = 'var(--secondary)';
-        }
+        filterHelper('bassLessonFilter', 'lessonCard', 'bassCard', 'lessonFilterBtn');
+        return;
+    }
+
+    if (type == 'lessons' && clef == 'theory') {
+        filterHelper('theoryLessonFilter', 'lessonCard', 'theoryCard', 'lessonFilterBtn');
+        return;
+    }
+
+    if (type == 'lessons' && clef == 'notes') {
+        filterHelper('noteLessonFilter', 'lessonCard', 'noteCard', 'lessonFilterBtn');
+        return;
+    }
+
+    if (type == 'lessons' && clef == 'beginner') {
+        filterHelper('beginnerLessonFilter', 'lessonCard', 'beginnerCard', 'lessonFilterBtn');
+        return;
+    }
+
+    if (type == 'lessons' && clef == 'advanced') {
+        filterHelper('advancedLessonFilter', 'lessonCard', 'advancedCard', 'lessonFilterBtn');
+        return;
+    }
+
+    if (type == 'lessons' && clef == 'unlocked') {
+        filterHelper('unlockedLessonFilter', 'lessonCard', 'disabledLessonCard', 'lessonFilterBtn', true);
         return;
     }
 
     if (type == 'songs' && clef == 'treble') {
-        const filterBtn = document.getElementById('trebleSongFilter');
-        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
-            /* already on, turn off */
-            const songs = document.getElementsByClassName('songCard');
-            for (let x of songs) {
-                x.style.display = 'block';
-            }
-            filterBtn.style.color = 'white';
-            return;
-        }
-        const songs = document.getElementsByClassName('songCard');
-        for (let x of songs) {
-            if (!x.classList.contains('trebleCard')) {
-                x.style.display = 'none';
-            } else {
-                x.style.display = 'block';
-            }
-        }
-        const songBtns = document.getElementsByClassName('songFilterBtn');
-        for (let x of songBtns) {
-            x.style.color = 'white';
-        }
-        if (filterBtn) {
-            filterBtn.style.color = 'var(--secondary)';
-        }
+        filterHelper('trebleSongFilter', 'songCard', 'trebleCard', 'songFilterBtn');
         return;
     }
 
     if (type == 'songs' && clef == 'bass') {
-        const filterBtn = document.getElementById('bassSongFilter');
-        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
-            /* already on, turn off */
-            const songs = document.getElementsByClassName('songCard');
-            for (let x of songs) {
-                x.style.display = 'block';
-            }
-            filterBtn.style.color = 'white';
-            return;
-        }
-        const songs = document.getElementsByClassName('songCard');
-        for (let x of songs) {
-            if (!x.classList.contains('bassCard')) {
-                x.style.display = 'none';
-            } else {
-                x.style.display = 'block';
-            }
-        }
-        const songBtns = document.getElementsByClassName('songFilterBtn');
-        for (let x of songBtns) {
-            x.style.color = 'white';
-        }
-        if (filterBtn) {
-            filterBtn.style.color = 'var(--secondary)';
-        }
+        filterHelper('bassSongFilter', 'songCard', 'bassCard', 'songFilterBtn');
         return;
     }
 
     if (type == 'songs' && clef == 'purchased') {
-        const filterBtn = document.getElementById('purchasedSongFilter');
-        if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
-            /* already on, turn off */
-            const songs = document.getElementsByClassName('songCard');
-            for (let x of songs) {
-                x.style.display = 'block';
-            }
-            filterBtn.style.color = 'white';
-            return;
-        }
-        const songs = document.getElementsByClassName('songCard');
-        for (let x of songs) {
-            if (!x.classList.contains('purchasedCard')) {
-                x.style.display = 'none';
-            } else {
-                x.style.display = 'block';
-            }
-        }
-        const songBtns = document.getElementsByClassName('songFilterBtn');
-        for (let x of songBtns) {
-            x.style.color = 'white';
-        }
-        if (filterBtn) {
-            filterBtn.style.color = 'var(--secondary)';
-        }
+        filterHelper('purchasedSongFilter', 'songCard', 'purchasedCard', 'songFilterBtn');
         return;
     }
+}
+
+// params i.e. bassSongFilter, songCard/lessonCard, purchasedCard/trebleCard, etc., songFilterBtn
+function filterHelper(filterId, bigClass, smallClass, filterClass, opposite = false) {
+    const filterBtn = document.getElementById(filterId);
+    if (filterBtn && filterBtn.style.color == 'var(--secondary)') {
+        /* already on, turn off */
+        const songs = document.getElementsByClassName(bigClass);
+        for (let x of songs) {
+            x.style.display = 'block';
+        }
+        filterBtn.style.color = 'white';
+        return;
+    }
+    const songs = document.getElementsByClassName(bigClass);
+    for (let x of songs) {
+        if (!x.classList.contains(smallClass)) {
+            x.style.display = opposite ? 'block' : 'none';
+        } else {
+            x.style.display = opposite ? 'none' : 'block';
+        }
+    }
+    const songBtns = document.getElementsByClassName(filterClass);
+    for (let x of songBtns) {
+        x.style.color = 'white';
+    }
+    if (filterBtn) {
+        filterBtn.style.color = 'var(--secondary)';
+    }
+    return;
 }
 
 function toggleLessons() {

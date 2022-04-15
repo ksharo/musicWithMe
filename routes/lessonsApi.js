@@ -15,6 +15,14 @@ router
                 x.hiScore = 0;
             }
         }
+        // basic bass free play high score
+        let bbHigh = user.hiscores['bassnote12'] ? user.hiscores['bassnote12'] : 0;
+        // basic treble free play high score
+        let btHigh = user.hiscores['treblenote12'] ? user.hiscores['treblenote12'] : 0;
+        // advanced bass free play high score
+        let abHigh = user.hiscores['bassnote38'] ? user.hiscores['bassnote38'] : 0;
+        // advanced treble free play high score
+        let atHigh = user.hiscores['treblenote38'] ? user.hiscores['treblenote38'] : 0;
         let userData = {
             username: user.username,
             coins: user.coins
@@ -72,10 +80,14 @@ router
             bSongs: bSongs,
             btTheory: btTheory,
             bbTheory: bbTheory,
+            bbHigh: bbHigh,
+            abHigh: abHigh,
+            btHigh: btHigh,
+            atHigh: atHigh,
             bbPerc: cleanPerc(bbLevels, 13),
             btPerc: cleanPerc(btLevels, 13),
-            atPerc: cleanPerc(atLevels, 26),
-            abPerc: cleanPerc(abLevels, 26),
+            atPerc: cleanPerc(atLevels, 25),
+            abPerc: cleanPerc(abLevels, 25),
             tsPerc: cleanPerc(tSongs, 7),
             bsPerc: cleanPerc(bSongs, 6),
             btTheoryPerc: cleanPerc(btTheory, 12),
@@ -83,6 +95,8 @@ router
             purchasedSongs: purchased,
             atDisabled: btLevels < 13 ? 'disabledLessonCard' : '',
             abDisabled: bbLevels < 13 ? 'disabledLessonCard' : '',
+            bFreeplayDisabled: abLevels < 25 ? 'disabledLessonCard' : '',
+            tFreeplayDisabled: atLevels < 25 ? 'disabledLessonCard' : '',
             user: userData
         });
     });
