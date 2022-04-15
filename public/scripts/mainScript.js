@@ -24,7 +24,7 @@ window.addEventListener("load", () => {
     if (window.location.href.includes("end") && window.location.href.includes("Level")) {
         if (document.getElementById('failBtn') != undefined) {
             new Audio("/public/assets/sounds/failedLevel.wav").play();
-        } else if (document.getElementById('passBtn') != undefined) {
+        } else {
             new Audio("/public/assets/sounds/success.wav").play();
         }
     }

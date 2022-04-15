@@ -151,7 +151,7 @@ button:hover {
 
 .buttonAnswerSuccess {
     outline-offset: 0px;
-    animation: pulseOutlineSuccess .7s linear forwards;
+    animation: pulseOutlineSuccess .2s linear forwards;
 }
 
 @keyframes pulseOutlineError {
