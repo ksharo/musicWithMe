@@ -993,9 +993,18 @@ input:focus {
     text-decoration: underline;
 }
 
+.storeLink {
+    color: var(--secondary);
+}
+
+.centeredP {
+    height: 240px;
+    margin-top: 100px;
+}
+
 #howTo {
     float: left;
-    position: fixed;
+    position: absolute;
     top: 140px;
     margin-left: 50px;
     width: 500px;

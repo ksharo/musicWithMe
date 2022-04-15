@@ -60,7 +60,7 @@ const buySong = async function buySong(userId, songId) {
         }
     })
 
-    return updated;
+    return { coins: userCoins };
 }
 
 const getAndValidate = async function getAndValidate(username, password) {
