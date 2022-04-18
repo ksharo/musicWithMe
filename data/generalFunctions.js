@@ -19,7 +19,7 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
     }
 
     let result = 'did not pass'
-    let fail = true;
+    let fail = !(accuracy >= 80 && score > timeThreshold * totalQs);
     grade = '&#9785;';
     let newHi = false;
     /* Calculate and set high scores */
@@ -29,14 +29,16 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
             highScores = {};
             highScores[levelName] = score;
             req.session.tmpUser = {
-                levels: [levelName],
+                levels: !fail ? [levelName] : [],
                 highScores: highScores,
                 coins: 200 + coins
             }
         } else {
             req.session.tmpUser.coins += coins;
             if (!req.session.tmpUser.levels.includes(levelName)) {
-                req.session.tmpUser.levels.push(levelName);
+                if (!fail) {
+                    req.session.tmpUser.levels.push(levelName);
+                }
                 req.session.tmpUser.highScores[levelName] = score;
             } else {
                 if (req.session.tmpUser.highScores[levelName] < score) {
@@ -51,7 +53,9 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
         const curLevels = [...user.lessonsCompleted];
         const curHighScores = Object.assign({}, user.hiscores);
         if (!curLevels.includes(levelName)) {
-            curLevels.push(levelName);
+            if (!fail) {
+                curLevels.push(levelName);
+            }
             curHighScores[levelName] = score;
         } else {
             if (curHighScores[levelName] < score) {

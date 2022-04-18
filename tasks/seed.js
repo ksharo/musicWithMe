@@ -73,6 +73,13 @@ async function main() {
     const teapot = [tC1, tD1, tE1, tF1, tG1, tC2, tA2, tC2, tG1, tF1, tF1, tG1, tE1, tE1, tD1, tD1, tE1, tC1, tC1, tD1, tE1, tF1, tG1, tC2, tA2, tC2, tG1, tC2, tA2, tG1, tF1, tE1, tD1, tC1];
     const perfect = [tC1, tBb1, tAb1, tC1, tAb1, tBb1, tC1, tC1, tBb1, tAb1, tAb1, tAb1, tAb1, tBb1, tC1, tDb1, tDb1, tC1, tBb1, tBb1, tAb1, tAb1, tBb1, tC1, tBb1, tC1, tBb1, tAb1, tC1, tEb1, tC1, tBb1, tAb1, tAb1, tAb1, tBb1, tC1, tDb1, tDb1, tC1, tBb1, tBb1, tAb1, tAb1, tBb1, tC1, tBb1, tC1, tEb1, tEb1, tEb1, tF1, tC1, tBb1, tC1, tC1, tC1, tC1, tBb1, tAb1, tC1, tC1, tC1, tC1, tBb1, tAb1, tDb1, tC1, tAb1, tAb1, tC1, tDb1, tC1, tBb1, tC1, tBb1, tAb1, tC1, tC1, tC1, tAb1, tC1, tBb1, tAb1, tC1, tC1, tC1, tC1, tBb1, tAb1, tDb1, tC1, tAb1, tAb1, tBb1, tEb1, tC1, tBb1, tC1, tAb1, tAb2, tG1, tF1, tG1, tC1, tAb1, tEb1, tDb1, tC1, tBb1, tAb1, tAb2, tG1, tF1, tG1, tC1, tEb1, tEb1, tEb1, tEb1, tF1, tC1, tBb1, tAb1, tC1, tEb1, tAb2, tG1, tF1, tG1, tC1, tAb1, tBb1, tC1, tEb1, tDb1, tC1, tDb1, tC1, tBb1, tDb1, tC1, tAb1, tBb1, tC1, tBb1, tBb1, tAb1, tAb1, tAb1];
     const loveStory = [tB2, tC2, tC2, tC2, tC2, tB2, tC2, tD2, tC2, tC2, tB2, tC2, tC2, tC2, tC2, tB2, tC2, tD2, tC2, tB2, tC2, tA2, tC2, tC2, tC2, tB2, tB2, tG1, tG1, tG1, tA2, tC2, tB2, tC2, tC2, tC2, tC2, tC2, tB2, tB2, tC2, tD2, tC2, tC2, tB2, tC2, tC2, tC2, tC2, tB2, tC2, tD2, tC2, tB2, tC2, tA2, tC2, tB2, tG1, tG1, tA2, tC2, tB2, tC2, tC2, tC2, tC2, tC2, tC2, tC2, tB2, tC2, tD2, tC2, tC2, tC2, tC2, tC2, tD2, tC2, tC2, tC2, tC2, tG2, tF2, tE2, tD2, tE2, tD2, tE2, tD2, tE2, tD2, tE2, tC2, tD2, tD2, tD2, tD2, tC2, tF2, tE2, tE2, tE2, tC2, tC2, tC2, tF2, tE2, tC2, tC2, tD2, tD2, tC2, tE2, tC2, tD2, tC2, tD2, tE2, tD2, tC2, tD2, tD2, tC2, tE2, tC2, tD2, tC2, tD2, tC2, tE2, tD2, tC2, tD2, tC2, tE2, tD2, tC2, tC2, tD2, tE2, tD2, tE2, tE2, tD2, tE2, tE2, tD2, tC2];
+    const snowman = [tBb2, tBb2, tBb2, tF1, tBb2, tD2, tC2, tD2, tBb2, tBb2, tF1, tBb2, tD2, tC2, tBb2, tBb2, tF1, tBb2, tD2, tEb2, tD2, tBb2, tF1, tEb2, tD2, tBb2, tBb2, tBb2, tF1, tBb2, tD2, tF2, tF2, tF2, tEb2, tD2, tEb2, tF2, tBb2, tBb2, tC2, tD2, tBb2, tC2, tD2, tC2, tBb2, tC2, tD2, tG2, tBb2, tBb2, tBb2, tF1, tBb2, tD2, tC2, tD2, tBb2, tBb2, tBb2, tBb2, tF1, tBb2, tD2, tC2, tBb2, tBb2, tA2, tBb2];
+    const firework = [tGs1, tB2, tB2, tGs1, tGs1, tE1, tFs1, tFs1, tE1, tE1, tE1, tFs1, tFs1, tE1, tE1, tE1, tE1, tE1, tFs1, tGs1, tA2, tGs1, tGs1, tB2, tB2, tGs1, tGs1, tE1, tFs1, tFs1, tE1, tE1, tE1, tFs1, tFs1, tE1, tE1, tE1, tE1, tFs1, tE1, tE1, tGs1, tFs1, tA2, tGs1, tB2, tA2, tCs2, tE2, tE2, tB2, tFs2, tE2, tE2, tGs2, tE2, tE2, tCs2, tB2, tB3, tA3, tGs2, tFs2, tFs2, tE2, tGs2, tB3, tA3, tGs2, tFs2, tFs2, tE2, tGs2, tB3, tA3, tGs2, tFs2, tFs2, tFs2, tFs2, tB2, tB2, tB3, tA3, tGs2, tFs2, tFs2, tFs2, tFs2, tGs2, tB3, tA3, tGs2, tFs2, tFs2, tE2, tGs2, tB3, tA3, tGs2, tFs2, tFs2, tE2, tCs2, tB3, tA3, tGs2, tFs2, tFs2, tFs2, tFs2, tB2, tB2, tB2, tB3, tA3, tGs2, tFs2, tFs2, tFs2, tFs2, tE2];
+    const thinking = [tFs1, tA2, tB2, tA2, tFs1, tE1, tD1, tE1, tFs1, tB1, tD1, tFs1, tA2, tB2, tA2, tFs1, tE1, tD1, tE1, tFs1, tB1, tD1, tFs1, tA2, tB2, tA2, tFs1, tE1, tD1, tE1, tFs1, tB1, tD1, tFs1, tA2, tB2, tA2, tFs1, tE1, tD1, tD1, tD2, tD2, tE2, tFs2, tA2, tA2, tD2, tE2, tFs2, tFs2, tE2, tD2, tG2, tFs2, tE2, tD2, tD2, tD2, tE2, tFs2, tA2, tA2, tD2, tE2, tFs2, tFs2, tE2, tD2, tG2, tFs2, tE2, tD2, tFs2, tG2, tFs2, tG2, tFs2, tE2, tD2, tE2, tD2, tFs2, tFs2, tE2, tD2, tD2, tFs2, tG2, tFs2, tE2, tD2, tD2, tD2, tE2, tD2, tFs2, tG2, tFs2, tG2, tFs2, tE2, tD2, tE2, tD2, tFs2, tFs2, tE2, tD2, tD2, tFs2, tG2, tFs2, tE2, tD2, tD2, tD2, tE2, tD2, tE2, tFs2, tA2, tD2, tE2, tFs2, tFs2, tE2, tE2, tG2, tFs2, tE2, tD2, tA2, tD2, tE2, tFs2, tA2, tD2, tE2, tFs2, tFs2, tE2, tE2, tG2, tG2, tE2, tD2, tA2, tD2, tE2, tFs2, tE2, tD2, tA2, tD2, tCs2, tD2, tD2, tE2, tFs2, tE2, tD2, tA2, tG2, tA3, tFs2, tE2, tD2];
+    const ratherBe = [tAb2, tC2, tEb2, tF2, tEb2, tDb2, tEb2, tC2, tAb2, tAb2, tC2, tEb2, tF2, tEb2, tDb2, tEb2, tC2, tAb2, tC2, tEb2, tF2, tEb2, tDb2, tEb2, tC2, tAb2, tAb2, tC2, tC2, tAb2, tC2, tAb2, tBb2, tC2, tEb2, tF2, tEb2, tDb2, tEb2, tC2, tAb2, tAb2, tC2, tEb2, tF2, tEb2, tDb2, tEb2, tC2, tC2, tEb2, tF2, tEb2, tDb2, tEb2, tC2, tAb2, tAb2, tC2, tC2, tAb2, tC2, tAb2, tBb2, tC2, tC2, tAb2, tAb2, tF1, tF1, tBb2, tBb2, tG1, tG1, tEb1, tEb1, tBb2, tBb2, tAb2, tAb2, tBb2, tBb2, tC2, tC2, tAb2, tAb2, tF1, tF1, tBb2, tBb2, tG1, tG1, tEb1, tEb1, tBb2, tBb2, tAb2, tAb2, tBb2, tBb2, tAb2, tAb2, tC2, tEb2, tAb3, tBb3, tG2, tAb2, tC2, tEb2, tF2, tEb2, tC2, tEb2, tAb2, tC2, tEb2, tAb3, tBb3, tG2, tAb2, tC2, tEb2, tF2, tEb2, tC2, tBb2, tAb2];
+    const yellow = [tA2, tB2, tA2, tB2, tA2, tB2, tA2, tB2, tD2, tA2, tG1, tA2, tG1, tA2, tD2, tG1, tE1, tG1, tE1, tG1, tG1, tE1, tD1, tA2, tB2, tA2, tB2, tA2, tB2, tA2, tB2, tD2, tA2, tG1, tA2, tG1, tA2, tD2, tG1, tE1, tG1, tE1, tG1, tG1, tE1, tD1, tG1, tE2, tD2, tG1, tG1, tD2, tD2, tB2, tB2, tG1, tE2, tD2, tG1, tG1, tD2, tD2, tB2, tB2, tG1, tE2, tD2, tG1, tG1, tD2, tD2, tB2, tB2, tE1, tE2, tG2, tE2, tG2, tE2, tD2];
+    const thisIsMe = [tFs2, tFs2, tFs2, tFs2, tFs2, tD2, tE2, tFs2, tFs2, tFs2, tA3, tG2, tFs2, tFs2, tD2, tD2, tD2, tE2, tFs2, tE2, tE2, tD2, tCs2, tD2, tD2, tE2, tFs2, tFs2, tFs2, tD2, tA3, tB3, tFs2, tFs2, tA3, tG2, tFs2, tFs2, tD2, tD2, tE2, tFs2, tE2, tE2, tD2, tE2, tD2, tD2, tFs2, tFs2, tE2, tE2, tD2, tE2, tFs2, tB2, tFs2, tFs2, tE2, tE2, tD2, tE2, tFs2, tA2, tD2, tE2, tFs2, tG2, tFs2, tE2, tFs2, tA3, tB3, tB3, tA3, tFs2, tFs2, tFs2, tA3, tFs2, tE2, tD2, tFs2, tA3, tB3, tB3, tA3, tFs2, tFs2, tFs2, tA3, tFs2, tE2, tD2, tD2, tA3, tFs2, tD2, tA3, tFs2, tD2, tA3, tFs2, tFs2, tFs2, tE2, tE2, tFs2, tA3, tB3, tB3, tA3, tFs2, tFs2, tFs2, tA3, tFs2, tE2, tD2, tFs2, tA3, tB3, tA3, tA3, tFs2, tFs2, tA3, tFs2, tE2, tD2, tD2, tA3, tFs2, tD2, tA3, tFs2, tD2, tA3, tFs2, tFs2, tFs2, tE2, tE2, tD2, tD2, tD2];
+    const thousandYears = [tBb2, tBb2, tBb2, tD2, tC2, tBb2, tBb2, tBb2, tBb2, tF2, tEb2, tD2, tBb2, tG1, tF2, tEb2, tD2, tC2, tD2, tA2, tBb2, tBb2, tBb2, tBb2, tD2, tC2, tBb2, tBb2, tBb2, tBb2, tF2, tEb2, tD2, tBb2, tG1, tF2, tEb2, tD2, tC2, tD2, tA2, tBb2, tG1, tG2, tA3, tBb3, tA3, tD2, tF2, tD2, tD2, tF2, tD2, tG2, tF2, tC2, tBb2, tD2, tF2, tD2, tD2, tF2, tD2, tG2, tF2, tC2, tBb2, tBb2, tC2, tEb2, tD2, tG1, tBb2, tC2, tBb2, tC2, tEb2, tD2, tC2, tD2, tF2, tD2, tD2, tF2, tD2, tG2, tF2, tC2, tBb2, tD2, tF2, tD2, tD2, tF2, tD2, tG2, tF2, tC2, tBb2, tBb2, tC2, tEb2, tD2, tG1, tBb2, tC2, tBb2, tC2, tEb2, tD2, tC2, tBb2];
 
     trebleSongNames = [
         'Amazing Grace',
@@ -85,19 +92,33 @@ async function main() {
         'I\'m a Little Teapot',
         'Perfect - Ed Sheeran',
         'Love Story - Taylor Swift',
+        'Do You Want to Build A Snowman?',
+        'Firework - Katy Perry',
+        'Thinking Out Loud',
+        'Rather Be',
+        'Yellow',
+        'This Is Me',
+        'A Thousand Years'
     ]
 
     trebleSongPrices = [
-        750, // amazing grace
-        300, // its raining its pouring
-        400, // happy birthday
-        600, // the baseball song
-        300, // clair de lune
-        2000, // all of me john legend
-        1250, // let it go
-        300, // teapot
-        2250, // perfect
-        850, // love story
+        1250, // amazing grace
+        700, // its raining its pouring
+        800, // happy birthday
+        1000, // the baseball song
+        700, // clair de lune
+        3000, // all of me john legend
+        3000, // let it go
+        700, // teapot
+        3500, // perfect
+        1250, // love story
+        1000, // snowman
+        1250, // firework
+        2750, // thinking out loud
+        2000, // rather be
+        800, // yellow
+        1500, // this is me
+        1250, // a thousand years
     ]
 
     trebleDifficulty = [
@@ -111,6 +132,13 @@ async function main() {
         'Easy', // teapot
         'Hard', // perfect
         'Easy', // love story
+        'Medium', // snowman
+        'Medium', // firework
+        'Medium', // thinking out loud
+        'Hard', // rather be
+        'Easy', // yellow
+        'Medium', // this is me
+        'Medium', // a thousand years
     ]
 
     trebleImages = [
@@ -124,6 +152,13 @@ async function main() {
         'https://images.pexels.com/photos/1170982/pexels-photo-1170982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/1067194/pexels-photo-1067194.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/704748/pexels-photo-704748.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/7682430/pexels-photo-7682430.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/949592/pexels-photo-949592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/888899/pexels-photo-888899.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/335393/pexels-photo-335393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/1161547/pexels-photo-1161547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/7195055/pexels-photo-7195055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/707582/pexels-photo-707582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 
     ]
 
@@ -138,9 +173,16 @@ async function main() {
         'I\'m a Little Teapot was written in 1939 by George Harold Sanders and Clarence Z. Kelley. It is a novelty song for children and is often accompanied with dance moves.',
         'Perfect, by Ed Sheeran, was written for his girlfriend and features his brother, because it was their grandmother\'s dying wish that they worked together on a song.',
         'Love Story, by Taylor Swift, is based on Shakespeare\'s Romeo and Juliet, a romantic tragedy that is well-known by many even still today.',
+        'Do You Want To Build a Snowman, written for Disney\'s 2013 animated film, Frozen, is second on the list of all-time best selling Christmas/holiday digital singles, even though it isn\'t a Christmas song.',
+        'Firework, by Katy Perry, was written in 2010 is the artist\'s personal favorite song from her album Teenage Dream because of the message that it spreads to be yourself and be proud.',
+        'Another great song by Ed Sheeran, Thinking Out Loud spent 19 weeks in the top 40 in the UK before peaking at number 1, making it Sheeran\'s second number 1 single there.',
+        'Rather Be was released in 2014 by Clean Bandit and features Jess Glynne on vocals. It became an international hit because of its music video.',
+        'Yellow was Coldplay\'s first top-five hit in the UK and began with the inspiration from stars and ended with inspiration from yellow pages, as the band struggled to find a fitting word to complete their song.',
+        'This Is Me, from the 2017 film, The Greatest Showman, won the Golden Globe Award for Best Original Song at the 75th Golden Globe Awards.',
+        'Written for the popular Twilight Saga moview, A Thousand Years by Christina Perri has become a hit worldwide since its release in 2011.'
     ];
 
-    const trebleSongs = [amazingGrace, raining, birthday, baseball, clair, legend, letitgo, teapot, perfect, loveStory];
+    const trebleSongs = [amazingGrace, raining, birthday, baseball, clair, legend, letitgo, teapot, perfect, loveStory, snowman, firework, thinking, ratherBe, yellow, thisIsMe, thousandYears];
 
     const bC1 = 0;
     const bD1 = 1;
@@ -199,6 +241,13 @@ async function main() {
     const grandmother = [bD2, bD2, bD2, bD2, bB1, bC2, bD2, bD2, bD2, bD2, bG2, bG2, bG2, bFs2, bE2, bD2, bD2, bC2, bC2, bC2, bC2, bB1, bB1, bB1, bB1, bA1, bA1, bB1, bCs2, bD2, bD2, bD2, bD2, bD2, bB1, bC2, bD2, bD2, bD2, bD2, bG2, bG2, bG2, bFs2, bE2, bD2, bD2, bC2, bC2, bC2, bC2, bB1, bB1, bB1, bB1, bA1, bC2, bB1, bA1, bG1];
     const pirates = [bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bF1, bAb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bEb2, bDb2, bC2, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bF1, bAb1, bBb1, bBb1, bBb1, bC2, bDb2, bDb2, bDb2, bEb2, bC2, bC2, bBb1, bAb1, bAb1, bBb1, bF1, bAb1, bBb1, bBb1, bBb1, bC2, bDb2, bDb2, bDb2, bEb2, bC2, bC2, bBb1, bAb1, bAb1, bBb1, bF1, bAb1, bBb1, bBb1, bBb1, bDb2, bEb2, bEb2, bEb2, bF2, bGb2, bGb2, bF2, bEb2, bF2, bBb1, bBb1, bC2, bDb2, bDb2, bEb2, bF2, bBb1, bBb1, bDb2, bC2, bC2, bBb1, bA1, bBb1, bBb1, bC2, bDb2, bDb2, bEb2, bF2, bDb2, bBb1, bF1, bGb2, bDb2, bBb1, bGb1, bF1, bA1, bBb1];
     const fireflies = [bG1, bD2, bD2, bC2, bD2, bC2, bG1, bG1, bA1, bA1, bG1, bA1, bC2, bD2, bE2, bD2, bC2, bG1, bG1, bG1, bD2, bC2, bA1, bG1, bD2, bD2, bC2, bD2, bC2, bG1, bG1, bA1, bA1, bG1, bA1, bC2, bD2, bG1, bG1, bE2, bD2, bC2, bG1, bG1, bE2, bD2, bA1, bC2, bE2, bD2, bC2, bG2, bE2, bD2, bC2, bD2, bG1, bC2, bB1, bA1, bG1, bB1, bA1, bA1, bA1, bC2, bC2, bC2, bE2, bD2, bC2, bG1, bG1, bA1, bA1, bC2, bD2, bA1, bA1, bA1, bC2, bC2, bE2, bD2, bC2, bG1, bC2, bD2, bC2, bE2, bD2, bC2, bC2];
+    const crocodile = [bD2, bBb1, bBb1, bF2, bEb2, bD2, bBb1, bBb1, bBb2, bA2, bG2, bG2, bG2, bA2, bBb2, bG2, bF2, bD2, bD2, bD2, bC2, bBb1, bG1, bG1, bD2, bC2, bBb1, bG1, bG1, bBb1, bC2, bD2, bE2, bD2, bC2, bBb1, bC2, bD2, bBb1, bC2, bF1, bF1, bD2, bBb1, bBb1, bF2, bEb2, bD2, bBb1, bBb1, bBb2, bA2, bG2, bG2, bG2, bA2, bBb2, bG2, bF2, bD2, bD2, bBb2, bA2, bG2, bBb2, bG2, bF2, bBb2, bA2, bG2, bBb2, bG2, bF2, bBb2, bA2, bG2, bA2, bBb2, bG2, bF2, bD2, bC2, bBb1, bD2, bC2, bBb1];
+    const indiana = [bE1, bF1, bG1, bC2, bD1, bE1, bF1, bG1, bA1, bB1, bF2, bA1, bB1, bC2, bD2, bE2, bE1, bF1, bG1, bC2, bD2, bE2, bF2, bG1, bG1, bE2, bD2, bG1, bE2, bD2, bG1, bE2, bD2, bG1, bE2, bD2, bE1, bF1, bG1, bC2, bD1, bE1, bF1, bG1, bA1, bB1, bF2, bA1, bB1, bC2, bD2, bE2, bE1, bF1, bG1, bC2, bD2, bE2, bF2, bG1, bG1, bE2, bD2, bG1, bE2, bD2, bG1, bE2, bD2, bG1, bE2, bD2, bE1, bG1, bF1, bD1, bF1, bE1, bG1, bE2, bE1, bG1, bF1, bD1, bF1, bE1, bD1, bC1, bE1, bG1, bF1, bD1, bF1, bE1, bG1, bE2, bD2, bE2, bF2, bAs1, bA1, bAs1, bF2, bAs1, bA1, bAs1, bF2, bAs1, bE2, bE1, bF1, bG1, bC2, bD1, bE1, bF1, bG1, bA1, bB1, bF2, bA1, bB1, bC2, bD2, bE2, bE1, bF1, bG1, bC2, bD2, bE2, bF2, bG1, bG1, bE2, bD2, bC2, bE2, bD2, bC2, bE2, bD2, bC2, bF2, bE2, bD2, bC2];
+    const hello = [bA1, bB1, bA1, bA1, bG1, bA1, bB1, bB1, bB1, bB1, bB1, bA1, bA1, bG1, bA1, bB1, bA1, bE1, bG1, bG1, bB1, bB1, bA1, bG1, bA1, bA1, bA1, bB1, bG1, bB1, bB1, bB1, bB1, bB1, bB1, bA1, bG1, bA1, bA1, bA1, bG1, bE1, bA1, bB1, bA1, bA1, bA1, bG1, bA1, bB1, bB1, bB1, bB1, bB1, bA1, bG1, bG1, bA1, bA1, bA1, bA1, bG1, bE1, bE2, bE2, bG2, bG2, bA2, bA2, bA2, bG2, bG2, bE2, bE2, bE2, bG2, bG2, bA2, bA2, bA2, bB2, bA2, bG2, bG2, bD3, bG2, bB2, bG2, bD2, bG2, bG2, bG2, bG2, bFs2, bE2, bD2, bD2, bD3, bG2, bB2, bG2, bD2, bG2, bG2, bFs2, bE2, bD2, bD2, bE2, bB1, bA1, bG1];
+    const scientist = [bF1, bF1, bG1, bF1, bC2, bA1, bF1, bG1, bF1, bC2, bA1, bF1, bG1, bF1, bA1, bA1, bA1, bA1, bG1, bF1, bF1, bG1, bF1, bC2, bA1, bF1, bF1, bG1, bF1, bC2, bA1, bF1, bG1, bF1, bA1, bA1, bA1, bA1, bG1, bF1, bF2, bD2, bC2, bF2, bD2, bC2, bF2, bD2, bC2, bA1, bA1, bC2, bA1, bD2, bA1, bA1, bA1, bG1, bF1, bE1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bBb1, bA1, bF1];
+    const centuries = [bE1, bFs1, bG1, bB1, bE1, bFs1, bG1, bB1, bE1, bB1, bA1, bG1, bA1, bG1, bA1, bG1, bE1, bE1, bG1, bFs1, bE1, bE1, bD1, bE1, bE1, bG1, bFs1, bE1, bE1, bE1, bE1, bE1, bE1, bB1, bB1, bD1, bE1, bB1, bB1, bD1, bE1, bB1, bB1, bG1, bFs1, bE1, bE1, bE1, bE1, bE1, bG1, bFs1, bE1, bE1, bE1, bE1, bE1, bE1, bB1, bB1, bD1, bE1, bB1, bB1, bD1, bE1, bB1, bB1, bB1, bA1, bG1, bA1, bE1, bE1, bB1, bA1, bG1, bA1, bE1, bE1, bB1, bB1, bD1, bE1, bB1, bB1, bD1, bE1, bB1, bB1, bB1, bA1, bG1, bA1, bG1, bG1, bE1, bB1, bA1, bG1, bA1, bG1, bG1, bE1, bB1, bA1, bG1, bA1, bG1, bG1, bE1, bG1, bFs1, bE1, bE1, bG1, bA1, bB1, bA1, bG1, bG1, bG1, bA1, bB1, bA1, bG1, bG1, bG1, bA1, bB1, bA1, bG1, bA1, bG1, bA1, bE1, bE2, bE1, bG1, bFs1, bE1, bE1, bD1, bE1, bE1, bG1, bFs1, bE1, bE1, bE1, bE1, bE1, bE1, bB1, bB1, bD1, bE1, bB1, bB1, bD1, bE1, bB1, bB1, bE1, bFs1, bG1, bB1, bE1, bFs1, bG1, bB1, bE1, bB1, bA1, bG1, bA1, bG1, bA1, bG1, bE2];
+    const silence = [bD1, bD1, bF1, bF1, bA1, bA1, bG1, bC1, bC1, bC1, bE1, bE1, bG1, bG1, bF1, bF1, bF1, bA1, bA1, bC2, bC2, bD2, bD2, bC2, bF1, bF1, bA1, bA1, bC2, bD2, bD2, bC2, bF1, bF1, bD2, bD2, bD2, bE2, bF2, bF2, bE2, bD2, bC2, bD2, bC2, bA1, bF1, bF1, bF1, bC2, bE1, bF1, bD1];
+    const loseYou = [bF2, bG2, bEb2, bBb1, bBb1, bBb1, bEb2, bEb2, bC2, bF2, bG2, bEb2, bBb1, bBb1, bBb1, bEb2, bEb2, bC2, bF2, bF2, bF2, bF2, bF2, bG2, bF2, bF2, bF2, bF2, bF2, bG2, bF2, bG2, bF2, bF2, bG2, bEb2, bBb1, bBb1, bBb1, bEb2, bEb2, bC2, bF2, bG2, bEb2, bBb1, bBb1, bBb1, bEb2, bEb2, bC2, bF2, bF2, bF2, bF2, bF2, bG2, bF2, bF2, bF2, bF2, bF2, bG2, bG2, bG2, bF2, bEb2, bF2, bF2, bG2, bF2, bEb2, bF2, bF2, bF2, bF2, bAb2, bG2, bEb2, bF2, bF2, bEb2, bG2, bG2, bF2, bEb2, bF2, bF2, bG2, bF2, bEb2, bF2, bF2, bF2, bF2, bAb2, bAb2, bEb2, bF2, bF2, bEb2, bG2, bG2, bG2, bF2, bF2, bF2, bBb1, bBb1, bF2, bF2, bF2, bF2, bF2, bF2, bAb2, bG2, bEb2, bF2, bF2, bEb2, bG2, bG2, bG2, bF2, bF2, bF2, bBb1, bBb1, bF2, bF2, bF2, bF2, bF2, bF2, bAb2, bG2, bEb2, bF2, bF2, bEb2];
 
     bassSongNames = [
         'Under the Sea',
@@ -210,20 +259,34 @@ async function main() {
         'We Don\'t Talk About Bruno',
         'To Grandmother\'s House',
         'Pirates of the Caribbean',
-        'Fireflies - Owl City'
+        'Fireflies - Owl City',
+        'Never Smile At a Crocodile',
+        'Indiana Jones Theme',
+        'Hello - Adele',
+        'The Scientist',
+        'Centuries',
+        'The Sound of Silence',
+        'Lose You to Love Me',
     ]
 
     bassSongPrices = [
-        1500, // under the sea
-        1500, // bare necessities
-        900, // jurassic park
-        500, // ill make a man out of you
-        4000, // linus and lucy
-        2500, // american pie
-        1500, // bruno
-        300, // grandmothers house
-        700, // pirates
-        1000, // fireflies
+        2500, // under the sea
+        2500, // bare necessities
+        1700, // jurassic park
+        900, // ill make a man out of you
+        5500, // linus and lucy
+        3500, // american pie
+        2500, // bruno
+        700, // grandmothers house
+        1250, // pirates
+        2000, // fireflies
+        1000, // crocodile
+        2750, // indiana jones
+        1500, // hello
+        1000, // scientist
+        3250, // centuries
+        800, // silence
+        4000, // lose you to love me
     ]
 
     bassDifficulty = [
@@ -237,6 +300,14 @@ async function main() {
         'Easy', // grandmother
         'Medium', // pirates
         'Easy', // fireflies
+        'Hard', // crocodile
+        'Hard', // indiana jones
+        'Easy', // hello
+        'Easy', // scientist
+        'Medium', // centuries
+        'Easy', // silence
+        'Hard', // lose you to love me
+
     ]
 
     bassImages = [
@@ -250,6 +321,13 @@ async function main() {
         'https://images.pexels.com/photos/11594055/pexels-photo-11594055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/37730/sunset-boat-sea-ship-37730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/10911755/pexels-photo-10911755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/3661224/pexels-photo-3661224.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/3900437/pexels-photo-3900437.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/4439454/pexels-photo-4439454.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/3825468/pexels-photo-3825468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/6408282/pexels-photo-6408282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/54539/pexels-photo-54539.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://images.pexels.com/photos/3731878/pexels-photo-3731878.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 
     ]
 
@@ -264,10 +342,16 @@ async function main() {
         'Over the River and Through the Wood (To Grandmother\'s House) is a Thanksgiving Day song that was originally about a boy going to his grandfather\'s house for Thanksgiving.',
         'He\'s a Pirate was written by Klaus Badelt and Hans Zimmer for Disney\'s Pirates of the Caribbean movie series. There are also famous remixes of it, such as the one by Tiesto.',
         'Fireflies was written by Owl City in 2009. Owl City is a band created by Adam Young and his song reached the top of many charts in quite a few countries.',
-
+        'Never Smile at a Crocodile was written in 1939 for the 1953 animated film, Peter Pan. It appears in the film without lyrics, but is best known with the lyrics.',
+        'The Raider\'s March is better known as the Indiana Jones theme song, written by John Williams for the 1981 film, Raiders of the Lost Ark.',
+        'Hello, by Adele, topped the records charts in 36 countries. It took six months to complete the recording and production process for this song, much longer than usual.',
+        'The Scientist, by Coldplay, is a piano ballad telling the story of a man\'s desire to love.',
+        'Centuries was released in 2014 by Fall Out Boy in an attempt to write a "David and Goliath" style song.',
+        'The musical duo Simon and Garfunkel released The Sound of Silence in 1965, almost a year after they began writing it. It originally did not release well due to the duo\'s breakup, but soon grew in popularity so that it reached number one on many charts around the world.',
+        'Lose You to Love Me was written and released in 2019 by Selena Gomez. It was her first number one song on the Billboard Hot 100 charts.'
     ];
 
-    const bassSongs = [underSea, bareNecessities, jurassic, mulan, linus, pie, bruno, grandmother, pirates, fireflies];
+    const bassSongs = [underSea, bareNecessities, jurassic, mulan, linus, pie, bruno, grandmother, pirates, fireflies, crocodile, indiana, hello, scientist, centuries, silence, loseYou];
     const ids = [];
 
     for (let x in trebleSongs) {
