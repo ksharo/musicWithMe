@@ -1,6 +1,7 @@
 const { ObjectId } = require('mongodb');
 const mongoCollections = require('../config/mongoCollections');
 const accountsDB = mongoCollections.accounts;
+const songsDB = mongoCollections.songs;
 const songFunctions = require('./songFunctions');
 
 async function getUser(userId) {
@@ -13,6 +14,12 @@ async function getUser(userId) {
     const user = await accountCollection.findOne(queryParameters);
 
     return user;
+}
+
+async function getAll(){
+    const accountCollection = await accountsDB();
+    const allAccounts = await accountCollection.find();
+    return allAccounts.toArray();
 }
 
 const create = async function create(username, password, levels = [], highScores = {}, coins = 200) {
@@ -91,11 +98,29 @@ async function getPurchased(uID) {
     return toReturn;
 }
 
+async function getSongHiscore(uID, songID){
+    const user = await getUser(uID);
+    const scores = Object.values(user.hiscores);
+    let count = 0;
+    const song = await songFunctions.getSong(songID);
+    for(x in user.hiscores){
+        let songName = x.toString();
+        let idString = songID.toString();
+        if(songName.includes(idString)){
+            return scores[count];
+        }
+        count++;
+    }
+    return 0;
+}
+
 module.exports = {
     create,
     getAndValidate,
     buySong,
     getPurchased,
     updateUser,
-    getUser
+    getUser,
+    getSongHiscore,
+    getAll
 };

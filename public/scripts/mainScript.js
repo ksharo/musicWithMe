@@ -637,6 +637,82 @@ function toggleSongs() {
     }
 }
 
+function fillLeaderboard(titles, scores){
+    let count = 0;
+    let container = document.getElementById('leaderboard-container');
+    for(song of titles){
+        let customID = 'leader-table' + count;
+        let titleHeader = document.createElement('h3');
+        let leaderTable = document.createElement('table');
+        let headers = document.createElement('tr');
+        let nameHeader = document.createElement('th');
+        let scoreHeader = document.createElement('th');
+
+        scoreHeader.innerHTML = "Score";
+        nameHeader.innerHTML = "Username";
+        titleHeader.innerHTML = song;
+
+        titleHeader.classList.add('leaderboard-h3');
+        scoreHeader.classList.add('leaderboard-th');
+        nameHeader.classList.add('leaderboard-th');
+        leaderTable.classList.add('leaderboard');
+        leaderTable.setAttribute('id', customID);
+
+        leaderTable.appendChild(titleHeader);
+
+        headers.appendChild(nameHeader);
+        headers.appendChild(scoreHeader);
+
+        leaderTable.appendChild(headers);
+
+        for(user of scores){
+            let userScore = document.createElement('tr');
+            let name = document.createElement('td');
+            let score = document.createElement('td');
+            
+            name.innerHTML = user[0];
+
+            for(i = 1; i < user.length; i++){
+                if(user[i] == song){
+                    score.innerHTML = user[i + 1];
+                }
+            }
+
+            userScore.appendChild(name);
+            userScore.appendChild(score);
+
+            leaderTable.appendChild(userScore);
+        }
+        container.appendChild(leaderTable);
+        count++;
+    }
+}
+
+function sortTable(songs){
+    var table, rows, switching, i, x, y, shouldSwitch;
+    for(s = 0; s < songs.length; s++){
+        let idToSearch = 'leader-table' + s;
+        table = document.getElementById(idToSearch)
+        switching = true;
+        while(switching){
+            switching = false;
+            rows = table.rows;
+            for(i = 1; i < (rows.length - 1); i++){
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[1];
+                y = rows[i + 1].getElementsByTagName("TD")[1];
+                if(Number(x.innerHTML) < Number(y.innerHTML)){
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+            if(shouldSwitch){
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+}
 function purchaseSong(name, id, price, canAfford = true, ownsSong = false, coins) {
     document.activeElement.blur();
     let modalBackdrop = document.createElement('section')
