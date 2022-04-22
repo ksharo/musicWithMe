@@ -1044,6 +1044,8 @@ input:focus {
     border: 2px solid black;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.228);
     border-radius: 4px;
+    resize: auto;
+    max-width: fit-content;
 }
 
 #howTo * {
