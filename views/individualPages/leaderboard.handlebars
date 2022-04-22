@@ -1,15 +1,5 @@
 <h2 class = "leaderheader">LEADERBOARDS</h2>
-
-<div class = "leaderboard">
-    <h3 class="leaderboard-h3">Treble</h3>
-    <table class = "leaderboard">
-        <tr>
-            <th class="leaderboard-th">Username</th>
-            <th class="leaderboard-th">Score</th>
-        </tr>
-        <tr>
-            <td>jschnei4</td>
-            <td>400</td>
-        </tr>
-    </table>
-</div>
+<body onload="javascript:fillLeaderboard({{json songs}}, {{json scores}}); javaScript:sortTable({{json songs}})">
+    <div id = "leaderboard-container">
+    </div>
+</body>

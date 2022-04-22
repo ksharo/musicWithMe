@@ -120,14 +120,31 @@ router
 router
     .route('/leaderboard')
     .get(async(req, res) => {
+        let songArray = await songData.getAll();
+        let userArray = await accountFunctions.getAll();
+        let songNames = [], overallScores = [];
+        for(song of songArray){
+            songNames.push(song.name);
+        }
+        //console.log(songNames);
         let user = null;
         if (req.session.user) {
             user = {
                 username: req.session.user.username,
                 coins: req.session.user.coins
             }
+            for(user of userArray){
+                let scores = [];
+                scores.push(user.username);
+                for(song of songArray){
+                    let highScore = await accountFunctions.getSongHiscore(user._id, song._id);
+                    scores.push(song.name);
+                    scores.push(highScore);
+                }
+                overallScores.push(scores);
+            }
         }
-        return res.render('individualPages/leaderboard', { user: user });
+        return res.render('individualPages/leaderboard', { user: user, songs: songNames, scores: overallScores});
     });
 
 module.exports = router;
