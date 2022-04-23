@@ -642,46 +642,64 @@ function fillLeaderboard(titles, scores){
     let container = document.getElementById('leaderboard-container');
     for(song of titles){
         let customID = 'leader-table' + count;
-        let titleHeader = document.createElement('h3');
+        let titleRow = document.createElement('tr')
+        let titleHeader = document.createElement('td');
         let leaderTable = document.createElement('table');
-        let headers = document.createElement('tr');
-        let nameHeader = document.createElement('th');
-        let scoreHeader = document.createElement('th');
+        // let headers = document.createElement('tr');
+        // let nameHeader = document.createElement('th');
+        // let scoreHeader = document.createElement('th');
 
-        scoreHeader.innerHTML = "Score";
-        nameHeader.innerHTML = "Username";
+        // scoreHeader.innerHTML = "Score";
+        // nameHeader.innerHTML = "Username";
         titleHeader.innerHTML = song;
+        titleHeader.colSpan = "2"
 
         titleHeader.classList.add('leaderboard-h3');
-        scoreHeader.classList.add('leaderboard-th');
-        nameHeader.classList.add('leaderboard-th');
+        titleHeader.colSpan=2
+        // scoreHeader.classList.add('leaderboard-th');
+        // nameHeader.classList.add('leaderboard-th');
         leaderTable.classList.add('leaderboard');
         leaderTable.setAttribute('id', customID);
+        titleRow.appendChild(titleHeader)
 
-        leaderTable.appendChild(titleHeader);
+        leaderTable.appendChild(titleRow);
 
-        headers.appendChild(nameHeader);
-        headers.appendChild(scoreHeader);
+        // headers.appendChild(nameHeader);
+        // headers.appendChild(scoreHeader);
 
-        leaderTable.appendChild(headers);
+        // leaderTable.appendChild(headers);
+        let tableIsPopulated = false;
 
-        for(user of scores){
+        for(user of scores){ //user is array of username, song title and song score
             let userScore = document.createElement('tr');
             let name = document.createElement('td');
             let score = document.createElement('td');
+            score.classList.add("userScore")
 
             name.innerHTML = user[0];
 
             for(i = 1; i < user.length; i++){
-                if(user[i] == song){
-                    score.innerHTML = user[i + 1];
+                if(user[i] == song && user[i+1] > 0){
+                    score.innerHTML = user[i + 1].toLocaleString("en-US");
+
+                    userScore.appendChild(name);
+                    userScore.appendChild(score);
+
+                    leaderTable.appendChild(userScore);
+                    tableIsPopulated = true;
                 }
             }
 
-            userScore.appendChild(name);
-            userScore.appendChild(score);
 
-            leaderTable.appendChild(userScore);
+        }
+        if(!tableIsPopulated){
+            let noEntriesRow = document.createElement('tr')
+            let noEntries = document.createElement('td')
+            noEntries.innerText = "No high scores yet. Be the first to set one!"
+            noEntries.classList.add("noEntriesMessage")
+            noEntries.colSpan="2"
+            noEntriesRow.appendChild(noEntries)
+            leaderTable.appendChild(noEntriesRow)
         }
         container.appendChild(leaderTable);
         count++;

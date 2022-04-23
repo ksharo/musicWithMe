@@ -13,8 +13,13 @@ app.use('/public', static);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.engine('handlebars', exphbs.engine({ helpers: { json: function(value, options) {
-                                                            return JSON.stringify(value); }}, defaultLayout: 'main' }));
+app.engine('handlebars', exphbs.engine({
+    helpers: {
+        json: function(value) {
+            return JSON.stringify(value);
+        }
+    },
+    defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 
