@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Pacifico&family=Red+Hat+Mono&display=swap');
+
 :root {
     --primary: #251926;
     --secondary: #E38F8F;
@@ -90,6 +91,7 @@ h1 a {
         width: 80%;
         overflow: hidden;
     }
+
     .lessonContent {
         position: relative;
         border-right: 1px solid #dbdbdb;
@@ -179,10 +181,12 @@ a:focus,
     0% {
         outline: 3px solid var(--error);
     }
+
     30% {
         outline: 8px solid var(--error);
         outline-offset: 4px;
     }
+
     100% {
         outline: 12px solid #cb595900;
         outline-offset: 4px;
@@ -193,10 +197,12 @@ a:focus,
     0% {
         outline: 3px solid var(--success);
     }
+
     30% {
         outline: 8px solid var(--success);
         outline-offset: 4px;
     }
+
     100% {
         outline: 12px solid #b2eeb500;
         outline-offset: 4px;
@@ -207,22 +213,27 @@ a:focus,
     0% {
         outline: 3px solid red;
     }
+
     15% {
         outline: 8px solid red;
         outline-offset: 2px;
     }
+
     40% {
         outline: 8px solid;
         outline-offset: 2px;
     }
+
     41% {
         outline: 0px solid rgba(255, 0, 0, 0);
         outline-offset: 0px;
     }
+
     45% {
         outline: 0px solid red;
         outline-offset: 0px;
     }
+
     100% {
         outline: 12px solid rgba(255, 0, 0, 0);
         outline-offset: 4px;
@@ -437,6 +448,7 @@ a:focus,
         transform: rotate(345deg) scale(14);
         opacity: 20%;
     }
+
     100% {
         transform: rotate(345deg) scale(1);
         opacity: 100%;
@@ -458,7 +470,8 @@ a:focus,
     margin-bottom: 80px;
 }
 
-.store h2 {
+.store h2,
+h2.leaderheader {
     font-size: 60px;
     margin-bottom: 4px;
     font-weight: normal;
@@ -487,7 +500,7 @@ a:focus,
 }
 
 .disabledCard .cardImage {
-    filter: grayscale(1) brightness(0.7);
+    filter: grayscale(1) brightness(0.3);
 }
 
 @media screen and (max-width: 1300px) {
@@ -528,6 +541,9 @@ a:focus,
     border-radius: 12px;
     transition: transform .25s;
     will-change: transform;
+    max-width: 372px;
+    box-sizing: border-box;
+    text-align: left;
 }
 
 .storeBody .cardPrice {
@@ -663,10 +679,12 @@ a:focus,
         top: 28%;
         /* transform:scale(3.0) */
     }
+
     85% {
         visibility: visible;
         top: 36%;
     }
+
     100% {
         visibility: visible;
         opacity: 1;
@@ -693,6 +711,7 @@ a:focus,
     from {
         backdrop-filter: blur(4px);
     }
+
     to {
         backdrop-filter: none;
     }
@@ -718,6 +737,7 @@ a:focus,
     0% {
         transform: translate(-50%, -50%)
     }
+
     100% {
         transform: translate(-50%, -871px);
     }
@@ -728,9 +748,11 @@ a:focus,
         opacity: 1;
         visibility: visible;
     }
+
     50% {
         opacity: 0.2;
     }
+
     100% {
         opacity: 0;
         visibility: hidden;
@@ -1044,6 +1066,8 @@ input:focus {
     border: 2px solid black;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.228);
     border-radius: 4px;
+    resize: auto;
+    max-width: fit-content;
 }
 
 #howTo * {
@@ -1224,19 +1248,20 @@ input:focus {
     filter: brightness(70%);
 }
 
-.leaderheader {
-    font-size: 45px;
-    padding: 0px;
+/*Leaderboards*/
+
+h2.leaderheader {
+    margin-bottom: 24px;
 }
 
 .leaderboard {
-    font-size: 30px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 26px;
     background-color: #4A374D;
-    width: 25%;
-    padding: 30px;
+    padding: 32px 36px;
     border-radius: 15px;
+    width: 40%;
+    margin: 20px 10px 20px 10px;
+    max-width: 550px;
 }
 
 .leaderboard-th {
@@ -1244,6 +1269,39 @@ input:focus {
     padding-left: 25px;
 }
 
-.leaderboard-h3 {
-    margin: 0px;
+.leaderboard tr td:first-child {
+    text-align: left;
+}
+
+.leaderboard tr td:last-child {
+    text-align: right;
+}
+
+#leaderboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: min(83%, 3000px);
+    margin-inline: auto;
+}
+
+.leaderboard tr td.noEntriesMessage {
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
+    height: 100%;
+    padding-top: 24px;
+    color: #b4b4b4;
+}
+
+/* .userScore{
+    font-family: 'Red Hat Mono', monospace;
+} */
+
+
+.leaderboard tr td.leaderboard-h3 {
+    margin: 0px 0px 8px 0px;
+    font-size: 36px;
+    text-align: left;
+    padding-bottom: 20px;
 }

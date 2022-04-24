@@ -16,7 +16,11 @@
                 <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{ownsSong}}, {{../coins}})"></a>
                 <img src="{{image}}" alt="{{name}} image" class="cardImage"/>
                 <p class="cardName">{{name}}</p>
-                <p class="cardPrice">{{price}}</p>
+                {{#if ownsSong}}
+                    <p class="cardPrice">Owned</p>
+                {{else}}
+                    <p class="cardPrice">{{price}}</p>
+                {{/if}}
             </section>
         {{/each}}
     </section>
@@ -37,7 +41,11 @@
                 <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{ownsSong}}, {{../coins}})"></a>
                 <img src="{{image}}" alt="{{name}} image" class="cardImage"/>
                 <p class="cardName">{{name}}</p>
-                <p class="cardPrice">{{price}}</p>
+                 {{#if ownsSong}}
+                    <p class="cardPrice">Owned</p>
+                {{else}}
+                    <p class="cardPrice">{{price}}</p>
+                {{/if}}
             </section>
         {{/each}}
     </section>
