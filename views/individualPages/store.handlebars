@@ -13,7 +13,7 @@
             {{else}}
                 <section class="storeCard disabledCard">
             {{/if}}
-                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{ownsSong}}, {{../coins}})"></a>
+                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{ownsSong}}, {{../coins}}, `{{clef}}`)"></a>
                 <img src="{{image}}" alt="{{name}} image" class="cardImage"/>
                 <p class="cardName">{{name}}</p>
                 {{#if ownsSong}}
@@ -38,7 +38,7 @@
             {{else}}
                 <section class="storeCard disabledCard">
             {{/if}}
-                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{ownsSong}}, {{../coins}})"></a>
+                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{ownsSong}}, {{../coins}}, `{{clef}}`)"></a>
                 <img src="{{image}}" alt="{{name}} image" class="cardImage"/>
                 <p class="cardName">{{name}}</p>
                  {{#if ownsSong}}

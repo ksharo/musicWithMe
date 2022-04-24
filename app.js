@@ -19,7 +19,8 @@ app.engine('handlebars', exphbs.engine({
             return JSON.stringify(value);
         }
     },
-    defaultLayout: 'main' }));
+    defaultLayout: 'main'
+}));
 app.set('view engine', 'handlebars');
 
 
@@ -60,7 +61,7 @@ app.use('/', (req, res, next) => {
             !isNaN(Number(req.originalUrl.substring(req.originalUrl.length - 1))) &&
             Number(req.originalUrl.substring(req.originalUrl.length - 1)) > 3)) {
         if (!req.session.user) {
-            return res.status(403).redirect('/account');
+            return res.status(403).redirect('/account/create');
         } else {
             next();
         }
