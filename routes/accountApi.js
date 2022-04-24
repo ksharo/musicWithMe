@@ -69,7 +69,7 @@ router
         try {
             let levels = [];
             let highScores = {};
-            let coins = 200;
+            let coins = 400;
             if (req.session.tmpUser) {
                 levels = req.session.tmpUser.levels;
                 highScores = req.session.tmpUser.highScores;

@@ -15,7 +15,7 @@ async function getUser(userId) {
     return user;
 }
 
-const create = async function create(username, password, levels = [], highScores = {}, coins = 200) {
+const create = async function create(username, password, levels = [], highScores = {}, coins = 400) {
     const myAccounts = await accountsDB();
     /* check if there is already a user with username in the database */
     let hasUsername = await myAccounts.findOne({ username: username.toLowerCase() });

@@ -31,7 +31,7 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
             req.session.tmpUser = {
                 levels: !fail ? [levelName] : [],
                 highScores: highScores,
-                coins: 200 + coins
+                coins: 400 + coins
             }
         } else {
             req.session.tmpUser.coins += coins;
@@ -79,11 +79,11 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
     }
     /* if the players has won, set their grade */
     if (accuracy >= 80 && score > timeThreshold * totalQs) {
-        if ((accuracy >= 95 && score > (timeThreshold * totalQs * 1.2)) || (accuracy >= 92 && score > (timeThreshold * totalQs * 1.3))) {
+        if ((accuracy >= 95 && score > (timeThreshold * totalQs * 1.7)) || (accuracy >= 92 && score > (timeThreshold * totalQs * 1.8))) {
             grade = 'A+';
-        } else if ((accuracy >= 90 && score > (timeThreshold * totalQs) * 1.1) || (accuracy >= 88 && score > (timeThreshold * totalQs * 1.2))) {
+        } else if ((accuracy >= 90 && score > (timeThreshold * totalQs) * 1.5) || (accuracy >= 88 && score > (timeThreshold * totalQs * 1.6))) {
             grade = 'A';
-        } else if (accuracy >= 85 || (accuracy >= 82 && score > (timeThreshold * totalQs * 1.3))) {
+        } else if (accuracy >= 85 || (accuracy >= 82 && score > (timeThreshold * totalQs * 1.4))) {
             grade = 'B+';
         } else {
             grade = 'B';
