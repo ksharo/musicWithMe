@@ -28,6 +28,15 @@ window.addEventListener("load", () => {
             new Audio("/public/assets/sounds/success.wav").play();
         }
     }
+    if (window.location.href.indexOf("/0") == window.location.href.length - 2) {
+        document.getElementById('howTo').classList.add('howToAnimate');
+        document.getElementById('howTo').hidden = false;
+    }
+    if (window.location.href.indexOf("/13") == window.location.href.length - 3) {
+        document.getElementById('howTo').classList.add('howToAnimate');
+        document.getElementById('howTo').hidden = false;
+        document.getElementById('howTo').scroll(0, 450);
+    }
     // if (window.location.href.split('loc').length > 2) {
     // window.scrollTo({ top: window.location.href.split('loc')[2].substring(2), left: window.location.href.split('loc')[3].substring(2), behavior: 'smooth' });
     // }
@@ -480,7 +489,151 @@ function startCountOff() {
     }, 850);
 }
 
-function filter(type, clef) {
+function sort(type) {
+    if (type == 'name') {
+        sortHelper('nameSort', getName);
+    }
+    if (type == 'difficulty') {
+        sortHelper('difficultySort', getDifficulty);
+    }
+    if (type == 'price') {
+        sortHelper('priceSort', getPrice);
+    }
+}
+
+/* get the price of an element with classname of price#### */
+function getPrice(e) {
+    for (let x of e.classList) {
+        if (x.includes('price')) {
+            return Number(x.substring(5));
+        }
+    }
+}
+
+function getName(e) {
+    for (let x of e.classList) {
+        if (x.includes('name')) {
+            return x.substring(4);
+        }
+    }
+}
+
+function getDifficulty(e) {
+    if (e.classList.contains('Easy')) {
+        return 1;
+    } else if (e.classList.contains('Medium')) {
+        return 2;
+    } else {
+        return 3;
+    }
+}
+
+
+function sortHelper(radioId, sortFunction) {
+    const sortingBtns = document.getElementsByClassName('songSortBtn');
+    for (let x of sortingBtns) {
+        if (x.id != radioId) {
+            x.checked = false;
+        }
+    }
+    const allSongs = document.getElementsByClassName('storeCard');
+    /* TREBLE SECTION */
+    const newTrebleList = [];
+    for (let x of allSongs) {
+        if (x.classList.contains('trebleCard')) {
+            if (newTrebleList == []) {
+                newTrebleList.push(x);
+            } else {
+                let i = 0;
+                for (let y of newTrebleList) {
+                    if (sortFunction(x) > sortFunction(y)) {
+                        i++;
+                    } else {
+                        break;
+                    }
+                }
+                newTrebleList.splice(i, 0, x);
+            }
+        }
+    }
+    const trebleSection = document.getElementById('trebleStoreSection')
+    trebleSection.textContent = '';
+    for (let x of newTrebleList) {
+        trebleSection.appendChild(x);
+    }
+
+    /* BASS SECTION */
+    const newBassList = [];
+    for (let x of allSongs) {
+        if (x.classList.contains('bassCard')) {
+            if (newBassList == []) {
+                newBassList.push(x);
+            } else {
+                let i = 0;
+                for (let y of newBassList) {
+                    if (sortFunction(x) > sortFunction(y)) {
+                        i++;
+                    } else {
+                        break;
+                    }
+                }
+                newBassList.splice(i, 0, x);
+            }
+        }
+    }
+    const bassSection = document.getElementById('bassStoreSection')
+    bassSection.textContent = '';
+    for (let x of newBassList) {
+        bassSection.appendChild(x);
+    }
+}
+
+function filter(type, clef, store = false) {
+    if (store) {
+        document.getElementById('bassStoreHeader').style.display = 'block';
+        document.getElementById('trebleStoreHeader').style.display = 'block';
+        if (clef == 'treble') {
+            document.getElementById('bassStoreHeader').style.display = 'none';
+            filterHelper('trebleSongFilter', 'storeCard', 'trebleCard', 'songFilterBtn');
+            return;
+        }
+        if (clef == 'bass') {
+            document.getElementById('trebleStoreHeader').style.display = 'none';
+            filterHelper('bassSongFilter', 'storeCard', 'bassCard', 'songFilterBtn');
+            return;
+        }
+        if (clef == 'easy') {
+            filterHelper('easySongFilter', 'storeCard', 'Easy', 'songFilterBtn');
+            return;
+        }
+        if (clef == 'medium') {
+            filterHelper('mediumSongFilter', 'storeCard', 'Medium', 'songFilterBtn');
+            return;
+        }
+        if (clef == 'hard') {
+            filterHelper('hardSongFilter', 'storeCard', 'Hard', 'songFilterBtn');
+            return;
+        }
+        if (clef == 'owned') {
+            filterHelper('ownedSongFilter', 'storeCard', 'ownstrue', 'songFilterBtn');
+            return;
+        }
+        if (clef == 'afford') {
+            filterHelper('affordSongFilter', 'storeCard', 'affordtrue', 'songFilterBtn');
+            return;
+        } else {
+            const songs = document.getElementsByClassName('storeCard');
+            for (let x of songs) {
+                x.style.display = 'block';
+            }
+            const filterBtns = document.getElementsByClassName('songFilterBtn');
+            for (let x of filterBtns) {
+                x.style.color = 'white';
+            }
+            return;
+        }
+        return;
+    }
     if (type == 'lessons') {
         document.getElementById('hideLessons').textContent = 'Hide';
     }
@@ -742,8 +895,13 @@ function purchaseSong(name, id, price, canAfford = true, ownsSong = false, coins
 
     modalText.innerText = ownsSong ? "You already own this song!" : canAfford ? "You are about to buy " + name + " for " + price + "♪" :
         "You need " + (price - coins) + "♪ more to buy " + name + ".\nPlay to collect more!"
-    cancelButton.innerText = "Cancel"
-    okButton.innerText = "OK"
+    if (ownsSong) {
+        cancelButton.innerText = "Close"
+        okButton.innerText = "Play"
+    } else {
+        cancelButton.innerText = "Cancel"
+        okButton.innerText = "OK"
+    }
 
 
     modalBackdrop.classList.add("modalBackdrop")
@@ -760,14 +918,15 @@ function purchaseSong(name, id, price, canAfford = true, ownsSong = false, coins
         const funcCall = "buySong('" + id + "', `" + name + "`, '" + clef + "')"
         okButton.setAttribute("onclick", funcCall);
     } else { //cant afford song or can afford but already reload
-        okButton.setAttribute("onclick", "closePopUp(animate=true, reload=false)");
+        link = '/allSongs/begin/' + id + '?' + clef;
+        okButton.setAttribute("onclick", "toLink('" + link + "')");
     }
 
 
     popUpModal.appendChild(modalText)
-    if (canAfford) {
-        popUpModal.appendChild(cancelButton)
-    }
+        // if (canAfford) {
+    popUpModal.appendChild(cancelButton)
+        // }
     popUpModal.appendChild(okButton)
 
     document.getElementById("modalInsert").appendChild(modalBackdrop)

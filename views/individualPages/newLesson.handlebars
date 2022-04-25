@@ -1,24 +1,24 @@
-<a class="littleLink howToLink"
-    onClick="document.getElementById('howTo').hidden = !document.getElementById('howTo').hidden">How To Play</a>
-<article id='howTo' hidden>
-    <section class="centerFlex">
-        <a class="closeBtn" onClick="document.getElementById('howTo').hidden = true">&times;</a>
-        <h2 class="howToTitle">How To Play</h2>
-        <span></span>
-    </section>
-    <h3>Beginner Levels</h3>
-    <p>In each level, you will see an image of a note and a collection of buttons.</p>
-    <img src='/public/assets/images/howTo1.png' />
-    <p>Click the button of the note in the image or type the note on your keyboard.</p>
-    <h3>Advanced Levels</h3>
-    <p>For more advanced levels, the picture may include a sharp or flat.</p>
-    <img src='/public/assets/images/howTo2.png' />
-    <p>Click the UP arrow on your keyboard with the shown note for sharps, and DOWN for flats.</p>
-</article>
-<section onClick="document.getElementById('howTo').hidden = true">
+<section>
     <h2 class="newLessonHeader">You are learning about {{name}}</h2>
     <h2>{{subtitle}}</h2>
-    <section class="cardCard">
+    <a class="littleLink howToLink"
+    onClick="document.getElementById('howTo').hidden = !document.getElementById('howTo').hidden">How To Play</a>
+    <article id='howTo' hidden>
+        <section class="centerFlex">
+            <a class="closeBtn" onClick="document.getElementById('howTo').hidden = true">&times;</a>
+            <h2 class="howToTitle">How To Play</h2>
+            <span></span>
+        </section>
+        <h3>Beginner Levels</h3>
+        <p>In each level, you will see an image of a note and a collection of buttons.</p>
+        <img src='/public/assets/images/howTo1.png' />
+        <p>Click the button of the note in the image or type the note on your keyboard.</p>
+        <h3>Advanced Levels</h3>
+        <p>For more advanced levels, the picture may include a sharp or flat.</p>
+        <img src='/public/assets/images/howTo2.png' />
+        <p>Click the UP arrow on your keyboard with the shown note for sharps, and DOWN for flats.</p>
+    </article>
+    <section class="cardCard"  onClick="if (!document.getElementById('howTo').hidden) { document.getElementById('howTo').hidden = true}">
         <article class="lessonCards">
             {{#each details}}
             <aside class="lessonDetailsCard">

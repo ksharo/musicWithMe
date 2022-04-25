@@ -8,7 +8,7 @@
 				<td>
 					<span>Score</span>
 					{{#if newHi}}
-						<p class="highScoreTxt">New High Score!</p>
+					<p class="highScoreTxt">New High Score!</p>
 					{{/if}}
 				</td>
 				<td>{{score}}</td>
@@ -22,35 +22,42 @@
 				<td>{{streak}}</td>
 			</tr>
 			<tr>
-				<td>Coins Earned</td>
+				<td>
+					<span>Coins Earned</span>
+					{{#if user.nonePurchased}}
+						<p class="coinNoticeTxt">Collect more coins to buy songs from the <a href="/store" class="storeLink">store!</a></p>
+					{{/if}}
+				</td>
 				<td>{{coins}}</td>
 			</tr>
 			{{#if fail}}
-				<tr>
-					<td>Passing Score</td>
-					<td>{{minScore}}</td>
-				</tr>
-				<tr>
-					<td>Passing Accuracy</td>
-					<td>80%</td>
-				</tr>
+			<tr>
+				<td>Passing Score</td>
+				<td>{{minScore}}</td>
+			</tr>
+			<tr>
+				<td>Passing Accuracy</td>
+				<td>80%</td>
+			</tr>
 			{{/if}}
 
 		</tbody>
 	</table>
 	<section>
 
-	<section class="cardNav">
-		{{#if fail}}
-		<button id='failBtn' class='actionButton' onClick="nextLesson(true)">Try Again</button>
-		<button class='actionButton' onClick="window.location.href='http://localhost:3030/lessons';">Return Home</button>
-		{{else}}
+		<section class="cardNav">
+			{{#if fail}}
+			<button id='failBtn' class='actionButton' onClick="nextLesson(true)">Try Again</button>
+			<button class='actionButton' onClick="window.location.href='http://localhost:3030/lessons';">Return
+				Home</button>
+			{{else}}
 			<button class='actionButton' onClick="nextLesson(true)">Play Again</button>
 			{{#if finalRound}}
-			<button class='actionButton' autofocus onClick="window.location.href='http://localhost:3030/lessons';">Return Home</button>
+			<button class='actionButton' autofocus
+				onClick="window.location.href='http://localhost:3030/lessons';">Return Home</button>
 			{{else}}
 			<button id='passBtn' class='actionButton' onClick="nextLesson()" autofocus>Next Level</button>
 			{{/if}}
-		{{/if}}
+			{{/if}}
+		</section>
 	</section>
-</section>

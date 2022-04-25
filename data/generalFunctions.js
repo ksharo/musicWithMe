@@ -95,7 +95,8 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
     if (req.session.user) {
         user = {
             username: req.session.user.username,
-            coins: req.session.user.coins
+            coins: req.session.user.coins,
+            nonePurchased: req.session.user.purchased.length == 0
         }
     }
     let maxLevels = 100;
@@ -117,7 +118,7 @@ async function renderLessonResult(req, res, strLevel, clef, type, accuracy, scor
         finalRound: Number(strLevel) == maxLevels || (type == 'note' && Number(strLevel) == 38) || isNaN(Number(strLevel)),
         newHi: newHi,
         coins: coins,
-        user: user
+        user: user,
     });
 }
 
