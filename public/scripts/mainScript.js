@@ -4,6 +4,11 @@ const INCORRECT_BEEP = false;
 const START_SCORE_QUESTION = 1100;
 const MAX_MULTIPLIER = 2 //1.5
 const STREAK_INCREASES_MULTIPLIER_BY = .1
+const CLICKS_BEFORE_HINT_SHOWS_UP = 4;
+const CLICKS_BEFORE_HINT_DISAPPEARS = CLICKS_BEFORE_HINT_SHOWS_UP;
+
+const KEYBOARD_HINT = "Hint: use the keyboard to answer faster!"
+const KEYBOARD_HINT_SHARPS = "Hint: Press and hold up on the keyboard for sharps and the down arrow for flats!"
 
 //calculated constants
 const MULTIPLIER_STEPS = (MAX_MULTIPLIER - 1) / STREAK_INCREASES_MULTIPLIER_BY // 1/.1
@@ -18,6 +23,8 @@ let interval = null;
 let counting = true;
 let multiplier = 0;
 let levelCoins = 0;
+let clicksLeftBeforeHintShowsUpCounter = CLICKS_BEFORE_HINT_SHOWS_UP;
+let hintIsShowing = false;
 
 
 window.addEventListener("load", () => {
@@ -73,6 +80,11 @@ document.addEventListener("keyup", (event) => {
         const el = document.getElementById(key);
         if (el != undefined && el != null) {
             el.click();
+            clicksLeftBeforeHintShowsUpCounter = -1;
+            if(hintIsShowing){
+                document.getElementsByClassName("hintSection")[0].style.opacity = 0;
+                hintIsShowing = false
+            }
         }
         key1 = null;
         key2 = saveKey;
@@ -174,6 +186,17 @@ function checkAnswer(clickedButton, rightAnswer) {
 }
 
 function processClick(noteName, rightAnswer, imgList, numQs) {
+    console.log(clicksLeftBeforeHintShowsUpCounter)
+    if(--clicksLeftBeforeHintShowsUpCounter == 0){
+        document.getElementsByClassName("hintSection")[0].innerText = KEYBOARD_HINT
+        document.getElementsByClassName("hintSection")[0].style.opacity = 1
+        hintIsShowing = true;
+    }
+    if(clicksLeftBeforeHintShowsUpCounter < 0 - CLICKS_BEFORE_HINT_DISAPPEARS) {
+        document.getElementsByClassName("hintSection")[0].style.opacity = 0
+        hintIsShowing = false;
+    }
+
     if (totalQs >= numQs) {
         return;
     }
@@ -855,6 +878,16 @@ function initializeHidden() {
     const x = document.getElementById("wrongAnswerX");
     if (x) {
         x.style.display = "block";
+    }
+
+    const hint = document.getElementsByClassName("hintSection")[0];
+    if (hint) {
+        hint.style.display = "block";
+    }
+
+    const buttonGroup = document.getElementsByClassName("buttonGroup")[0];
+    if (buttonGroup) {
+        buttonGroup.style.display = "flex";
     }
 }
 

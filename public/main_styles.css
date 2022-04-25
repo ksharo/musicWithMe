@@ -103,6 +103,16 @@ h1 a {
     position: relative;
 }
 
+.hintSection{
+    display: none;
+    opacity: 0;
+    color: black;
+    margin-bottom: 35px;
+    text-align: center;
+    flex: 100%;
+    transition: opacity 350ms ease;
+}
+
 .lessonBody .buttonGroup button {
     padding: 24px 29px;
     border-radius: 13px;
@@ -140,7 +150,7 @@ a:focus,
 }
 
 .buttonGroup {
-    display: flex;
+    display: none;
     justify-content: center;
     margin-top: 30px;
     flex-wrap: wrap;
@@ -153,7 +163,7 @@ a:focus,
 
 @media screen and (min-width: 880px) {
     .buttonGroup {
-        display: flex;
+        display: none;
         justify-content: center;
         margin-top: 30px;
         flex-wrap: wrap;
@@ -342,6 +352,21 @@ a:focus,
     margin-top: auto;
     margin-bottom: auto;
     padding: 4px;
+    position: relative;
+}
+
+.coinSection #levelCoins::before {
+    content: "168";
+    position: absolute;
+    left: 50px;
+    transform: translateY(-15px);
+    transition: transform 3s ease-out, opacity 2.5s ease-out;
+    opacity: 1;
+}
+
+.coinSection #levelCoins.cd::before{
+    transform: translateY(0px);
+    opacity: 0;
 }
 
 .scoreSection {
