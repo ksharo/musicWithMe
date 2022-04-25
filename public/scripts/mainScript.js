@@ -921,6 +921,8 @@ function purchaseSong(name, id, price, canAfford = true, ownsSong = false, coins
     if (ownsSong) {
         cancelButton.innerText = "Close"
         okButton.innerText = "Play"
+        link = '/allSongs/begin/' + id + '?' + clef;
+        okButton.setAttribute("onclick", "toLink('" + link + "')");
     } else {
         cancelButton.innerText = "Cancel"
         okButton.innerText = "OK"
@@ -940,9 +942,8 @@ function purchaseSong(name, id, price, canAfford = true, ownsSong = false, coins
     if (canAfford && !ownsSong) {
         const funcCall = "buySong('" + id + "', `" + name + "`, '" + clef + "')"
         okButton.setAttribute("onclick", funcCall);
-    } else { //cant afford song or can afford but already reload
-        link = '/allSongs/begin/' + id + '?' + clef;
-        okButton.setAttribute("onclick", "toLink('" + link + "')");
+    } else if (!ownsSong){ //cant afford song or can afford but already reload
+        okButton.setAttribute("onclick", "closePopUp(animate=true, reload=false)");
     }
 
 
@@ -976,7 +977,7 @@ function purchaseStatusModal(name, purchaseStatus, songId, clef = 'treble') {
     closeButton.classList.add("modalButton", "actionButton")
     playButton.classList.add("modalButton", "actionButton")
 
-    closeButton.setAttribute("onclick", "closePopUp()")
+    closeButton.setAttribute("onclick", "closePopUp(animate=true, reload=true)")
     link = '/allSongs/begin/' + songId + '?' + clef;
     playButton.setAttribute("onclick", "toLink('" + link + "')");
     modalBackdrop.setAttribute("onclick", "closePopUp()")
@@ -990,7 +991,7 @@ function purchaseStatusModal(name, purchaseStatus, songId, clef = 'treble') {
     playButton.focus();
 }
 
-function closePopUp(animate = true, reload = true) {
+function closePopUp(animate = true, reload = false) {
     if (animate) {
         document.getElementsByClassName("popUpModal")[0].classList.add("animateSwipeUpAway");
         document.getElementsByClassName("modalBackdrop")[0].classList.add("animateFadeOut");
@@ -1002,11 +1003,11 @@ function closePopUp(animate = true, reload = true) {
                 document.getElementsByClassName("popUpModal")[0].remove();
             }
             document.getElementById("modalInsert").innerHTML = "";
-            // let x = window.scrollX;
-            // let y = window.scrollY;
-            // if (reload) {
-            //     window.location.href = window.location.href.split('?locy')[0] + '?locy=' + y + 'locx=' + x;
-            // }
+            let x = window.scrollX;
+            let y = window.scrollY;
+            if (reload) {
+                window.location.href = window.location.href.split('?locy')[0] + '?locy=' + y + 'locx=' + x;
+            }
         }, 350)
     } else {
         document.getElementsByClassName("modalBackdrop")[0].remove();
