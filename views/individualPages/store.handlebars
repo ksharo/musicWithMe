@@ -1,19 +1,46 @@
 <section class="store">
     <h2>Music Store</h2>
-    <h3>Treble Clef Songs</h3>
+    <a class='littleLink' onClick="document.getElementById('storeFilterBox').hidden = !document.getElementById('storeFilterBox').hidden">Filters/Sorting</a>
+    <article id='storeFilterBox' hidden>
+        <section class="songFilters">
+            <h3>Filters:</h3>
+            <ul class="filter-list subFilter">
+                <li onClick="filter('songs', 'bass', true)" id="bassSongFilter" class="songFilterBtn">Bass Clef</li>
+                <li onClick="filter('songs', 'treble', true)" id="trebleSongFilter" class="songFilterBtn">Treble Clef</li>
+                <li onClick="filter('songs', 'easy', true)" id="easySongFilter" class="songFilterBtn">Easy</li>
+                <li onClick="filter('songs', 'medium', true)" id="mediumSongFilter" class="songFilterBtn">Medium</li>
+                <li onClick="filter('songs', 'hard', true)" id="hardSongFilter" class="songFilterBtn">Difficult</li>
+                <li onClick="filter('songs', 'owned', true)" id="ownedSongFilter" class="songFilterBtn">Owned</li>
+                <li onClick="filter('songs', 'afford', true)" id="affordSongFilter" class="songFilterBtn">Can Afford</li>
+                <li onClick="filter('clear', 'none', true)" id="emptySongFilter" class="songFilterBtn">Clear</li>
+            </ul>
+        </section>
+        <section class="songSorting">
+            <h3>Sort By:</h3>
+            <input class="songSortBtn" onclick="sort('name')" type="radio" id="nameSort">
+            <label for="nameSort">Name</label>
+            {{!-- <input class="songSortBtn" onclick="sort('popularity')" type="radio" id="popularSort">
+            <label for="popularSort">Popularity</label> --}}
+            <input class="songSortBtn" onclick="sort('difficulty')" type="radio" id="difficultySort">
+            <label for="difficultySort">Difficulty</label>
+            <input class="songSortBtn" onclick="sort('price')" type="radio" id="priceSort">
+            <label for="priceSort">Price</label>
+        </section>
+    </article>
+    <h3 id="trebleStoreHeader">Treble Clef Songs</h3>
     <p id="modalInsert"></p>
-    <section class="storeBody">
+    <section id='trebleStoreSection' class="storeBody">
         {{#each trebleSongs}}
             {{#if canAfford}}
                 {{#if ownsSong}}
-                    <section class="storeCard disabledCard">
+                    <section class="storeCard disabledCard {{clef}}Card {{level}} afford{{canAfford}} owns{{ownsSong}} price{{price}} name{{name}}">
                 {{else}}
-                    <section class="storeCard">
+                    <section class="storeCard {{clef}}Card {{level}} afford{{canAfford}} owns{{ownsSong}} price{{price}} name{{name}}">
                 {{/if}}
             {{else}}
-                <section class="storeCard disabledCard">
+                <section class="storeCard disabledCard {{clef}}Card {{level}} afford{{canAfford}} owns{{ownsSong}} price{{price}} name{{name}}">
             {{/if}}
-                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{ownsSong}}, {{../coins}})"></a>
+                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{ownsSong}}, {{../coins}}, `{{clef}}`)"></a>
                 <img src="{{image}}" alt="{{name}} image" class="cardImage"/>
                 <p class="cardName">{{name}}</p>
                 {{#if ownsSong}}
@@ -26,19 +53,19 @@
     </section>
 
 
-    <h3>Bass Clef Songs</h3>
-    <section class="storeBody">
+    <h3 id="bassStoreHeader">Bass Clef Songs</h3>
+    <section class="storeBody" id="bassStoreSection">
         {{#each bassSongs}}
             {{#if canAfford}}
                 {{#if ownsSong}}
-                    <section class="storeCard disabledCard">
+                    <section class="storeCard disabledCard {{clef}}Card {{level}} afford{{canAfford}} owns{{ownsSong}} price{{price}} name{{name}}">
                 {{else}}
-                    <section class="storeCard">
+                    <section class="storeCard {{clef}}Card {{level}} afford{{canAfford}} owns{{ownsSong}} price{{price}} name{{name}}">
                 {{/if}}
             {{else}}
-                <section class="storeCard disabledCard">
+                <section class="storeCard disabledCard {{clef}}Card {{level}} afford{{canAfford}} owns{{ownsSong}} price{{price}} name{{name}}">
             {{/if}}
-                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{ownsSong}}, {{../coins}})"></a>
+                <a class="cardLink" href="javascript:purchaseSong(`{{name}}`, `{{id}}`, {{price}}, {{canAfford}}, {{ownsSong}}, {{../coins}}, `{{clef}}`)"></a>
                 <img src="{{image}}" alt="{{name}} image" class="cardImage"/>
                 <p class="cardName">{{name}}</p>
                  {{#if ownsSong}}

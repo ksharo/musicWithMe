@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Pacifico&family=Red+Hat+Mono&display=swap');
-
 :root {
     --primary: #251926;
     --secondary: #E38F8F;
@@ -28,6 +27,7 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    margin-bottom: 48px;
 }
 
 h1 {
@@ -91,7 +91,6 @@ h1 a {
         width: 80%;
         overflow: hidden;
     }
-
     .lessonContent {
         position: relative;
         border-right: 1px solid #dbdbdb;
@@ -191,12 +190,10 @@ a:focus,
     0% {
         outline: 3px solid var(--error);
     }
-
     30% {
         outline: 8px solid var(--error);
         outline-offset: 4px;
     }
-
     100% {
         outline: 12px solid #cb595900;
         outline-offset: 4px;
@@ -207,12 +204,10 @@ a:focus,
     0% {
         outline: 3px solid var(--success);
     }
-
     30% {
         outline: 8px solid var(--success);
         outline-offset: 4px;
     }
-
     100% {
         outline: 12px solid #b2eeb500;
         outline-offset: 4px;
@@ -223,27 +218,22 @@ a:focus,
     0% {
         outline: 3px solid red;
     }
-
     15% {
         outline: 8px solid red;
         outline-offset: 2px;
     }
-
     40% {
         outline: 8px solid;
         outline-offset: 2px;
     }
-
     41% {
         outline: 0px solid rgba(255, 0, 0, 0);
         outline-offset: 0px;
     }
-
     45% {
         outline: 0px solid red;
         outline-offset: 0px;
     }
-
     100% {
         outline: 12px solid rgba(255, 0, 0, 0);
         outline-offset: 4px;
@@ -309,6 +299,10 @@ a:focus,
     padding: 20px 35px;
     margin-inline: 20px;
     border-radius: 8px;
+}
+
+.introCard {
+    width: 400px;
 }
 
 .lessonDetailsCard h3 {
@@ -473,7 +467,6 @@ a:focus,
         transform: rotate(345deg) scale(14);
         opacity: 20%;
     }
-
     100% {
         transform: rotate(345deg) scale(1);
         opacity: 100%;
@@ -518,6 +511,36 @@ h2.leaderheader {
     text-align: center;
     grid-row-gap: 35px;
 }
+
+.songSortBtn:focus {
+    outline: none;
+}
+
+.songSortBtn {
+    accent-color: var(--secondary);
+}
+
+
+/* TODO CALEB */
+
+.songFilters ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.songFilters ul * {
+    margin-left: 20px;
+}
+
+.songSorting {}
+
+
+/* #storeFilterBox {
+    grid-
+} */
+
+
+/* END TODO CALEB */
 
 .disabledCard {
     cursor: default;
@@ -704,12 +727,10 @@ h2.leaderheader {
         top: 28%;
         /* transform:scale(3.0) */
     }
-
     85% {
         visibility: visible;
         top: 36%;
     }
-
     100% {
         visibility: visible;
         opacity: 1;
@@ -736,7 +757,6 @@ h2.leaderheader {
     from {
         backdrop-filter: blur(4px);
     }
-
     to {
         backdrop-filter: none;
     }
@@ -762,7 +782,6 @@ h2.leaderheader {
     0% {
         transform: translate(-50%, -50%)
     }
-
     100% {
         transform: translate(-50%, -871px);
     }
@@ -773,11 +792,9 @@ h2.leaderheader {
         opacity: 1;
         visibility: visible;
     }
-
     50% {
         opacity: 0.2;
     }
-
     100% {
         opacity: 0;
         visibility: hidden;
@@ -1056,17 +1073,24 @@ input:focus {
     cursor: pointer;
 }
 
-.highScoreTxt {
+.highScoreTxt,
+.coinNoticeTxt {
     color: var(--secondary);
     margin: 6px 0px 0px 0px;
 }
 
+.coinNoticeTxt {
+    font-size: 20px;
+}
+
 .howToLink {
-    float: left;
+    /* float: left;
     position: absolute;
     top: 100px;
-    margin-left: 40px;
+    margin-left: 40px; */
     text-decoration: underline;
+    font-size: 20px;
+    color: var(--secondary);
 }
 
 .storeLink {
@@ -1079,20 +1103,37 @@ input:focus {
 }
 
 #howTo {
-    float: left;
     position: absolute;
-    top: 140px;
-    margin-left: 50px;
+    left: 50%;
+    margin-left: -250px;
     width: 500px;
     height: 400px;
     overflow: scroll;
     background-color: var(--lightBackground);
     padding: 12px;
     border: 2px solid black;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.228);
+    box-shadow: 4px 4px 8px rgb(0 0 0 / 23%);
     border-radius: 4px;
     resize: auto;
     max-width: fit-content;
+}
+
+.howToAnimate {
+    animation-name: slowAppear;
+    animation-duration: 1.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slowAppear {
+    to {
+        opacity: 100%;
+    }
+    40% {
+        opacity: 0%;
+    }
+    from {
+        opacity: 0%;
+    }
 }
 
 #howTo * {
@@ -1273,6 +1314,7 @@ input:focus {
     filter: brightness(70%);
 }
 
+
 /*Leaderboards*/
 
 h2.leaderheader {
@@ -1319,14 +1361,18 @@ h2.leaderheader {
     color: #b4b4b4;
 }
 
+
 /* .userScore{
     font-family: 'Red Hat Mono', monospace;
 } */
-
 
 .leaderboard tr td.leaderboard-h3 {
     margin: 0px 0px 8px 0px;
     font-size: 36px;
     text-align: left;
     padding-bottom: 20px;
+}
+
+.coinsLink {
+    font-size: 20px;
 }

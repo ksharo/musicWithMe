@@ -17,7 +17,7 @@
         {{/if}}
         <a href="/">Music With Me</a>
         {{#if user}}
-        <a class='littleLink loginLink' href="/store">Coins: {{user.coins}}</a>
+        <a class='littleLink loginLink coinsLink' href="/store">Store &nbsp;|&nbsp; {{user.coins}} ♪</a>
         {{else}}
         <a class='littleLink loginLink' href="/account">Log in/Create Account</a>
         {{/if}}
@@ -27,9 +27,9 @@
 <body>
     <div id="sideNav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
-        <a class="navLink" href="/">Home</a>
+        <a class="navLink" href="/account/view">Home</a>
         <a class="navLink" href="/lessons">Lessons</a>
-        <a class="navLink" href="/account/view">View Account</a>
+        {{!-- <a class="navLink" href="/account/view">View Account</a> --}}
         <a class="navLink" href="/store">Store</a>
         <a class="navLink" href="/leaderboard">Leaderboard</a>
         <a class="logoutLink navLink" href="/account/logout">Logout</a>

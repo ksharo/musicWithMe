@@ -124,7 +124,7 @@ const treble_noteDetails = [
     [{
             title: 'New Note: B',
             img: '/public/assets/images/treble/treble_B2.png',
-            details: 'This is what a B can look like in the treble clef. The B falls on the third space of the staff, just above the A. <br/><br/>Remember: spaces spell FACE'
+            details: 'This is what a B can look like in the treble clef. The B falls on the third line of the staff, just above the A. <br/><br/>Remember: lines stand for Every Good Boy Does Fine'
         },
         {
             title: 'New Note: E',
@@ -150,7 +150,7 @@ const treble_noteDetails = [
         {
             title: 'Review Note: B',
             img: '/public/assets/images/treble/treble_B2.png',
-            details: 'This is what a B can look like in the treble clef. The B falls on the third space of the staff, just above the A. <br/><br/>Remember: spaces spell FACE'
+            details: 'This is what a B can look like in the treble clef. The B falls on the third line of the staff, just above the A. <br/><br/>Remember: lines stand for Every Good Boy Does Fine'
         },
         {
             title: 'Review Note: E',
@@ -220,7 +220,7 @@ const treble_noteDetails = [
         {
             title: 'New Note: B',
             img: '/public/assets/images/treble/treble_B1.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way a D can look in the treble clef. The B is two spaces below the lowest line of the treble staff, right below the C.'
+            details: 'Sometimes notes fall above or below the staff. This is another way a B can look in the treble clef. The B is two spaces below the lowest line of the treble staff, right below the C.'
         }
     ],
     [{
@@ -241,7 +241,7 @@ const treble_noteDetails = [
         {
             title: 'Review Note: B',
             img: '/public/assets/images/treble/treble_B1.png',
-            details: 'Sometimes notes fall above or below the staff. This is another way a D can look in the treble clef. The B is two spaces below the lowest line of the treble staff, right below the C.'
+            details: 'Sometimes notes fall above or below the staff. This is another way a B can look in the treble clef. The B is two spaces below the lowest line of the treble staff, right below the C.'
         }
     ],
     [{

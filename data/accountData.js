@@ -16,7 +16,7 @@ async function getUser(userId) {
     return user;
 }
 
-async function getAll(){
+async function getAll() {
     const accountCollection = await accountsDB();
     const allAccounts = await accountCollection.find();
     return allAccounts.toArray();
@@ -98,15 +98,15 @@ async function getPurchased(uID) {
     return toReturn;
 }
 
-async function getSongHiscore(uID, songID){
+async function getSongHiscore(uID, songID) {
     const user = await getUser(uID);
     const scores = Object.values(user.hiscores);
     let count = 0;
     const song = await songFunctions.getSong(songID);
-    for(x in user.hiscores){
+    for (x in user.hiscores) {
         let songName = x.toString();
         let idString = songID.toString();
-        if(songName.includes(idString)){
+        if (songName.includes(idString)) {
             return scores[count];
         }
         count++;
