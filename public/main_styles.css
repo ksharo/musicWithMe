@@ -7,6 +7,7 @@
     --success: #b2eeb5;
     --neutral: #598bcb;
     --error: #cb5959;
+    --coinsGainedText: ""
 }
 
 html {
@@ -346,21 +347,26 @@ a:focus,
     margin-top: auto;
     margin-bottom: auto;
     padding: 4px;
+}
+
+#levelCoins{
     position: relative;
+    width: fit-content;
 }
 
 .coinSection #levelCoins::before {
-    content: "168";
+    content: var(--coinsGainedText);
     position: absolute;
-    left: 50px;
+    right: 0;
     transform: translateY(-15px);
-    transition: transform 3s ease-out, opacity 2.5s ease-out;
+    transition: none;
     opacity: 1;
 }
 
 .coinSection #levelCoins.cd::before{
     transform: translateY(0px);
     opacity: 0;
+    transition: transform .7s ease-in .15s, opacity .4s ease-in .3s;
 }
 
 .scoreSection {
@@ -416,7 +422,8 @@ a:focus,
     margin-top: 24px;
 }
 
-.reportCard h3 {
+.reportCard h3,
+.viewAccount h3 {
     font-weight: normal;
     font-size: 28px;
     margin-top: 14px;
@@ -489,7 +496,8 @@ a:focus,
 }
 
 .store h2,
-h2.leaderheader {
+h2.leaderheader,
+.viewAccount h2 {
     font-size: 60px;
     margin-bottom: 4px;
     font-weight: normal;

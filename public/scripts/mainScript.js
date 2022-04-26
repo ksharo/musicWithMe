@@ -25,6 +25,7 @@ let multiplier = 0;
 let levelCoins = 0;
 let clicksLeftBeforeHintShowsUpCounter = CLICKS_BEFORE_HINT_SHOWS_UP;
 let hintIsShowing = false;
+const root = document.querySelector(":root");
 
 
 window.addEventListener("load", () => {
@@ -440,9 +441,16 @@ function resetTimer() {
 }
 
 function scoreCorrect() {
+    let levelCoinsElement = document.getElementById("levelCoins")
+    levelCoinsElement.classList.remove('cd')
+    void levelCoinsElement.offsetWidth
+
+
     clearInterval(interval);
     scoreCurrQuestionWithMultipliers = scoreCurrQuestion + (scoreCurrQuestion / 10 * multiplier)
     let coins = Math.floor(scoreCurrQuestionWithMultipliers / 100)
+    root.style.setProperty("--coinsGainedText", `"` + coins + `"`);
+    levelCoinsElement.classList.add('cd')
     levelCoins += coins
     currLevelScore += scoreCurrQuestionWithMultipliers;
     streak++;

@@ -1,7 +1,8 @@
-<h2>Welcome, {{username}}!</h1>
+<section class="viewAccount">
+    <h2>Welcome, {{username}}!</h1>
     <div>
         {{#if lessonsCompleted}}
-        <h3>Lessons Completed</h3>
+        <h3>Here's a snapshot of the lessons and songs you've completed</h3>
         <div class="scrollingTable">
             <table class="lessonList">
                 <tr class="tableHeader">
@@ -30,3 +31,4 @@
 
     </div>
     <a href="/account/logout" class="littleLink">Logout</a>
+</section>
