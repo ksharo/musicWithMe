@@ -8,7 +8,7 @@
         "start": "node app.js",
         "seed": "node ./tasks/seed.js",
         "build": "gulp build",
-        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install"
     },
     "engines": {
         "node": "18.3.0"
