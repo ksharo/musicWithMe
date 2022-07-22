@@ -48,13 +48,13 @@
 		<section class="cardNav">
 			{{#if fail}}
 			<button id='failBtn' class='actionButton' onClick="nextLesson(true)">Try Again</button>
-			<button class='actionButton' onClick="window.location.href='http://localhost:3030/lessons';">Return
+			<button class='actionButton' onClick="window.location.href='https://musicwithme.herokuapp.com/lessons';">Return
 				Home</button>
 			{{else}}
 			<button class='actionButton' onClick="nextLesson(true)">Play Again</button>
 			{{#if finalRound}}
 			<button class='actionButton' autofocus
-				onClick="window.location.href='http://localhost:3030/lessons';">Return Home</button>
+				onClick="window.location.href='https://musicwithme.herokuapp.com/lessons';">Return Home</button>
 			{{else}}
 			<button id='passBtn' class='actionButton' onClick="nextLesson()" autofocus>Next Level</button>
 			{{/if}}

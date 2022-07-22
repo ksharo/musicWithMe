@@ -91,7 +91,7 @@ document.addEventListener("keyup", (event) => {
         if (el != undefined && el != null) {
             el.click();
             clicksLeftBeforeHintShowsUpCounter = -1;
-            if(hintIsShowing){
+            if (hintIsShowing) {
                 document.getElementsByClassName("hintSection")[0].style.opacity = 0;
                 hintIsShowing = false
             }
@@ -197,12 +197,12 @@ function checkAnswer(clickedButton, rightAnswer) {
 
 function processClick(noteName, rightAnswer, imgList, numQs) {
     console.log(clicksLeftBeforeHintShowsUpCounter)
-    if(--clicksLeftBeforeHintShowsUpCounter == 0){
+    if (--clicksLeftBeforeHintShowsUpCounter == 0) {
         document.getElementsByClassName("hintSection")[0].innerText = KEYBOARD_HINT
         document.getElementsByClassName("hintSection")[0].style.opacity = 1
         hintIsShowing = true;
     }
-    if(clicksLeftBeforeHintShowsUpCounter < 0 - CLICKS_BEFORE_HINT_DISAPPEARS) {
+    if (clicksLeftBeforeHintShowsUpCounter < 0 - CLICKS_BEFORE_HINT_DISAPPEARS) {
         document.getElementsByClassName("hintSection")[0].style.opacity = 0
         hintIsShowing = false;
     }
@@ -263,34 +263,34 @@ function processClick(noteName, rightAnswer, imgList, numQs) {
 }
 
 function startBass() {
-    window.location.href = "http://localhost:3030/bass/newLesson/notes/0";
+    window.location.href = "https://musicwithme.herokuapp.com/bass/newLesson/notes/0";
 }
 
 function startTreble() {
-    window.location.href = "http://localhost:3030/treble/newLesson/notes/0";
+    window.location.href = "https://musicwithme.herokuapp.com/treble/newLesson/notes/0";
 }
 
 function restart() {
     if (window.location.href.includes("noteLesson")) {
         const curLocation = window.location.href.split("noteLesson/")[1];
         if (window.location.href.includes("treble")) {
-            window.location.href = "http://localhost:3030/treble/newLesson/notes/" + Number(curLocation).toString()
+            window.location.href = "https://musicwithme.herokuapp.com/treble/newLesson/notes/" + Number(curLocation).toString()
         } else if (window.location.href.includes("bass")) {
-            window.location.href = "http://localhost:3030/bass/newLesson/notes/" + Number(curLocation).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/bass/newLesson/notes/" + Number(curLocation).toString();
         }
     } else if (window.location.href.includes("songLesson")) {
         const curLocation = window.location.href.split("songLesson/")[1];
         if (window.location.href.includes("treble")) {
-            window.location.href = "http://localhost:3030/treble/newLesson/songs/" + Number(curLocation).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/treble/newLesson/songs/" + Number(curLocation).toString();
         } else if (window.location.href.includes("bass")) {
-            window.location.href = "http://localhost:3030/bass/newLesson/songs/" + Number(curLocation).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/bass/newLesson/songs/" + Number(curLocation).toString();
         }
     } else if (window.location.href.includes("theoryLesson")) {
         const curLocation = window.location.href.split("theoryLesson/")[1];
         if (window.location.href.includes("treble")) {
-            window.location.href = "http://localhost:3030/treble/newLesson/theory/" + Number(curLocation).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/treble/newLesson/theory/" + Number(curLocation).toString();
         } else if (window.location.href.includes("bass")) {
-            window.location.href = "http://localhost:3030/bass/newLesson/theory/" + Number(curLocation).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/bass/newLesson/theory/" + Number(curLocation).toString();
         }
     } else if (window.location.href.includes("allSongs")) {
         window.location.href = window.location.href.replace("play", "begin");
@@ -300,25 +300,25 @@ function restart() {
 function nextLevel(level) {
     if (window.location.href.includes("allSongs")) {
         const clef = window.location.href.includes("bass") ? "bass" : "treble";
-        window.location.href = "http://localhost:3030/allSongs/play/" + level + "?" + clef;
+        window.location.href = "https://musicwithme.herokuapp.com/allSongs/play/" + level + "?" + clef;
         return;
     } else if (window.location.href.includes("songs")) {
         if (window.location.href.includes("treble")) {
-            window.location.href = "http://localhost:3030/treble/songLesson/" + Number(level).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/treble/songLesson/" + Number(level).toString();
         } else if (window.location.href.includes("bass")) {
-            window.location.href = "http://localhost:3030/bass/songLesson/" + Number(level).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/bass/songLesson/" + Number(level).toString();
         }
     } else if (window.location.href.includes("notes")) {
         if (window.location.href.includes("treble")) {
-            window.location.href = "http://localhost:3030/treble/noteLesson/" + Number(level).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/treble/noteLesson/" + Number(level).toString();
         } else if (window.location.href.includes("bass")) {
-            window.location.href = "http://localhost:3030/bass/noteLesson/" + Number(level).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/bass/noteLesson/" + Number(level).toString();
         }
     } else if (window.location.href.includes("theory")) {
         if (window.location.href.includes("treble")) {
-            window.location.href = "http://localhost:3030/treble/theoryLesson/" + Number(level).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/treble/theoryLesson/" + Number(level).toString();
         } else if (window.location.href.includes("bass")) {
-            window.location.href = "http://localhost:3030/bass/theoryLesson/" + Number(level).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/bass/theoryLesson/" + Number(level).toString();
         }
     }
 }
@@ -361,13 +361,13 @@ function toLink(url, disabled = '', text = 'Finish beginner levels to unlock!') 
             url = '/treble';
         }
     }
-    window.location.href = "http://localhost:3030" + url;
+    window.location.href = "https://musicwithme.herokuapp.com" + url;
 }
 
 function nextLesson(retry = false) {
     let level = Number(window.location.href.split("Level/")[1]) + 1;
     if (isNaN(level)) {
-        window.location.href = 'http://localhost:3030/allSongs/begin/' + window.location.href.split("Level/")[1];
+        window.location.href = 'https://musicwithme.herokuapp.com/allSongs/begin/' + window.location.href.split("Level/")[1];
         return;
     }
     if (retry) {
@@ -375,21 +375,21 @@ function nextLesson(retry = false) {
     }
     if (window.location.href.includes("Song")) {
         if (window.location.href.includes("treble")) {
-            window.location.href = "http://localhost:3030/treble/newLesson/songs/" + Number(level).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/treble/newLesson/songs/" + Number(level).toString();
         } else if (window.location.href.includes("bass")) {
-            window.location.href = "http://localhost:3030/bass/newLesson/songs/" + Number(level).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/bass/newLesson/songs/" + Number(level).toString();
         }
     } else if (window.location.href.includes("Note")) {
         if (window.location.href.includes("treble")) {
-            window.location.href = "http://localhost:3030/treble/newLesson/notes/" + Number(level).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/treble/newLesson/notes/" + Number(level).toString();
         } else if (window.location.href.includes("bass")) {
-            window.location.href = "http://localhost:3030/bass/newLesson/notes/" + Number(level).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/bass/newLesson/notes/" + Number(level).toString();
         }
     } else if (window.location.href.includes("Theory")) {
         if (window.location.href.includes("treble")) {
-            window.location.href = "http://localhost:3030/treble/newLesson/theory/" + Number(level).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/treble/newLesson/theory/" + Number(level).toString();
         } else if (window.location.href.includes("bass")) {
-            window.location.href = "http://localhost:3030/bass/newLesson/theory/" + Number(level).toString();
+            window.location.href = "https://musicwithme.herokuapp.com/bass/newLesson/theory/" + Number(level).toString();
         }
     }
 }
@@ -411,10 +411,10 @@ async function levelComplete(clef, type, level) {
             levelCoins: levelCoins
         })
     };
-    const postResult = await fetch("http://localhost:3030/" + clef + "/send" + type + 'Data/' + level.toString(), requestOptions);
+    const postResult = await fetch("https://musicwithme.herokuapp.com/" + clef + "/send" + type + 'Data/' + level.toString(), requestOptions);
     if (postResult.ok) {
         setTimeout(() => {
-            window.location.href = "http://localhost:3030/" + clef + "/end" + type + 'Level/' + level.toString();
+            window.location.href = "https://musicwithme.herokuapp.com/" + clef + "/end" + type + 'Level/' + level.toString();
         }, 1000);
     }
 }
@@ -950,7 +950,7 @@ function purchaseSong(name, id, price, canAfford = true, ownsSong = false, coins
     if (canAfford && !ownsSong) {
         const funcCall = "buySong('" + id + "', `" + name + "`, '" + clef + "')"
         okButton.setAttribute("onclick", funcCall);
-    } else if (!ownsSong){ //cant afford song or can afford but already reload
+    } else if (!ownsSong) { //cant afford song or can afford but already reload
         okButton.setAttribute("onclick", "closePopUp(animate=true, reload=false)");
     }
 
@@ -1035,7 +1035,7 @@ async function buySong(songId, name, clef = 'treble') {
             song: songId
         })
     };
-    const postResult = await fetch("http://localhost:3030/buySong", requestOptions);
+    const postResult = await fetch("https://musicwithme.herokuapp.com/buySong", requestOptions);
     //show the loading prompt for a little, so no jarring prompt flash if the req is served instantly
     setTimeout(() => {
         if (postResult.ok) {
