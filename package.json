@@ -27,9 +27,8 @@
         "dotenv": "^16.0.1",
         "express": "^4.17.3",
         "express-handlebars": "^6.0.3",
-        "mongodb": "^4.5.0"
-    },
-    "devDependencies": {
+        "mongodb": "^4.5.0",
         "express-session": "^1.17.2"
+
     }
 }
