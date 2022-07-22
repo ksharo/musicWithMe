@@ -25,7 +25,7 @@ app.engine('handlebars', exphbs.engine({
 app.set('view engine', 'handlebars');
 
 
-const session = require('express-session')
+const session = require('cookie-session')
 app.use(
     session({
         name: 'AuthCookie',

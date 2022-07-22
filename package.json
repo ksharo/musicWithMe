@@ -24,11 +24,11 @@
     },
     "homepage": "https://github.com/ksharo/musicWithMe#readme",
     "dependencies": {
+        "cookie-session": "^2.0.0",
         "dotenv": "^16.0.1",
         "express": "^4.17.3",
         "express-handlebars": "^6.0.3",
-        "mongodb": "^4.5.0",
-        "express-session": "^1.17.2"
-
+        "express-session": "^1.17.2",
+        "mongodb": "^4.5.0"
     }
 }
