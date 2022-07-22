@@ -1,6 +1,7 @@
 /*
  * Authors: Caleb Choy, Logan Rechler, Jack Schneiderhan, Kaitlyn Sharo
  */
+require("dotenv").config();
 
 const express = require('express');
 const app = express();
@@ -94,6 +95,8 @@ app.use('/account', (req, res, next) => {
 
 configRoutes(app);
 
-app.listen(3030, () => {
-    console.log('The server is running on http://localhost:3030');
+let port = process.env.PORT || 3030
+
+app.listen(port, () => {
+    console.log('The server is running on port ' + port);
 });

@@ -1,11 +1,13 @@
 const { ObjectId } = require('mongodb');
 const mongoCollections = require('../config/mongoCollections');
-const accountsDB = mongoCollections.accounts;
-const songsDB = mongoCollections.songs;
+// const accountsDB = mongoCollections.accounts;
+// const songsDB = mongoCollections.songs;
 const songFunctions = require('./songFunctions');
+const { connectToServer } = require('../config/mongoConfig/connection')
 
 async function getUser(userId) {
-    const accountCollection = await accountsDB();
+    const database = await connectToServer();
+    const accountCollection = database.collection('accounts');
     const userObjectId = ObjectId(userId);
     const queryParameters = {
         _id: userObjectId,
@@ -17,13 +19,15 @@ async function getUser(userId) {
 }
 
 async function getAll() {
-    const accountCollection = await accountsDB();
+    const database = await connectToServer();
+    const accountCollection = database.collection('accounts');
     const allAccounts = await accountCollection.find();
     return allAccounts.toArray();
 }
 
 const create = async function create(username, password, levels = [], highScores = {}, coins = 200) {
-    const myAccounts = await accountsDB();
+    const database = await connectToServer();
+    const myAccounts = database.collection('accounts');
     /* check if there is already a user with username in the database */
     let hasUsername = await myAccounts.findOne({ username: username.toLowerCase() });
     if (hasUsername != undefined && hasUsername != null) throw `Error: Username ${username} already exists.`;
@@ -35,7 +39,8 @@ const create = async function create(username, password, levels = [], highScores
 }
 
 async function updateUser(userId, updatedConfig) {
-    const myAccounts = await accountsDB();
+    const database = await connectToServer();
+    const myAccounts = database.collection('accounts');
     const updated = await myAccounts.updateOne({
         _id: ObjectId(userId)
     }, {
@@ -50,7 +55,8 @@ async function updateUser(userId, updatedConfig) {
 }
 
 const buySong = async function buySong(userId, songId) {
-    const myAccounts = await accountsDB();
+    const database = await connectToServer();
+    const myAccounts = database.collection('accounts');
     const user = await getUser(userId);
     const userSongs = [...user.purchasedSongs];
     let userCoins = Number(user.coins);
@@ -71,7 +77,8 @@ const buySong = async function buySong(userId, songId) {
 }
 
 const getAndValidate = async function getAndValidate(username, password) {
-    const myAccounts = await accountsDB();
+    const database = await connectToServer();
+    const myAccounts = database.collection('accounts');
     let accounts = await myAccounts.find({ username: username }).toArray();
     if (!accounts) {
         throw "Error: Could not find account!";

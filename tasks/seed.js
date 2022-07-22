@@ -1,13 +1,14 @@
-const dbConnection = require("../config/mongoConnection");
+// const { connectToServer } = require('../config/mongoConfig/connection')
+require("dotenv").config();
+
 const data = require("../data");
 const accounts = data.accountFunctions;
 const songs = data.songFunctions;
 
 async function main() {
-
-    const db = await dbConnection.connectToDb();
-    await db.collection("songs").drop();
-    await db.collection("accounts").drop();
+    // const db = await connectToServer();
+    // await db.collection("songs").drop();
+    // await db.collection("accounts").drop();
 
 
     const k = await accounts.create('ksharo', '12345', []);
@@ -369,7 +370,7 @@ async function main() {
     }
     console.log("Done seeding database");
 
-    await dbConnection.closeConnection();
+    // await dbConnection.closeConnection();
 }
 
 main().catch((error) => {
