@@ -1,4 +1,4 @@
-/*
+ /*
  * Authors: Caleb Choy, Logan Rechler, Jack Schneiderhan, Kaitlyn Sharo
  */
 require("dotenv").config();
