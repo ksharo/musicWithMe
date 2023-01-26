@@ -225,7 +225,7 @@ router
 router
     .route('/logout')
     .get(async(req, res) => {
-        req.session.destroy();
+        req.session = null;
         return res.status(200).redirect('/');
     });
 
